@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "id": "customer-range-date-argument",
+  "version": 1,
+  "title": "Customer-manager range gains an explicit reference date",
+  "module": "WAWebCustomerManagerLastMessageRangeSecondsBounds",
+  "export": "lastMessageRangeSecondsBounds",
+  "context": {
+    "clock": "2026-10-26T00:00:00.000Z",
+    "timezone": "UTC",
+    "randomSeed": 1,
+    "gates": {}
+  },
+  "stubs": [],
+  "probes": [
+    { "id": "default-last-seven-days", "args": ["last_7_days"], "expected": { "endSec": null, "startSec": 1792368000 } },
+    {
+      "id": "explicit-date-baseline-behavior",
+      "args": ["last_7_days", { "$type": "Date", "value": "2026-01-01T00:00:00.000Z" }],
+      "expected": { "endSec": null, "startSec": 1792368000 }
+    }
+  ],
+  "sourceExpectation": {
+    "baselineRevision": "1051710191",
+    "candidateRevision": "1051908825",
+    "baselineLines": "4-5",
+    "candidateLines": "4-6",
+    "classification": "additive-argument-behavior",
+    "scope": "The candidate respects the optional date and returns startSec 1766620800. This is not a protocol break or security finding."
+  }
+}

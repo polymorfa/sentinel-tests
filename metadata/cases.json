@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "cases": [
+    {
+      "id": "linking-base32",
+      "version": 1,
+      "file": "tests/linking-base32.case.json",
+      "domain": "linked-device-identity",
+      "sourceModule": "WAWebAltDeviceLinkingBase32Encode",
+      "revisionsObserved": ["1051710191", "1051908825"],
+      "sourceLines": "2-7",
+      "expectedComparison": "unchanged",
+      "coverage": "Five byte-vector assertions for bytesToCrockford only.",
+      "notCovered": ["pairing handshake", "server acceptance", "account eligibility"],
+      "sourceArchives": ["https://www.facebook.com/btarchive/1051710191/whatsapp", "https://www.facebook.com/btarchive/1051908825/whatsapp"],
+      "authorship": { "aiModel": "gpt-6.1-sol" }
+    },
+    {
+      "id": "customer-range-date-argument",
+      "version": 1,
+      "file": "tests/customer-range-date.case.json",
+      "domain": "customer-manager-date-range",
+      "sourceModule": "WAWebCustomerManagerLastMessageRangeSecondsBounds",
+      "revisionsObserved": ["1051710191", "1051908825"],
+      "sourceLines": { "1051710191": "4-5", "1051908825": "4-6" },
+      "expectedComparison": "changed",
+      "coverage": "The default call is preserved; an optional explicit date changes the result in the later revision. The baseline expectation intentionally detects that change.",
+      "notCovered": ["protocol security", "server behavior", "customer feature availability"],
+      "sourceArchives": ["https://www.facebook.com/btarchive/1051710191/whatsapp", "https://www.facebook.com/btarchive/1051908825/whatsapp"],
+      "authorship": { "aiModel": "gpt-6.1-sol" }
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "id": "linking-base32",
+  "version": 1,
+  "title": "Linked-device pairing code byte encoding",
+  "module": "WAWebAltDeviceLinkingBase32Encode",
+  "export": "bytesToCrockford",
+  "context": {
+    "clock": "2026-10-26T00:00:00.000Z",
+    "timezone": "UTC",
+    "randomSeed": 1,
+    "gates": {}
+  },
+  "stubs": [],
+  "probes": [
+    { "id": "empty", "args": [{ "$type": "Uint8Array", "value": [] }], "expected": "" },
+    { "id": "zero-byte", "args": [{ "$type": "Uint8Array", "value": [0] }], "expected": "11" },
+    { "id": "max-byte", "args": [{ "$type": "Uint8Array", "value": [255] }], "expected": "ZW" },
+    { "id": "mixed-five-bytes", "args": [{ "$type": "Uint8Array", "value": [0, 1, 2, 3, 4] }], "expected": "111H51R5" },
+    { "id": "full-five-bytes", "args": [{ "$type": "Uint8Array", "value": [255, 255, 255, 255, 255] }], "expected": "ZZZZZZZZ" }
+  ],
+  "sourceExpectation": {
+    "baselineRevision": "1051710191",
+    "candidateRevision": "1051908825",
+    "lines": "2-7",
+    "scope": "Only this encoding function; this does not prove pairing handshake or server acceptance."
+  }
+}

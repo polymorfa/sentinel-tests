@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "scope": "Case inventory, not whole-client compliance",
+  "domains": [
+    { "id": "linked-device-encoding", "cases": ["linking-base32@1"], "scope": "Five byte-vector assertions only" },
+    { "id": "customer-manager-date-range", "cases": ["customer-range-date-argument@1"], "scope": "Default and explicit-date probes only" },
+    { "id": "signal-and-noise", "cases": [], "status": "uncovered" },
+    { "id": "app-state-and-lthash", "cases": [], "status": "uncovered" },
+    { "id": "connection-and-session", "cases": [], "status": "uncovered" },
+    { "id": "device-synchronization", "cases": [], "status": "uncovered" },
+    { "id": "message-formats-and-encryption", "cases": [], "status": "uncovered" },
+    { "id": "groups-and-communities", "cases": [], "status": "uncovered" },
+    { "id": "channels-and-status", "cases": [], "status": "uncovered" },
+    { "id": "business-and-account-types", "cases": [], "status": "uncovered" },
+    { "id": "media", "cases": [], "status": "uncovered" },
+    { "id": "service-workers", "cases": [], "status": "uncovered" },
+    { "id": "calling-and-wasm", "cases": [], "status": "uncovered" }
+  ]
+}
