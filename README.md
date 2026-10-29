@@ -11,3 +11,5 @@ Each case records a fixed clock, timezone, random seed, gate fixtures, explicit 
 The initial cases cover linking-code encoding and a date-range argument change. A source change can preserve every existing assertion. New paths still need new probes, and server behavior requires separate evidence.
 
 Discovered using a monitor developed by @purpshell at polymorfa.com
+
+Licensed under [MIT](LICENSE).
