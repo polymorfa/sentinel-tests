@@ -1,0 +1,128 @@
+{
+  "schemaVersion": 1,
+  "id": "binary-utf8-byte-length",
+  "version": 1,
+  "title": "Binary UTF-8 length and surrogate handling",
+  "module": "WABinary",
+  "export": "numUtf8Bytes",
+  "context": {
+    "clock": "2026-10-26T00:00:00.000Z",
+    "timezone": "UTC",
+    "randomSeed": 1,
+    "gates": {}
+  },
+  "stubs": [],
+  "probes": [
+    {
+      "id": "empty",
+      "args": [
+        ""
+      ],
+      "expected": 0
+    },
+    {
+      "id": "ascii",
+      "args": [
+        "ABC"
+      ],
+      "expected": 3
+    },
+    {
+      "id": "null-byte",
+      "args": [
+        "\u0000"
+      ],
+      "expected": 1
+    },
+    {
+      "id": "ascii-boundary",
+      "args": [
+        ""
+      ],
+      "expected": 1
+    },
+    {
+      "id": "two-byte-start",
+      "args": [
+        ""
+      ],
+      "expected": 2
+    },
+    {
+      "id": "two-byte-end",
+      "args": [
+        "߿"
+      ],
+      "expected": 2
+    },
+    {
+      "id": "three-byte-start",
+      "args": [
+        "ࠀ"
+      ],
+      "expected": 3
+    },
+    {
+      "id": "arabic",
+      "args": [
+        "سلام"
+      ],
+      "expected": 8
+    },
+    {
+      "id": "astral-pair",
+      "args": [
+        "😀"
+      ],
+      "expected": 4
+    },
+    {
+      "id": "mixed-astral",
+      "args": [
+        "a😀b"
+      ],
+      "expected": 6
+    },
+    {
+      "id": "lone-high-surrogate",
+      "args": [
+        "\ud800"
+      ],
+      "expected": 3
+    },
+    {
+      "id": "lone-low-surrogate",
+      "args": [
+        "\udc00"
+      ],
+      "expected": 3
+    },
+    {
+      "id": "high-then-ascii",
+      "args": [
+        "\ud800A"
+      ],
+      "expected": 4
+    },
+    {
+      "id": "cached-repeat-one",
+      "args": [
+        "repeat😀"
+      ],
+      "expected": 10
+    },
+    {
+      "id": "cached-repeat-two",
+      "args": [
+        "repeat😀"
+      ],
+      "expected": 10
+    }
+  ],
+  "sourceExpectation": {
+    "baselineRevision": "1051710191",
+    "candidateRevision": "1051908825",
+    "moduleLines": "174-187",
+    "scope": "UTF-8 byte counts at one/two/three/four-byte boundaries, lone surrogate replacement lengths and repeated-input cache behavior."
+  }
+}

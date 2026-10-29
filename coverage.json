@@ -1,18 +1,28 @@
 {
   "schemaVersion": 1,
-  "scope": "Case inventory, not whole-client compliance",
+  "scope": "Case inventory and exact observed assertions, not whole-client or library compliance",
+  "runtimeEvidence": {
+    "mode": "process",
+    "diagnostic": true,
+    "isolated": false,
+    "containerExecution": "not-exercised",
+    "liveWhatsApp": "not-exercised",
+    "crossLibraryAdapters": "not-exercised"
+  },
   "domains": [
-    { "id": "linked-device-encoding", "cases": ["linking-base32@1"], "scope": "Five byte-vector assertions only" },
-    { "id": "customer-manager-date-range", "cases": ["customer-range-date-argument@1"], "scope": "Default and explicit-date probes only" },
+    { "id": "linked-device-encoding", "cases": ["linking-base32@1"], "status": "partial", "scope": "Five pairing-code byte-vector assertions only" },
+    { "id": "binary-encoding", "cases": ["binary-utf8-byte-length@1", "binary-uint64-safe-integer@1"], "status": "partial", "scope": "UTF-8 byte counts, surrogate lengths, repeated-input cache and unsigned high/low word safe-integer guards; no complete binary reader/writer coverage" },
+    { "id": "customer-manager-date-range", "cases": ["customer-range-date-argument@1"], "status": "partial", "scope": "Default and explicit-date probes only" },
+    { "id": "message-padding", "cases": ["message-padding-tail-length@1"], "status": "partial", "scope": "Tail-length removal, uniform padding vectors and two input guards; random padding, cryptographic operations and authentication remain uncovered" },
+    { "id": "message-formats-and-encryption", "cases": ["protocol-media-type-cast@1"], "status": "partial", "scope": "Media type literal/alias classification only; serialization, rendering, encryption and server acceptance remain uncovered" },
+    { "id": "app-state-and-lthash", "cases": ["appstate-star-index-shape@1"], "status": "partial", "scope": "Star-index JSON and minimum tuple-length rejection only; valid indices, mutations, LTHash and MACs remain uncovered" },
+    { "id": "business-and-account-types", "cases": ["aea-account-state-classification@1"], "status": "partial", "scope": "AEA string-state predicate with its real archived enum only; attestations, ADV mapping, eligibility and live account state remain uncovered" },
     { "id": "signal-and-noise", "cases": [], "status": "uncovered" },
-    { "id": "app-state-and-lthash", "cases": [], "status": "uncovered" },
     { "id": "connection-and-session", "cases": [], "status": "uncovered" },
     { "id": "device-synchronization", "cases": [], "status": "uncovered" },
-    { "id": "message-formats-and-encryption", "cases": [], "status": "uncovered" },
     { "id": "groups-and-communities", "cases": [], "status": "uncovered" },
     { "id": "channels-and-status", "cases": [], "status": "uncovered" },
-    { "id": "business-and-account-types", "cases": [], "status": "uncovered" },
-    { "id": "media", "cases": [], "status": "uncovered" },
+    { "id": "media", "cases": [], "status": "uncovered", "scope": "The media-type classifier does not cover upload, download, decoding or rendering" },
     { "id": "service-workers", "cases": [], "status": "uncovered" },
     { "id": "calling-and-wasm", "cases": [], "status": "uncovered" }
   ]

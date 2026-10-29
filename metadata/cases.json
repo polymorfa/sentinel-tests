@@ -7,13 +7,25 @@
       "file": "tests/linking-base32.case.json",
       "domain": "linked-device-identity",
       "sourceModule": "WAWebAltDeviceLinkingBase32Encode",
-      "revisionsObserved": ["1051710191", "1051908825"],
+      "revisionsObserved": [
+        "1051710191",
+        "1051908825"
+      ],
       "sourceLines": "2-7",
       "expectedComparison": "unchanged",
       "coverage": "Five byte-vector assertions for bytesToCrockford only.",
-      "notCovered": ["pairing handshake", "server acceptance", "account eligibility"],
-      "sourceArchives": ["https://www.facebook.com/btarchive/1051710191/whatsapp", "https://www.facebook.com/btarchive/1051908825/whatsapp"],
-      "authorship": { "aiModel": "gpt-6.1-sol" }
+      "notCovered": [
+        "pairing handshake",
+        "server acceptance",
+        "account eligibility"
+      ],
+      "sourceArchives": [
+        "https://www.facebook.com/btarchive/1051710191/whatsapp",
+        "https://www.facebook.com/btarchive/1051908825/whatsapp"
+      ],
+      "authorship": {
+        "aiModel": "gpt-6.1-sol"
+      }
     },
     {
       "id": "customer-range-date-argument",
@@ -21,13 +33,1749 @@
       "file": "tests/customer-range-date.case.json",
       "domain": "customer-manager-date-range",
       "sourceModule": "WAWebCustomerManagerLastMessageRangeSecondsBounds",
-      "revisionsObserved": ["1051710191", "1051908825"],
-      "sourceLines": { "1051710191": "4-5", "1051908825": "4-6" },
+      "revisionsObserved": [
+        "1051710191",
+        "1051908825"
+      ],
+      "sourceLines": {
+        "1051710191": "4-5",
+        "1051908825": "4-6"
+      },
       "expectedComparison": "changed",
       "coverage": "The default call is preserved; an optional explicit date changes the result in the later revision. The baseline expectation intentionally detects that change.",
-      "notCovered": ["protocol security", "server behavior", "customer feature availability"],
-      "sourceArchives": ["https://www.facebook.com/btarchive/1051710191/whatsapp", "https://www.facebook.com/btarchive/1051908825/whatsapp"],
-      "authorship": { "aiModel": "gpt-6.1-sol" }
+      "notCovered": [
+        "protocol security",
+        "server behavior",
+        "customer feature availability"
+      ],
+      "sourceArchives": [
+        "https://www.facebook.com/btarchive/1051710191/whatsapp",
+        "https://www.facebook.com/btarchive/1051908825/whatsapp"
+      ],
+      "authorship": {
+        "aiModel": "gpt-6.1-sol"
+      }
+    },
+    {
+      "id": "binary-utf8-byte-length",
+      "version": 1,
+      "file": "tests/binary-utf8-byte-length.case.json",
+      "domain": "binary-encoding",
+      "sourceModule": "WABinary",
+      "sourceFile": "modules/WABinary.js",
+      "revisionsObserved": [
+        "1051710191",
+        "1051908825"
+      ],
+      "sourceLines": "174-187",
+      "expectedComparison": "unchanged",
+      "coverage": "UTF-8 byte counts at one/two/three/four-byte boundaries, lone surrogate replacement lengths and repeated-input cache behavior.",
+      "notCovered": [
+        "Binary instance serialization",
+        "UTF-8 decoding",
+        "wire framing",
+        "cryptography"
+      ],
+      "stubs": {},
+      "sourceArchives": [
+        "https://www.facebook.com/btarchive/1051710191/whatsapp",
+        "https://www.facebook.com/btarchive/1051908825/whatsapp"
+      ],
+      "observations": [
+        {
+          "revision": "1051710191",
+          "status": "pass",
+          "closure": [
+            "WABinary",
+            "WAHex",
+            "err",
+            "fb-error",
+            "performance",
+            "performanceNow",
+            "removeFromArray"
+          ],
+          "requiredModules": [
+            "WABinary"
+          ],
+          "gateReads": [],
+          "stubDigests": [],
+          "sourceArchiveSha256": "db9a02a689875d2cd56d7a4a2fd44851d0d6422ccf07a845ec1eee9bc7780949",
+          "sourceForm": "pretty",
+          "printer": "oxc_codegen 0.1.0/0.143",
+          "sources": [
+            {
+              "module": "WABinary",
+              "printedSourceSha256": "03edbd33455894b148adb38944ff3c6a27b3102631d3c00bf1cdeea5480884d4"
+            },
+            {
+              "module": "WAHex",
+              "printedSourceSha256": "3d28ad9eb342f6715bec66c8c38fd57a14497e07101f5f9b67fc3c9838e72ffe"
+            },
+            {
+              "module": "err",
+              "printedSourceSha256": "a26a1f88fe2c09505c0ec8e43d1a43c2299b6126ea7ea305c567bf7634fbeea0"
+            },
+            {
+              "module": "fb-error",
+              "printedSourceSha256": "545144d2d2c50524d5bcfc421916cf76760743cb5b034dcb7a4d7066981f714e"
+            },
+            {
+              "module": "performance",
+              "printedSourceSha256": "9bee7ad7d1941af3432757b1ce55c980030f812f0a5fb00916e906b8a0b6ced9"
+            },
+            {
+              "module": "performanceNow",
+              "printedSourceSha256": "415e5327e020372f7789e27dc42266a9cb3d6bbc2d8c47d0b751b93517a0475f"
+            },
+            {
+              "module": "removeFromArray",
+              "printedSourceSha256": "c8e194de9e9463716c2f383406ae8269ddff1a9fe5fbc1a7559abcd2aaa666bb"
+            }
+          ],
+          "outcomes": [
+            {
+              "id": "empty",
+              "pass": true,
+              "actual": 0
+            },
+            {
+              "id": "ascii",
+              "pass": true,
+              "actual": 3
+            },
+            {
+              "id": "null-byte",
+              "pass": true,
+              "actual": 1
+            },
+            {
+              "id": "ascii-boundary",
+              "pass": true,
+              "actual": 1
+            },
+            {
+              "id": "two-byte-start",
+              "pass": true,
+              "actual": 2
+            },
+            {
+              "id": "two-byte-end",
+              "pass": true,
+              "actual": 2
+            },
+            {
+              "id": "three-byte-start",
+              "pass": true,
+              "actual": 3
+            },
+            {
+              "id": "arabic",
+              "pass": true,
+              "actual": 8
+            },
+            {
+              "id": "astral-pair",
+              "pass": true,
+              "actual": 4
+            },
+            {
+              "id": "mixed-astral",
+              "pass": true,
+              "actual": 6
+            },
+            {
+              "id": "lone-high-surrogate",
+              "pass": true,
+              "actual": 3
+            },
+            {
+              "id": "lone-low-surrogate",
+              "pass": true,
+              "actual": 3
+            },
+            {
+              "id": "high-then-ascii",
+              "pass": true,
+              "actual": 4
+            },
+            {
+              "id": "cached-repeat-one",
+              "pass": true,
+              "actual": 10
+            },
+            {
+              "id": "cached-repeat-two",
+              "pass": true,
+              "actual": 10
+            }
+          ],
+          "runtime": {
+            "mode": "process",
+            "diagnostic": true,
+            "isolated": false,
+            "node": "v24.15.0",
+            "platform": "darwin",
+            "arch": "arm64",
+            "timeoutMs": 5000,
+            "heapMiB": 128
+          },
+          "digests": {
+            "test": "de49d0416225edc00603a5999969f33047ffe66156341de99ca71653338faab0",
+            "context": "7d4b69e0e9d28ff0e4c498124188c00ef1cb074207daea82780c14f7418c60fd",
+            "sources": "433c321eb9b0ee9b8de49d44a95ab02f90960b198886a9398e77b9e4f9062710",
+            "runtimeSource": "f1281f38a161af8a55255e6ac3370691ea6d190d1e8bd5c04346e2ecf5155eea",
+            "runtime": "934b398d60e5fa3abc178130fbe124563497f72e7ccdc45ea13bef5490b1f843"
+          },
+          "observedAt": "2026-10-29T21:49:38.246Z"
+        },
+        {
+          "revision": "1051908825",
+          "status": "pass",
+          "closure": [
+            "WABinary",
+            "WAHex",
+            "err",
+            "fb-error",
+            "performance",
+            "performanceNow",
+            "removeFromArray"
+          ],
+          "requiredModules": [
+            "WABinary"
+          ],
+          "gateReads": [],
+          "stubDigests": [],
+          "sourceArchiveSha256": "bad1851340d0384d925ba6d334c9e68bc09accdd6a806136652e6cefecc80fdb",
+          "sourceForm": "pretty",
+          "printer": "oxc_codegen 0.1.0/0.143",
+          "sources": [
+            {
+              "module": "WABinary",
+              "printedSourceSha256": "03edbd33455894b148adb38944ff3c6a27b3102631d3c00bf1cdeea5480884d4"
+            },
+            {
+              "module": "WAHex",
+              "printedSourceSha256": "3d28ad9eb342f6715bec66c8c38fd57a14497e07101f5f9b67fc3c9838e72ffe"
+            },
+            {
+              "module": "err",
+              "printedSourceSha256": "a26a1f88fe2c09505c0ec8e43d1a43c2299b6126ea7ea305c567bf7634fbeea0"
+            },
+            {
+              "module": "fb-error",
+              "printedSourceSha256": "545144d2d2c50524d5bcfc421916cf76760743cb5b034dcb7a4d7066981f714e"
+            },
+            {
+              "module": "performance",
+              "printedSourceSha256": "9bee7ad7d1941af3432757b1ce55c980030f812f0a5fb00916e906b8a0b6ced9"
+            },
+            {
+              "module": "performanceNow",
+              "printedSourceSha256": "415e5327e020372f7789e27dc42266a9cb3d6bbc2d8c47d0b751b93517a0475f"
+            },
+            {
+              "module": "removeFromArray",
+              "printedSourceSha256": "c8e194de9e9463716c2f383406ae8269ddff1a9fe5fbc1a7559abcd2aaa666bb"
+            }
+          ],
+          "outcomes": [
+            {
+              "id": "empty",
+              "pass": true,
+              "actual": 0
+            },
+            {
+              "id": "ascii",
+              "pass": true,
+              "actual": 3
+            },
+            {
+              "id": "null-byte",
+              "pass": true,
+              "actual": 1
+            },
+            {
+              "id": "ascii-boundary",
+              "pass": true,
+              "actual": 1
+            },
+            {
+              "id": "two-byte-start",
+              "pass": true,
+              "actual": 2
+            },
+            {
+              "id": "two-byte-end",
+              "pass": true,
+              "actual": 2
+            },
+            {
+              "id": "three-byte-start",
+              "pass": true,
+              "actual": 3
+            },
+            {
+              "id": "arabic",
+              "pass": true,
+              "actual": 8
+            },
+            {
+              "id": "astral-pair",
+              "pass": true,
+              "actual": 4
+            },
+            {
+              "id": "mixed-astral",
+              "pass": true,
+              "actual": 6
+            },
+            {
+              "id": "lone-high-surrogate",
+              "pass": true,
+              "actual": 3
+            },
+            {
+              "id": "lone-low-surrogate",
+              "pass": true,
+              "actual": 3
+            },
+            {
+              "id": "high-then-ascii",
+              "pass": true,
+              "actual": 4
+            },
+            {
+              "id": "cached-repeat-one",
+              "pass": true,
+              "actual": 10
+            },
+            {
+              "id": "cached-repeat-two",
+              "pass": true,
+              "actual": 10
+            }
+          ],
+          "runtime": {
+            "mode": "process",
+            "diagnostic": true,
+            "isolated": false,
+            "node": "v24.15.0",
+            "platform": "darwin",
+            "arch": "arm64",
+            "timeoutMs": 5000,
+            "heapMiB": 128
+          },
+          "digests": {
+            "test": "de49d0416225edc00603a5999969f33047ffe66156341de99ca71653338faab0",
+            "context": "7d4b69e0e9d28ff0e4c498124188c00ef1cb074207daea82780c14f7418c60fd",
+            "sources": "ec59553ea9e31b9a2e23bd296c7271dfdff2bd6c89c3ec6e466b7f2074bd2657",
+            "runtimeSource": "f1281f38a161af8a55255e6ac3370691ea6d190d1e8bd5c04346e2ecf5155eea",
+            "runtime": "934b398d60e5fa3abc178130fbe124563497f72e7ccdc45ea13bef5490b1f843"
+          },
+          "observedAt": "2026-10-29T21:49:38.282Z"
+        }
+      ],
+      "authorship": {
+        "aiModel": "gpt-6.1-sol"
+      }
+    },
+    {
+      "id": "binary-uint64-safe-integer",
+      "version": 1,
+      "file": "tests/binary-uint64-safe-integer.case.json",
+      "domain": "binary-encoding",
+      "sourceModule": "WABinary",
+      "sourceFile": "modules/WABinary.js",
+      "revisionsObserved": [
+        "1051710191",
+        "1051908825"
+      ],
+      "sourceLines": "188-194,341-352",
+      "expectedComparison": "unchanged",
+      "coverage": "High/low word conversion through the maximum safe integer and actual archived Error rejection above that range.",
+      "notCovered": [
+        "Signed 64-bit conversion",
+        "all protobuf decoders",
+        "wire integer parsing"
+      ],
+      "stubs": {},
+      "sourceArchives": [
+        "https://www.facebook.com/btarchive/1051710191/whatsapp",
+        "https://www.facebook.com/btarchive/1051908825/whatsapp"
+      ],
+      "observations": [
+        {
+          "revision": "1051710191",
+          "status": "pass",
+          "closure": [
+            "WABinary",
+            "WAHex",
+            "err",
+            "fb-error",
+            "performance",
+            "performanceNow",
+            "removeFromArray"
+          ],
+          "requiredModules": [
+            "WABinary",
+            "err",
+            "fb-error"
+          ],
+          "gateReads": [],
+          "stubDigests": [],
+          "sourceArchiveSha256": "db9a02a689875d2cd56d7a4a2fd44851d0d6422ccf07a845ec1eee9bc7780949",
+          "sourceForm": "pretty",
+          "printer": "oxc_codegen 0.1.0/0.143",
+          "sources": [
+            {
+              "module": "WABinary",
+              "printedSourceSha256": "03edbd33455894b148adb38944ff3c6a27b3102631d3c00bf1cdeea5480884d4"
+            },
+            {
+              "module": "WAHex",
+              "printedSourceSha256": "3d28ad9eb342f6715bec66c8c38fd57a14497e07101f5f9b67fc3c9838e72ffe"
+            },
+            {
+              "module": "err",
+              "printedSourceSha256": "a26a1f88fe2c09505c0ec8e43d1a43c2299b6126ea7ea305c567bf7634fbeea0"
+            },
+            {
+              "module": "fb-error",
+              "printedSourceSha256": "545144d2d2c50524d5bcfc421916cf76760743cb5b034dcb7a4d7066981f714e"
+            },
+            {
+              "module": "performance",
+              "printedSourceSha256": "9bee7ad7d1941af3432757b1ce55c980030f812f0a5fb00916e906b8a0b6ced9"
+            },
+            {
+              "module": "performanceNow",
+              "printedSourceSha256": "415e5327e020372f7789e27dc42266a9cb3d6bbc2d8c47d0b751b93517a0475f"
+            },
+            {
+              "module": "removeFromArray",
+              "printedSourceSha256": "c8e194de9e9463716c2f383406ae8269ddff1a9fe5fbc1a7559abcd2aaa666bb"
+            }
+          ],
+          "outcomes": [
+            {
+              "id": "zero",
+              "pass": true,
+              "actual": 0
+            },
+            {
+              "id": "unsigned-low-word",
+              "pass": true,
+              "actual": 4294967295
+            },
+            {
+              "id": "signed-low-word",
+              "pass": true,
+              "actual": 4294967295
+            },
+            {
+              "id": "next-high-word",
+              "pass": true,
+              "actual": 4294967296
+            },
+            {
+              "id": "max-safe-integer",
+              "pass": true,
+              "actual": 9007199254740991
+            },
+            {
+              "id": "first-unsafe-high-word",
+              "pass": true,
+              "thrown": {
+                "name": "Error",
+                "message": "ReadError: integer exceeded 53 bits (9007199254740992)"
+              }
+            },
+            {
+              "id": "all-bits-set",
+              "pass": true,
+              "thrown": {
+                "name": "Error",
+                "message": "ReadError: integer exceeded 53 bits (18446744073709552000)"
+              }
+            }
+          ],
+          "runtime": {
+            "mode": "process",
+            "diagnostic": true,
+            "isolated": false,
+            "node": "v24.15.0",
+            "platform": "darwin",
+            "arch": "arm64",
+            "timeoutMs": 5000,
+            "heapMiB": 128
+          },
+          "digests": {
+            "test": "1df24cbc066f9b0c55e40048efe1d6cb947932f8835806490d9410bc80f27616",
+            "context": "7d4b69e0e9d28ff0e4c498124188c00ef1cb074207daea82780c14f7418c60fd",
+            "sources": "433c321eb9b0ee9b8de49d44a95ab02f90960b198886a9398e77b9e4f9062710",
+            "runtimeSource": "f1281f38a161af8a55255e6ac3370691ea6d190d1e8bd5c04346e2ecf5155eea",
+            "runtime": "934b398d60e5fa3abc178130fbe124563497f72e7ccdc45ea13bef5490b1f843"
+          },
+          "observedAt": "2026-10-29T21:49:38.317Z"
+        },
+        {
+          "revision": "1051908825",
+          "status": "pass",
+          "closure": [
+            "WABinary",
+            "WAHex",
+            "err",
+            "fb-error",
+            "performance",
+            "performanceNow",
+            "removeFromArray"
+          ],
+          "requiredModules": [
+            "WABinary",
+            "err",
+            "fb-error"
+          ],
+          "gateReads": [],
+          "stubDigests": [],
+          "sourceArchiveSha256": "bad1851340d0384d925ba6d334c9e68bc09accdd6a806136652e6cefecc80fdb",
+          "sourceForm": "pretty",
+          "printer": "oxc_codegen 0.1.0/0.143",
+          "sources": [
+            {
+              "module": "WABinary",
+              "printedSourceSha256": "03edbd33455894b148adb38944ff3c6a27b3102631d3c00bf1cdeea5480884d4"
+            },
+            {
+              "module": "WAHex",
+              "printedSourceSha256": "3d28ad9eb342f6715bec66c8c38fd57a14497e07101f5f9b67fc3c9838e72ffe"
+            },
+            {
+              "module": "err",
+              "printedSourceSha256": "a26a1f88fe2c09505c0ec8e43d1a43c2299b6126ea7ea305c567bf7634fbeea0"
+            },
+            {
+              "module": "fb-error",
+              "printedSourceSha256": "545144d2d2c50524d5bcfc421916cf76760743cb5b034dcb7a4d7066981f714e"
+            },
+            {
+              "module": "performance",
+              "printedSourceSha256": "9bee7ad7d1941af3432757b1ce55c980030f812f0a5fb00916e906b8a0b6ced9"
+            },
+            {
+              "module": "performanceNow",
+              "printedSourceSha256": "415e5327e020372f7789e27dc42266a9cb3d6bbc2d8c47d0b751b93517a0475f"
+            },
+            {
+              "module": "removeFromArray",
+              "printedSourceSha256": "c8e194de9e9463716c2f383406ae8269ddff1a9fe5fbc1a7559abcd2aaa666bb"
+            }
+          ],
+          "outcomes": [
+            {
+              "id": "zero",
+              "pass": true,
+              "actual": 0
+            },
+            {
+              "id": "unsigned-low-word",
+              "pass": true,
+              "actual": 4294967295
+            },
+            {
+              "id": "signed-low-word",
+              "pass": true,
+              "actual": 4294967295
+            },
+            {
+              "id": "next-high-word",
+              "pass": true,
+              "actual": 4294967296
+            },
+            {
+              "id": "max-safe-integer",
+              "pass": true,
+              "actual": 9007199254740991
+            },
+            {
+              "id": "first-unsafe-high-word",
+              "pass": true,
+              "thrown": {
+                "name": "Error",
+                "message": "ReadError: integer exceeded 53 bits (9007199254740992)"
+              }
+            },
+            {
+              "id": "all-bits-set",
+              "pass": true,
+              "thrown": {
+                "name": "Error",
+                "message": "ReadError: integer exceeded 53 bits (18446744073709552000)"
+              }
+            }
+          ],
+          "runtime": {
+            "mode": "process",
+            "diagnostic": true,
+            "isolated": false,
+            "node": "v24.15.0",
+            "platform": "darwin",
+            "arch": "arm64",
+            "timeoutMs": 5000,
+            "heapMiB": 128
+          },
+          "digests": {
+            "test": "1df24cbc066f9b0c55e40048efe1d6cb947932f8835806490d9410bc80f27616",
+            "context": "7d4b69e0e9d28ff0e4c498124188c00ef1cb074207daea82780c14f7418c60fd",
+            "sources": "ec59553ea9e31b9a2e23bd296c7271dfdff2bd6c89c3ec6e466b7f2074bd2657",
+            "runtimeSource": "f1281f38a161af8a55255e6ac3370691ea6d190d1e8bd5c04346e2ecf5155eea",
+            "runtime": "934b398d60e5fa3abc178130fbe124563497f72e7ccdc45ea13bef5490b1f843"
+          },
+          "observedAt": "2026-10-29T21:49:38.353Z"
+        }
+      ],
+      "authorship": {
+        "aiModel": "gpt-6.1-sol"
+      }
+    },
+    {
+      "id": "message-padding-tail-length",
+      "version": 1,
+      "file": "tests/message-padding-tail-length.case.json",
+      "domain": "message-padding",
+      "sourceModule": "WACryptoPkcs7",
+      "sourceFile": "modules/WACryptoPkcs7.js",
+      "revisionsObserved": [
+        "1051710191",
+        "1051908825"
+      ],
+      "sourceLines": "17-21",
+      "expectedComparison": "unchanged",
+      "coverage": "Uniform padding tails, full-block removal, empty input and declared-length overrun guards.",
+      "notCovered": [
+        "Random padding generation",
+        "AES or Signal encryption",
+        "authentication",
+        "ciphertext integrity",
+        "all malformed-padding shapes"
+      ],
+      "stubs": {
+        "WACryptoDependencies": "getCrypto is a fail-closed fixture and is not invoked by unpadPkcs7."
+      },
+      "sourceArchives": [
+        "https://www.facebook.com/btarchive/1051710191/whatsapp",
+        "https://www.facebook.com/btarchive/1051908825/whatsapp"
+      ],
+      "observations": [
+        {
+          "revision": "1051710191",
+          "status": "pass",
+          "closure": [
+            "WACryptoDependencies",
+            "WACryptoPkcs7",
+            "err",
+            "fb-error",
+            "performance",
+            "performanceNow",
+            "removeFromArray"
+          ],
+          "requiredModules": [
+            "WACryptoPkcs7",
+            "err",
+            "fb-error"
+          ],
+          "gateReads": [],
+          "stubDigests": [
+            {
+              "module": "WACryptoDependencies",
+              "kind": "explicit",
+              "sha256": "0f955851142fd7c81f4b1490da644006ee2cb65650a940958bebf0db48c61d04"
+            }
+          ],
+          "sourceArchiveSha256": "db9a02a689875d2cd56d7a4a2fd44851d0d6422ccf07a845ec1eee9bc7780949",
+          "sourceForm": "pretty",
+          "printer": "oxc_codegen 0.1.0/0.143",
+          "sources": [
+            {
+              "module": "WACryptoPkcs7",
+              "printedSourceSha256": "903377a392cbb696978355fc19a24714f451d15f58aa675d499410ff2afda4ee"
+            },
+            {
+              "module": "err",
+              "printedSourceSha256": "a26a1f88fe2c09505c0ec8e43d1a43c2299b6126ea7ea305c567bf7634fbeea0"
+            },
+            {
+              "module": "fb-error",
+              "printedSourceSha256": "545144d2d2c50524d5bcfc421916cf76760743cb5b034dcb7a4d7066981f714e"
+            },
+            {
+              "module": "performance",
+              "printedSourceSha256": "9bee7ad7d1941af3432757b1ce55c980030f812f0a5fb00916e906b8a0b6ced9"
+            },
+            {
+              "module": "performanceNow",
+              "printedSourceSha256": "415e5327e020372f7789e27dc42266a9cb3d6bbc2d8c47d0b751b93517a0475f"
+            },
+            {
+              "module": "removeFromArray",
+              "printedSourceSha256": "c8e194de9e9463716c2f383406ae8269ddff1a9fe5fbc1a7559abcd2aaa666bb"
+            }
+          ],
+          "outcomes": [
+            {
+              "id": "one-padding-byte",
+              "pass": true,
+              "actual": {
+                "$type": "Uint8Array",
+                "value": [
+                  65
+                ]
+              }
+            },
+            {
+              "id": "two-padding-bytes",
+              "pass": true,
+              "actual": {
+                "$type": "Uint8Array",
+                "value": [
+                  65,
+                  66
+                ]
+              }
+            },
+            {
+              "id": "padding-only",
+              "pass": true,
+              "actual": {
+                "$type": "Uint8Array",
+                "value": []
+              }
+            },
+            {
+              "id": "full-block-padding",
+              "pass": true,
+              "actual": {
+                "$type": "Uint8Array",
+                "value": []
+              }
+            },
+            {
+              "id": "data-before-full-block-padding",
+              "pass": true,
+              "actual": {
+                "$type": "Uint8Array",
+                "value": [
+                  65
+                ]
+              }
+            },
+            {
+              "id": "empty-input-rejected",
+              "pass": true,
+              "thrown": {
+                "name": "Error",
+                "message": "unpadPkcs7 given empty bytes"
+              }
+            },
+            {
+              "id": "declared-length-overrun-rejected",
+              "pass": true,
+              "thrown": {
+                "name": "Error",
+                "message": "unpadPkcs7 given 2 bytes, but pad is 3"
+              }
+            }
+          ],
+          "runtime": {
+            "mode": "process",
+            "diagnostic": true,
+            "isolated": false,
+            "node": "v24.15.0",
+            "platform": "darwin",
+            "arch": "arm64",
+            "timeoutMs": 5000,
+            "heapMiB": 128
+          },
+          "digests": {
+            "test": "2cbc1957629d032ff5218e11741468bd3a7f0d53aa82149a700fc3a737cc81ab",
+            "context": "7d4b69e0e9d28ff0e4c498124188c00ef1cb074207daea82780c14f7418c60fd",
+            "sources": "a5de609b74b031b1c48a80bd486576b57231aea87ee352f961d30e5897037898",
+            "runtimeSource": "f1281f38a161af8a55255e6ac3370691ea6d190d1e8bd5c04346e2ecf5155eea",
+            "runtime": "934b398d60e5fa3abc178130fbe124563497f72e7ccdc45ea13bef5490b1f843"
+          },
+          "observedAt": "2026-10-29T21:49:38.388Z"
+        },
+        {
+          "revision": "1051908825",
+          "status": "pass",
+          "closure": [
+            "WACryptoDependencies",
+            "WACryptoPkcs7",
+            "err",
+            "fb-error",
+            "performance",
+            "performanceNow",
+            "removeFromArray"
+          ],
+          "requiredModules": [
+            "WACryptoPkcs7",
+            "err",
+            "fb-error"
+          ],
+          "gateReads": [],
+          "stubDigests": [
+            {
+              "module": "WACryptoDependencies",
+              "kind": "explicit",
+              "sha256": "0f955851142fd7c81f4b1490da644006ee2cb65650a940958bebf0db48c61d04"
+            }
+          ],
+          "sourceArchiveSha256": "bad1851340d0384d925ba6d334c9e68bc09accdd6a806136652e6cefecc80fdb",
+          "sourceForm": "pretty",
+          "printer": "oxc_codegen 0.1.0/0.143",
+          "sources": [
+            {
+              "module": "WACryptoPkcs7",
+              "printedSourceSha256": "903377a392cbb696978355fc19a24714f451d15f58aa675d499410ff2afda4ee"
+            },
+            {
+              "module": "err",
+              "printedSourceSha256": "a26a1f88fe2c09505c0ec8e43d1a43c2299b6126ea7ea305c567bf7634fbeea0"
+            },
+            {
+              "module": "fb-error",
+              "printedSourceSha256": "545144d2d2c50524d5bcfc421916cf76760743cb5b034dcb7a4d7066981f714e"
+            },
+            {
+              "module": "performance",
+              "printedSourceSha256": "9bee7ad7d1941af3432757b1ce55c980030f812f0a5fb00916e906b8a0b6ced9"
+            },
+            {
+              "module": "performanceNow",
+              "printedSourceSha256": "415e5327e020372f7789e27dc42266a9cb3d6bbc2d8c47d0b751b93517a0475f"
+            },
+            {
+              "module": "removeFromArray",
+              "printedSourceSha256": "c8e194de9e9463716c2f383406ae8269ddff1a9fe5fbc1a7559abcd2aaa666bb"
+            }
+          ],
+          "outcomes": [
+            {
+              "id": "one-padding-byte",
+              "pass": true,
+              "actual": {
+                "$type": "Uint8Array",
+                "value": [
+                  65
+                ]
+              }
+            },
+            {
+              "id": "two-padding-bytes",
+              "pass": true,
+              "actual": {
+                "$type": "Uint8Array",
+                "value": [
+                  65,
+                  66
+                ]
+              }
+            },
+            {
+              "id": "padding-only",
+              "pass": true,
+              "actual": {
+                "$type": "Uint8Array",
+                "value": []
+              }
+            },
+            {
+              "id": "full-block-padding",
+              "pass": true,
+              "actual": {
+                "$type": "Uint8Array",
+                "value": []
+              }
+            },
+            {
+              "id": "data-before-full-block-padding",
+              "pass": true,
+              "actual": {
+                "$type": "Uint8Array",
+                "value": [
+                  65
+                ]
+              }
+            },
+            {
+              "id": "empty-input-rejected",
+              "pass": true,
+              "thrown": {
+                "name": "Error",
+                "message": "unpadPkcs7 given empty bytes"
+              }
+            },
+            {
+              "id": "declared-length-overrun-rejected",
+              "pass": true,
+              "thrown": {
+                "name": "Error",
+                "message": "unpadPkcs7 given 2 bytes, but pad is 3"
+              }
+            }
+          ],
+          "runtime": {
+            "mode": "process",
+            "diagnostic": true,
+            "isolated": false,
+            "node": "v24.15.0",
+            "platform": "darwin",
+            "arch": "arm64",
+            "timeoutMs": 5000,
+            "heapMiB": 128
+          },
+          "digests": {
+            "test": "2cbc1957629d032ff5218e11741468bd3a7f0d53aa82149a700fc3a737cc81ab",
+            "context": "7d4b69e0e9d28ff0e4c498124188c00ef1cb074207daea82780c14f7418c60fd",
+            "sources": "082621d30199908045e80579402b37606752d29056be788d03efc14d169bf59d",
+            "runtimeSource": "f1281f38a161af8a55255e6ac3370691ea6d190d1e8bd5c04346e2ecf5155eea",
+            "runtime": "934b398d60e5fa3abc178130fbe124563497f72e7ccdc45ea13bef5490b1f843"
+          },
+          "observedAt": "2026-10-29T21:49:38.424Z"
+        }
+      ],
+      "authorship": {
+        "aiModel": "gpt-6.1-sol"
+      }
+    },
+    {
+      "id": "protocol-media-type-cast",
+      "version": 1,
+      "file": "tests/protocol-media-type-cast.case.json",
+      "domain": "message-format-classification",
+      "sourceModule": "WAProtocolMediaType",
+      "sourceFile": "modules/WAProtocolMediaType.js",
+      "revisionsObserved": [
+        "1051710191",
+        "1051908825"
+      ],
+      "sourceLines": "3-14",
+      "expectedComparison": "unchanged",
+      "coverage": "Known media literals, xma-image to document alias and rejection of non-media/unknown/null/undefined values.",
+      "notCovered": [
+        "Media upload or download",
+        "protobuf message serialization",
+        "device rendering",
+        "server acceptance"
+      ],
+      "stubs": {},
+      "sourceArchives": [
+        "https://www.facebook.com/btarchive/1051710191/whatsapp",
+        "https://www.facebook.com/btarchive/1051908825/whatsapp"
+      ],
+      "observations": [
+        {
+          "revision": "1051710191",
+          "status": "pass",
+          "closure": [
+            "WAProtocolMediaType"
+          ],
+          "requiredModules": [
+            "WAProtocolMediaType"
+          ],
+          "gateReads": [],
+          "stubDigests": [],
+          "sourceArchiveSha256": "db9a02a689875d2cd56d7a4a2fd44851d0d6422ccf07a845ec1eee9bc7780949",
+          "sourceForm": "pretty",
+          "printer": "oxc_codegen 0.1.0/0.143",
+          "sources": [
+            {
+              "module": "WAProtocolMediaType",
+              "printedSourceSha256": "6d5a818f200347b0f05a2ad7a0b9756f2a2c3d73aa79fb736f9227a659cb398e"
+            }
+          ],
+          "outcomes": [
+            {
+              "id": "image",
+              "pass": true,
+              "actual": "image"
+            },
+            {
+              "id": "sticker",
+              "pass": true,
+              "actual": "sticker"
+            },
+            {
+              "id": "gif",
+              "pass": true,
+              "actual": "gif"
+            },
+            {
+              "id": "video",
+              "pass": true,
+              "actual": "video"
+            },
+            {
+              "id": "ptt",
+              "pass": true,
+              "actual": "ptt"
+            },
+            {
+              "id": "audio",
+              "pass": true,
+              "actual": "audio"
+            },
+            {
+              "id": "document",
+              "pass": true,
+              "actual": "document"
+            },
+            {
+              "id": "extended-image-alias",
+              "pass": true,
+              "actual": "document"
+            },
+            {
+              "id": "text-is-not-media",
+              "pass": true,
+              "actual": null
+            },
+            {
+              "id": "unknown-type",
+              "pass": true,
+              "actual": null
+            },
+            {
+              "id": "null-type",
+              "pass": true,
+              "actual": null
+            },
+            {
+              "id": "undefined-type",
+              "pass": true,
+              "actual": null
+            }
+          ],
+          "runtime": {
+            "mode": "process",
+            "diagnostic": true,
+            "isolated": false,
+            "node": "v24.15.0",
+            "platform": "darwin",
+            "arch": "arm64",
+            "timeoutMs": 5000,
+            "heapMiB": 128
+          },
+          "digests": {
+            "test": "956794d95f049f0a16d8dd3488cd68c985828ffaec2d95a9de1a9c086f392e18",
+            "context": "7d4b69e0e9d28ff0e4c498124188c00ef1cb074207daea82780c14f7418c60fd",
+            "sources": "c2a9502879d83933af50de7bbbaf8f0bc3f4f3b046010132d48d7f4f65190df7",
+            "runtimeSource": "f1281f38a161af8a55255e6ac3370691ea6d190d1e8bd5c04346e2ecf5155eea",
+            "runtime": "934b398d60e5fa3abc178130fbe124563497f72e7ccdc45ea13bef5490b1f843"
+          },
+          "observedAt": "2026-10-29T21:49:38.458Z"
+        },
+        {
+          "revision": "1051908825",
+          "status": "pass",
+          "closure": [
+            "WAProtocolMediaType"
+          ],
+          "requiredModules": [
+            "WAProtocolMediaType"
+          ],
+          "gateReads": [],
+          "stubDigests": [],
+          "sourceArchiveSha256": "bad1851340d0384d925ba6d334c9e68bc09accdd6a806136652e6cefecc80fdb",
+          "sourceForm": "pretty",
+          "printer": "oxc_codegen 0.1.0/0.143",
+          "sources": [
+            {
+              "module": "WAProtocolMediaType",
+              "printedSourceSha256": "6d5a818f200347b0f05a2ad7a0b9756f2a2c3d73aa79fb736f9227a659cb398e"
+            }
+          ],
+          "outcomes": [
+            {
+              "id": "image",
+              "pass": true,
+              "actual": "image"
+            },
+            {
+              "id": "sticker",
+              "pass": true,
+              "actual": "sticker"
+            },
+            {
+              "id": "gif",
+              "pass": true,
+              "actual": "gif"
+            },
+            {
+              "id": "video",
+              "pass": true,
+              "actual": "video"
+            },
+            {
+              "id": "ptt",
+              "pass": true,
+              "actual": "ptt"
+            },
+            {
+              "id": "audio",
+              "pass": true,
+              "actual": "audio"
+            },
+            {
+              "id": "document",
+              "pass": true,
+              "actual": "document"
+            },
+            {
+              "id": "extended-image-alias",
+              "pass": true,
+              "actual": "document"
+            },
+            {
+              "id": "text-is-not-media",
+              "pass": true,
+              "actual": null
+            },
+            {
+              "id": "unknown-type",
+              "pass": true,
+              "actual": null
+            },
+            {
+              "id": "null-type",
+              "pass": true,
+              "actual": null
+            },
+            {
+              "id": "undefined-type",
+              "pass": true,
+              "actual": null
+            }
+          ],
+          "runtime": {
+            "mode": "process",
+            "diagnostic": true,
+            "isolated": false,
+            "node": "v24.15.0",
+            "platform": "darwin",
+            "arch": "arm64",
+            "timeoutMs": 5000,
+            "heapMiB": 128
+          },
+          "digests": {
+            "test": "956794d95f049f0a16d8dd3488cd68c985828ffaec2d95a9de1a9c086f392e18",
+            "context": "7d4b69e0e9d28ff0e4c498124188c00ef1cb074207daea82780c14f7418c60fd",
+            "sources": "ec220b5db160c15cd01445e7f7b528558bf79be7092d09196eef16b1efde7eed",
+            "runtimeSource": "f1281f38a161af8a55255e6ac3370691ea6d190d1e8bd5c04346e2ecf5155eea",
+            "runtime": "934b398d60e5fa3abc178130fbe124563497f72e7ccdc45ea13bef5490b1f843"
+          },
+          "observedAt": "2026-10-29T21:49:38.491Z"
+        }
+      ],
+      "authorship": {
+        "aiModel": "gpt-6.1-sol"
+      }
+    },
+    {
+      "id": "aea-account-state-classification",
+      "version": 1,
+      "file": "tests/aea-account-state-classification.case.json",
+      "domain": "account-state-classification",
+      "sourceModule": "WAWebAeaAccountState",
+      "sourceFile": "modules/WAWebAeaAccountState.js",
+      "revisionsObserved": [
+        "1051710191",
+        "1051908825"
+      ],
+      "sourceLines": "6-14",
+      "expectedComparison": "unchanged",
+      "coverage": "The exported predicate uses the actual archived enum to classify supplied state strings.",
+      "notCovered": [
+        "Signed attestations",
+        "ADV account-type mapping",
+        "live account state",
+        "business eligibility",
+        "encryption enforcement"
+      ],
+      "stubs": {
+        "WAWebProtobufsAdv.pb": "Explicit empty fixture for a declared dependency unused by this predicate. ADV mapping is not called.",
+        "WAWebProtobufsAea.pb": "Explicit empty fixture for a declared dependency unused by this predicate. Attestation mapping is not called."
+      },
+      "sourceArchives": [
+        "https://www.facebook.com/btarchive/1051710191/whatsapp",
+        "https://www.facebook.com/btarchive/1051908825/whatsapp"
+      ],
+      "observations": [
+        {
+          "revision": "1051710191",
+          "status": "pass",
+          "closure": [
+            "$InternalEnum",
+            "WAWebAeaAccountState",
+            "WAWebProtobufsAdv.pb",
+            "WAWebProtobufsAea.pb"
+          ],
+          "requiredModules": [
+            "$InternalEnum",
+            "WAWebAeaAccountState"
+          ],
+          "gateReads": [],
+          "stubDigests": [
+            {
+              "module": "WAWebProtobufsAdv.pb",
+              "kind": "explicit",
+              "sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+            },
+            {
+              "module": "WAWebProtobufsAea.pb",
+              "kind": "explicit",
+              "sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+            }
+          ],
+          "sourceArchiveSha256": "db9a02a689875d2cd56d7a4a2fd44851d0d6422ccf07a845ec1eee9bc7780949",
+          "sourceForm": "pretty",
+          "printer": "oxc_codegen 0.1.0/0.143",
+          "sources": [
+            {
+              "module": "$InternalEnum",
+              "printedSourceSha256": "2ceb4779145d3f716cdabff27facf6fec30f45f844896ccd78300320a44a69a9"
+            },
+            {
+              "module": "WAWebAeaAccountState",
+              "printedSourceSha256": "15f924f8d66e5a04a0a1f8d73db6d8ee35aaf06f5e5c5a28a660b5a4fc445a11"
+            }
+          ],
+          "outcomes": [
+            {
+              "id": "hybrid-account",
+              "pass": true,
+              "actual": true
+            },
+            {
+              "id": "non-e2ee-account",
+              "pass": true,
+              "actual": true
+            },
+            {
+              "id": "e2ee-account",
+              "pass": true,
+              "actual": false
+            },
+            {
+              "id": "not-set",
+              "pass": true,
+              "actual": false
+            },
+            {
+              "id": "unknown-literal",
+              "pass": true,
+              "actual": false
+            },
+            {
+              "id": "null-state",
+              "pass": true,
+              "actual": false
+            },
+            {
+              "id": "undefined-state",
+              "pass": true,
+              "actual": false
+            }
+          ],
+          "runtime": {
+            "mode": "process",
+            "diagnostic": true,
+            "isolated": false,
+            "node": "v24.15.0",
+            "platform": "darwin",
+            "arch": "arm64",
+            "timeoutMs": 5000,
+            "heapMiB": 128
+          },
+          "digests": {
+            "test": "43cab4a5f8a640d21182e7e565fb87d137d5e51554632c5034aad9bfb8a79d8f",
+            "context": "7d4b69e0e9d28ff0e4c498124188c00ef1cb074207daea82780c14f7418c60fd",
+            "sources": "ccaa0d624d566c6bfcdfd6b4c675cbc899bce0ab78ec002d117b51a54e8137a9",
+            "runtimeSource": "f1281f38a161af8a55255e6ac3370691ea6d190d1e8bd5c04346e2ecf5155eea",
+            "runtime": "934b398d60e5fa3abc178130fbe124563497f72e7ccdc45ea13bef5490b1f843"
+          },
+          "observedAt": "2026-10-29T21:49:38.526Z"
+        },
+        {
+          "revision": "1051908825",
+          "status": "pass",
+          "closure": [
+            "$InternalEnum",
+            "WAWebAeaAccountState",
+            "WAWebProtobufsAdv.pb",
+            "WAWebProtobufsAea.pb"
+          ],
+          "requiredModules": [
+            "$InternalEnum",
+            "WAWebAeaAccountState"
+          ],
+          "gateReads": [],
+          "stubDigests": [
+            {
+              "module": "WAWebProtobufsAdv.pb",
+              "kind": "explicit",
+              "sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+            },
+            {
+              "module": "WAWebProtobufsAea.pb",
+              "kind": "explicit",
+              "sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+            }
+          ],
+          "sourceArchiveSha256": "bad1851340d0384d925ba6d334c9e68bc09accdd6a806136652e6cefecc80fdb",
+          "sourceForm": "pretty",
+          "printer": "oxc_codegen 0.1.0/0.143",
+          "sources": [
+            {
+              "module": "$InternalEnum",
+              "printedSourceSha256": "2ceb4779145d3f716cdabff27facf6fec30f45f844896ccd78300320a44a69a9"
+            },
+            {
+              "module": "WAWebAeaAccountState",
+              "printedSourceSha256": "15f924f8d66e5a04a0a1f8d73db6d8ee35aaf06f5e5c5a28a660b5a4fc445a11"
+            }
+          ],
+          "outcomes": [
+            {
+              "id": "hybrid-account",
+              "pass": true,
+              "actual": true
+            },
+            {
+              "id": "non-e2ee-account",
+              "pass": true,
+              "actual": true
+            },
+            {
+              "id": "e2ee-account",
+              "pass": true,
+              "actual": false
+            },
+            {
+              "id": "not-set",
+              "pass": true,
+              "actual": false
+            },
+            {
+              "id": "unknown-literal",
+              "pass": true,
+              "actual": false
+            },
+            {
+              "id": "null-state",
+              "pass": true,
+              "actual": false
+            },
+            {
+              "id": "undefined-state",
+              "pass": true,
+              "actual": false
+            }
+          ],
+          "runtime": {
+            "mode": "process",
+            "diagnostic": true,
+            "isolated": false,
+            "node": "v24.15.0",
+            "platform": "darwin",
+            "arch": "arm64",
+            "timeoutMs": 5000,
+            "heapMiB": 128
+          },
+          "digests": {
+            "test": "43cab4a5f8a640d21182e7e565fb87d137d5e51554632c5034aad9bfb8a79d8f",
+            "context": "7d4b69e0e9d28ff0e4c498124188c00ef1cb074207daea82780c14f7418c60fd",
+            "sources": "4612f01e386af003acff7761fbfef949af6c63de2defaa3bb582d705ce4561ba",
+            "runtimeSource": "f1281f38a161af8a55255e6ac3370691ea6d190d1e8bd5c04346e2ecf5155eea",
+            "runtime": "934b398d60e5fa3abc178130fbe124563497f72e7ccdc45ea13bef5490b1f843"
+          },
+          "observedAt": "2026-10-29T21:49:38.558Z"
+        }
+      ],
+      "authorship": {
+        "aiModel": "gpt-6.1-sol"
+      }
+    },
+    {
+      "id": "appstate-star-index-shape",
+      "version": 1,
+      "file": "tests/appstate-star-index-shape.case.json",
+      "domain": "app-state-index-guards",
+      "sourceModule": "WAWebSyncdIndexUtils",
+      "sourceFile": "modules/WAWebSyncdIndexUtils.js",
+      "revisionsObserved": [
+        "1051710191",
+        "1051908825"
+      ],
+      "sourceLines": "37-42",
+      "expectedComparison": "unchanged",
+      "coverage": "JSON parsing and the minimum five-slot guard before JID or message-key construction.",
+      "notCovered": [
+        "Valid star-index decoding",
+        "JID validation",
+        "message-key construction",
+        "app-state mutation application",
+        "LTHash or MACs"
+      ],
+      "stubs": {
+        "other": "Empty fixtures satisfy declared dependencies unused by these rejected-input probes. They do not implement JIDs, keys, metrics, logging, user identity or promises."
+      },
+      "sourceArchives": [
+        "https://www.facebook.com/btarchive/1051710191/whatsapp",
+        "https://www.facebook.com/btarchive/1051908825/whatsapp"
+      ],
+      "observations": [
+        {
+          "revision": "1051710191",
+          "status": "pass",
+          "closure": [
+            "$InternalEnum",
+            "Promise",
+            "WAHex",
+            "WALogger",
+            "WATimeUtils",
+            "WAWebMsgKey",
+            "WAWebSyncdConst",
+            "WAWebSyncdIndexUtils",
+            "WAWebSyncdMetrics",
+            "WAWebUserPrefsMeUser",
+            "WAWebWamEnumMdSyncdCriticalEventCode",
+            "WAWebWid",
+            "WAWebWidFactory",
+            "err",
+            "fb-error",
+            "performance",
+            "performanceNow",
+            "removeFromArray"
+          ],
+          "requiredModules": [
+            "WAWebSyncdIndexUtils",
+            "err",
+            "fb-error"
+          ],
+          "gateReads": [],
+          "stubDigests": [
+            {
+              "module": "WALogger",
+              "kind": "explicit",
+              "sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+            },
+            {
+              "module": "WAWebMsgKey",
+              "kind": "explicit",
+              "sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+            },
+            {
+              "module": "WAWebSyncdMetrics",
+              "kind": "explicit",
+              "sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+            },
+            {
+              "module": "WAWebUserPrefsMeUser",
+              "kind": "explicit",
+              "sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+            },
+            {
+              "module": "WAWebWamEnumMdSyncdCriticalEventCode",
+              "kind": "explicit",
+              "sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+            },
+            {
+              "module": "WAWebWid",
+              "kind": "explicit",
+              "sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+            },
+            {
+              "module": "WAWebWidFactory",
+              "kind": "explicit",
+              "sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+            },
+            {
+              "module": "Promise",
+              "kind": "explicit",
+              "sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+            }
+          ],
+          "sourceArchiveSha256": "db9a02a689875d2cd56d7a4a2fd44851d0d6422ccf07a845ec1eee9bc7780949",
+          "sourceForm": "pretty",
+          "printer": "oxc_codegen 0.1.0/0.143",
+          "sources": [
+            {
+              "module": "$InternalEnum",
+              "printedSourceSha256": "2ceb4779145d3f716cdabff27facf6fec30f45f844896ccd78300320a44a69a9"
+            },
+            {
+              "module": "WAHex",
+              "printedSourceSha256": "3d28ad9eb342f6715bec66c8c38fd57a14497e07101f5f9b67fc3c9838e72ffe"
+            },
+            {
+              "module": "WATimeUtils",
+              "printedSourceSha256": "1bbfac1f0804eefb7f1ba1eed0a8073c67d12b5fd789fd8476e415315dd10295"
+            },
+            {
+              "module": "WAWebSyncdConst",
+              "printedSourceSha256": "c2f62bd2a338b49d138ff8ddc4107ef53cec99b02f841a8c628f38c0b2d39f6f"
+            },
+            {
+              "module": "WAWebSyncdIndexUtils",
+              "printedSourceSha256": "22eb4b9b5bd910379c5efa237039355869c52da5d7de186650ed82c3fbd408bb"
+            },
+            {
+              "module": "err",
+              "printedSourceSha256": "a26a1f88fe2c09505c0ec8e43d1a43c2299b6126ea7ea305c567bf7634fbeea0"
+            },
+            {
+              "module": "fb-error",
+              "printedSourceSha256": "545144d2d2c50524d5bcfc421916cf76760743cb5b034dcb7a4d7066981f714e"
+            },
+            {
+              "module": "performance",
+              "printedSourceSha256": "9bee7ad7d1941af3432757b1ce55c980030f812f0a5fb00916e906b8a0b6ced9"
+            },
+            {
+              "module": "performanceNow",
+              "printedSourceSha256": "415e5327e020372f7789e27dc42266a9cb3d6bbc2d8c47d0b751b93517a0475f"
+            },
+            {
+              "module": "removeFromArray",
+              "printedSourceSha256": "c8e194de9e9463716c2f383406ae8269ddff1a9fe5fbc1a7559abcd2aaa666bb"
+            }
+          ],
+          "outcomes": [
+            {
+              "id": "empty-index",
+              "pass": true,
+              "thrown": {
+                "name": "Error",
+                "message": "[sync-action] star action index malformed, cannot create MsgKey"
+              }
+            },
+            {
+              "id": "action-only-index",
+              "pass": true,
+              "thrown": {
+                "name": "Error",
+                "message": "[sync-action] star action index malformed, cannot create MsgKey"
+              }
+            },
+            {
+              "id": "four-item-index",
+              "pass": true,
+              "thrown": {
+                "name": "Error",
+                "message": "[sync-action] star action index malformed, cannot create MsgKey"
+              }
+            },
+            {
+              "id": "malformed-json",
+              "pass": true,
+              "thrown": {
+                "name": "SyntaxError",
+                "message": "Unexpected token 'i', \"invalid-json\" is not valid JSON"
+              }
+            }
+          ],
+          "runtime": {
+            "mode": "process",
+            "diagnostic": true,
+            "isolated": false,
+            "node": "v24.15.0",
+            "platform": "darwin",
+            "arch": "arm64",
+            "timeoutMs": 5000,
+            "heapMiB": 128
+          },
+          "digests": {
+            "test": "5df92c4496aa006a4947fa9f23dafe4b9841fe2082ea7c0654e704f22fd68be8",
+            "context": "7d4b69e0e9d28ff0e4c498124188c00ef1cb074207daea82780c14f7418c60fd",
+            "sources": "94e096586b4c245a40979c5e9b92d94b31b703e8ea134bdb622267953870ab0a",
+            "runtimeSource": "f1281f38a161af8a55255e6ac3370691ea6d190d1e8bd5c04346e2ecf5155eea",
+            "runtime": "934b398d60e5fa3abc178130fbe124563497f72e7ccdc45ea13bef5490b1f843"
+          },
+          "observedAt": "2026-10-29T21:49:38.592Z"
+        },
+        {
+          "revision": "1051908825",
+          "status": "pass",
+          "closure": [
+            "$InternalEnum",
+            "Promise",
+            "WAHex",
+            "WALogger",
+            "WATimeUtils",
+            "WAWebMsgKey",
+            "WAWebSyncdConst",
+            "WAWebSyncdIndexUtils",
+            "WAWebSyncdMetrics",
+            "WAWebUserPrefsMeUser",
+            "WAWebWamEnumMdSyncdCriticalEventCode",
+            "WAWebWid",
+            "WAWebWidFactory",
+            "err",
+            "fb-error",
+            "performance",
+            "performanceNow",
+            "removeFromArray"
+          ],
+          "requiredModules": [
+            "WAWebSyncdIndexUtils",
+            "err",
+            "fb-error"
+          ],
+          "gateReads": [],
+          "stubDigests": [
+            {
+              "module": "WALogger",
+              "kind": "explicit",
+              "sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+            },
+            {
+              "module": "WAWebMsgKey",
+              "kind": "explicit",
+              "sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+            },
+            {
+              "module": "WAWebSyncdMetrics",
+              "kind": "explicit",
+              "sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+            },
+            {
+              "module": "WAWebUserPrefsMeUser",
+              "kind": "explicit",
+              "sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+            },
+            {
+              "module": "WAWebWamEnumMdSyncdCriticalEventCode",
+              "kind": "explicit",
+              "sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+            },
+            {
+              "module": "WAWebWid",
+              "kind": "explicit",
+              "sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+            },
+            {
+              "module": "WAWebWidFactory",
+              "kind": "explicit",
+              "sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+            },
+            {
+              "module": "Promise",
+              "kind": "explicit",
+              "sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+            }
+          ],
+          "sourceArchiveSha256": "bad1851340d0384d925ba6d334c9e68bc09accdd6a806136652e6cefecc80fdb",
+          "sourceForm": "pretty",
+          "printer": "oxc_codegen 0.1.0/0.143",
+          "sources": [
+            {
+              "module": "$InternalEnum",
+              "printedSourceSha256": "2ceb4779145d3f716cdabff27facf6fec30f45f844896ccd78300320a44a69a9"
+            },
+            {
+              "module": "WAHex",
+              "printedSourceSha256": "3d28ad9eb342f6715bec66c8c38fd57a14497e07101f5f9b67fc3c9838e72ffe"
+            },
+            {
+              "module": "WATimeUtils",
+              "printedSourceSha256": "1bbfac1f0804eefb7f1ba1eed0a8073c67d12b5fd789fd8476e415315dd10295"
+            },
+            {
+              "module": "WAWebSyncdConst",
+              "printedSourceSha256": "c2f62bd2a338b49d138ff8ddc4107ef53cec99b02f841a8c628f38c0b2d39f6f"
+            },
+            {
+              "module": "WAWebSyncdIndexUtils",
+              "printedSourceSha256": "22eb4b9b5bd910379c5efa237039355869c52da5d7de186650ed82c3fbd408bb"
+            },
+            {
+              "module": "err",
+              "printedSourceSha256": "a26a1f88fe2c09505c0ec8e43d1a43c2299b6126ea7ea305c567bf7634fbeea0"
+            },
+            {
+              "module": "fb-error",
+              "printedSourceSha256": "545144d2d2c50524d5bcfc421916cf76760743cb5b034dcb7a4d7066981f714e"
+            },
+            {
+              "module": "performance",
+              "printedSourceSha256": "9bee7ad7d1941af3432757b1ce55c980030f812f0a5fb00916e906b8a0b6ced9"
+            },
+            {
+              "module": "performanceNow",
+              "printedSourceSha256": "415e5327e020372f7789e27dc42266a9cb3d6bbc2d8c47d0b751b93517a0475f"
+            },
+            {
+              "module": "removeFromArray",
+              "printedSourceSha256": "c8e194de9e9463716c2f383406ae8269ddff1a9fe5fbc1a7559abcd2aaa666bb"
+            }
+          ],
+          "outcomes": [
+            {
+              "id": "empty-index",
+              "pass": true,
+              "thrown": {
+                "name": "Error",
+                "message": "[sync-action] star action index malformed, cannot create MsgKey"
+              }
+            },
+            {
+              "id": "action-only-index",
+              "pass": true,
+              "thrown": {
+                "name": "Error",
+                "message": "[sync-action] star action index malformed, cannot create MsgKey"
+              }
+            },
+            {
+              "id": "four-item-index",
+              "pass": true,
+              "thrown": {
+                "name": "Error",
+                "message": "[sync-action] star action index malformed, cannot create MsgKey"
+              }
+            },
+            {
+              "id": "malformed-json",
+              "pass": true,
+              "thrown": {
+                "name": "SyntaxError",
+                "message": "Unexpected token 'i', \"invalid-json\" is not valid JSON"
+              }
+            }
+          ],
+          "runtime": {
+            "mode": "process",
+            "diagnostic": true,
+            "isolated": false,
+            "node": "v24.15.0",
+            "platform": "darwin",
+            "arch": "arm64",
+            "timeoutMs": 5000,
+            "heapMiB": 128
+          },
+          "digests": {
+            "test": "5df92c4496aa006a4947fa9f23dafe4b9841fe2082ea7c0654e704f22fd68be8",
+            "context": "7d4b69e0e9d28ff0e4c498124188c00ef1cb074207daea82780c14f7418c60fd",
+            "sources": "1a06e8f3cb5de6b55f00a6636b9ed745be81d84b583a1305c2fc218143b74f57",
+            "runtimeSource": "f1281f38a161af8a55255e6ac3370691ea6d190d1e8bd5c04346e2ecf5155eea",
+            "runtime": "934b398d60e5fa3abc178130fbe124563497f72e7ccdc45ea13bef5490b1f843"
+          },
+          "observedAt": "2026-10-29T21:49:38.627Z"
+        }
+      ],
+      "authorship": {
+        "aiModel": "gpt-6.1-sol"
+      }
     }
   ]
 }

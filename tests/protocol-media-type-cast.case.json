@@ -1,0 +1,109 @@
+{
+  "schemaVersion": 1,
+  "id": "protocol-media-type-cast",
+  "version": 1,
+  "title": "Message media type classification preserves protocol aliases",
+  "module": "WAProtocolMediaType",
+  "export": "castToProtocolMediaType",
+  "context": {
+    "clock": "2026-10-26T00:00:00.000Z",
+    "timezone": "UTC",
+    "randomSeed": 1,
+    "gates": {}
+  },
+  "stubs": [],
+  "probes": [
+    {
+      "id": "image",
+      "args": [
+        "image"
+      ],
+      "expected": "image"
+    },
+    {
+      "id": "sticker",
+      "args": [
+        "sticker"
+      ],
+      "expected": "sticker"
+    },
+    {
+      "id": "gif",
+      "args": [
+        "gif"
+      ],
+      "expected": "gif"
+    },
+    {
+      "id": "video",
+      "args": [
+        "video"
+      ],
+      "expected": "video"
+    },
+    {
+      "id": "ptt",
+      "args": [
+        "ptt"
+      ],
+      "expected": "ptt"
+    },
+    {
+      "id": "audio",
+      "args": [
+        "audio"
+      ],
+      "expected": "audio"
+    },
+    {
+      "id": "document",
+      "args": [
+        "document"
+      ],
+      "expected": "document"
+    },
+    {
+      "id": "extended-image-alias",
+      "args": [
+        "xma-image"
+      ],
+      "expected": "document"
+    },
+    {
+      "id": "text-is-not-media",
+      "args": [
+        "chat"
+      ],
+      "expected": null
+    },
+    {
+      "id": "unknown-type",
+      "args": [
+        "future-media"
+      ],
+      "expected": null
+    },
+    {
+      "id": "null-type",
+      "args": [
+        null
+      ],
+      "expected": null
+    },
+    {
+      "id": "undefined-type",
+      "args": [
+        {
+          "$type": "undefined"
+        }
+      ],
+      "expected": null
+    }
+  ],
+  "sourceExpectation": {
+    "baselineRevision": "1051710191",
+    "candidateRevision": "1051908825",
+    "moduleLines": "3-14",
+    "scope": "Known media literals, xma-image to document alias and rejection of non-media/unknown/null/undefined values."
+  }
+}

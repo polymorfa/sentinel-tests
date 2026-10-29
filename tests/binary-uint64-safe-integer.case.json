@@ -1,0 +1,84 @@
+{
+  "schemaVersion": 1,
+  "id": "binary-uint64-safe-integer",
+  "version": 1,
+  "title": "Unsigned 64-bit conversion rejects unsafe JavaScript integers",
+  "module": "WABinary",
+  "export": "parseUint64OrThrow",
+  "context": {
+    "clock": "2026-10-26T00:00:00.000Z",
+    "timezone": "UTC",
+    "randomSeed": 1,
+    "gates": {}
+  },
+  "stubs": [],
+  "probes": [
+    {
+      "id": "zero",
+      "args": [
+        0,
+        0
+      ],
+      "expected": 0
+    },
+    {
+      "id": "unsigned-low-word",
+      "args": [
+        0,
+        4294967295
+      ],
+      "expected": 4294967295
+    },
+    {
+      "id": "signed-low-word",
+      "args": [
+        0,
+        -1
+      ],
+      "expected": 4294967295
+    },
+    {
+      "id": "next-high-word",
+      "args": [
+        1,
+        0
+      ],
+      "expected": 4294967296
+    },
+    {
+      "id": "max-safe-integer",
+      "args": [
+        2097151,
+        4294967295
+      ],
+      "expected": 9007199254740991
+    },
+    {
+      "id": "first-unsafe-high-word",
+      "args": [
+        2097152,
+        0
+      ],
+      "throws": {
+        "name": "Error",
+        "message": "ReadError: integer exceeded 53 bits (9007199254740992)"
+      }
+    },
+    {
+      "id": "all-bits-set",
+      "args": [
+        -1,
+        -1
+      ],
+      "throws": {
+        "name": "Error"
+      }
+    }
+  ],
+  "sourceExpectation": {
+    "baselineRevision": "1051710191",
+    "candidateRevision": "1051908825",
+    "moduleLines": "188-194,341-352",
+    "scope": "High/low word conversion through the maximum safe integer and actual archived Error rejection above that range."
+  }
+}

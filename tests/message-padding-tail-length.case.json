@@ -1,0 +1,184 @@
+{
+  "schemaVersion": 1,
+  "id": "message-padding-tail-length",
+  "version": 1,
+  "title": "Message padding removes the declared tail length",
+  "module": "WACryptoPkcs7",
+  "export": "unpadPkcs7",
+  "context": {
+    "clock": "2026-10-26T00:00:00.000Z",
+    "timezone": "UTC",
+    "randomSeed": 1,
+    "gates": {}
+  },
+  "stubs": [
+    {
+      "module": "WACryptoDependencies",
+      "exports": {
+        "getCrypto": {
+          "$type": "function",
+          "throws": {
+            "name": "UnexpectedCryptoFixtureAccess",
+            "message": "Random padding generation is outside this case"
+          }
+        }
+      }
+    }
+  ],
+  "probes": [
+    {
+      "id": "one-padding-byte",
+      "args": [
+        {
+          "$type": "Uint8Array",
+          "value": [
+            65,
+            1
+          ]
+        }
+      ],
+      "expected": {
+        "$type": "Uint8Array",
+        "value": [
+          65
+        ]
+      }
+    },
+    {
+      "id": "two-padding-bytes",
+      "args": [
+        {
+          "$type": "Uint8Array",
+          "value": [
+            65,
+            66,
+            2,
+            2
+          ]
+        }
+      ],
+      "expected": {
+        "$type": "Uint8Array",
+        "value": [
+          65,
+          66
+        ]
+      }
+    },
+    {
+      "id": "padding-only",
+      "args": [
+        {
+          "$type": "Uint8Array",
+          "value": [
+            3,
+            3,
+            3
+          ]
+        }
+      ],
+      "expected": {
+        "$type": "Uint8Array",
+        "value": []
+      }
+    },
+    {
+      "id": "full-block-padding",
+      "args": [
+        {
+          "$type": "Uint8Array",
+          "value": [
+            16,
+            16,
+            16,
+            16,
+            16,
+            16,
+            16,
+            16,
+            16,
+            16,
+            16,
+            16,
+            16,
+            16,
+            16,
+            16
+          ]
+        }
+      ],
+      "expected": {
+        "$type": "Uint8Array",
+        "value": []
+      }
+    },
+    {
+      "id": "data-before-full-block-padding",
+      "args": [
+        {
+          "$type": "Uint8Array",
+          "value": [
+            65,
+            16,
+            16,
+            16,
+            16,
+            16,
+            16,
+            16,
+            16,
+            16,
+            16,
+            16,
+            16,
+            16,
+            16,
+            16,
+            16
+          ]
+        }
+      ],
+      "expected": {
+        "$type": "Uint8Array",
+        "value": [
+          65
+        ]
+      }
+    },
+    {
+      "id": "empty-input-rejected",
+      "args": [
+        {
+          "$type": "Uint8Array",
+          "value": []
+        }
+      ],
+      "throws": {
+        "name": "Error",
+        "message": "unpadPkcs7 given empty bytes"
+      }
+    },
+    {
+      "id": "declared-length-overrun-rejected",
+      "args": [
+        {
+          "$type": "Uint8Array",
+          "value": [
+            65,
+            3
+          ]
+        }
+      ],
+      "throws": {
+        "name": "Error",
+        "message": "unpadPkcs7 given 2 bytes, but pad is 3"
+      }
+    }
+  ],
+  "sourceExpectation": {
+    "baselineRevision": "1051710191",
+    "candidateRevision": "1051908825",
+    "moduleLines": "17-21",
+    "scope": "Uniform padding tails, full-block removal, empty input and declared-length overrun guards."
+  }
+}

@@ -1,0 +1,95 @@
+{
+  "schemaVersion": 1,
+  "id": "appstate-star-index-shape",
+  "version": 1,
+  "title": "App-state star indices reject incomplete JSON index tuples",
+  "module": "WAWebSyncdIndexUtils",
+  "export": "getMsgKeyFromStarActionIndex",
+  "context": {
+    "clock": "2026-10-26T00:00:00.000Z",
+    "timezone": "UTC",
+    "randomSeed": 1,
+    "gates": {}
+  },
+  "stubs": [
+    {
+      "module": "WALogger",
+      "exports": {}
+    },
+    {
+      "module": "WAWebMsgKey",
+      "exports": {}
+    },
+    {
+      "module": "WAWebSyncdMetrics",
+      "exports": {}
+    },
+    {
+      "module": "WAWebUserPrefsMeUser",
+      "exports": {}
+    },
+    {
+      "module": "WAWebWamEnumMdSyncdCriticalEventCode",
+      "exports": {}
+    },
+    {
+      "module": "WAWebWid",
+      "exports": {}
+    },
+    {
+      "module": "WAWebWidFactory",
+      "exports": {}
+    },
+    {
+      "module": "Promise",
+      "exports": {}
+    }
+  ],
+  "probes": [
+    {
+      "id": "empty-index",
+      "args": [
+        "[]"
+      ],
+      "throws": {
+        "name": "Error",
+        "message": "[sync-action] star action index malformed, cannot create MsgKey"
+      }
+    },
+    {
+      "id": "action-only-index",
+      "args": [
+        "[\"star\"]"
+      ],
+      "throws": {
+        "name": "Error",
+        "message": "[sync-action] star action index malformed, cannot create MsgKey"
+      }
+    },
+    {
+      "id": "four-item-index",
+      "args": [
+        "[\"star\",\"synthetic@example.invalid\",\"synthetic-id\",\"0\"]"
+      ],
+      "throws": {
+        "name": "Error",
+        "message": "[sync-action] star action index malformed, cannot create MsgKey"
+      }
+    },
+    {
+      "id": "malformed-json",
+      "args": [
+        "invalid-json"
+      ],
+      "throws": {
+        "name": "SyntaxError"
+      }
+    }
+  ],
+  "sourceExpectation": {
+    "baselineRevision": "1051710191",
+    "candidateRevision": "1051908825",
+    "moduleLines": "37-42",
+    "scope": "JSON parsing and the minimum five-slot guard before JID or message-key construction."
+  }
+}
