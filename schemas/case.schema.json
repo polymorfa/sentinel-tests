@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://github.com/polymorfa/sentinel-tests/blob/main/schemas/case.schema.json",
-  "title": "Sentinel behavior case",
+  "title": "Sentinel reusable behavior fixture",
   "type": "object",
   "required": ["schemaVersion", "id", "version", "title", "module", "export", "context", "probes"],
   "properties": {
@@ -18,15 +18,66 @@
         "clock": { "type": "string", "format": "date-time" },
         "timezone": { "type": "string", "minLength": 1 },
         "randomSeed": { "type": "integer", "minimum": 0, "maximum": 4294967295 },
-        "gates": { "type": "object", "properties": { "abprops": { "type": "object" }, "gkx": { "type": "object", "additionalProperties": { "type": "boolean" } }, "knobs": { "type": "object" } }, "additionalProperties": false }
+        "gates": {
+          "type": "object",
+          "properties": {
+            "abprops": { "type": "object" },
+            "gkx": { "type": "object", "additionalProperties": { "type": "boolean" } },
+            "knobs": { "type": "object" }
+          },
+          "additionalProperties": false
+        },
+        "gateUpdates": {
+          "type": "array",
+          "maxItems": 128,
+          "items": {
+            "type": "object",
+            "required": ["beforeProbe", "gates"],
+            "properties": {
+              "beforeProbe": { "type": "string", "minLength": 1 },
+              "gates": { "type": "object" }
+            },
+            "additionalProperties": false
+          }
+        }
       },
       "additionalProperties": false
     },
-    "stubs": { "type": "array", "maxItems": 256, "items": { "type": "object", "required": ["module", "exports"], "properties": { "module": { "type": "string" }, "exports": {} }, "additionalProperties": false } },
+    "stubs": {
+      "type": "array",
+      "maxItems": 256,
+      "items": {
+        "type": "object",
+        "required": ["module", "exports"],
+        "properties": { "module": { "type": "string" }, "exports": {} },
+        "additionalProperties": false
+      }
+    },
     "variants": { "type": "object", "additionalProperties": { "type": "string" } },
     "probes": {
-      "type": "array", "minItems": 1, "maxItems": 128,
-      "items": { "type": "object", "required": ["id", "args"], "properties": { "id": { "type": "string", "minLength": 1 }, "args": { "type": "array" }, "expected": {}, "throws": { "type": "object", "minProperties": 1, "properties": { "name": { "type": "string" }, "message": { "type": "string" } }, "additionalProperties": false } }, "oneOf": [{ "required": ["expected"], "not": { "required": ["throws"] } }, { "required": ["throws"], "not": { "required": ["expected"] } }], "additionalProperties": false }
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 128,
+      "items": {
+        "type": "object",
+        "required": ["id", "args"],
+        "properties": {
+          "id": { "type": "string", "minLength": 1 },
+          "args": { "type": "array" },
+          "expected": {},
+          "throws": {
+            "type": "object",
+            "minProperties": 1,
+            "properties": { "name": { "type": "string" }, "message": { "type": "string" } },
+            "additionalProperties": false
+          }
+        },
+        "oneOf": [
+          { "required": ["expected"], "not": { "required": ["throws"] } },
+          { "required": ["throws"], "not": { "required": ["expected"] } }
+        ],
+        "additionalProperties": false
+      }
     },
     "sourceExpectation": { "type": "object" }
   },

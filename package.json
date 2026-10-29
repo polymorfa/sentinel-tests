@@ -4,10 +4,20 @@
   "private": true,
   "type": "module",
   "engines": {
-    "node": ">=24"
+    "bun": ">=1.4.4"
   },
   "scripts": {
-    "test": "node scripts/validate.mjs"
+    "test": "bun test",
+    "validate": "bun scripts/validate.ts",
+    "check": "bun check --no-script",
+    "fmt": "bun fmt --no-script",
+    "fmt:check": "bun fmt --no-script --check",
+    "lint": "oxlint"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "@types/bun": "1.4.4",
+    "oxlint": "1.90.0"
+  },
+  "packageManager": "bun@1.4.4"
 }

@@ -4,21 +4,14 @@
     {
       "id": "linking-base32",
       "version": 1,
-      "file": "tests/linking-base32.case.json",
+      "file": "fixtures/linking-base32.case.json",
       "domain": "linked-device-identity",
       "sourceModule": "WAWebAltDeviceLinkingBase32Encode",
-      "revisionsObserved": [
-        "1051710191",
-        "1051908825"
-      ],
+      "revisionsObserved": ["1051710191", "1051908825"],
       "sourceLines": "2-7",
       "expectedComparison": "unchanged",
       "coverage": "Five byte-vector assertions for bytesToCrockford only.",
-      "notCovered": [
-        "pairing handshake",
-        "server acceptance",
-        "account eligibility"
-      ],
+      "notCovered": ["pairing handshake", "server acceptance", "account eligibility"],
       "sourceArchives": [
         "https://www.facebook.com/btarchive/1051710191/whatsapp",
         "https://www.facebook.com/btarchive/1051908825/whatsapp"
@@ -30,24 +23,17 @@
     {
       "id": "customer-range-date-argument",
       "version": 1,
-      "file": "tests/customer-range-date.case.json",
+      "file": "fixtures/customer-range-date.case.json",
       "domain": "customer-manager-date-range",
       "sourceModule": "WAWebCustomerManagerLastMessageRangeSecondsBounds",
-      "revisionsObserved": [
-        "1051710191",
-        "1051908825"
-      ],
+      "revisionsObserved": ["1051710191", "1051908825"],
       "sourceLines": {
         "1051710191": "4-5",
         "1051908825": "4-6"
       },
       "expectedComparison": "changed",
       "coverage": "The default call is preserved; an optional explicit date changes the result in the later revision. The baseline expectation intentionally detects that change.",
-      "notCovered": [
-        "protocol security",
-        "server behavior",
-        "customer feature availability"
-      ],
+      "notCovered": ["protocol security", "server behavior", "customer feature availability"],
       "sourceArchives": [
         "https://www.facebook.com/btarchive/1051710191/whatsapp",
         "https://www.facebook.com/btarchive/1051908825/whatsapp"
@@ -59,14 +45,11 @@
     {
       "id": "binary-utf8-byte-length",
       "version": 1,
-      "file": "tests/binary-utf8-byte-length.case.json",
+      "file": "fixtures/binary-utf8-byte-length.case.json",
       "domain": "binary-encoding",
       "sourceModule": "WABinary",
       "sourceFile": "modules/WABinary.js",
-      "revisionsObserved": [
-        "1051710191",
-        "1051908825"
-      ],
+      "revisionsObserved": ["1051710191", "1051908825"],
       "sourceLines": "174-187",
       "expectedComparison": "unchanged",
       "coverage": "UTF-8 byte counts at one/two/three/four-byte boundaries, lone surrogate replacement lengths and repeated-input cache behavior.",
@@ -94,9 +77,7 @@
             "performanceNow",
             "removeFromArray"
           ],
-          "requiredModules": [
-            "WABinary"
-          ],
+          "requiredModules": ["WABinary"],
           "gateReads": [],
           "stubDigests": [],
           "sourceArchiveSha256": "db9a02a689875d2cd56d7a4a2fd44851d0d6422ccf07a845ec1eee9bc7780949",
@@ -240,9 +221,7 @@
             "performanceNow",
             "removeFromArray"
           ],
-          "requiredModules": [
-            "WABinary"
-          ],
+          "requiredModules": ["WABinary"],
           "gateReads": [],
           "stubDigests": [],
           "sourceArchiveSha256": "bad1851340d0384d925ba6d334c9e68bc09accdd6a806136652e6cefecc80fdb",
@@ -382,22 +361,15 @@
     {
       "id": "binary-uint64-safe-integer",
       "version": 1,
-      "file": "tests/binary-uint64-safe-integer.case.json",
+      "file": "fixtures/binary-uint64-safe-integer.case.json",
       "domain": "binary-encoding",
       "sourceModule": "WABinary",
       "sourceFile": "modules/WABinary.js",
-      "revisionsObserved": [
-        "1051710191",
-        "1051908825"
-      ],
+      "revisionsObserved": ["1051710191", "1051908825"],
       "sourceLines": "188-194,341-352",
       "expectedComparison": "unchanged",
       "coverage": "High/low word conversion through the maximum safe integer and actual archived Error rejection above that range.",
-      "notCovered": [
-        "Signed 64-bit conversion",
-        "all protobuf decoders",
-        "wire integer parsing"
-      ],
+      "notCovered": ["Signed 64-bit conversion", "all protobuf decoders", "wire integer parsing"],
       "stubs": {},
       "sourceArchives": [
         "https://www.facebook.com/btarchive/1051710191/whatsapp",
@@ -416,11 +388,7 @@
             "performanceNow",
             "removeFromArray"
           ],
-          "requiredModules": [
-            "WABinary",
-            "err",
-            "fb-error"
-          ],
+          "requiredModules": ["WABinary", "err", "fb-error"],
           "gateReads": [],
           "stubDigests": [],
           "sourceArchiveSha256": "db9a02a689875d2cd56d7a4a2fd44851d0d6422ccf07a845ec1eee9bc7780949",
@@ -530,11 +498,7 @@
             "performanceNow",
             "removeFromArray"
           ],
-          "requiredModules": [
-            "WABinary",
-            "err",
-            "fb-error"
-          ],
+          "requiredModules": ["WABinary", "err", "fb-error"],
           "gateReads": [],
           "stubDigests": [],
           "sourceArchiveSha256": "bad1851340d0384d925ba6d334c9e68bc09accdd6a806136652e6cefecc80fdb",
@@ -640,14 +604,11 @@
     {
       "id": "message-padding-tail-length",
       "version": 1,
-      "file": "tests/message-padding-tail-length.case.json",
+      "file": "fixtures/message-padding-tail-length.case.json",
       "domain": "message-padding",
       "sourceModule": "WACryptoPkcs7",
       "sourceFile": "modules/WACryptoPkcs7.js",
-      "revisionsObserved": [
-        "1051710191",
-        "1051908825"
-      ],
+      "revisionsObserved": ["1051710191", "1051908825"],
       "sourceLines": "17-21",
       "expectedComparison": "unchanged",
       "coverage": "Uniform padding tails, full-block removal, empty input and declared-length overrun guards.",
@@ -678,11 +639,7 @@
             "performanceNow",
             "removeFromArray"
           ],
-          "requiredModules": [
-            "WACryptoPkcs7",
-            "err",
-            "fb-error"
-          ],
+          "requiredModules": ["WACryptoPkcs7", "err", "fb-error"],
           "gateReads": [],
           "stubDigests": [
             {
@@ -726,9 +683,7 @@
               "pass": true,
               "actual": {
                 "$type": "Uint8Array",
-                "value": [
-                  65
-                ]
+                "value": [65]
               }
             },
             {
@@ -736,10 +691,7 @@
               "pass": true,
               "actual": {
                 "$type": "Uint8Array",
-                "value": [
-                  65,
-                  66
-                ]
+                "value": [65, 66]
               }
             },
             {
@@ -763,9 +715,7 @@
               "pass": true,
               "actual": {
                 "$type": "Uint8Array",
-                "value": [
-                  65
-                ]
+                "value": [65]
               }
             },
             {
@@ -816,11 +766,7 @@
             "performanceNow",
             "removeFromArray"
           ],
-          "requiredModules": [
-            "WACryptoPkcs7",
-            "err",
-            "fb-error"
-          ],
+          "requiredModules": ["WACryptoPkcs7", "err", "fb-error"],
           "gateReads": [],
           "stubDigests": [
             {
@@ -864,9 +810,7 @@
               "pass": true,
               "actual": {
                 "$type": "Uint8Array",
-                "value": [
-                  65
-                ]
+                "value": [65]
               }
             },
             {
@@ -874,10 +818,7 @@
               "pass": true,
               "actual": {
                 "$type": "Uint8Array",
-                "value": [
-                  65,
-                  66
-                ]
+                "value": [65, 66]
               }
             },
             {
@@ -901,9 +842,7 @@
               "pass": true,
               "actual": {
                 "$type": "Uint8Array",
-                "value": [
-                  65
-                ]
+                "value": [65]
               }
             },
             {
@@ -950,14 +889,11 @@
     {
       "id": "protocol-media-type-cast",
       "version": 1,
-      "file": "tests/protocol-media-type-cast.case.json",
+      "file": "fixtures/protocol-media-type-cast.case.json",
       "domain": "message-format-classification",
       "sourceModule": "WAProtocolMediaType",
       "sourceFile": "modules/WAProtocolMediaType.js",
-      "revisionsObserved": [
-        "1051710191",
-        "1051908825"
-      ],
+      "revisionsObserved": ["1051710191", "1051908825"],
       "sourceLines": "3-14",
       "expectedComparison": "unchanged",
       "coverage": "Known media literals, xma-image to document alias and rejection of non-media/unknown/null/undefined values.",
@@ -976,12 +912,8 @@
         {
           "revision": "1051710191",
           "status": "pass",
-          "closure": [
-            "WAProtocolMediaType"
-          ],
-          "requiredModules": [
-            "WAProtocolMediaType"
-          ],
+          "closure": ["WAProtocolMediaType"],
+          "requiredModules": ["WAProtocolMediaType"],
           "gateReads": [],
           "stubDigests": [],
           "sourceArchiveSha256": "db9a02a689875d2cd56d7a4a2fd44851d0d6422ccf07a845ec1eee9bc7780949",
@@ -1077,12 +1009,8 @@
         {
           "revision": "1051908825",
           "status": "pass",
-          "closure": [
-            "WAProtocolMediaType"
-          ],
-          "requiredModules": [
-            "WAProtocolMediaType"
-          ],
+          "closure": ["WAProtocolMediaType"],
+          "requiredModules": ["WAProtocolMediaType"],
           "gateReads": [],
           "stubDigests": [],
           "sourceArchiveSha256": "bad1851340d0384d925ba6d334c9e68bc09accdd6a806136652e6cefecc80fdb",
@@ -1183,14 +1111,11 @@
     {
       "id": "aea-account-state-classification",
       "version": 1,
-      "file": "tests/aea-account-state-classification.case.json",
+      "file": "fixtures/aea-account-state-classification.case.json",
       "domain": "account-state-classification",
       "sourceModule": "WAWebAeaAccountState",
       "sourceFile": "modules/WAWebAeaAccountState.js",
-      "revisionsObserved": [
-        "1051710191",
-        "1051908825"
-      ],
+      "revisionsObserved": ["1051710191", "1051908825"],
       "sourceLines": "6-14",
       "expectedComparison": "unchanged",
       "coverage": "The exported predicate uses the actual archived enum to classify supplied state strings.",
@@ -1219,10 +1144,7 @@
             "WAWebProtobufsAdv.pb",
             "WAWebProtobufsAea.pb"
           ],
-          "requiredModules": [
-            "$InternalEnum",
-            "WAWebAeaAccountState"
-          ],
+          "requiredModules": ["$InternalEnum", "WAWebAeaAccountState"],
           "gateReads": [],
           "stubDigests": [
             {
@@ -1314,10 +1236,7 @@
             "WAWebProtobufsAdv.pb",
             "WAWebProtobufsAea.pb"
           ],
-          "requiredModules": [
-            "$InternalEnum",
-            "WAWebAeaAccountState"
-          ],
+          "requiredModules": ["$InternalEnum", "WAWebAeaAccountState"],
           "gateReads": [],
           "stubDigests": [
             {
@@ -1408,14 +1327,11 @@
     {
       "id": "appstate-star-index-shape",
       "version": 1,
-      "file": "tests/appstate-star-index-shape.case.json",
+      "file": "fixtures/appstate-star-index-shape.case.json",
       "domain": "app-state-index-guards",
       "sourceModule": "WAWebSyncdIndexUtils",
       "sourceFile": "modules/WAWebSyncdIndexUtils.js",
-      "revisionsObserved": [
-        "1051710191",
-        "1051908825"
-      ],
+      "revisionsObserved": ["1051710191", "1051908825"],
       "sourceLines": "37-42",
       "expectedComparison": "unchanged",
       "coverage": "JSON parsing and the minimum five-slot guard before JID or message-key construction.",
@@ -1457,11 +1373,7 @@
             "performanceNow",
             "removeFromArray"
           ],
-          "requiredModules": [
-            "WAWebSyncdIndexUtils",
-            "err",
-            "fb-error"
-          ],
+          "requiredModules": ["WAWebSyncdIndexUtils", "err", "fb-error"],
           "gateReads": [],
           "stubDigests": [
             {
@@ -1626,11 +1538,7 @@
             "performanceNow",
             "removeFromArray"
           ],
-          "requiredModules": [
-            "WAWebSyncdIndexUtils",
-            "err",
-            "fb-error"
-          ],
+          "requiredModules": ["WAWebSyncdIndexUtils", "err", "fb-error"],
           "gateReads": [],
           "stubDigests": [
             {

@@ -1,8 +1,8 @@
 # Test repository
 
-- This public repository stores WhatsApp behavior tests and their metadata.
-- Use Node 24. Run `npm test` before submitting changes.
-- Keep case IDs stable and increase a case's version when assertions change.
-- Add source revision, module, context, and coverage information for each test.
-- Use synthetic fixtures. Never commit credentials, account data, captured sessions, or vendor bundles.
-- Follow the JSON schema and keep descriptions brief. A pass covers only the asserted behavior.
+- Write TypeScript `node:test` suites; JSON is reusable fixture data and metadata.
+- Use Bun 1.4.4. Run `bun check`, `bun lint`, `bun test` and `bun run validate`.
+- Keep fixture IDs stable; increase versions when assertions change.
+- Record exact source, gate context, runtime and coverage limits.
+- Use synthetic data. Never commit credentials, accounts, sessions or vendor bundles.
+- Mocks test the stated unit contract; they do not prove WhatsApp or library behavior.

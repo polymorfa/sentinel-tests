@@ -1,0 +1,10 @@
+[test]
+root = "./tests"
+timeout = 30000
+pathIgnorePatterns = ["browser/**", "tests/browser/**"]
+
+[fmt]
+printWidth = 100
+singleQuote = true
+semi = true
+ignorePatterns = ["fixtures/**"]

@@ -1,9 +1,11 @@
 # Contributing tests
 
-Add a synthetic case under `tests/` and its information under `metadata/cases.json`. Follow `schemas/case.schema.json`, give probes stable IDs, and record the source module, revisions, exact line references, context, and limits of the assertion.
+Write TypeScript suites under `tests/` using `node:test`. Use normal assertions, setup/teardown and mocks where they help test the actual behavior. Library-specific suites can import the library directly or use an explicitly selected adapter. Do not replace the behavior being tested with a mock and then claim implementation coverage.
 
-Keep old case versions when behavior changes. Increase the version rather than silently changing its expected outputs. An intentional client change and a regression are different conclusions; describe the observed difference before judging it.
+Reusable synthetic data belongs under `fixtures/`; source references and historical observations belong under `metadata/`. Existing case IDs and versions are immutable. Moving a fixture does not change its assertions or justify increasing its version. Changed expectations require a new version and an explanation.
 
-Run `npm test`. A runtime report must identify the exact test repository commit, case hash, source/dependency hashes, gate context, runtime image/version, and isolation mode. Keep assertion mismatches, load errors, timeouts, unsupported capabilities and real-service acceptance separate.
+Record exact source revisions, dependency and variant hashes, gate contexts, runtime and isolation when reporting behavior. Gate matrices need AST-derived dependency inventories and every assignment of their established finite domains. A skipped or unsupported operation is an explicit coverage gap.
 
-Keep issues and pull requests brief. Explain the changed behavior and include a small useful example or evidence link. Follow the target library's style when adapting a test. Do not commit vendor bundles, accounts, credentials, private findings, or session captures.
+Run `bun check`, `bun lint`, `bun test` and `bun run validate` with Bun 1.4.4. Reference suites execute only after an explicit `SENTINEL_SUBJECT_MODULE` selection. Keep source-only evidence, assertion mismatch, runtime failure and actual service acceptance separate.
+
+Keep issues and pull requests brief. Explain the changed behavior and link the evidence. Follow each library's style. Never commit vendor bundles, credentials, accounts, session captures, private findings or internal operator policy.

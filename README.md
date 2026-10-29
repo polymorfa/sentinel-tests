@@ -1,14 +1,28 @@
 # Sentinel test repository
 
-Versioned tests and information about WhatsApp Web behavior. Polymorfa Sentinel and library adapters can run the same fixtures to compare observations across client revisions and implementations.
+TypeScript tests for WhatsApp behavior and the libraries that implement it. They use the `node:test` API under Bun, ordinary assertions, setup/teardown and mocks. Reusable inputs and historical observation metadata live in JSON files under `fixtures/` and `metadata/`.
 
-This repository stores declarative test cases, their JSON schema, source references, and coverage notes. Sentinel's monitoring service and execution runtime live separately. WhatsApp source bundles, credentials, accounts, and captures are not stored here.
+Run the artifact and subject-contract unit tests with Bun 1.4.4:
 
-Run `npm test` with Node 24 to validate the test repository. Validation checks the corpus; it does not execute WhatsApp or certify a library's compliance.
+```sh
+bun install --frozen-lockfile
+bun check
+bun lint
+bun test
+bun run validate
+```
 
-Each case records a fixed clock, timezone, random seed, gate fixtures, explicit dependency stubs, probes, and expected observations. Consumers must record the exact case hash, source revision, dependency variants, runtime, and outcome. Missing dependencies and unsupported browser/WASM capabilities must not be reported as behavior changes.
+The reference, PQ and UTF-8 property suites visibly skip without a selected implementation. To execute them, explicitly provide a reviewed adapter module:
 
-The initial cases cover linking-code encoding and a date-range argument change. A source change can preserve every existing assertion. New paths still need new probes, and server behavior requires separate evidence.
+```sh
+SENTINEL_SUBJECT_MODULE=/absolute/path/to/subject.ts bun test
+```
+
+The adapter exports `createSubject()` and returns the typed [Subject interface](support/types.ts). See [the test guide](docs/case-format.md). The selected module can call an archived client runtime or real library APIs. This repository supplies no default account, credentials, host path or executable vendor code.
+
+Tests are TypeScript programs. They can add native library tests, unit mocks, integration setup and assertions without encoding that logic in a data language. The shared Subject contract is one optional way to reuse inputs across implementations. JSON fixtures describe reusable values and historical expectations; they are not the test framework.
+
+The eight existing fixtures retain their IDs, versions and exact bytes after moving out of `tests/`. Historical observations and remaining gaps are recorded in [coverage.json](coverage.json). A passing assertion covers its exact inputs, source, configuration and runtime. It does not establish whole-client or library compliance, server acceptance or cryptographic security.
 
 Discovered using a monitor developed by @purpshell at polymorfa.com
 
