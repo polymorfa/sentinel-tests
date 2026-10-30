@@ -1,13 +1,13 @@
 {
   "schemaVersion": 1,
   "id": "protobuf-core",
-  "version": 1,
+  "version": 2,
   "title": "Protobuf descriptor, schema compilation and real binary codec",
   "file": "tests/protobuf-core.test.ts",
   "helper": "support/protobuf-cases.ts",
   "capability": "wa-internal:protobuf-core",
   "roots": ["WAProtoUtils", "WAProtoCompile", "encodeProtobuf", "decodeProtobuf"],
-  "oracle": "Independent fixed protobuf wire vectors: standard field keys, unsigned and zigzag varints, little-endian fixed integers and IEEE754 1.5, UTF-8 and length-delimited nested/repeated/packed fields. Descriptor expectation tables cover all 18 declared types and eight combinations of three flags. Schema/error expectations come from reviewed contracts, never from execution output.",
+  "oracle": "Independent fixed protobuf wire vectors: standard field keys, unsigned and zigzag varints, little-endian fixed integers and IEEE754 1.5, UTF-8 and length-delimited nested/repeated/packed fields. Descriptor expectation tables cover all 18 declared types and eight combinations of three flags. Schema/error expectations come from reviewed contracts, never from execution output. Generated acyclic singular/repeated message chains use independently constructed length-delimited wire bytes at depths0,1,2,8,31,63,98,99,100,101,120; source-defined guard rejects depth>=100 only while knob2451 is enabled, with same-module changes and restoration.",
   "trials": {
     "utilityTypeFlagAssignments": 144,
     "utilityExports": 4,
@@ -16,10 +16,14 @@
     "decoderKnobAssignments": [false, true],
     "decoderKnobKey": "2451",
     "configurationExhaustive": false,
-    "cases": 40,
-    "probesPerRevision": 681,
+    "cases": 48,
+    "probesPerRevision": 737,
     "literalCodecVectors": 24,
-    "decoderTransitionDirections": 2
+    "decoderTransitionDirections": 2,
+    "decoderRecursionDepths": [0, 1, 2, 8, 31, 63, 98, 99, 100, 101, 120],
+    "decoderRecursionShapes": ["singular", "repeated"],
+    "decoderRecursionProbes": 56,
+    "decoderGuardRollbackSequences": 4
   },
   "observations": [
     {
@@ -553,10 +557,10 @@
     "Conservative AST dynamic closure and computed-key diagnostics prevent exhaustive configuration claim",
     "WALogger diagnostics use real archived implementation, but delivery and initialization are outside this test",
     "Generated WhatsApp message catalogs and application caller behavior",
-    "Map decoder entries, unknown-field preservation, tagged unions, recursion-limit transitions and exhaustive malformed wire space",
+    "Map decoder entries, unknown-field preservation, tagged unions, exhaustive malformed wire space",
     "Alternate module variants, container execution, production scheduling, accounts and network",
     "Language-library parity",
     "Original Babel bootstrap unavailable; explicit extends and taggedTemplateLiteralLoose worker compatibility fixtures, recorded in context",
-    "100-level decoder recursion-limit edge exceeds existing JSON fixture nesting bound; local knob rereads only"
+    "Recursion chains are bounded acyclic synthetic singular/repeated shapes through depth120; other schema graphs, unbounded depths and asynchronous configuration changes are not covered"
   ]
 }

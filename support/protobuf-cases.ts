@@ -374,3 +374,87 @@ export function protobufDecodeCases(): BehaviorCase[] {
   }
   return cases;
 }
+
+/** Independent length-delimited field builder; no archived encoder supplies this oracle. */
+function unsignedVarint(value: number): number[] {
+  const bytes: number[] = [];
+  do {
+    const next = value % 128;
+    value = Math.floor(value / 128);
+    bytes.push(next | (value ? 128 : 0));
+  } while (value);
+  return bytes;
+}
+
+function nestedMessage(depth: number, repeated: boolean) {
+  let descriptor = schema({ value: [1, 1] });
+  let wire = [8, 7];
+  let decoded: JsonValue = { value: 7, $$unknownFieldCount: 0 };
+  for (let level = 0; level < depth; level++) {
+    descriptor = schema({ value: [1, repeated ? 78 : 14, descriptor] });
+    wire = [10, ...unsignedVarint(wire.length), ...wire];
+    decoded = { value: repeated ? [decoded] : decoded, $$unknownFieldCount: 0 };
+  }
+  return { descriptor, wire, decoded };
+}
+
+/** Both selected revisions reject entry at depth100 only while knob2451 is enabled. */
+export function protobufRecursionCases(): BehaviorCase[] {
+  const cases: BehaviorCase[] = [];
+  const depths = [0, 1, 2, 8, 31, 63, 98, 99, 100, 101, 120];
+  for (const repeated of [false, true]) {
+    const mode = repeated ? 'repeated' : 'singular';
+    const probe = (id: string, depth: number, enabled: boolean): Probe => {
+      const { descriptor, wire, decoded } = nestedMessage(depth, repeated);
+      return {
+        id,
+        args: [descriptor, byteView(wire)],
+        ...(enabled && depth >= 100
+          ? {
+              throws: {
+                name: 'Error',
+                message: 'FormatError: protobuf nesting depth exceeded limit of 100',
+              },
+            }
+          : { expected: decoded }),
+      };
+    };
+    for (const enabled of [false, true]) {
+      cases.push({
+        ...makeCase(
+          `protobuf-decode-recursion-${mode}-${enabled}-v1`,
+          'decodeProtobuf',
+          'decodeProtobuf',
+          depths.map((depth) => probe(`depth-${depth}`, depth, enabled)),
+        ),
+        ...codecContext,
+        context: {
+          babelHelpers: [...babelHelpers],
+          gates: { knobs: { '2451': enabled } },
+        },
+      });
+      cases.push({
+        ...makeCase(
+          `protobuf-decode-recursion-transition-${mode}-${enabled}-v1`,
+          'decodeProtobuf',
+          'decodeProtobuf',
+          [
+            probe('initial', 100, enabled),
+            probe('changed', 100, !enabled),
+            probe('restored', 100, enabled),
+          ],
+        ),
+        ...codecContext,
+        context: {
+          babelHelpers: [...babelHelpers],
+          gates: { knobs: { '2451': enabled } },
+          gateUpdates: [
+            { beforeProbe: 'changed', gates: { knobs: { '2451': !enabled } } },
+            { beforeProbe: 'restored', gates: { knobs: { '2451': enabled } } },
+          ],
+        },
+      });
+    }
+  }
+  return cases;
+}

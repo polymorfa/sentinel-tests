@@ -6,6 +6,7 @@ import {
   protobufCompileCases,
   protobufEncodeCases,
   protobufDecodeCases,
+  protobufRecursionCases,
 } from '../support/protobuf-cases.ts';
 import type { BehaviorCase, CaseResult, JsonValue } from '../support/types.ts';
 
@@ -62,6 +63,8 @@ describe('Actual protobuf core', { skip: reason }, () => {
     verify(protobufCompileCases()));
   test('real encoder produces independently fixed protobuf bytes', () =>
     verify(protobufEncodeCases()));
+  test('real recursion boundary and same-module guard rollback for singular and repeated messages', () =>
+    verify(protobufRecursionCases()));
   test('real decoder accepts independent wire vectors and rejects malformed input under both knob assignments', () =>
     verify(protobufDecodeCases()));
 });
