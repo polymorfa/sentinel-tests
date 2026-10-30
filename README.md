@@ -27,6 +27,8 @@ Executable suites cover generated binary and hexadecimal inputs, byte packing/cu
 
 The [original enumeration suite](docs/fb-enumerate.md) additionally requires an explicitly configured private source cache. Its cases select a known producer hash; the reviewed adapter admits and executes the original fragment before its actual consumers. Public metadata stores source identities and coverage limits, never vendor source bytes. Missing cache configuration visibly skips that capability.
 
+The [group storage-input suite](docs/group-abprops-storage-input.md) tests the original row transformer and cache staging with synthetic storage-shaped inputs. It does not query storage or establish persistence or transaction behavior.
+
 The eight existing fixtures retain their IDs, versions and exact bytes after moving out of `tests/`. Historical observations and remaining gaps are recorded in [coverage.json](coverage.json). A passing assertion covers its exact inputs, source, configuration and runtime. It does not establish whole-client or library compliance, server acceptance or cryptographic security.
 
 Discovered using a monitor developed by @purpshell at polymorfa.com
