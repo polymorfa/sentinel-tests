@@ -1,0 +1,131 @@
+{
+  "schemaVersion": 1,
+  "id": "fifo-cache-state",
+  "version": 1,
+  "title": "Original LRUCache insertion-occurrence FIFO state",
+  "file": "tests/fifo-cache-state.test.ts",
+  "helper": "support/fifo-cache-state-cases.ts",
+  "capability": "wa-internal:fifo-cache-state",
+  "roots": ["LRUCache"],
+  "oracle": "Source-reviewed literal insertion-order, duplicate-key, missing/nullish and identity expectations; independent external Map plus insertion-occurrence FIFO model for bounded generated set/get histories. Reads never promote keys. Actual returned data objects provide retained Map keys and strict identity, with no private queue/property access or input retention.",
+  "trials": {
+    "cases": 19,
+    "portablePlanTests": 1,
+    "probesPerRevision": 408,
+    "maxProbesPerCase": 80,
+    "maxRetainedObjectsPerCase": 2,
+    "maxSerializedCaseBytes": 6204,
+    "plansSha256": "aece865e4778d7d0261b4327ef9179c12bf5ec4df63b60dde4e0b636abd0b833",
+    "selectedKnownGateAssignmentCardinality": 1,
+    "configurationExhaustive": true,
+    "inputDomainExhaustive": false,
+    "generatedHistories": 3,
+    "operationsPerHistory": 20,
+    "execution": "Executed partial insertion-occurrence FIFO behavior against actual archived sources at 1051710191 and 1051908825 through the local core Subject: 19 cases, 408 probes per revision, unchanged comparisons; 20 tests passed. A private observer retained all 38 full results before assertions. Explicit diagnostic process mode reports isolated:false; no conventional LRU, TTL, security, container or production scheduling acceptance.",
+    "capacityScope": "Positive1/2/3/5 plus selected omitted/undefined/zero/negative/NaN/fractional/numeric-string characterization. No original finite capacity domain.",
+    "stateScope": "set/get only on genuine source constructors. Duplicate insertion queues another key occurrence and can delete a newly overwritten key; no conventional read-recency LRU contract.",
+    "identityScope": "Real get-returned key/value records are retained. Structurally equal fresh object keys miss; real reference keys and values survive source-defined eviction histories. No input-argument retention, branding or backing alias claim."
+  },
+  "observations": [
+    {
+      "revision": "1051710191",
+      "modules": [
+        {
+          "module": "LRUCache",
+          "variant": "primary",
+          "printedSourceSha256": "264bd89dae1ef52ad094d7754c5c93e7cb4048b4cddd5f305906eb14275be9d7",
+          "dependencies": ["SmallQueue"],
+          "citations": ["modules/LRUCache.js:1"]
+        },
+        {
+          "module": "SmallQueue",
+          "variant": "primary",
+          "printedSourceSha256": "31d6d95f73605437bd27cf1f9a1f3ed934fca66f3ef99e8d3b22111c15cda178",
+          "dependencies": [],
+          "citations": ["modules/SmallQueue.js:1"]
+        }
+      ],
+      "analyzer": {
+        "version": 4,
+        "sourceSha256": "73c5e31e59ff601a01114ab03a0dc183d81389987e3af5832c53d9ac8bd8c06b"
+      },
+      "inventoryDigest": "f04a41ff58443e010e4834741a9c432f37f5b75bf86188c454692df524e46704",
+      "gates": [],
+      "unresolved": [],
+      "staticCoverage": {
+        "complete": true,
+        "scope": "module-closure-superset",
+        "semanticProof": false,
+        "resolverCoverage": false,
+        "modules": 2,
+        "sourceBytes": 1256,
+        "workBudget": {
+          "limit": 2000000,
+          "consumed": 4739,
+          "exhausted": false
+        },
+        "limitations": [
+          "Only supported gate APIs and static key expressions are inventoried.",
+          "Logical work units bound selected AST traversal and resolution, not parser internals or elapsed time; parsing remains source-byte bounded.",
+          "Declared fixture-provider boundaries exclude their original resolver implementations and dependencies.",
+          "All functions in each dependency module are scanned; exact export and caller reachability is not proven.",
+          "Runtime-discovered gates and externally selected code require separate observations."
+        ]
+      }
+    },
+    {
+      "revision": "1051908825",
+      "modules": [
+        {
+          "module": "LRUCache",
+          "variant": "primary",
+          "printedSourceSha256": "264bd89dae1ef52ad094d7754c5c93e7cb4048b4cddd5f305906eb14275be9d7",
+          "dependencies": ["SmallQueue"],
+          "citations": ["modules/LRUCache.js:1"]
+        },
+        {
+          "module": "SmallQueue",
+          "variant": "primary",
+          "printedSourceSha256": "31d6d95f73605437bd27cf1f9a1f3ed934fca66f3ef99e8d3b22111c15cda178",
+          "dependencies": [],
+          "citations": ["modules/SmallQueue.js:1"]
+        }
+      ],
+      "analyzer": {
+        "version": 4,
+        "sourceSha256": "73c5e31e59ff601a01114ab03a0dc183d81389987e3af5832c53d9ac8bd8c06b"
+      },
+      "inventoryDigest": "f04a41ff58443e010e4834741a9c432f37f5b75bf86188c454692df524e46704",
+      "gates": [],
+      "unresolved": [],
+      "staticCoverage": {
+        "complete": true,
+        "scope": "module-closure-superset",
+        "semanticProof": false,
+        "resolverCoverage": false,
+        "modules": 2,
+        "sourceBytes": 1256,
+        "workBudget": {
+          "limit": 2000000,
+          "consumed": 4739,
+          "exhausted": false
+        },
+        "limitations": [
+          "Only supported gate APIs and static key expressions are inventoried.",
+          "Logical work units bound selected AST traversal and resolution, not parser internals or elapsed time; parsing remains source-byte bounded.",
+          "Declared fixture-provider boundaries exclude their original resolver implementations and dependencies.",
+          "All functions in each dependency module are scanned; exact export and caller reachability is not proven.",
+          "Runtime-discovered gates and externally selected code require separate observations."
+        ]
+      }
+    }
+  ],
+  "exclusions": [
+    "Despite its module name LRUCache, this source is an insertion-occurrence FIFO cache; no read-recency LRU contract, security property or regression claim.",
+    "Only original constructor and public set/get methods. No private Map/queue/field selectors, helpers, callbacks, fake accessor or new runtime authority.",
+    "Missing, stored null and stored undefined all return null; get alone does not distinguish membership for these values.",
+    "Zero/negative capacity behavior has a nullish dequeued-key guard; no universal occupancy bound is claimed. Coercion, key/value and history domains remain unbounded.",
+    "Each case creates a fresh actual instance; no clear/reset/TTL, persisted restart, delivery, provider, original caller, browser/native/network/account or named-library acceptance.",
+    "Locally observed diagnostic process execution is not container isolation or production TypeScript scheduling proof."
+  ]
+}

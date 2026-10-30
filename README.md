@@ -66,3 +66,7 @@ The [original gkx-provider suite](docs/gkx-provider-state.md) executes real firs
 The [original qex-provider suite](docs/qex-provider-state.md) observes first-read exposure ordering through the real in-memory queue, flush lifetimes and failed-update recovery. The [SimpleHook suite](docs/simple-hook-state.md) covers malformed-data registration, membership, removal and recovery through actual public methods. Queue transport, valid callbacks and once wrappers remain unaccepted.
 
 Selected GKX Boolean fixtures define modeled input products. Original GKX assignment domains remain unknown; recognized Boolean fixture types do not establish closed server domains.
+
+The [Comet cache suite](docs/comet-lru-state.md) characterizes positive-capacity `new create(...)`, clock-driven TTL boundaries, lazy expiry and read recency. The [insertion-occurrence cache suite](docs/fifo-cache-state.md) characterizes the original `LRUCache` constructor's FIFO eviction and duplicate-key lifetimes. Capacity, TTL, key and history domains remain unbounded.
+
+Boolean knob fixture hints also do not close original assignment domains. Reviewed explicit domains are required for planning; original typed-knob failures and raw unknown domains remain separate observations.
