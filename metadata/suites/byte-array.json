@@ -1,0 +1,124 @@
+{
+  "schemaVersion": 1,
+  "id": "byte-array",
+  "version": 1,
+  "title": "Original byte-array conversions and comparison",
+  "file": "tests/byte-array.test.ts",
+  "helper": "support/byte-array-cases.ts",
+  "capability": "wa-internal:byte-array",
+  "roots": ["WAByteArray"],
+  "oracle": "Independent Buffer/BigInt unsigned32 big-endian authoring oracle, selected literal coercion/error tables, real retained Uint8Array-to-ArrayBuffer identity histories, sentinel offset views and independent single-bit/length inequality expectations. No source shift-loop oracle, synthetic factory or byte-method mock.",
+  "trials": {
+    "cases": 34,
+    "portablePlanTests": 1,
+    "probesPerRevision": 1331,
+    "maxProbesPerCase": 80,
+    "maxRetainedObjectsPerCase": 3,
+    "maxSerializedCaseBytes": 48291,
+    "integerWidths": [0, 1, 2, 3, 4, 5, 6, 7, 8, 16, 64, 257],
+    "wordValuesPerWidth": 24,
+    "comparisonBitMutationLengths": [0, 1, 2, 3, 16, 31, 64],
+    "selectedKnownGateAssignmentCardinality": 1,
+    "configurationExhaustive": true,
+    "inputDomainExhaustive": false,
+    "execution": "Executed partial leaf behavior against actual archived sources at 1051710191 and 1051908825 through the local core Subject: 34 cases, 1331 probes per revision, unchanged comparisons; 35 tests passed. Explicit diagnostic process mode reports isolated:false; no container or production scheduling proof.",
+    "knownGateScope": "One complete import-free module at both pins; no recognized gates, unknown descriptors, missing modules or alternate variants. Empty configuration only for this narrow root.",
+    "identityScope": "Retained actual integer byte arrays pass through original buffer conversion twice; distinct buffers compare byte equal. No input/backing mutation-isolation or arbitrary property observation.",
+    "domains": "Widths, numeric/coercive inputs, byte lengths and histories remain unbounded; bounded generated and selected literal characterization only."
+  },
+  "observations": [
+    {
+      "revision": "1051710191",
+      "modules": [
+        {
+          "module": "WAByteArray",
+          "variant": "primary",
+          "printedSourceSha256": "03571dde504f7b566239ea558ac717468e94089fc735f5a2dbb8bd23a327c5cc",
+          "dependencies": [],
+          "citations": [
+            "modules/WAByteArray.js:3",
+            "modules/WAByteArray.js:7",
+            "modules/WAByteArray.js:10"
+          ]
+        }
+      ],
+      "analyzer": {
+        "version": 4,
+        "sourceSha256": "73c5e31e59ff601a01114ab03a0dc183d81389987e3af5832c53d9ac8bd8c06b"
+      },
+      "inventoryDigest": "e1e4f7c796e9c34c4979f2b3800c5ff2c291391d45792c75da1034252ca29d7a",
+      "gates": [],
+      "unresolved": [],
+      "staticCoverage": {
+        "complete": true,
+        "scope": "module-closure-superset",
+        "semanticProof": false,
+        "resolverCoverage": false,
+        "modules": 1,
+        "sourceBytes": 591,
+        "workBudget": {
+          "limit": 2000000,
+          "consumed": 2436,
+          "exhausted": false
+        },
+        "limitations": [
+          "Only supported gate APIs and static key expressions are inventoried.",
+          "Logical work units bound selected AST traversal and resolution, not parser internals or elapsed time; parsing remains source-byte bounded.",
+          "Declared fixture-provider boundaries exclude their original resolver implementations and dependencies.",
+          "All functions in each dependency module are scanned; exact export and caller reachability is not proven.",
+          "Runtime-discovered gates and externally selected code require separate observations."
+        ]
+      }
+    },
+    {
+      "revision": "1051908825",
+      "modules": [
+        {
+          "module": "WAByteArray",
+          "variant": "primary",
+          "printedSourceSha256": "03571dde504f7b566239ea558ac717468e94089fc735f5a2dbb8bd23a327c5cc",
+          "dependencies": [],
+          "citations": [
+            "modules/WAByteArray.js:3",
+            "modules/WAByteArray.js:7",
+            "modules/WAByteArray.js:10"
+          ]
+        }
+      ],
+      "analyzer": {
+        "version": 4,
+        "sourceSha256": "73c5e31e59ff601a01114ab03a0dc183d81389987e3af5832c53d9ac8bd8c06b"
+      },
+      "inventoryDigest": "e1e4f7c796e9c34c4979f2b3800c5ff2c291391d45792c75da1034252ca29d7a",
+      "gates": [],
+      "unresolved": [],
+      "staticCoverage": {
+        "complete": true,
+        "scope": "module-closure-superset",
+        "semanticProof": false,
+        "resolverCoverage": false,
+        "modules": 1,
+        "sourceBytes": 591,
+        "workBudget": {
+          "limit": 2000000,
+          "consumed": 2436,
+          "exhausted": false
+        },
+        "limitations": [
+          "Only supported gate APIs and static key expressions are inventoried.",
+          "Logical work units bound selected AST traversal and resolution, not parser internals or elapsed time; parsing remains source-byte bounded.",
+          "Declared fixture-provider boundaries exclude their original resolver implementations and dependencies.",
+          "All functions in each dependency module are scanned; exact export and caller reachability is not proven.",
+          "Runtime-discovered gates and externally selected code require separate observations."
+        ]
+      }
+    }
+  ],
+  "exclusions": [
+    "No WAByteBuffer/Latin1 or wider codec, crypto, protocol, appstate or named-library acceptance.",
+    "No backing-store mutation-isolation claim or externally mutated retained arrays.",
+    "No bootstrap/provider fixture, callback, fake factory, pending operation or internal/prototype/meta method.",
+    "No container, production service/scheduling, browser/native/network/storage/provider proof.",
+    "No exhaustive unbounded input-domain claim or broad input validation contract."
+  ]
+}

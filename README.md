@@ -56,3 +56,5 @@ The separate [Baileys JID leaf suite](docs/baileys-jid.md) exercises one exact i
 The separate [whatsapp-web.js Reaction/Base suite](docs/wwebjs-reaction.md) exercises original constructors, patch/clone lifetimes and ID normalization at one exact commit. Both original CommonJS bodies remain unchanged; browser/client services and full-library compliance are outside this local component scope.
 
 The [Semaphore reservation suite](docs/semaphore-state.md) executes original acquisition counters, one immediate real release and held-object distinction across bounded capacities. Separate pending-only cases inspect unresolved waits; later release, FIFO, repeated release and fairness remain unsupported lifecycle observations.
+
+The [byte-buffer suite](docs/byte-buffer.md) covers original Latin-1 conversions, chunk boundaries, offset views, error recovery and returned-buffer identities. The complementary [byte-array suite](docs/byte-array.md) covers integer bytes, sliced views and byte equality with independent generated oracles. Private cursor APIs and unobserved ownership remain outside scope.
