@@ -62,3 +62,7 @@ The [byte-buffer suite](docs/byte-buffer.md) covers original Latin-1 conversions
 The [original knob-provider suite](docs/knob-provider-state.md) executes real raw reads, first-write cache state, source-returned metrics mutation, failed insertion and retry. No knob fixture replaces the provider. Staged keys and values do not establish backend assignments or close unknown consumer domains.
 
 The [original gkx-provider suite](docs/gkx-provider-state.md) executes real first-write and logged-read state, no-op reset-named methods, source-returned metrics and failed updates. Raw results remain uncoerced; full environment/bootstrap diagnostics and unknown assignment domains remain explicit.
+
+The [original qex-provider suite](docs/qex-provider-state.md) observes first-read exposure ordering through the real in-memory queue, flush lifetimes and failed-update recovery. The [SimpleHook suite](docs/simple-hook-state.md) covers malformed-data registration, membership, removal and recovery through actual public methods. Queue transport, valid callbacks and once wrappers remain unaccepted.
+
+Selected GKX Boolean fixtures define modeled input products. Original GKX assignment domains remain unknown; recognized Boolean fixture types do not establish closed server domains.
