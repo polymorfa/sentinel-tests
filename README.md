@@ -52,3 +52,5 @@ The [history progress getter suite](docs/history-progress-getters.md) exercises 
 The [generic state-manager suite](docs/generic-state-manager.md) executes original state replacement and internal subscriptions through bounded pending controls. It covers waiter ordering, strict matches, skipped values, generated updates and returned-object identity; the original Promise-provider binding remains unresolved behind an explicit fallback fixture.
 
 The separate [Baileys JID leaf suite](docs/baileys-jid.md) exercises one exact import-free implementation component through a reviewed local Subject. Its named-library metadata is outside the WA corpus importer; local source observations do not establish registered service execution, full-package behavior or protocol compliance.
+
+The separate [whatsapp-web.js Reaction/Base suite](docs/wwebjs-reaction.md) exercises original constructors, patch/clone lifetimes and ID normalization at one exact commit. Both original CommonJS bodies remain unchanged; browser/client services and full-library compliance are outside this local component scope.

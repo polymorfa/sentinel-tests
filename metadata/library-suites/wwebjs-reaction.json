@@ -1,0 +1,235 @@
+{
+  "schemaVersion": 1,
+  "kind": "pinned-library-state-suite",
+  "id": "wwebjs-reaction-state",
+  "version": 1,
+  "title": "Pinned whatsapp-web.js Reaction/Base state and normalization",
+  "file": "tests/wwebjs-reaction.test.ts",
+  "helper": "support/wwebjs-reaction-cases.ts",
+  "capability": "library:whatsapp-web-js:reaction-state",
+  "namespace": "named-library; separate from WA decimal revisions and metadata/suites imports",
+  "repository": "https://github.com/wwebjs/whatsapp-web.js",
+  "commit": "064a3d5a5a3dce1281a6a12740b5a7051339d154",
+  "tree": "7ca5d2eb5b1eb7aaf729821ebfc5ed92ff45d592",
+  "sourceAdmission": {
+    "schemaVersion": 1,
+    "kind": "pinned-library-state-source-admission",
+    "repository": "https://github.com/wwebjs/whatsapp-web.js",
+    "commit": "064a3d5a5a3dce1281a6a12740b5a7051339d154",
+    "tree": "7ca5d2eb5b1eb7aaf729821ebfc5ed92ff45d592",
+    "originals": [
+      {
+        "path": "src/structures/Base.js",
+        "gitBlob": "a22afdf817a527e6dff4182220c8818750206af1",
+        "sha256": "837f981a2131995d61df277baec8f5ee59a798b75a1178de846b255a949e1a7c"
+      },
+      {
+        "path": "src/structures/Reaction.js",
+        "gitBlob": "d763124303691c9e474a3ea1dfd9319e36c8e67f",
+        "sha256": "a8a2922a85b73e2c10dbac649cb5d7773f499b1e0b7334a8f8161f41a171a604"
+      }
+    ],
+    "packaging": {
+      "kind": "source-body-wrapper",
+      "compilerRequired": false,
+      "bodyUnchanged": true
+    },
+    "files": [
+      {
+        "path": "commit.json",
+        "bytes": 7305,
+        "sha256": "1984a30a2fbf64889f8fddab68a5f1bf844d09f5189d7b81e44766fcfbefd09d"
+      },
+      {
+        "path": "tree.json",
+        "bytes": 48431,
+        "sha256": "a6539fb962f4551bf5b6411b051b9e9d07c2704285a8d84a0d6fd3456a755552"
+      },
+      {
+        "path": "source/src/structures/Base.js",
+        "bytes": 920,
+        "sha256": "837f981a2131995d61df277baec8f5ee59a798b75a1178de846b255a949e1a7c"
+      },
+      {
+        "path": "source/src/structures/Reaction.js",
+        "bytes": 1347,
+        "sha256": "a8a2922a85b73e2c10dbac649cb5d7773f499b1e0b7334a8f8161f41a171a604"
+      },
+      {
+        "path": "candidate-Base.js",
+        "bytes": 1011,
+        "sha256": "b2d59b500aa0c5dbecd6f5ea1be29ba0b80e39152d534e1c808bc8169df6a202"
+      },
+      {
+        "path": "candidate-Reaction.js",
+        "bytes": 1504,
+        "sha256": "fd62683c33f34b267d2aae4dea53c3a159f95dd8e5a21c263c121df73f52bc64"
+      }
+    ],
+    "modules": [
+      {
+        "name": "./Base",
+        "revisionId": "wwebjs-064a3d5a5a3dce1281a6a12740b5a7051339d154",
+        "variant": "source-body-wrapper",
+        "sourceSha256": "b2d59b500aa0c5dbecd6f5ea1be29ba0b80e39152d534e1c808bc8169df6a202"
+      },
+      {
+        "name": "library:wwebjs:064a3d5a5a3dce1281a6a12740b5a7051339d154:Reaction",
+        "revisionId": "wwebjs-064a3d5a5a3dce1281a6a12740b5a7051339d154",
+        "variant": "source-body-wrapper",
+        "sourceSha256": "fd62683c33f34b267d2aae4dea53c3a159f95dd8e5a21c263c121df73f52bc64"
+      }
+    ],
+    "registeredAdapter": false,
+    "fullPackage": false
+  },
+  "sourceIdentitySetSha256": "f3a9536ff57951373849cdca43d448dff91762857e244bbf591f4bc8f03a9c51",
+  "sourceUrls": [
+    "https://github.com/wwebjs/whatsapp-web.js/blob/064a3d5a5a3dce1281a6a12740b5a7051339d154/src/structures/Base.js",
+    "https://github.com/wwebjs/whatsapp-web.js/blob/064a3d5a5a3dce1281a6a12740b5a7051339d154/src/structures/Reaction.js"
+  ],
+  "dependencyGraph": {
+    "roots": ["library:wwebjs:064a3d5a5a3dce1281a6a12740b5a7051339d154:Reaction"],
+    "modules": [
+      {
+        "name": "./Base",
+        "variant": "source-body-wrapper",
+        "sourceSha256": "b2d59b500aa0c5dbecd6f5ea1be29ba0b80e39152d534e1c808bc8169df6a202",
+        "dependencies": []
+      },
+      {
+        "name": "library:wwebjs:064a3d5a5a3dce1281a6a12740b5a7051339d154:Reaction",
+        "variant": "source-body-wrapper",
+        "sourceSha256": "fd62683c33f34b267d2aae4dea53c3a159f95dd8e5a21c263c121df73f52bc64",
+        "dependencies": ["./Base"]
+      }
+    ],
+    "edges": [
+      {
+        "from": "library:wwebjs:064a3d5a5a3dce1281a6a12740b5a7051339d154:Reaction",
+        "to": "./Base"
+      }
+    ],
+    "completeSelectedClosure": true
+  },
+  "staticInventories": {
+    "reaction": {
+      "schemaVersion": 1,
+      "analyzer": {
+        "version": 4,
+        "sourceSha256": "73c5e31e59ff601a01114ab03a0dc183d81389987e3af5832c53d9ac8bd8c06b"
+      },
+      "roots": ["library:wwebjs:064a3d5a5a3dce1281a6a12740b5a7051339d154:Reaction"],
+      "boundaries": [],
+      "modules": [
+        {
+          "name": "./Base",
+          "variant": "source-body-wrapper",
+          "sourceSha256": "b2d59b500aa0c5dbecd6f5ea1be29ba0b80e39152d534e1c808bc8169df6a202",
+          "dependencies": []
+        },
+        {
+          "name": "library:wwebjs:064a3d5a5a3dce1281a6a12740b5a7051339d154:Reaction",
+          "variant": "source-body-wrapper",
+          "sourceSha256": "fd62683c33f34b267d2aae4dea53c3a159f95dd8e5a21c263c121df73f52bc64",
+          "dependencies": ["./Base"]
+        }
+      ],
+      "gates": [],
+      "unresolved": [],
+      "coverage": {
+        "complete": true,
+        "scope": "module-closure-superset",
+        "semanticProof": false,
+        "resolverCoverage": false,
+        "modules": 2,
+        "sourceBytes": 2515,
+        "workBudget": {
+          "limit": 2000000,
+          "consumed": 3056,
+          "exhausted": false
+        },
+        "limitations": [
+          "Only supported gate APIs and static key expressions are inventoried.",
+          "Logical work units bound selected AST traversal and resolution, not parser internals or elapsed time; parsing remains source-byte bounded.",
+          "Declared fixture-provider boundaries exclude their original resolver implementations and dependencies.",
+          "All functions in each dependency module are scanned; exact export and caller reachability is not proven.",
+          "Runtime-discovered gates and externally selected code require separate observations."
+        ]
+      },
+      "digest": "fafb62a09db330a2560d5df861dfa605a94166b5c55db6851eda00e219177003"
+    },
+    "qualifiedBase": {
+      "schemaVersion": 1,
+      "analyzer": {
+        "version": 4,
+        "sourceSha256": "73c5e31e59ff601a01114ab03a0dc183d81389987e3af5832c53d9ac8bd8c06b"
+      },
+      "roots": ["./Base", "library:wwebjs:064a3d5a5a3dce1281a6a12740b5a7051339d154:Reaction"],
+      "boundaries": [],
+      "modules": [
+        {
+          "name": "./Base",
+          "variant": "source-body-wrapper",
+          "sourceSha256": "b2d59b500aa0c5dbecd6f5ea1be29ba0b80e39152d534e1c808bc8169df6a202",
+          "dependencies": []
+        },
+        {
+          "name": "library:wwebjs:064a3d5a5a3dce1281a6a12740b5a7051339d154:Reaction",
+          "variant": "source-body-wrapper",
+          "sourceSha256": "fd62683c33f34b267d2aae4dea53c3a159f95dd8e5a21c263c121df73f52bc64",
+          "dependencies": ["./Base"]
+        }
+      ],
+      "gates": [],
+      "unresolved": [],
+      "coverage": {
+        "complete": true,
+        "scope": "module-closure-superset",
+        "semanticProof": false,
+        "resolverCoverage": false,
+        "modules": 2,
+        "sourceBytes": 2515,
+        "workBudget": {
+          "limit": 2000000,
+          "consumed": 3056,
+          "exhausted": false
+        },
+        "limitations": [
+          "Only supported gate APIs and static key expressions are inventoried.",
+          "Logical work units bound selected AST traversal and resolution, not parser internals or elapsed time; parsing remains source-byte bounded.",
+          "Declared fixture-provider boundaries exclude their original resolver implementations and dependencies.",
+          "All functions in each dependency module are scanned; exact export and caller reachability is not proven.",
+          "Runtime-discovered gates and externally selected code require separate observations."
+        ]
+      },
+      "digest": "7a873fe7017b5e47aa610344cd4ac5731bf54f00f93d677f81ceca66f46541ef"
+    }
+  },
+  "trials": {
+    "cases": 10,
+    "probes": 279,
+    "maxProbesPerCase": 54,
+    "maxRetainedObjectsPerCase": 24,
+    "maxSerializedCaseBytes": 146385,
+    "knownGateDescriptors": 0,
+    "knownFiniteGateAssignments": 1,
+    "configurationExhaustive": false,
+    "execution": "New reviewed local Subject executed all10 cases and279 actual probes at the exact pinned commit; focused13tests passed including3portable checks. Original literal oracles and controls remained unchanged. Diagnostic process mode isolated:false; no registered service/full-package/WA-protocol/container acceptance.",
+    "generatedHistories": 3,
+    "patchesPerGeneratedHistory": 24,
+    "largeReactionStringLength": 16388,
+    "inputDomain": "Bounded truthiness/record/partial field/normalization/string and operation histories; arbitrary records, client behavior, nested alias/branding/descriptors and package/caller domains remain unbounded or unobserved.",
+    "singleCommit": true,
+    "comparisonEvidence": false
+  },
+  "oracle": "Independent literal input/own-field observation tables, explicit nullish-versus-falsy identity expectations, and generated histories selecting fixed reviewed patch/state pairs. No generic mapper or actual library method computes expected observations.",
+  "exclusions": [
+    "Actual two-file Reaction/Base component only. Null client is an unused constructor input, not a fake client/provider implementation. No client descriptors/branding, browser/session/storage/network/provider/authentication/crypto or full package acceptance.",
+    "Real per-probe constructors, _patch/_clone and Base._normalizeId only. No native Object/meta/prototype methods, arbitrary property reader, fake factory, callback, argument-retention extension, Case.construct, pending controls, clock updates or nonempty fixtures/gates.",
+    "Input normalization records are obtained through original Base(null)._patch(data) return and stage:result retention. This is a documented real return boundary, not a generic argument-retention helper.",
+    "Clone identity and copied own-field isolation are observed through actual source methods. Nested alias/deep-copy, client inheritance/descriptors and prototype branding are not established. Prototype-manipulated __proto__/constructor input keys are excluded from this initial scope; no security golden or compliance claim.",
+    "This named-library metadata is outside the current WA decimal-revision importer and service/manifest/HTTP/registry registration. Local partial Subject only; no container/scheduling/security or full-library/WA protocol compliance.",
+    "One exact commit; no compare or cross-revision preservation evidence. No vendor source, wrapper bodies, compiler output or private policies are distributed."
+  ]
+}
