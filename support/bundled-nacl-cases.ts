@@ -294,5 +294,77 @@ export function bundledNaclCases(): BehaviorCase[] {
     }
     make(`sha512-generated-${profile}`, probes);
   }
+  // Version2 appends hash dimensions; all preceding case inputs/oracles stay intact.
+  const hashExpected = (input: Uint8Array): JsonValue => ({
+    $type: 'Uint8Array',
+    value: Array.from(createHash('sha512').update(input).digest()),
+  });
+  const cutoffProbes: Probe[] = [];
+  for (const profile of ['zero', 'ff', 'sequence'] as const)
+    for (const length of [110, 111, 112, 113, 114, 239, 240, 241, 367, 368, 369]) {
+      const input = Uint8Array.from({ length }, (_, index) =>
+        profile === 'zero' ? 0 : profile === 'ff' ? 255 : (index * 37 + 11) % 256,
+      );
+      cutoffProbes.push(
+        call(
+          `${profile}-length-${length}`,
+          'hash',
+          [{ $type: 'Uint8Array', value: Array.from(input) }],
+          hashExpected(input),
+        ),
+      );
+    }
+  make('sha512-padding-cutoffs', cutoffProbes);
+  const viewProbes: Probe[] = [];
+  for (const length of [0, 1, 111, 112, 113, 127, 128, 129, 239, 240, 241, 255, 256, 257])
+    for (const offset of [1, 7]) {
+      const visible = Uint8Array.from({ length }, (_, index) => (index * 53 + length * 11) % 256);
+      viewProbes.push(
+        call(
+          `length-${length}-offset-${offset}`,
+          'hash',
+          [
+            {
+              $type: 'Uint8Array',
+              value: [...Array<number>(offset).fill(238), ...visible, 221, 220],
+              byteOffset: offset,
+              byteLength: length,
+            },
+          ],
+          hashExpected(visible),
+        ),
+      );
+    }
+  make('sha512-visible-views', viewProbes);
+  const retryProbes: Probe[] = [];
+  const abcDigest =
+    'ddaf35a193617abacc417349ae20413112e6fa4e89a97ea20a9eeee64b55d39a2192992a274fc1a836ba3c23a3feebbd454d4423643ce80e2a9ac94fa54ca49f';
+  const invalidInputs: [string, JsonValue][] = [
+    ['undefined', { $type: 'undefined' }],
+    ['null', null],
+    ['string', 'abc'],
+    ['number', 7],
+    ['boolean', false],
+    ['buffer', { $type: 'ArrayBuffer', value: [97, 98, 99] }],
+    ['array-like', { length: 3, '0': 97, '1': 98, '2': 99 }],
+  ];
+  for (const [name, input] of invalidInputs)
+    retryProbes.push(
+      malformed(`invalid-${name}`, 'hash', [input], 'TypeError', 'unexpected type, use Uint8Array'),
+      call(`valid-abc-after-${name}`, 'hash', [bytes('616263')], bytes(abcDigest)),
+    );
+  make('sha512-type-recovery', retryProbes);
+  make(
+    'sha512-larger-block-neighbors',
+    [16383, 16384, 16385].map((length) => {
+      const input = Uint8Array.from({ length }, (_, index) => (index % 2 === 0 ? 165 : 90));
+      return call(
+        `alternating-length-${length}`,
+        'hash',
+        [{ $type: 'Uint8Array', value: Array.from(input) }],
+        hashExpected(input),
+      );
+    }),
+  );
   return cases;
 }

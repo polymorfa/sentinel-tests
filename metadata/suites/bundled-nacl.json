@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "id": "bundled-nacl",
-  "version": 1,
+  "version": 2,
   "title": "Shipped TweetNaCl deterministic primitive vectors and bounded tamper cases",
   "file": "tests/bundled-nacl.test.ts",
   "helper": "support/bundled-nacl-cases.ts",
@@ -9,8 +9,8 @@
   "roots": ["tweetnacl"],
   "oracle": "Actual shipped tweetnacl\u2192tweetnacl-1.0.3 pure JavaScript cryptographic operations in the worker realm. Literal NIST SHA512, RFC7748 X25519, RFC8032 Ed25519 and pinned upstream libsodium NaCl box/secretbox vectors supply independent expected bytes. Generated SHA512 expectations use node:crypto createHash in the test host outside the worker; only expected typed JSON bytes enter the realm. Byte-tamper and wrong-size cases characterize selected verification/authentication rejection and argument guards. No host crypto provider/functions or custom crypto implementation is injected.",
   "trials": {
-    "cases": 14,
-    "probesPerRevision": 397,
+    "cases": 18,
+    "probesPerRevision": 475,
     "portablePlanTests": 1,
     "maxProbesPerCase": 64,
     "generatedSha512Lengths": {
@@ -28,7 +28,61 @@
     "tamperProfile": "xor1 at every byte position of each named published vector; not exhaustive all bit patterns/keys/messages",
     "configurationExhaustive": false,
     "fullConfigurationCardinality": "unknown: default 2000000-work AST analysis exhausted at 1,999,986 while traversing implementation; no zero-gate/empty-product proof",
-    "inputDomain": "Bounded fixed keys/messages/vectors and generated SHA512 profiles only; byte/string/size/key/message domains unbounded"
+    "inputDomain": "Bounded fixed keys/messages/vectors and generated SHA512 profiles only; byte/string/size/key/message domains unbounded",
+    "maxSerializedCaseBytes": 175182,
+    "executionHistory": {
+      "version1": "Historical retained executions covered the original 14 cases and 397 probes per revision. Those case identities, versions, inputs and assertions remain unchanged; this history does not execute or accept the four new cases.",
+      "version2Extension": "Focused actual archived execution passed 19 tests for all 18 cases and 475 probes per revision, with 18 unchanged comparisons across1051710191 and1051908825. A private observer captured36 full content-addressed records before assertions, covering54 source executions and1425 probe executions. The four added cases contribute12 source executions and234 probes including repeats. All24 frozen files matched before/after; original14 full plans/397 probes remain exact. Runtime87c9bd140246ef9c064145491a3517376c6c15ccea1da44ac9a98826741dcc64; explicit process diagnostic isolated:false. All whole-source AST inventories remain default2m budget-exhausted; no provider/protocol/security/container/production acceptance."
+    },
+    "sha512Extension": {
+      "cases": 4,
+      "probesPerRevision": 78,
+      "serializedCaseByteLimit": 262144,
+      "paddingCutoffs": {
+        "caseId": "bundled-nacl-sha512-padding-cutoffs-v1",
+        "probes": 33,
+        "serializedCaseBytes": 34621,
+        "lengths": [110, 111, 112, 113, 114, 239, 240, 241, 367, 368, 369],
+        "profiles": ["zero", "ff", "sequence:(index*37+11)%256"]
+      },
+      "visibleViews": {
+        "caseId": "bundled-nacl-sha512-visible-views-v1",
+        "probes": 28,
+        "serializedCaseBytes": 27543,
+        "visibleLengths": [0, 1, 111, 112, 113, 127, 128, 129, 239, 240, 241, 255, 256, 257],
+        "byteOffsets": [1, 7],
+        "scope": "Distinctive prefix/suffix backing bytes surround independently constructed visible bytes; empty visible views retain nonempty backing. No backing mutation-isolation claim."
+      },
+      "typeRecovery": {
+        "caseId": "bundled-nacl-sha512-type-recovery-v1",
+        "probes": 14,
+        "serializedCaseBytes": 3711,
+        "invalidInputs": [
+          "undefined",
+          "null",
+          "string",
+          "number",
+          "boolean",
+          "ArrayBuffer",
+          "plain array-like record"
+        ],
+        "guard": "Exact original TypeError: unexpected type, use Uint8Array; every failure is followed by the unchanged literal NIST abc vector in the same source module scenario."
+      },
+      "largerBlockNeighbors": {
+        "caseId": "bundled-nacl-sha512-larger-block-neighbors-v1",
+        "probes": 3,
+        "serializedCaseBytes": 173266,
+        "lengths": [16383, 16384, 16385],
+        "profile": "alternating 0xa5/0x5a"
+      },
+      "oracle": "Generated digest expectations use the existing independent host node:crypto SHA-512 oracle before archived execution. Only frozen typed expected bytes enter the worker; the literal NIST abc vector anchors retry checks. Host oracle generation is not source or provider execution.",
+      "sourceCitations": [
+        "modules/tweetnacl-1.0.3.js:491-495",
+        "modules/tweetnacl-1.0.3.js:690-692",
+        "modules/tweetnacl-1.0.3.js:779-783"
+      ],
+      "staticInventory": "Existing complete source inputs and current analyzer-v5 work-budget exhaustion remain unchanged at default 2000000. No new analyzer run or zero-gate/finite-domain claim."
+    }
   },
   "primaryVectors": {
     "sha512": "https://csrc.nist.gov/CSRC/media/Projects/Cryptographic-Standards-and-Guidelines/documents/examples/SHA512.pdf",
@@ -174,7 +228,8 @@
     "Original bundle/browser/bootstrap integration, entropy/PRNG/randomBytes/random key generation and no-PRNG exceptions are unexercised. No self/global alias, stub, callback, host crypto provider or guard weakening is supplied.",
     "Full source pins include both modules; incomplete AST budget is preserved at default2m. Zero inventoried gates is not a complete gate inventory, empty finite assignment proof or total configuration cardinality.",
     "Fixed published keys/nonces are test inputs only. Bounded tamper/size vectors do not prove constant-time behavior, full canonical point/signature handling, cryptographic security or all malformed inputs.",
-    "Pinned libsodium source supplies vector data only, not execution of libsodium or another named-library adapter. Container execution, production TypeScript suite scheduling, accounts/network and registered-library compliance remain unproven."
+    "Pinned libsodium source supplies vector data only, not execution of libsodium or another named-library adapter. Container execution, production TypeScript suite scheduling, accounts/network and registered-library compliance remain unproven.",
+    "Version 2 adds authored SHA-512 padding-neighbor, visible-view, type-error/retry and bounded larger-block inputs; historical version-1 execution is not acceptance of these additions. Input lengths/bytes/views/types remain unbounded; no streaming, full encoded-length range, canonical/security/constant-time, PRNG or original WA provider binding proof is added."
   ],
   "inventoryRefresh": {
     "analyzerVersion": 5,
