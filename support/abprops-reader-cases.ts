@@ -233,5 +233,99 @@ export function abpropsReaderCases(): BehaviorCase[] {
           ]),
         );
       }
+  // Each lifetime context contributes two additional bounded histories. Earlier v1
+  // plans remain intact; these v2 plans assert checkpoints, not all async schedules.
+  for (const original of cases.filter((item) => item.id.startsWith('abprops-reader-lifetime-'))) {
+    const make = (name: string, probes: Probe[]): BehaviorCase => ({
+      ...structuredClone(original),
+      id: original.id.replace('lifetime', name).replace(/-v1$/, '-v2'),
+      version: 2,
+      context: { ...structuredClone(original.context!), gateUpdates: [] },
+      probes,
+    });
+    const tail = row(true, { configCode: 6665 });
+    const peek = (id: string, value: number, source: string) =>
+      call(id, 'peekABPropConfigValue', ['web_image_max_edge'], { value, source });
+    const same: Probe[] = [
+      init('install-reader'),
+      waitStart('start-before-reinit-a', 'a'),
+      waitStart('start-before-reinit-b', 'b'),
+      init('reinitialize-pending'),
+      ready('reinitialize-still-unready', false),
+      waitStart('start-after-reinit-c', 'c'),
+      waitStart('start-after-reinit-d', 'd'),
+    ];
+    for (const handle of ['d', 'b', 'c', 'a']) same.push(inspect(`before-fail-${handle}`, handle));
+    same.push(
+      failedLoad('first-prefix-failure', [row(51), null, tail]),
+      ready('first-failure-unready', false),
+      peek('first-prefix-hidden-peek', 1600, 'default'),
+      read('first-prefix-hidden-reader', 1600),
+      failedLoad('second-prefix-failure', [row(63), null, tail]),
+      init('reinitialize-after-failures'),
+      ready('second-failure-unready', false),
+      peek('second-prefix-hidden-peek', 1600, 'default'),
+      read('second-prefix-hidden-reader', 1600),
+    );
+    for (const handle of ['c', 'a', 'd', 'b']) same.push(inspect(`after-fail-${handle}`, handle));
+    same.push(
+      bulk('empty-retry-resolves-generation', []),
+      ready('retry-ready', true),
+      peek('last-prefix-visible-peek', 63, 'server'),
+      read('last-prefix-visible-reader', 63),
+      read('tail-after-null-not-applied', false, 'web_design_refresh'),
+    );
+    for (const handle of ['d', 'c', 'b', 'a'])
+      same.push(
+        inspect(`retry-fulfilled-${handle}`, handle, true),
+        wait(`await-${handle}`, handle),
+      );
+    cases.push(make('multiwaiter-reinitialize-retries', same));
+
+    const reset: Probe[] = [
+      init('install-reader'),
+      waitStart('start-old-a', 'old-a'),
+      waitStart('start-old-b', 'old-b'),
+      failedLoad('old-prefix-failure', [row(71), null, tail]),
+      read('old-prefix-hidden', 1600),
+      clear('clear-pending-generation'),
+      init('reinstall-reader-after-clear'),
+      waitStart('start-fresh-a', 'fresh-a'),
+      waitStart('start-fresh-b', 'fresh-b'),
+      failedLoad('fresh-prefix-failure', [row(83), null, tail]),
+      ready('fresh-failure-unready', false),
+      peek('fresh-prefix-hidden-peek', 1600, 'default'),
+      read('fresh-prefix-hidden-reader', 1600),
+    ];
+    for (const handle of ['old-b', 'fresh-a', 'old-a', 'fresh-b'])
+      reset.push(inspect(`failure-pending-${handle}`, handle));
+    reset.push(
+      bulk('empty-fresh-retry', []),
+      ready('fresh-retry-ready', true),
+      read('fresh-prefix-visible', 83),
+      read('fresh-tail-not-applied', false, 'web_design_refresh'),
+      wait('await-fresh-b', 'fresh-b'),
+      inspect('fresh-a-fulfilled', 'fresh-a', true),
+      wait('await-fresh-a', 'fresh-a'),
+      inspect('fresh-b-fulfilled', 'fresh-b', true),
+      inspect('old-a-orphaned', 'old-a'),
+      inspect('old-b-orphaned', 'old-b'),
+      bulk('ready-replacement', [row(97)]),
+      bulk('ready-empty-update', []),
+      init('ready-reinitialize'),
+      waitStart('start-ready-a', 'ready-a'),
+      waitStart('start-ready-b', 'ready-b'),
+      failedLoad('ready-prefix-failure', [row(109), null, tail]),
+      ready('ready-failure-still-ready', true),
+      read('ready-prefix-visible', 109),
+    );
+    for (const handle of ['ready-b', 'fresh-a', 'ready-a', 'fresh-b'])
+      reset.push(
+        inspect(`still-fulfilled-${handle}`, handle, true),
+        wait(`await-ready-${handle}`, handle),
+      );
+    reset.push(inspect('old-b-still-orphaned', 'old-b'), inspect('old-a-still-orphaned', 'old-a'));
+    cases.push(make('multiwaiter-clear-generations', reset));
+  }
   return cases;
 }

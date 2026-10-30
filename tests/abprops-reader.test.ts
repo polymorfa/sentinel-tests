@@ -1,5 +1,6 @@
 import { after, test } from 'node:test';
 import assert from 'node:assert/strict';
+import { createHash } from 'node:crypto';
 import { abpropsReaderCases } from '../support/abprops-reader-cases.ts';
 import { assertCaseObservations, loadSubject } from '../support/subject.ts';
 import type { BehaviorCase, CaseResult } from '../support/types.ts';
@@ -51,3 +52,38 @@ for (const testCase of reason ? [] : abpropsReaderCases()) {
     }
   });
 }
+
+test('reader v1 plans are immutable and v2 waiter histories stay bounded', () => {
+  const cases = abpropsReaderCases();
+  const original = cases.filter((item) => item.version === 1);
+  assert.equal(original.length, 32);
+  assert.equal(
+    original.reduce((sum, item) => sum + item.probes.length, 0),
+    800,
+  );
+  assert.equal(
+    createHash('sha256').update(JSON.stringify(original)).digest('hex'),
+    '787cb5e54d4dd26ddebc0ea2db2c500b8dd4ce1b7f3943be1e08f61a71eda91d',
+  );
+  const added = cases.filter((item) => item.version === 2);
+  assert.equal(added.length, 16);
+  assert.equal(
+    added.reduce((sum, item) => sum + item.probes.length, 0),
+    656,
+  );
+  assert.equal(new Set(cases.map((item) => item.id)).size, cases.length);
+  for (const item of added) {
+    assert.ok(item.id.endsWith('-v2'));
+    assert.ok(item.probes.length < 128);
+    const handles = new Set<string>();
+    for (const probe of item.probes) {
+      if (!probe.pending) continue;
+      const { id, action } = probe.pending;
+      if (action === 'start') {
+        assert.ok(!handles.has(id), `${item.id}: unique handle ${id}`);
+        handles.add(id);
+      } else assert.ok(handles.has(id), `${item.id}: earlier start for ${id}`);
+    }
+    assert.ok(handles.size >= 4 && handles.size <= 128);
+  }
+});

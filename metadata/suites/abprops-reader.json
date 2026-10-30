@@ -1,16 +1,16 @@
 {
   "schemaVersion": 1,
   "id": "abprops-reader",
-  "version": 1,
+  "version": 2,
   "title": "Original ABProps public reader and pending readiness lifetime",
   "file": "tests/abprops-reader.test.ts",
   "helper": "support/abprops-reader-cases.ts",
   "capability": "wa-internal:abprops-reader",
   "roots": ["WAWebABPropsCache", "WAWebABProps", "WAWebABPropsUpdateFromStorage"],
-  "oracle": "Original WAWebABProps.getABPropConfigValue after original cache initializeABPropsCache installs real T/N closures. Source-established defaults/nullish fallback, immediate replacements, stale readiness/reset behavior, clear retaining installed hooks, nontransactional failed updates and original WAResolvable Promise lifetime. Pending starts/inspections/awaits observe real promises in the same realm under one explicit microtask checkpoint per completed probe. Clear replaces readiness without resolving prior pending waits. No cache, reader, resolver or readiness Promise is mocked.",
+  "oracle": "Original WAWebABProps.getABPropConfigValue after original cache initializeABPropsCache installs real T/N closures. Source-established defaults/nullish fallback, immediate replacements, stale readiness/reset behavior, clear retaining installed hooks, nontransactional failed updates and original WAResolvable Promise lifetime. Pending starts/inspections/awaits observe real promises in the same realm under one explicit microtask checkpoint per completed probe. Clear replaces readiness without resolving prior pending waits. Multiple waiters before/after reinitialization share the same generation; empty retries reveal the last failed prefix while records after the first invalid row remain unapplied. Cleared-generation pending waits stay pending while fresh-generation waits resolve. No cache, reader, resolver or readiness Promise is mocked.",
   "trials": {
-    "cases": 32,
-    "probesPerRevision": 800,
+    "cases": 48,
+    "probesPerRevision": 1456,
     "selectedGkxAssignments": {
       "16539": [false, true],
       "26256": [false, true]
@@ -20,6 +20,17 @@
       "6581": [false, true]
     },
     "selectedContexts": 8,
+    "preservedV1Plans": {
+      "cases": 32,
+      "probesPerRevision": 800,
+      "sha256": "787cb5e54d4dd26ddebc0ea2db2c500b8dd4ce1b7f3943be1e08f61a71eda91d"
+    },
+    "multiwaiterV2Plans": {
+      "cases": 16,
+      "probesPerRevision": 656,
+      "maxProbesPerCase": 45,
+      "scope": "Two bounded histories in each selected context: same-generation waiters across reinitialization and repeated partial failures; old/fresh waiters across clear, failed retry and repeated ready updates"
+    },
     "configurationExhaustive": false,
     "fullInventoryBooleanCardinality": {
       "1051710191": 131072,
