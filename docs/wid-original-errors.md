@@ -1,0 +1,15 @@
+# Original Wid errors and cache lifetimes
+
+This suite executes the original `WAWebWidError.InvalidWidError`, using the pinned original Babel producer's native-super wrapper and inheritance helper. Ten direct constructor cases observe inherited `Error.toString` with bounded synthetic messages, including empty, Unicode, control characters, larger strings and selected nullish/nonstring message values. These message values are inputs to the error constructor, not nonstring Wid factory inputs.
+
+Eight factory histories run every assignment of the three established boolean GKX keys 16539, 26256 and 26258. The 18 cases contain 402 probes per revision, with at most 49 probes per case. Normal malformed strings pass through the original factory, validator and logger, then throw the actual `InvalidWidError`. A direct call to the original validator precedes every selected malformed-string factory call and independently returns null. Retained genuine Wid objects establish that these failed creations preserve previously cached identities. Valid retries, legacy aliases, repeated failures and store clears distinguish cache identity from value equality.
+
+The selected malformed strings use known domains and source-reviewed invalid user/device forms. Nonstring factory inputs, `ERROR.sendLogs`, prototype/inherited cache property names and strict rejection of every possible key are outside this suite. No error class, logger, parser, validator, cache or provider is substituted. The only factory fixture is `cr:6640 = null`, selecting the original Promise fallback; no worker/environment fixture is needed for these paths.
+
+Metadata retains all 37 Metro module pins, the separate original Babel asset, and the full bounded AST inventories for both revisions. All eight known boolean assignments execute for the named factory history. Four ABProps string domains remain unbounded, and 23 full-source diagnostics remain explicit, so full configuration coverage is unproven. The direct error class has a narrower two-source closure; its original Function.bind analysis diagnostics are also retained.
+
+Tests require the exact admitted Babel asset identity and actual execution mode. The producer runs with a bootstrap-only realm global alias and guarded original mutable namespace. Outward unknown, inherited and symbol reads and mutations are guarded; ownKeys/getOwnPropertyDescriptor/has reflection forwards to the original target. This is instrumented original-source execution, not proof of transparent whole-browser bootstrap behavior.
+
+These are local synchronous error and object-lifetime observations. Unbounded identifier/message/key histories, session lifecycle, cancellation, persistence, native providers, Signal, network/accounts, container isolation, production suite scheduling, named-library parity and security proof remain unaccepted.
+
+Run portable checks with `bun test tests/wid-original-errors.test.ts`. Actual source execution requires a reviewed adapter advertising `wa-internal:wid-original-errors` and an explicitly configured registered bootstrap source cache. Diagnostic process execution reports `isolated:false`.

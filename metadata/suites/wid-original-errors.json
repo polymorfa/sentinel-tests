@@ -1,0 +1,1245 @@
+{
+  "schemaVersion": 1,
+  "id": "wid-original-errors",
+  "version": 1,
+  "title": "Original InvalidWidError inheritance and invalid-string Wid cache lifetimes",
+  "file": "tests/wid-original-errors.test.ts",
+  "helper": "support/wid-original-errors-cases.ts",
+  "capability": "wa-internal:wid-original-errors",
+  "requiresBootstrapKinds": ["babel-helpers"],
+  "roots": ["WAWebWid", "WAWebWidError", "WAWebWidFactory", "WAWebWidStore", "WAWebWidValidator"],
+  "oracle": "Actual InvalidWidError uses original Babel wrapNativeSuper(Error)/inheritsLoose and native Error.toString semantics with literal synthetic messages. Each selected malformed string first returns null from actual validateAndGetParts as an independent validator control. Actual factory/validator/logger/Wid/store handle selected malformed strings: constructor throws InvalidWidError before cache assignment; valid cached object identity survives failures, equals survives cache clear by value while identity changes. Eight contexts execute every assignment of three established booleanGKX keys for the bounded factory history; actual log formatting checks26258. Original full graph and unbounded ABProps domains remain retained; no logger/parser/error/cache implementation is mocked.",
+  "trials": {
+    "cases": 18,
+    "probesPerRevision": 402,
+    "maxProbesPerCase": 49,
+    "portablePlanTests": 1,
+    "directErrorCases": 10,
+    "factoryContexts": 8,
+    "knownBooleanKeys": ["16539", "26256", "26258"],
+    "knownBooleanSubsetCardinality": 8,
+    "knownBooleanAssignmentsExecuted": 8,
+    "configurationExhaustive": false,
+    "unknownStringABProps": [
+      "in_app_support_capi_number_prefixes",
+      "in_app_support_v2_number_prefixes",
+      "payment_support_lids",
+      "support_lids"
+    ],
+    "fullConfigurationCardinality": "unknown; four unbounded ABProps string domains and23 source diagnostics per revision",
+    "errorOnlyInventoryScope": "ActualErrorclass plus originalBabel:2sources,17852work,2retainedoriginalFunctionbind diagnostics; factoryhistory uses full38source inventory",
+    "inputDomain": "Bounded synthetic messages/invalidstrings and cache clear/retry histories, not all possible identifiers or object keys"
+  },
+  "observations": [
+    {
+      "revision": "1051710191",
+      "modules": [
+        {
+          "module": "$InternalEnum",
+          "variant": "primary",
+          "printedSourceSha256": "2ceb4779145d3f716cdabff27facf6fec30f45f844896ccd78300320a44a69a9",
+          "dependencies": [],
+          "citations": ["modules/$InternalEnum.js:1"]
+        },
+        {
+          "module": "BanzaiLazyQueue",
+          "variant": "primary",
+          "printedSourceSha256": "c4b206703179790d810f00c914c5ff13123e8a5d479a1fc017e2d8fb06c62d49",
+          "dependencies": ["SimpleHook"],
+          "citations": ["modules/BanzaiLazyQueue.js:1"]
+        },
+        {
+          "module": "Env",
+          "variant": "primary",
+          "printedSourceSha256": "ad5c3d19c3db7a10d569dceb202b62801ac1014c42a99cf21d3249a124319082",
+          "dependencies": [],
+          "citations": ["modules/Env.js:1"]
+        },
+        {
+          "module": "ExecutionEnvironment",
+          "variant": "primary",
+          "printedSourceSha256": "4f49de6e0ddb5be88f962a8196f5a2370427b931db218b019e4a2bd020b1891e",
+          "dependencies": [],
+          "citations": ["modules/ExecutionEnvironment.js:1"]
+        },
+        {
+          "module": "FBLogger",
+          "variant": "primary",
+          "printedSourceSha256": "5b78358a73a6900d013f27628afaffe9b58fdb92dc37233690ec50441114c7c2",
+          "dependencies": ["fb-error"],
+          "citations": ["modules/FBLogger.js:1"]
+        },
+        {
+          "module": "Promise",
+          "variant": "primary",
+          "printedSourceSha256": "c94f5132251416675e842ee8bbe98476648325ff897dab0a230b39875e1f3c2a",
+          "dependencies": ["cr:6640"],
+          "citations": ["modules/Promise.js:1"]
+        },
+        {
+          "module": "SimpleHook",
+          "variant": "primary",
+          "printedSourceSha256": "fd56db80143da1644f5f104549955a5a4fc38e3bafb9ae56cc3f2e4e33885eca",
+          "dependencies": [],
+          "citations": ["modules/SimpleHook.js:1"]
+        },
+        {
+          "module": "WAAssertUnreachable",
+          "variant": "primary",
+          "printedSourceSha256": "0a3f98d4cb30e6e90818323c41ed1ad2012bd64cc82c3fc09accea5299c2d400",
+          "dependencies": ["err"],
+          "citations": ["modules/WAAssertUnreachable.js:1"]
+        },
+        {
+          "module": "WAHex",
+          "variant": "primary",
+          "printedSourceSha256": "3d28ad9eb342f6715bec66c8c38fd57a14497e07101f5f9b67fc3c9838e72ffe",
+          "dependencies": ["err"],
+          "citations": ["modules/WAHex.js:1"]
+        },
+        {
+          "module": "WAJids",
+          "variant": "primary",
+          "printedSourceSha256": "42733fc49d99d76539f7b4873fa7cbe6f9994de25560f5b6eb24ae3e5532253c",
+          "dependencies": ["WAAssertUnreachable", "err"],
+          "citations": ["modules/WAJids.js:1"]
+        },
+        {
+          "module": "WALogger",
+          "variant": "primary",
+          "printedSourceSha256": "0406e777eb10eef04870576148db402f9aa20fe709545e0701a314d5b8583837",
+          "dependencies": ["$InternalEnum", "WATagsLogger"],
+          "citations": ["modules/WALogger.js:1"]
+        },
+        {
+          "module": "WALoggerUtils",
+          "variant": "primary",
+          "printedSourceSha256": "e1baf5e4850088801148e9a6a46e6720e52efba4aca6f4a139f585fd162f364b",
+          "dependencies": ["WAHex"],
+          "citations": ["modules/WALoggerUtils.js:1"]
+        },
+        {
+          "module": "WATagsLogger",
+          "variant": "primary",
+          "printedSourceSha256": "c6cb8a0516b1ec1b5a373d50cd3d75f952707f12547d2f46820d9d352bb26ad7",
+          "dependencies": ["FBLogger", "Promise", "WALoggerUtils", "asyncToGeneratorRuntime"],
+          "citations": ["modules/WATagsLogger.js:1"]
+        },
+        {
+          "module": "WATypeUtils",
+          "variant": "primary",
+          "printedSourceSha256": "692d60676bfcba61805b5c319fc172976c527ccb5cda2d3822a67b24da5f8e25",
+          "dependencies": [],
+          "citations": ["modules/WATypeUtils.js:1"]
+        },
+        {
+          "module": "WAWebABProps",
+          "variant": "primary",
+          "printedSourceSha256": "f352cc4dd83ca26e5ba1de2ff903abd1be97962e423383f1093cc7451214a738",
+          "dependencies": ["WALogger", "WAWebABPropsConfigs", "WAWebABPropsJestE2EReadLog", "gkx"],
+          "citations": ["modules/WAWebABProps.js:1"]
+        },
+        {
+          "module": "WAWebABPropsCAPISupportNumber",
+          "variant": "primary",
+          "printedSourceSha256": "446bf321e831a15b85963d6528d2d4f96131eac0285efd0c1a7e78f2410a1030",
+          "dependencies": ["WAWebABProps"],
+          "citations": ["modules/WAWebABPropsCAPISupportNumber.js:1"]
+        },
+        {
+          "module": "WAWebABPropsConfigs",
+          "variant": "primary",
+          "printedSourceSha256": "93eada7022daf39a9525ad9e8f1572a0e3f44daefcb15e3efd09f420ecfcf978",
+          "dependencies": [],
+          "citations": ["modules/WAWebABPropsConfigs.js:1"]
+        },
+        {
+          "module": "WAWebABPropsJestE2EReadLog",
+          "variant": "primary",
+          "printedSourceSha256": "9c85a30b7252aa7b714007e680ff6d1ce9f75051c1993f1982fada4b74b88737",
+          "dependencies": ["gkx"],
+          "citations": ["modules/WAWebABPropsJestE2EReadLog.js:1"]
+        },
+        {
+          "module": "WAWebABPropsSupportGroup",
+          "variant": "primary",
+          "printedSourceSha256": "1b42c7e696642050f8c78d26e484b8ad285fe6d67e151f05d79a44cd7e42dfc7",
+          "dependencies": ["WAWebABProps"],
+          "citations": ["modules/WAWebABPropsSupportGroup.js:1"]
+        },
+        {
+          "module": "WAWebABPropsSupportLid",
+          "variant": "primary",
+          "printedSourceSha256": "6e1db73a851f43a18e5fd25ab4c02341350fb85eee52d41c168eb0caef454c83",
+          "dependencies": ["WALogger", "WAWebABProps"],
+          "citations": ["modules/WAWebABPropsSupportLid.js:1"]
+        },
+        {
+          "module": "WAWebWid",
+          "variant": "primary",
+          "printedSourceSha256": "676e98ecc10aa69562d26627ddc9f2c3aaba3974671f170336640a97250209b3",
+          "dependencies": [
+            "WAJids",
+            "WALogger",
+            "WATypeUtils",
+            "WAWebABPropsCAPISupportNumber",
+            "WAWebABPropsSupportGroup",
+            "WAWebABPropsSupportLid",
+            "WAWebWidError",
+            "WAWebWidValidator",
+            "err",
+            "gkx"
+          ],
+          "citations": ["modules/WAWebWid.js:1"]
+        },
+        {
+          "module": "WAWebWidError",
+          "variant": "primary",
+          "printedSourceSha256": "ac2de878244766541e44689b1f11c3f42bcd7402cb07ec1a463822cfead1ec0e",
+          "dependencies": [],
+          "citations": ["modules/WAWebWidError.js:1"]
+        },
+        {
+          "module": "WAWebWidFactory",
+          "variant": "primary",
+          "printedSourceSha256": "2c18c290fa6029bd9ad7438a5e80415cf1489b14b05136f66f6d60000185cce0",
+          "dependencies": [
+            "WALogger",
+            "WATypeUtils",
+            "WAWebWid",
+            "WAWebWidError",
+            "WAWebWidStore",
+            "err",
+            "nullthrows"
+          ],
+          "citations": ["modules/WAWebWidFactory.js:1"]
+        },
+        {
+          "module": "WAWebWidStore",
+          "variant": "primary",
+          "printedSourceSha256": "a702aa2eb623de3d6e170839e1411f2d0051d9f55bc29073f6dc2385971a9f83",
+          "dependencies": [],
+          "citations": ["modules/WAWebWidStore.js:1"]
+        },
+        {
+          "module": "WAWebWidValidator",
+          "variant": "primary",
+          "printedSourceSha256": "b9df70e1a8a97cccc1db53a95f8f674d21afe341e85267897f5ec2b363a22b14",
+          "dependencies": ["$InternalEnum", "WALogger"],
+          "citations": ["modules/WAWebWidValidator.js:1"]
+        },
+        {
+          "module": "asyncToGeneratorRuntime",
+          "variant": "primary",
+          "printedSourceSha256": "147052b2a1cdc6d21087a611043d0974d5babedeeee624185babb023bbcf72f3",
+          "dependencies": ["Promise"],
+          "citations": ["modules/asyncToGeneratorRuntime.js:1"]
+        },
+        {
+          "module": "emptyFunction",
+          "variant": "primary",
+          "printedSourceSha256": "efc2fa885be346ba40045503e3a0588374c842f36261ce8138988d63608ecb48",
+          "dependencies": [],
+          "citations": ["modules/emptyFunction.js:1"]
+        },
+        {
+          "module": "err",
+          "variant": "primary",
+          "printedSourceSha256": "a26a1f88fe2c09505c0ec8e43d1a43c2299b6126ea7ea305c567bf7634fbeea0",
+          "dependencies": ["fb-error"],
+          "citations": ["modules/err.js:1"]
+        },
+        {
+          "module": "fb-error",
+          "variant": "primary",
+          "printedSourceSha256": "545144d2d2c50524d5bcfc421916cf76760743cb5b034dcb7a4d7066981f714e",
+          "dependencies": ["performanceNow", "removeFromArray"],
+          "citations": ["modules/fb-error.js:1"]
+        },
+        {
+          "module": "fb-error-lite",
+          "variant": "primary",
+          "printedSourceSha256": "70182c28f267319e6122d9da5fa9d01bc3c60775130d33429a71874503924b64",
+          "dependencies": [],
+          "citations": ["modules/fb-error-lite.js:1"]
+        },
+        {
+          "module": "gkx",
+          "variant": "primary",
+          "printedSourceSha256": "e84fc9d0a08a52702897502d1eb33202bd0d97b9633277aa18df81d9cb902cf6",
+          "dependencies": ["BanzaiLazyQueue", "ExecutionEnvironment", "emptyFunction", "invariant"],
+          "citations": ["modules/gkx.js:1"]
+        },
+        {
+          "module": "invariant",
+          "variant": "primary",
+          "printedSourceSha256": "6b377021188adf8be5add1781bb1a5b3a7da5d0021df951267b1ae8d331f705f",
+          "dependencies": ["Env", "fb-error-lite", "sprintf"],
+          "citations": ["modules/invariant.js:1"]
+        },
+        {
+          "module": "nullthrows",
+          "variant": "primary",
+          "printedSourceSha256": "8f9ee47b9edbd38314e5f785b651c3fef622f457813889a4495c3b79ea3c241c",
+          "dependencies": [],
+          "citations": ["modules/nullthrows.js:1"]
+        },
+        {
+          "module": "performance",
+          "variant": "primary",
+          "printedSourceSha256": "9bee7ad7d1941af3432757b1ce55c980030f812f0a5fb00916e906b8a0b6ced9",
+          "dependencies": [],
+          "citations": ["modules/performance.js:1"]
+        },
+        {
+          "module": "performanceNow",
+          "variant": "primary",
+          "printedSourceSha256": "415e5327e020372f7789e27dc42266a9cb3d6bbc2d8c47d0b751b93517a0475f",
+          "dependencies": ["performance"],
+          "citations": ["modules/performanceNow.js:1"]
+        },
+        {
+          "module": "removeFromArray",
+          "variant": "primary",
+          "printedSourceSha256": "c8e194de9e9463716c2f383406ae8269ddff1a9fe5fbc1a7559abcd2aaa666bb",
+          "dependencies": [],
+          "citations": ["modules/removeFromArray.js:1"]
+        },
+        {
+          "module": "sprintf",
+          "variant": "primary",
+          "printedSourceSha256": "7860c49011bd89ed50d0db8ed061d00ec9a2ba42b75f298a10c3d6ef98888361",
+          "dependencies": [],
+          "citations": ["modules/sprintf.js:1"]
+        }
+      ],
+      "bootstrapAssets": [
+        {
+          "kind": "babel-helpers",
+          "sourceSha256": "d87819406e3accc642307f2a1da84ff09c7541b6ee5724b1e66d86e1e77ee606",
+          "origin": {
+            "revisionId": "whatsapp-1051710191",
+            "rawSha256": "00a681835e392d7c6266c4ca75cf431efce69f3229f1cca0847d2430802b686a",
+            "startByte": 92564,
+            "endByte": 96393,
+            "rawBytes": 175043
+          }
+        }
+      ],
+      "analyzer": {
+        "version": 4,
+        "sourceSha256": "73c5e31e59ff601a01114ab03a0dc183d81389987e3af5832c53d9ac8bd8c06b"
+      },
+      "inventoryDigest": "a53f515e881189c1e33fcf587a0d3b820589eb71fb9b61b60f8283cf0c3d7f0d",
+      "gates": [
+        {
+          "kind": "abprops",
+          "key": "in_app_support_capi_number_prefixes",
+          "valueType": "string",
+          "reads": [
+            {
+              "module": "WAWebABPropsCAPISupportNumber",
+              "variant": "primary",
+              "line": 3,
+              "column": 10,
+              "method": "getABPropConfigValue",
+              "timing": "function-body",
+              "expression": "o(\"WAWebABProps\").getABPropConfigValue(\"in_app_support_capi_number_prefixes\")"
+            }
+          ],
+          "config": {
+            "module": "WAWebABPropsConfigs",
+            "line": 7132,
+            "type": "string",
+            "default": "155178684",
+            "alternate": "155178684"
+          }
+        },
+        {
+          "kind": "abprops",
+          "key": "in_app_support_v2_number_prefixes",
+          "valueType": "string",
+          "reads": [
+            {
+              "module": "WAWebABPropsSupportGroup",
+              "variant": "primary",
+              "line": 3,
+              "column": 10,
+              "method": "getABPropConfigValue",
+              "timing": "function-body",
+              "expression": "o(\"WAWebABProps\").getABPropConfigValue(\"in_app_support_v2_number_prefixes\")"
+            }
+          ],
+          "config": {
+            "module": "WAWebABPropsConfigs",
+            "line": 7138,
+            "type": "string",
+            "default": "15517868",
+            "alternate": "15517868"
+          }
+        },
+        {
+          "kind": "abprops",
+          "key": "payment_support_lids",
+          "valueType": "string",
+          "reads": [
+            {
+              "module": "WAWebABPropsSupportLid",
+              "variant": "primary",
+              "line": 8,
+              "column": 10,
+              "method": "getABPropConfigValue",
+              "timing": "function-body",
+              "expression": "o(\"WAWebABProps\").getABPropConfigValue(\"payment_support_lids\")"
+            }
+          ],
+          "config": {
+            "module": "WAWebABPropsConfigs",
+            "line": 8770,
+            "type": "string",
+            "default": "116664750354676,128385682505839,46635358933114,26521959944357,200206125658243,179985503506636,187797998674170,228746200088715,117914552262794,10158134550607",
+            "alternate": "116664750354676,128385682505839,46635358933114,26521959944357,200206125658243,179985503506636,187797998674170,228746200088715,117914552262794,10158134550607"
+          }
+        },
+        {
+          "kind": "abprops",
+          "key": "support_lids",
+          "valueType": "string",
+          "reads": [
+            {
+              "module": "WAWebABPropsSupportLid",
+              "variant": "primary",
+              "line": 4,
+              "column": 10,
+              "method": "getABPropConfigValue",
+              "timing": "function-body",
+              "expression": "o(\"WAWebABProps\").getABPropConfigValue(\"support_lids\")"
+            }
+          ],
+          "config": {
+            "module": "WAWebABPropsConfigs",
+            "line": 11344,
+            "type": "string",
+            "default": "4200746488034,30563255730192,70334669676777,19349129719984,66065505775654,133814269518032,243799792062487,7323238039569,269290422947912,261718412386336,4351103873168,12391299473616,92410801582180,277730033709185,36090878648473,79882365190287,94274800595104,117794058317863,115784047153172,179250745360524,7301780005088,166653589463190,94249030815912,198964645236955,198427807899653,23656948363422,255735573270728,106670109786240,130932396826763,18855208456329",
+            "alternate": "4200746488034,30563255730192,70334669676777,19349129719984,66065505775654,133814269518032,243799792062487,7323238039569,269290422947912,261718412386336,4351103873168,12391299473616,92410801582180,277730033709185,36090878648473,79882365190287,94274800595104,117794058317863,115784047153172,179250745360524,7301780005088,166653589463190,94249030815912,198964645236955,198427807899653,23656948363422,255735573270728,106670109786240,130932396826763,18855208456329"
+          }
+        },
+        {
+          "kind": "gkx",
+          "key": "16539",
+          "valueType": "boolean",
+          "reads": [
+            {
+              "module": "WAWebABProps",
+              "variant": "primary",
+              "line": 35,
+              "column": 24,
+              "method": "gkx",
+              "timing": "function-body",
+              "expression": "r(\"gkx\")(\"16539\")"
+            }
+          ]
+        },
+        {
+          "kind": "gkx",
+          "key": "26256",
+          "valueType": "boolean",
+          "reads": [
+            {
+              "module": "WAWebABPropsJestE2EReadLog",
+              "variant": "primary",
+              "line": 4,
+              "column": 9,
+              "method": "gkx",
+              "timing": "function-body",
+              "expression": "r(\"gkx\")(\"26256\")"
+            }
+          ]
+        },
+        {
+          "kind": "gkx",
+          "key": "26258",
+          "valueType": "boolean",
+          "reads": [
+            {
+              "module": "WAWebWid",
+              "variant": "primary",
+              "line": 50,
+              "column": 8,
+              "method": "gkx",
+              "timing": "function-body",
+              "expression": "r(\"gkx\")(\"26258\")"
+            }
+          ]
+        }
+      ],
+      "unresolved": [
+        {
+          "code": "dynamic-code-or-import",
+          "module": "@bootstrap/babel-helpers",
+          "line": 1,
+          "column": 2285
+        },
+        {
+          "code": "dynamic-code-or-import",
+          "module": "@bootstrap/babel-helpers",
+          "line": 1,
+          "column": 2553
+        },
+        {
+          "code": "dynamic-gate-key",
+          "module": "WAWebABPropsSupportLid",
+          "line": 30,
+          "column": 10
+        },
+        {
+          "code": "dynamic-gate-key",
+          "module": "WAWebABPropsSupportLid",
+          "line": 36,
+          "column": 10
+        },
+        {
+          "code": "missing-module",
+          "module": "cr:6640"
+        },
+        {
+          "code": "unrecognized-gate-provider",
+          "module": "WAWebWid",
+          "line": 156,
+          "column": 103
+        },
+        {
+          "code": "unrecognized-gate-provider",
+          "module": "WAWebWid",
+          "line": 158,
+          "column": 107
+        },
+        {
+          "code": "unrecognized-gate-provider",
+          "module": "WAWebWid",
+          "line": 225,
+          "column": 11
+        },
+        {
+          "code": "unrecognized-gate-provider",
+          "module": "WAWebWid",
+          "line": 235,
+          "column": 11
+        },
+        {
+          "code": "unrecognized-gate-provider",
+          "module": "WAWebWid",
+          "line": 156,
+          "column": 166
+        },
+        {
+          "code": "unrecognized-gate-provider",
+          "module": "WAWebWid",
+          "line": 158,
+          "column": 174
+        },
+        {
+          "code": "unrecognized-gate-provider",
+          "module": "WAWebABProps",
+          "line": 43,
+          "column": 2
+        },
+        {
+          "code": "unrecognized-gate-provider",
+          "module": "WAWebWid",
+          "line": 156,
+          "column": 25
+        },
+        {
+          "code": "unrecognized-gate-provider",
+          "module": "WAWebWid",
+          "line": 158,
+          "column": 25
+        },
+        {
+          "code": "unrecognized-gate-provider",
+          "module": "WAWebWid",
+          "line": 223,
+          "column": 25
+        },
+        {
+          "code": "unrecognized-gate-provider",
+          "module": "WAWebWid",
+          "line": 233,
+          "column": 25
+        },
+        {
+          "code": "unrecognized-gate-provider",
+          "module": "WAWebWid",
+          "line": 162,
+          "column": 30
+        },
+        {
+          "code": "unrecognized-gate-provider",
+          "module": "WAWebWid",
+          "line": 220,
+          "column": 33
+        },
+        {
+          "code": "unrecognized-gate-provider",
+          "module": "WAWebWid",
+          "line": 230,
+          "column": 33
+        },
+        {
+          "code": "unrecognized-gate-provider",
+          "module": "WAWebWid",
+          "line": 226,
+          "column": 49
+        },
+        {
+          "code": "unrecognized-gate-provider",
+          "module": "WAWebWid",
+          "line": 236,
+          "column": 49
+        },
+        {
+          "code": "unrecognized-gate-provider",
+          "module": "WAWebABProps",
+          "line": 43,
+          "column": 72
+        },
+        {
+          "code": "unresolved-bootstrap-provider",
+          "module": "ExecutionEnvironment",
+          "line": 3,
+          "column": 12
+        }
+      ],
+      "staticCoverage": {
+        "complete": false,
+        "scope": "module-closure-superset",
+        "semanticProof": false,
+        "resolverCoverage": false,
+        "modules": 38,
+        "sourceBytes": 329173,
+        "workBudget": {
+          "limit": 2000000,
+          "consumed": 668855,
+          "exhausted": false
+        },
+        "limitations": [
+          "Only supported gate APIs and static key expressions are inventoried.",
+          "Logical work units bound selected AST traversal and resolution, not parser internals or elapsed time; parsing remains source-byte bounded.",
+          "Declared fixture-provider boundaries exclude their original resolver implementations and dependencies.",
+          "All functions in each dependency module are scanned; exact export and caller reachability is not proven.",
+          "Runtime-discovered gates and externally selected code require separate observations."
+        ]
+      }
+    },
+    {
+      "revision": "1051908825",
+      "modules": [
+        {
+          "module": "$InternalEnum",
+          "variant": "primary",
+          "printedSourceSha256": "2ceb4779145d3f716cdabff27facf6fec30f45f844896ccd78300320a44a69a9",
+          "dependencies": [],
+          "citations": ["modules/$InternalEnum.js:1"]
+        },
+        {
+          "module": "BanzaiLazyQueue",
+          "variant": "primary",
+          "printedSourceSha256": "c4b206703179790d810f00c914c5ff13123e8a5d479a1fc017e2d8fb06c62d49",
+          "dependencies": ["SimpleHook"],
+          "citations": ["modules/BanzaiLazyQueue.js:1"]
+        },
+        {
+          "module": "Env",
+          "variant": "primary",
+          "printedSourceSha256": "ad5c3d19c3db7a10d569dceb202b62801ac1014c42a99cf21d3249a124319082",
+          "dependencies": [],
+          "citations": ["modules/Env.js:1"]
+        },
+        {
+          "module": "ExecutionEnvironment",
+          "variant": "primary",
+          "printedSourceSha256": "4f49de6e0ddb5be88f962a8196f5a2370427b931db218b019e4a2bd020b1891e",
+          "dependencies": [],
+          "citations": ["modules/ExecutionEnvironment.js:1"]
+        },
+        {
+          "module": "FBLogger",
+          "variant": "primary",
+          "printedSourceSha256": "5b78358a73a6900d013f27628afaffe9b58fdb92dc37233690ec50441114c7c2",
+          "dependencies": ["fb-error"],
+          "citations": ["modules/FBLogger.js:1"]
+        },
+        {
+          "module": "Promise",
+          "variant": "primary",
+          "printedSourceSha256": "c94f5132251416675e842ee8bbe98476648325ff897dab0a230b39875e1f3c2a",
+          "dependencies": ["cr:6640"],
+          "citations": ["modules/Promise.js:1"]
+        },
+        {
+          "module": "SimpleHook",
+          "variant": "primary",
+          "printedSourceSha256": "fd56db80143da1644f5f104549955a5a4fc38e3bafb9ae56cc3f2e4e33885eca",
+          "dependencies": [],
+          "citations": ["modules/SimpleHook.js:1"]
+        },
+        {
+          "module": "WAAssertUnreachable",
+          "variant": "primary",
+          "printedSourceSha256": "0a3f98d4cb30e6e90818323c41ed1ad2012bd64cc82c3fc09accea5299c2d400",
+          "dependencies": ["err"],
+          "citations": ["modules/WAAssertUnreachable.js:1"]
+        },
+        {
+          "module": "WAHex",
+          "variant": "primary",
+          "printedSourceSha256": "3d28ad9eb342f6715bec66c8c38fd57a14497e07101f5f9b67fc3c9838e72ffe",
+          "dependencies": ["err"],
+          "citations": ["modules/WAHex.js:1"]
+        },
+        {
+          "module": "WAJids",
+          "variant": "primary",
+          "printedSourceSha256": "42733fc49d99d76539f7b4873fa7cbe6f9994de25560f5b6eb24ae3e5532253c",
+          "dependencies": ["WAAssertUnreachable", "err"],
+          "citations": ["modules/WAJids.js:1"]
+        },
+        {
+          "module": "WALogger",
+          "variant": "primary",
+          "printedSourceSha256": "0406e777eb10eef04870576148db402f9aa20fe709545e0701a314d5b8583837",
+          "dependencies": ["$InternalEnum", "WATagsLogger"],
+          "citations": ["modules/WALogger.js:1"]
+        },
+        {
+          "module": "WALoggerUtils",
+          "variant": "primary",
+          "printedSourceSha256": "e1baf5e4850088801148e9a6a46e6720e52efba4aca6f4a139f585fd162f364b",
+          "dependencies": ["WAHex"],
+          "citations": ["modules/WALoggerUtils.js:1"]
+        },
+        {
+          "module": "WATagsLogger",
+          "variant": "primary",
+          "printedSourceSha256": "c6cb8a0516b1ec1b5a373d50cd3d75f952707f12547d2f46820d9d352bb26ad7",
+          "dependencies": ["FBLogger", "Promise", "WALoggerUtils", "asyncToGeneratorRuntime"],
+          "citations": ["modules/WATagsLogger.js:1"]
+        },
+        {
+          "module": "WATypeUtils",
+          "variant": "primary",
+          "printedSourceSha256": "692d60676bfcba61805b5c319fc172976c527ccb5cda2d3822a67b24da5f8e25",
+          "dependencies": [],
+          "citations": ["modules/WATypeUtils.js:1"]
+        },
+        {
+          "module": "WAWebABProps",
+          "variant": "primary",
+          "printedSourceSha256": "f352cc4dd83ca26e5ba1de2ff903abd1be97962e423383f1093cc7451214a738",
+          "dependencies": ["WALogger", "WAWebABPropsConfigs", "WAWebABPropsJestE2EReadLog", "gkx"],
+          "citations": ["modules/WAWebABProps.js:1"]
+        },
+        {
+          "module": "WAWebABPropsCAPISupportNumber",
+          "variant": "primary",
+          "printedSourceSha256": "446bf321e831a15b85963d6528d2d4f96131eac0285efd0c1a7e78f2410a1030",
+          "dependencies": ["WAWebABProps"],
+          "citations": ["modules/WAWebABPropsCAPISupportNumber.js:1"]
+        },
+        {
+          "module": "WAWebABPropsConfigs",
+          "variant": "primary",
+          "printedSourceSha256": "e694b3c9b4a4e43b44c3aef264afa386d8165d3c9bbf0a7095cc7551d9410d46",
+          "dependencies": [],
+          "citations": ["modules/WAWebABPropsConfigs.js:1"]
+        },
+        {
+          "module": "WAWebABPropsJestE2EReadLog",
+          "variant": "primary",
+          "printedSourceSha256": "9c85a30b7252aa7b714007e680ff6d1ce9f75051c1993f1982fada4b74b88737",
+          "dependencies": ["gkx"],
+          "citations": ["modules/WAWebABPropsJestE2EReadLog.js:1"]
+        },
+        {
+          "module": "WAWebABPropsSupportGroup",
+          "variant": "primary",
+          "printedSourceSha256": "1b42c7e696642050f8c78d26e484b8ad285fe6d67e151f05d79a44cd7e42dfc7",
+          "dependencies": ["WAWebABProps"],
+          "citations": ["modules/WAWebABPropsSupportGroup.js:1"]
+        },
+        {
+          "module": "WAWebABPropsSupportLid",
+          "variant": "primary",
+          "printedSourceSha256": "6e1db73a851f43a18e5fd25ab4c02341350fb85eee52d41c168eb0caef454c83",
+          "dependencies": ["WALogger", "WAWebABProps"],
+          "citations": ["modules/WAWebABPropsSupportLid.js:1"]
+        },
+        {
+          "module": "WAWebWid",
+          "variant": "primary",
+          "printedSourceSha256": "676e98ecc10aa69562d26627ddc9f2c3aaba3974671f170336640a97250209b3",
+          "dependencies": [
+            "WAJids",
+            "WALogger",
+            "WATypeUtils",
+            "WAWebABPropsCAPISupportNumber",
+            "WAWebABPropsSupportGroup",
+            "WAWebABPropsSupportLid",
+            "WAWebWidError",
+            "WAWebWidValidator",
+            "err",
+            "gkx"
+          ],
+          "citations": ["modules/WAWebWid.js:1"]
+        },
+        {
+          "module": "WAWebWidError",
+          "variant": "primary",
+          "printedSourceSha256": "ac2de878244766541e44689b1f11c3f42bcd7402cb07ec1a463822cfead1ec0e",
+          "dependencies": [],
+          "citations": ["modules/WAWebWidError.js:1"]
+        },
+        {
+          "module": "WAWebWidFactory",
+          "variant": "primary",
+          "printedSourceSha256": "2c18c290fa6029bd9ad7438a5e80415cf1489b14b05136f66f6d60000185cce0",
+          "dependencies": [
+            "WALogger",
+            "WATypeUtils",
+            "WAWebWid",
+            "WAWebWidError",
+            "WAWebWidStore",
+            "err",
+            "nullthrows"
+          ],
+          "citations": ["modules/WAWebWidFactory.js:1"]
+        },
+        {
+          "module": "WAWebWidStore",
+          "variant": "primary",
+          "printedSourceSha256": "a702aa2eb623de3d6e170839e1411f2d0051d9f55bc29073f6dc2385971a9f83",
+          "dependencies": [],
+          "citations": ["modules/WAWebWidStore.js:1"]
+        },
+        {
+          "module": "WAWebWidValidator",
+          "variant": "primary",
+          "printedSourceSha256": "b9df70e1a8a97cccc1db53a95f8f674d21afe341e85267897f5ec2b363a22b14",
+          "dependencies": ["$InternalEnum", "WALogger"],
+          "citations": ["modules/WAWebWidValidator.js:1"]
+        },
+        {
+          "module": "asyncToGeneratorRuntime",
+          "variant": "primary",
+          "printedSourceSha256": "147052b2a1cdc6d21087a611043d0974d5babedeeee624185babb023bbcf72f3",
+          "dependencies": ["Promise"],
+          "citations": ["modules/asyncToGeneratorRuntime.js:1"]
+        },
+        {
+          "module": "emptyFunction",
+          "variant": "primary",
+          "printedSourceSha256": "efc2fa885be346ba40045503e3a0588374c842f36261ce8138988d63608ecb48",
+          "dependencies": [],
+          "citations": ["modules/emptyFunction.js:1"]
+        },
+        {
+          "module": "err",
+          "variant": "primary",
+          "printedSourceSha256": "a26a1f88fe2c09505c0ec8e43d1a43c2299b6126ea7ea305c567bf7634fbeea0",
+          "dependencies": ["fb-error"],
+          "citations": ["modules/err.js:1"]
+        },
+        {
+          "module": "fb-error",
+          "variant": "primary",
+          "printedSourceSha256": "545144d2d2c50524d5bcfc421916cf76760743cb5b034dcb7a4d7066981f714e",
+          "dependencies": ["performanceNow", "removeFromArray"],
+          "citations": ["modules/fb-error.js:1"]
+        },
+        {
+          "module": "fb-error-lite",
+          "variant": "primary",
+          "printedSourceSha256": "70182c28f267319e6122d9da5fa9d01bc3c60775130d33429a71874503924b64",
+          "dependencies": [],
+          "citations": ["modules/fb-error-lite.js:1"]
+        },
+        {
+          "module": "gkx",
+          "variant": "primary",
+          "printedSourceSha256": "e84fc9d0a08a52702897502d1eb33202bd0d97b9633277aa18df81d9cb902cf6",
+          "dependencies": ["BanzaiLazyQueue", "ExecutionEnvironment", "emptyFunction", "invariant"],
+          "citations": ["modules/gkx.js:1"]
+        },
+        {
+          "module": "invariant",
+          "variant": "primary",
+          "printedSourceSha256": "6b377021188adf8be5add1781bb1a5b3a7da5d0021df951267b1ae8d331f705f",
+          "dependencies": ["Env", "fb-error-lite", "sprintf"],
+          "citations": ["modules/invariant.js:1"]
+        },
+        {
+          "module": "nullthrows",
+          "variant": "primary",
+          "printedSourceSha256": "8f9ee47b9edbd38314e5f785b651c3fef622f457813889a4495c3b79ea3c241c",
+          "dependencies": [],
+          "citations": ["modules/nullthrows.js:1"]
+        },
+        {
+          "module": "performance",
+          "variant": "primary",
+          "printedSourceSha256": "9bee7ad7d1941af3432757b1ce55c980030f812f0a5fb00916e906b8a0b6ced9",
+          "dependencies": [],
+          "citations": ["modules/performance.js:1"]
+        },
+        {
+          "module": "performanceNow",
+          "variant": "primary",
+          "printedSourceSha256": "415e5327e020372f7789e27dc42266a9cb3d6bbc2d8c47d0b751b93517a0475f",
+          "dependencies": ["performance"],
+          "citations": ["modules/performanceNow.js:1"]
+        },
+        {
+          "module": "removeFromArray",
+          "variant": "primary",
+          "printedSourceSha256": "c8e194de9e9463716c2f383406ae8269ddff1a9fe5fbc1a7559abcd2aaa666bb",
+          "dependencies": [],
+          "citations": ["modules/removeFromArray.js:1"]
+        },
+        {
+          "module": "sprintf",
+          "variant": "primary",
+          "printedSourceSha256": "7860c49011bd89ed50d0db8ed061d00ec9a2ba42b75f298a10c3d6ef98888361",
+          "dependencies": [],
+          "citations": ["modules/sprintf.js:1"]
+        }
+      ],
+      "bootstrapAssets": [
+        {
+          "kind": "babel-helpers",
+          "sourceSha256": "d87819406e3accc642307f2a1da84ff09c7541b6ee5724b1e66d86e1e77ee606",
+          "origin": {
+            "revisionId": "whatsapp-1051908825",
+            "rawSha256": "00421be885c15207c89e1a61a4c2a3f337a019d3df3aa3bc7de1ef07a6a4a07f",
+            "startByte": 18780,
+            "endByte": 22609,
+            "rawBytes": 939201
+          }
+        }
+      ],
+      "analyzer": {
+        "version": 4,
+        "sourceSha256": "73c5e31e59ff601a01114ab03a0dc183d81389987e3af5832c53d9ac8bd8c06b"
+      },
+      "inventoryDigest": "3a03f6cbe4b677f18741675ee85a451b759f9b3c98983e9743eaa60f6e7ca191",
+      "gates": [
+        {
+          "kind": "abprops",
+          "key": "in_app_support_capi_number_prefixes",
+          "valueType": "string",
+          "reads": [
+            {
+              "module": "WAWebABPropsCAPISupportNumber",
+              "variant": "primary",
+              "line": 3,
+              "column": 10,
+              "method": "getABPropConfigValue",
+              "timing": "function-body",
+              "expression": "o(\"WAWebABProps\").getABPropConfigValue(\"in_app_support_capi_number_prefixes\")"
+            }
+          ],
+          "config": {
+            "module": "WAWebABPropsConfigs",
+            "line": 7162,
+            "type": "string",
+            "default": "155178684",
+            "alternate": "155178684"
+          }
+        },
+        {
+          "kind": "abprops",
+          "key": "in_app_support_v2_number_prefixes",
+          "valueType": "string",
+          "reads": [
+            {
+              "module": "WAWebABPropsSupportGroup",
+              "variant": "primary",
+              "line": 3,
+              "column": 10,
+              "method": "getABPropConfigValue",
+              "timing": "function-body",
+              "expression": "o(\"WAWebABProps\").getABPropConfigValue(\"in_app_support_v2_number_prefixes\")"
+            }
+          ],
+          "config": {
+            "module": "WAWebABPropsConfigs",
+            "line": 7168,
+            "type": "string",
+            "default": "15517868",
+            "alternate": "15517868"
+          }
+        },
+        {
+          "kind": "abprops",
+          "key": "payment_support_lids",
+          "valueType": "string",
+          "reads": [
+            {
+              "module": "WAWebABPropsSupportLid",
+              "variant": "primary",
+              "line": 8,
+              "column": 10,
+              "method": "getABPropConfigValue",
+              "timing": "function-body",
+              "expression": "o(\"WAWebABProps\").getABPropConfigValue(\"payment_support_lids\")"
+            }
+          ],
+          "config": {
+            "module": "WAWebABPropsConfigs",
+            "line": 8806,
+            "type": "string",
+            "default": "116664750354676,128385682505839,46635358933114,26521959944357,200206125658243,179985503506636,187797998674170,228746200088715,117914552262794,10158134550607",
+            "alternate": "116664750354676,128385682505839,46635358933114,26521959944357,200206125658243,179985503506636,187797998674170,228746200088715,117914552262794,10158134550607"
+          }
+        },
+        {
+          "kind": "abprops",
+          "key": "support_lids",
+          "valueType": "string",
+          "reads": [
+            {
+              "module": "WAWebABPropsSupportLid",
+              "variant": "primary",
+              "line": 4,
+              "column": 10,
+              "method": "getABPropConfigValue",
+              "timing": "function-body",
+              "expression": "o(\"WAWebABProps\").getABPropConfigValue(\"support_lids\")"
+            }
+          ],
+          "config": {
+            "module": "WAWebABPropsConfigs",
+            "line": 11386,
+            "type": "string",
+            "default": "4200746488034,30563255730192,70334669676777,19349129719984,66065505775654,133814269518032,243799792062487,7323238039569,269290422947912,261718412386336,4351103873168,12391299473616,92410801582180,277730033709185,36090878648473,79882365190287,94274800595104,117794058317863,115784047153172,179250745360524,7301780005088,166653589463190,94249030815912,198964645236955,198427807899653,23656948363422,255735573270728,106670109786240,130932396826763,18855208456329",
+            "alternate": "4200746488034,30563255730192,70334669676777,19349129719984,66065505775654,133814269518032,243799792062487,7323238039569,269290422947912,261718412386336,4351103873168,12391299473616,92410801582180,277730033709185,36090878648473,79882365190287,94274800595104,117794058317863,115784047153172,179250745360524,7301780005088,166653589463190,94249030815912,198964645236955,198427807899653,23656948363422,255735573270728,106670109786240,130932396826763,18855208456329"
+          }
+        },
+        {
+          "kind": "gkx",
+          "key": "16539",
+          "valueType": "boolean",
+          "reads": [
+            {
+              "module": "WAWebABProps",
+              "variant": "primary",
+              "line": 35,
+              "column": 24,
+              "method": "gkx",
+              "timing": "function-body",
+              "expression": "r(\"gkx\")(\"16539\")"
+            }
+          ]
+        },
+        {
+          "kind": "gkx",
+          "key": "26256",
+          "valueType": "boolean",
+          "reads": [
+            {
+              "module": "WAWebABPropsJestE2EReadLog",
+              "variant": "primary",
+              "line": 4,
+              "column": 9,
+              "method": "gkx",
+              "timing": "function-body",
+              "expression": "r(\"gkx\")(\"26256\")"
+            }
+          ]
+        },
+        {
+          "kind": "gkx",
+          "key": "26258",
+          "valueType": "boolean",
+          "reads": [
+            {
+              "module": "WAWebWid",
+              "variant": "primary",
+              "line": 50,
+              "column": 8,
+              "method": "gkx",
+              "timing": "function-body",
+              "expression": "r(\"gkx\")(\"26258\")"
+            }
+          ]
+        }
+      ],
+      "unresolved": [
+        {
+          "code": "dynamic-code-or-import",
+          "module": "@bootstrap/babel-helpers",
+          "line": 1,
+          "column": 2285
+        },
+        {
+          "code": "dynamic-code-or-import",
+          "module": "@bootstrap/babel-helpers",
+          "line": 1,
+          "column": 2553
+        },
+        {
+          "code": "dynamic-gate-key",
+          "module": "WAWebABPropsSupportLid",
+          "line": 30,
+          "column": 10
+        },
+        {
+          "code": "dynamic-gate-key",
+          "module": "WAWebABPropsSupportLid",
+          "line": 36,
+          "column": 10
+        },
+        {
+          "code": "missing-module",
+          "module": "cr:6640"
+        },
+        {
+          "code": "unrecognized-gate-provider",
+          "module": "WAWebWid",
+          "line": 156,
+          "column": 103
+        },
+        {
+          "code": "unrecognized-gate-provider",
+          "module": "WAWebWid",
+          "line": 158,
+          "column": 107
+        },
+        {
+          "code": "unrecognized-gate-provider",
+          "module": "WAWebWid",
+          "line": 225,
+          "column": 11
+        },
+        {
+          "code": "unrecognized-gate-provider",
+          "module": "WAWebWid",
+          "line": 235,
+          "column": 11
+        },
+        {
+          "code": "unrecognized-gate-provider",
+          "module": "WAWebWid",
+          "line": 156,
+          "column": 166
+        },
+        {
+          "code": "unrecognized-gate-provider",
+          "module": "WAWebWid",
+          "line": 158,
+          "column": 174
+        },
+        {
+          "code": "unrecognized-gate-provider",
+          "module": "WAWebABProps",
+          "line": 43,
+          "column": 2
+        },
+        {
+          "code": "unrecognized-gate-provider",
+          "module": "WAWebWid",
+          "line": 156,
+          "column": 25
+        },
+        {
+          "code": "unrecognized-gate-provider",
+          "module": "WAWebWid",
+          "line": 158,
+          "column": 25
+        },
+        {
+          "code": "unrecognized-gate-provider",
+          "module": "WAWebWid",
+          "line": 223,
+          "column": 25
+        },
+        {
+          "code": "unrecognized-gate-provider",
+          "module": "WAWebWid",
+          "line": 233,
+          "column": 25
+        },
+        {
+          "code": "unrecognized-gate-provider",
+          "module": "WAWebWid",
+          "line": 162,
+          "column": 30
+        },
+        {
+          "code": "unrecognized-gate-provider",
+          "module": "WAWebWid",
+          "line": 220,
+          "column": 33
+        },
+        {
+          "code": "unrecognized-gate-provider",
+          "module": "WAWebWid",
+          "line": 230,
+          "column": 33
+        },
+        {
+          "code": "unrecognized-gate-provider",
+          "module": "WAWebWid",
+          "line": 226,
+          "column": 49
+        },
+        {
+          "code": "unrecognized-gate-provider",
+          "module": "WAWebWid",
+          "line": 236,
+          "column": 49
+        },
+        {
+          "code": "unrecognized-gate-provider",
+          "module": "WAWebABProps",
+          "line": 43,
+          "column": 72
+        },
+        {
+          "code": "unresolved-bootstrap-provider",
+          "module": "ExecutionEnvironment",
+          "line": 3,
+          "column": 12
+        }
+      ],
+      "staticCoverage": {
+        "complete": false,
+        "scope": "module-closure-superset",
+        "semanticProof": false,
+        "resolverCoverage": false,
+        "modules": 38,
+        "sourceBytes": 330139,
+        "workBudget": {
+          "limit": 2000000,
+          "consumed": 670109,
+          "exhausted": false
+        },
+        "limitations": [
+          "Only supported gate APIs and static key expressions are inventoried.",
+          "Logical work units bound selected AST traversal and resolution, not parser internals or elapsed time; parsing remains source-byte bounded.",
+          "Declared fixture-provider boundaries exclude their original resolver implementations and dependencies.",
+          "All functions in each dependency module are scanned; exact export and caller reachability is not proven.",
+          "Runtime-discovered gates and externally selected code require separate observations."
+        ]
+      }
+    }
+  ],
+  "exclusions": [
+    "Original InvalidWidError, Wid, factory, validator, logger and store execute; no class/logger/parser/cache substitute. Explicitcr6640:null selects actual Promise fallback; no worker/environment/provider fixture needed for selected source paths.",
+    "No nonstring createWid inputs or ERROR.sendLogs path. Prototype/inherited cache property keys are omitted from this suite and do not gain strict-rejection acceptance.",
+    "Known finite boolean subset8assignments runs for the named history, including potentially unobserved fullgraph gates. Four ABProps string domains, dynamic keys, resolver/bootstrap/provider diagnostics block full configuration completeness.",
+    "OriginalBabelsource executes through the explicitly protected realmnamespace; outwardunknown/inherited/symbolreads and mutations are guarded, ownKeys/getOwnPropertyDescriptor/has forward originaltarget. No transparent wholebrowser/rawbundle claim.",
+    "Cache clear replaces store objects; retained old Wids remain actual objects and can compare equal by value. This is local synchronous object lifetime, not session teardown/restart/cancellation/persistence acceptance.",
+    "Unbounded malformed/string/message/objectkey/sequence domains, transport/providers/accounts/network, container isolation, production suite scheduling, named-library parity, Signal and securityproof remain unaccepted."
+  ]
+}

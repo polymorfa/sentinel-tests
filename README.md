@@ -35,6 +35,8 @@ The [curve-key policy suite](docs/curve-key-policy.md) exercises original WA ran
 
 The [WAM event-state suite](docs/wam-event-state.md) executes original event classes with the separately admitted original Babel producer. It covers partial field updates, retries, timers and precommit validation; delivery and full bootstrap/configuration acceptance remain open.
 
+The [original Wid-error suite](docs/wid-original-errors.md) exercises real error inheritance and malformed-string factory failures, with validator controls and retained cache identities. It excludes nonstring factory inputs, inherited cache keys and universal rejection claims.
+
 The eight existing fixtures retain their IDs, versions and exact bytes after moving out of `tests/`. Historical observations and remaining gaps are recorded in [coverage.json](coverage.json). A passing assertion covers its exact inputs, source, configuration and runtime. It does not establish whole-client or library compliance, server acceptance or cryptographic security.
 
 Discovered using a monitor developed by @purpshell at polymorfa.com
