@@ -2,6 +2,7 @@ import { readFile, readdir } from 'node:fs/promises';
 import { createHash } from 'node:crypto';
 import assert from 'node:assert/strict';
 import type { BehaviorCase, CaseMetadata } from './types.ts';
+import { validateProbeControls } from './probe-controls.ts';
 
 const root = new URL('../', import.meta.url);
 function record(value: unknown): value is Record<string, unknown> {
@@ -67,51 +68,7 @@ export async function validateFixtures(): Promise<FixtureEntry[]> {
           ) &&
           new Set(value.context.babelHelpers).size === value.context.babelHelpers.length,
       );
-    if (value.construct !== undefined)
-      assert.ok(
-        record(value.construct) &&
-          Array.isArray(value.construct.args) &&
-          Object.keys(value.construct).every((key) => key === 'args'),
-      );
-    assert.ok(Array.isArray(value.probes) && value.probes.length > 0 && value.probes.length <= 128);
-    const probeIds = new Set<string>();
-    for (const probe of value.probes) {
-      assert.ok(record(probe) && typeof probe.id === 'string' && !probeIds.has(probe.id));
-      probeIds.add(probe.id);
-      assert.ok(Array.isArray(probe.args));
-      if (probe.result !== undefined)
-        assert.ok(
-          record(probe.result) &&
-            typeof probe.result.method === 'string' &&
-            /^[A-Za-z_$][\w$]*$/.test(probe.result.method) &&
-            !['constructor', '__proto__', 'prototype'].includes(probe.result.method) &&
-            (probe.result.args === undefined || Array.isArray(probe.result.args)) &&
-            Object.keys(probe.result).every((key) => ['method', 'args'].includes(key)),
-        );
-      if (probe.clock !== undefined)
-        assert.ok(
-          typeof probe.clock === 'string' &&
-            /^\d{4}-\d\d-\d\dT.*(?:Z|[+-]\d\d:\d\d)$/.test(probe.clock) &&
-            Number.isFinite(Date.parse(probe.clock)),
-        );
-      assert.ok(!(probe.export !== undefined && probe.method !== undefined));
-      if (probe.export !== undefined)
-        assert.ok(
-          value.construct === undefined &&
-            typeof probe.export === 'string' &&
-            probe.export.length > 0 &&
-            probe.export.length <= 256,
-        );
-      if (probe.method !== undefined)
-        assert.ok(
-          value.construct !== undefined &&
-            typeof probe.method === 'string' &&
-            /^[A-Za-z_$][\w$]*$/.test(probe.method) &&
-            !['constructor', '__proto__', 'prototype'].includes(probe.method),
-        );
-      if (value.construct !== undefined) assert.ok(probe.method !== undefined);
-      assert.notEqual(Object.hasOwn(probe, 'expected'), Object.hasOwn(probe, 'throws'));
-    }
+    validateProbeControls(value);
     const candidates: unknown[] = (metadata.cases as unknown[]).filter(
       (entry: unknown) => record(entry) && entry.id === value.id && entry.version === value.version,
     );

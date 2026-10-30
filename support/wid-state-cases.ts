@@ -354,6 +354,7 @@ export function widStateCases(): BehaviorCase[] {
           { beforeProbe: 'log-after-restore', gates: { gkx: { '26258': redact } } },
         ];
         cases.push(representationCase);
+        cases.push(makeCase('retained-reference-identity', gates, widReferenceProbes()));
         const generated: Probe[] = [];
         for (let index = 0; index < 24; index++) {
           const user = `1999555${String(index).padStart(4, '0')}`;
@@ -388,4 +389,218 @@ export function widStateCases(): BehaviorCase[] {
         cases.push(makeCase('generated-valid-normalization', gates, generated));
       }
   return cases;
+}
+
+const ref = (id: string): JsonValue => ({ $type: 'reference', value: id });
+function widReferenceProbes(): Probe[] {
+  const retained = (
+    id: string,
+    handle: string,
+    exported: string,
+    args: JsonValue[],
+    expected: string,
+  ): Probe => ({
+    ...factory(id, exported, args, 'toString', expected),
+    retain: { id: handle, stage: 'call' },
+  });
+  const identity = (
+    id: string,
+    exported: string,
+    args: JsonValue[],
+    handle: string,
+    expected: boolean,
+  ): Probe => ({
+    id,
+    export: exported,
+    args,
+    result: { identityWith: handle },
+    ...(!expected ? { retain: { id: `observed-${id}`, stage: 'call' as const } } : {}),
+    expected,
+  });
+  const projected = (
+    id: string,
+    handle: string,
+    method: string,
+    other: string,
+    expected: boolean,
+  ) => factory(id, 'createWidFromWidLike', [ref(handle)], method, expected, [ref(other)]);
+  return [
+    clearStore('start-clean-store'),
+    retained(
+      'retain-original-PN',
+      'old',
+      'createWid',
+      ['19995550000@s.whatsapp.net'],
+      '19995550000@c.us',
+    ),
+    identity('legacy-canonical-cache-hit', 'createWid', ['19995550000@c.us'], 'old', true),
+    retained(
+      'agent-zero-distinct-cache-key',
+      'agent',
+      'createWid',
+      ['19995550000.0:00@c.us'],
+      '19995550000@c.us',
+    ),
+    identity(
+      'agent-zero-same-data-different-object',
+      'createWidFromWidLike',
+      [ref('agent')],
+      'old',
+      false,
+    ),
+    identity(
+      'captured-agent-return-is-actual-Wid',
+      'createWidFromWidLike',
+      [ref('observed-agent-zero-same-data-different-object')],
+      'observed-agent-zero-same-data-different-object',
+      true,
+    ),
+    factory(
+      'captured-agent-literal',
+      'createWidFromWidLike',
+      [ref('observed-agent-zero-same-data-different-object')],
+      'toString',
+      '19995550000@c.us',
+    ),
+    projected(
+      'captured-agent-positive-equals',
+      'observed-agent-zero-same-data-different-object',
+      'equals',
+      'old',
+      true,
+    ),
+    projected('agent-zero-real-instance-equals', 'agent', 'equals', 'old', true),
+    clearStore('delete-original-store'),
+    retained(
+      'retain-fresh-after-delete',
+      'fresh',
+      'createWid',
+      ['19995550000@c.us'],
+      '19995550000@c.us',
+    ),
+    identity(
+      'store-reset-creates-new-object',
+      'createWid',
+      ['19995550000@s.whatsapp.net'],
+      'old',
+      false,
+    ),
+    identity(
+      'captured-post-clear-return-is-actual-Wid',
+      'createWidFromWidLike',
+      [ref('observed-store-reset-creates-new-object')],
+      'observed-store-reset-creates-new-object',
+      true,
+    ),
+    factory(
+      'captured-post-clear-literal',
+      'createWidFromWidLike',
+      [ref('observed-store-reset-creates-new-object')],
+      'toString',
+      '19995550000@c.us',
+    ),
+    projected(
+      'captured-post-clear-positive-equals',
+      'observed-store-reset-creates-new-object',
+      'equals',
+      'old',
+      true,
+    ),
+    identity('fresh-object-now-cached', 'createWid', ['19995550000@s.whatsapp.net'], 'fresh', true),
+    identity('old-object-remains-accepted', 'createWidFromWidLike', [ref('old')], 'old', true),
+    factory(
+      'old-reference-still-readable',
+      'createWidFromWidLike',
+      [ref('old')],
+      'toString',
+      '19995550000@c.us',
+    ),
+    projected('old-equals-new-real-instance', 'old', 'equals', 'fresh', true),
+    identity('as-user-preserves-old-user-object', 'asUserWidOrThrow', [ref('old')], 'old', true),
+    retained(
+      'retain-PN-device',
+      'device',
+      'createDeviceWidFromUserAndDevice',
+      ['19995550000', 'c.us', 2],
+      '19995550000:2@c.us',
+    ),
+    identity(
+      'as-user-device-resolves-current-cache',
+      'asUserWidOrThrow',
+      [ref('device')],
+      'fresh',
+      true,
+    ),
+    identity('as-chat-device-resolves-current-cache', 'asChatWid', [ref('device')], 'fresh', true),
+    projected('device-not-equal-to-user', 'device', 'equals', 'old', false),
+    projected(
+      'device-same-account-and-mode',
+      'device',
+      'isSameAccountAndAddressingMode',
+      'old',
+      true,
+    ),
+    retained('retain-LID-user', 'lid-user', 'createUserLidOrThrow', ['12345', 'lid'], '12345@lid'),
+    retained(
+      'retain-LID-device',
+      'lid-device',
+      'createDeviceWidFromUserAndDevice',
+      ['12345', 'lid', 2],
+      '12345:2@lid',
+    ),
+    identity(
+      'as-user-LID-device-current-cache',
+      'asUserLidOrThrow',
+      [ref('lid-device')],
+      'lid-user',
+      true,
+    ),
+    projected(
+      'LID-device-same-account-mode',
+      'lid-device',
+      'isSameAccountAndAddressingMode',
+      'lid-user',
+      true,
+    ),
+    projected(
+      'PN-versus-LID-not-same-addressing-mode',
+      'device',
+      'isSameAccountAndAddressingMode',
+      'lid-device',
+      false,
+    ),
+    retained(
+      'retain-hosted-PN',
+      'hosted',
+      'createDeviceWidFromUserAndDevice',
+      ['19995550000', 'c.us', 99],
+      '19995550000:99@hosted',
+    ),
+    projected(
+      'hosted-and-PN-same-account',
+      'hosted',
+      'isSameAccountAndAddressingMode',
+      'old',
+      true,
+    ),
+    projected(
+      'PN-and-hosted-symmetric-account',
+      'old',
+      'isSameAccountAndAddressingMode',
+      'hosted',
+      true,
+    ),
+    retained('retain-other-user', 'other', 'createWid', ['19995550001@c.us'], '19995550001@c.us'),
+    projected('distinct-real-user-not-equal', 'old', 'equals', 'other', false),
+    projected(
+      'distinct-real-user-not-same-account',
+      'old',
+      'isSameAccountAndAddressingMode',
+      'other',
+      false,
+    ),
+    projected('real-user-lexical-less-than', 'old', 'isLessThan', 'other', true),
+    projected('real-user-lexical-greater-than', 'other', 'isGreaterThan', 'old', true),
+    call('static-real-Wid-equals', 'WAWebWid', 'equals', [ref('old'), ref('fresh')], true),
+  ];
 }

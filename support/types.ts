@@ -29,7 +29,10 @@ export type Probe = {
   method?: string;
   pending?: { id: string; action: 'start' | 'inspect' | 'await'; property?: string };
   clock?: string;
-  result?: { method: string; args?: JsonValue[] };
+  result?:
+    | { method: string; args?: JsonValue[]; identityWith?: never }
+    | { identityWith: string; method?: never; args?: never };
+  retain?: { id: string; stage: 'call' | 'result' };
 } & ({ expected: JsonValue; throws?: never } | { expected?: never; throws: ErrorExpectation });
 export interface BehaviorCase {
   schemaVersion: 1;

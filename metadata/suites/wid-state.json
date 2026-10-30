@@ -1,16 +1,16 @@
 {
   "schemaVersion": 1,
   "id": "wid-state",
-  "version": 1,
+  "version": 2,
   "title": "Original Wid factory representation and PN/LID self-user memoizer state",
   "file": "tests/wid-state.test.ts",
   "helper": "support/wid-state-cases.ts",
   "capability": "wa-internal:wid-state",
   "roots": ["WAWebWidFactory", "WAWebWid", "WAWebWidStore", "WAWebUserPrefsMeUser", "WAWebGlobals"],
-  "oracle": "Original WAWebGlobals.setGlobals receives synthetic JSON self state; original UserPrefsMeUser, memoizeWithClear, WidFactory, Wid, validator and WidStore remain actual source. Fixed literal PN/LID/group/broadcast/newsletter/bot/hosted/call representations and independently generated decimal user/device strings. Memoizers retain prior PN/LID across globals replacement, clear independently, cache null LID, and do not cache thrown PN acquisition. Actual Wid methods are invoked on returned real factory instances. Log redaction assignments change and restore within one source runtime with actual gate read assertions.",
+  "oracle": "Original WAWebGlobals.setGlobals receives synthetic JSON self state; original UserPrefsMeUser, memoizeWithClear, WidFactory, Wid, validator and WidStore remain actual source. Fixed literal PN/LID/group/broadcast/newsletter/bot/hosted/call representations and independently generated decimal user/device strings. Memoizers retain prior PN/LID across globals replacement, clear independently, cache null LID, and do not cache thrown PN acquisition. Actual Wid methods are invoked on returned real factory instances. Log redaction assignments change and restore within one source runtime with actual gate read assertions. Real returned-object handles additionally prove legacy/canonical cache-hit identity, new factory instance after store deletion, old-reference lifetime, actual two-Wid equals/ordering/account/addressing-mode predicates and actual factory object-argument coercions. Identity=false results are themselves retained, then checked for actual class preservation, literal representation and positive real-instance equality.",
   "trials": {
-    "cases": 32,
-    "probesPerRevision": 1584,
+    "cases": 40,
+    "probesPerRevision": 1896,
     "selectedGkxAssignments": {
       "16539": [false, true],
       "26256": [false, true],
@@ -27,8 +27,11 @@
     "literalWidVectors": 12,
     "generatedUserDeviceVectorsPerContext": 24,
     "logGateTransitionDirections": 2,
-    "identityProof": false,
-    "selfDataProvenance": "Explicit synthetic JSON globals input, not an account/native/bootstrap/provider observation"
+    "identityProof": true,
+    "selfDataProvenance": "Explicit synthetic JSON globals input, not an account/native/bootstrap/provider observation",
+    "retainedIdentityCases": 8,
+    "retainedIdentityProbesPerRevision": 312,
+    "referenceScope": "Earlier-probe non-null actual objects retained inside one source realm; no host object/function injection or references in pending scenarios"
   },
   "observations": [
     {
@@ -2610,8 +2613,8 @@
     "Worker environment isWorker:true is explicit fixture; actual environment detection/main-thread preference storage, native account restoration and provider/session acquisition remain unexercised",
     "Missing provider imports use throwing fixtures if invoked; cr6640:null chooses original Promise realm-global fallback. No Wid, cache, self-user memoizer, globals or validator implementation is replaced",
     "Only selected realm-native extends/taggedTemplateLiteralLoose compatibility helpers are provided; original bundle bootstrap is not established. InvalidWidError paths require missing wrapNativeSuper/inheritsLoose helpers and remain unsupported rather than mocked",
-    "Actual methods on valid created Wids execute; JSON Widlike input is tested only through the factory API that explicitly accepts it, and plain-object equals false is a negative instanceof guard. Positive equals/ordering/account comparison between two actual instances needs realm-owned reference arguments",
-    "WidStore.delete is real, but normalized snapshots cannot prove cache hits/object identity or old-reference lifetime; memoizer stale/fresh serialized values are the supported cache observations",
+    "Actual retained Wid arguments now cover selected positive equals/ordering/account predicates and factory coercions. JSON Widlike API input and negative plain-object instanceof guards remain separate characterization; complete user/device/contact PN-LID equivalence is not established.",
+    "Retained in-realm object identity proves only the exact aliases/cache keys/reset sequence tested. Legacy server alias hits the same object; agent-zero normalized representation can occupy a distinct cache entry. Cross-worker/process identity, persistence and all cache mutations are not covered.",
     "Generated values/user/device strings and temporal sequences are bounded characterization of unbounded input and schedule domains",
     "PN/LID support-list resolvers, contact/account PN-LID mapping, network-authorized identity and native device/address changes are not covered",
     "MsgKey, Signal/Noise crypto, new-id randomness, containers, production scheduling, alternate module variants and named-library implementation parity remain unexercised"

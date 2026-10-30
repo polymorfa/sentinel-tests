@@ -277,5 +277,190 @@ export function msgkeyCases(): BehaviorCase[] {
       },
     ]),
   );
+  cases.push(...msgkeyReferenceCases());
+  return cases;
+}
+
+const ref = (id: string): JsonValue => ({ $type: 'reference', value: id });
+function msgkeyReferenceCases(): BehaviorCase[] {
+  const vectors = [
+    { fromMe: true, remote: '19995550001@c.us', id: 'R', serialized: 'true_19995550001@c.us_R' },
+    {
+      fromMe: false,
+      remote: '19995550000@c.us',
+      id: 'S',
+      serialized: 'false_19995550000@c.us_S_in',
+      self: 'in',
+    },
+    { fromMe: false, remote: '12346@lid', id: 'L', serialized: 'false_12346@lid_L' },
+    {
+      fromMe: true,
+      remote: '120363000001-1555000000@g.us',
+      id: 'G',
+      serialized: 'true_120363000001-1555000000@g.us_G_12347@lid',
+      participant: '12347@lid',
+    },
+  ];
+  const cases: BehaviorCase[] = [];
+  for (const [index, vector] of vectors.entries()) {
+    const input: Record<string, JsonValue> = {
+      fromMe: vector.fromMe,
+      remote: vector.remote,
+      id: vector.id,
+    };
+    if (vector.participant) input.participant = vector.participant;
+    const widData = (serialized: string): JsonValue => {
+      const [user, server] = serialized.split('@');
+      return { server: server!, user: user!, _serialized: serialized };
+    };
+    const cloneData: Record<string, JsonValue> = {
+      fromMe: vector.fromMe,
+      remote: widData(vector.remote),
+      id: vector.id,
+      $1: vector.serialized,
+    };
+    if (vector.self) cloneData.self = vector.self;
+    if (vector.participant) cloneData.participant = widData(vector.participant);
+    const identity = (id: string, value: JsonValue, handle: string, expected: boolean): Probe => ({
+      id,
+      args: [value],
+      result: { identityWith: handle },
+      ...(!expected ? { retain: { id: `observed-${id}`, stage: 'call' as const } } : {}),
+      expected,
+    });
+    cases.push(
+      makeCase(`retained-identity-${index}`, [
+        globals('globals-a', globalsA),
+        {
+          ...representation('retain-original', input, vector.serialized),
+          retain: { id: 'original', stage: 'call' },
+        },
+        identity('from-original-preserves-identity', ref('original'), 'original', true),
+        {
+          id: 'retain-actual-clone',
+          args: [ref('original')],
+          result: { method: 'clone' },
+          retain: { id: 'clone', stage: 'result' },
+          expected: cloneData,
+        },
+        identity('clone-is-distinct-from-original', ref('clone'), 'original', false),
+        identity(
+          'captured-clone-return-is-actual-MsgKey',
+          ref('observed-clone-is-distinct-from-original'),
+          'observed-clone-is-distinct-from-original',
+          true,
+        ),
+        representation(
+          'captured-clone-return-literal',
+          ref('observed-clone-is-distinct-from-original'),
+          vector.serialized,
+        ),
+        {
+          id: 'captured-clone-positive-equals',
+          args: [ref('observed-clone-is-distinct-from-original')],
+          result: { method: 'equals', args: [ref('original')] },
+          expected: true,
+        },
+        identity('from-clone-preserves-clone', ref('clone'), 'clone', true),
+        {
+          id: 'clone-equals-original',
+          args: [ref('clone')],
+          result: { method: 'equals', args: [ref('original')] },
+          expected: true,
+        },
+        {
+          id: 'original-equals-clone',
+          args: [ref('original')],
+          result: { method: 'equals', args: [ref('clone')] },
+          expected: true,
+        },
+        representation('clone-serialization-literal', ref('clone'), vector.serialized),
+        {
+          ...representation('retain-separate-equal-construction', input, vector.serialized),
+          retain: { id: 'separate', stage: 'call' },
+        },
+        identity('separate-construction-distinct', ref('separate'), 'original', false),
+        identity(
+          'captured-separate-return-is-actual-MsgKey',
+          ref('observed-separate-construction-distinct'),
+          'observed-separate-construction-distinct',
+          true,
+        ),
+        representation(
+          'captured-separate-literal',
+          ref('observed-separate-construction-distinct'),
+          vector.serialized,
+        ),
+        {
+          id: 'captured-separate-positive-equals',
+          args: [ref('observed-separate-construction-distinct')],
+          result: { method: 'equals', args: [ref('original')] },
+          expected: true,
+        },
+
+        {
+          id: 'separate-real-instance-equals',
+          args: [ref('separate')],
+          result: { method: 'equals', args: [ref('original')] },
+          expected: true,
+        },
+        {
+          id: 'different-message-id-not-equal',
+          args: [{ ...input, id: 'DIFFERENT' }],
+          result: { method: 'equals', args: [ref('original')] },
+          expected: false,
+        },
+      ]),
+    );
+  }
+  const selfInput: JsonValue = { fromMe: true, remote: '19995550000@c.us', id: 'A' };
+  cases.push(
+    makeCase('retained-self-clone-after-cache-clear', [
+      globals('globals-a', globalsA),
+      {
+        ...representation('retain-original-self', selfInput, 'true_19995550000@c.us_A_out'),
+        retain: { id: 'original', stage: 'call' },
+      },
+      globals('globals-b', globalsB),
+      clear('clear-pn', 'clearGetMaybeMePnUserCache'),
+      clear('clear-lid', 'clearGetMaybeMeLidUserCache'),
+      {
+        id: 'from-original-still-same-object',
+        args: [ref('original')],
+        result: { identityWith: 'original' },
+        expected: true,
+      },
+      {
+        id: 'clone-recomputes-self-context',
+        args: [ref('original')],
+        result: { method: 'clone' },
+        retain: { id: 'clone', stage: 'result' },
+        expected: {
+          fromMe: true,
+          remote: { server: 'c.us', user: '19995550000', _serialized: '19995550000@c.us' },
+          id: 'A',
+          $1: 'true_19995550000@c.us_A',
+        },
+      },
+      {
+        id: 'changed-context-clone-is-actual-MsgKey',
+        args: [ref('clone')],
+        result: { identityWith: 'clone' },
+        expected: true,
+      },
+      representation('clone-new-context-literal', ref('clone'), 'true_19995550000@c.us_A'),
+      representation(
+        'original-old-context-retained',
+        ref('original'),
+        'true_19995550000@c.us_A_out',
+      ),
+      {
+        id: 'changed-context-clone-not-equal',
+        args: [ref('clone')],
+        result: { method: 'equals', args: [ref('original')] },
+        expected: false,
+      },
+    ]),
+  );
   return cases;
 }

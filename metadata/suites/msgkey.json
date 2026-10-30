@@ -1,16 +1,16 @@
 {
   "schemaVersion": 1,
   "id": "msgkey",
-  "version": 1,
+  "version": 2,
   "title": "Original MsgKey parsing, real Wid representation and cached self identity",
   "file": "tests/msgkey.test.ts",
   "helper": "support/msgkey-cases.ts",
   "capability": "wa-internal:msgkey",
   "roots": ["WAWebMsgKey", "WAWebGlobals", "WAWebParseMsgKeyString", "WAWebUserPrefsMeUser"],
-  "oracle": "Literal serialized strings and parsed field objects grounded in the original MsgKey, parser, Wid factory and self-reader implementations. Actual WAWebGlobals and actual memoizers distinguish stale self identity from PN/LID cache clear. No serialized output is used as the oracle for a round trip. Clone checks own data fields only; equals checks negative instanceof guards with JSON values, not positive real-instance equality.",
+  "oracle": "Literal serialized strings and parsed field objects grounded in the original MsgKey, parser, Wid factory and self-reader implementations. Actual WAWebGlobals and actual memoizers distinguish stale self identity from PN/LID cache clear. No serialized output is used as the oracle for a round trip. Existing JSON negative guards and literal clone snapshots remain unchanged. Actual retained MsgKey instances additionally prove from(instance) identity, distinct clone/separate construction identity, positive instance equals and fixed serialized values. Clone after actual self-cache changes recomputes the self suffix while the original object retains its prior value. Identity=false results are retained and checked through actual-class preservation, literal representation and positive real-instance equality.",
   "trials": {
-    "cases": 10,
-    "probesPerRevision": 356,
+    "cases": 15,
+    "probesPerRevision": 443,
     "objectRemoteForms": 12,
     "objectIds": 4,
     "participantForms": 3,
@@ -24,7 +24,10 @@
     "fullBooleanMatrixStatus": "budget-blocked",
     "unboundedStringGateDomains": 4,
     "unknownKnobDomains": ["1500", "1600", "195"],
-    "domainEvidence": "Full transitive module inventory is retained. The 1024 boolean source-superset product is not executed and cannot establish configuration coverage while string, knob and unresolved domains remain open. Empty injected provider maps fail closed on any unexpected gate read. These source-selected representation/state cases are characterization only."
+    "domainEvidence": "Full transitive module inventory is retained. The 1024 boolean source-superset product is not executed and cannot establish configuration coverage while string, knob and unresolved domains remain open. Empty injected provider maps fail closed on any unexpected gate read. These source-selected representation/state cases are characterization only.",
+    "retainedIdentityCases": 5,
+    "retainedIdentityProbesPerRevision": 87,
+    "referenceScope": "Earlier-probe non-null actual objects retained inside one source realm; no host object/function injection or references in pending scenarios"
   },
   "observations": [
     {
@@ -2756,7 +2759,7 @@
     "Missing JSErrorLoggingConfig, cr34987, cr38444 and baseline cr5411 are fail-closed dependency fixtures; cr6640=null selects the real Promise fallback. Source pins retain original providers and full graph rather than hiding these execution exclusions.",
     "Invalid Wid constructor paths require missing canonical Babel wrapNativeSuper/inheritsLoose bootstrap. These paths are not asserted as passing vendor errors. Supported extends/taggedTemplateLiteralLoose are explicit compatibility fixtures, not proof of original bootstrap.",
     "Parser field observations do not establish validity of parsed Wids or complete message identity. Delimiter splitting intentionally truncates underscore-containing IDs when supplied as strings; object IDs retain their literal values.",
-    "No actual Wid/MsgKey object arguments or retained instance argument handles are injected. Positive equals, from/to Wid constructor forms, same-instance identity and clone identity remain unexercised; clone checks data snapshots only.",
+    "Actual retained MsgKey objects cover from(instance), clone identity, separate equal construction and positive equals in one realm. Direct constructor from/to forms requiring earlier retained Wids remain unexercised because constructor arguments intentionally cannot use references. No cross-runtime identity or provider ownership claim is made.",
     "newId/newId_DEPRECATED, random providers, SHA256 generation, Signal, Noise, authentication and crypto acceptance remain unexecuted.",
     "Finite PN/LID source-selected cache transitions do not enumerate all identity changes, inputs or asynchronous schedules. Generated ID/Unicode/participant examples characterize inputs rather than claim exhaustive domains.",
     "No containers, isolated production TS scheduling, accounts, network, named-library adapters, upstream implementation compliance or customer availability are established."

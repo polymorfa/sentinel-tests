@@ -20,7 +20,8 @@ function check(testCase: BehaviorCase, result: CaseResult) {
   for (const probe of testCase.probes) {
     const update = testCase.context?.gateUpdates?.find((entry) => entry.beforeProbe === probe.id);
     if (update?.gates.gkx?.['26258'] !== undefined) redaction = update.gates.gkx['26258'];
-    if (probe.result?.method !== 'toLogString') continue;
+    if (!probe.result || !('method' in probe.result) || probe.result.method !== 'toLogString')
+      continue;
     const reads = result.gateObservations?.filter(
       (read) => read.probeId === probe.id && read.kind === 'gkx' && read.key === '26258',
     );

@@ -36,7 +36,10 @@
       "required": ["args"],
       "properties": {
         "args": {
-          "type": "array"
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/data"
+          }
         }
       },
       "additionalProperties": false
@@ -103,7 +106,12 @@
           }
         }
       },
-      "additionalProperties": false
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "$ref": "#/$defs/data"
+        }
+      ]
     },
     "stubs": {
       "type": "array",
@@ -115,7 +123,9 @@
           "module": {
             "type": "string"
           },
-          "exports": {}
+          "exports": {
+            "$ref": "#/$defs/data"
+          }
         },
         "additionalProperties": false
       }
@@ -139,28 +149,54 @@
             "minLength": 1
           },
           "args": {
-            "type": "array"
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/probeData"
+            }
           },
           "clock": {
             "type": "string",
             "format": "date-time"
           },
           "result": {
-            "type": "object",
-            "required": ["method"],
-            "properties": {
-              "method": {
-                "type": "string",
-                "pattern": "^[A-Za-z_$][A-Za-z0-9_$]*$",
-                "not": {
-                  "enum": ["constructor", "__proto__", "prototype"]
-                }
+            "oneOf": [
+              {
+                "type": "object",
+                "required": ["method"],
+                "properties": {
+                  "method": {
+                    "type": "string",
+                    "pattern": "^[A-Za-z_$][A-Za-z0-9_$]*$",
+                    "not": {
+                      "enum": ["constructor", "__proto__", "prototype"]
+                    }
+                  },
+                  "args": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/$defs/probeData"
+                    }
+                  }
+                },
+                "additionalProperties": false
               },
-              "args": {
-                "type": "array"
+              {
+                "type": "object",
+                "required": ["identityWith"],
+                "properties": {
+                  "identityWith": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 128,
+                    "pattern": "^[^\\u0000-\\u001f]+$",
+                    "not": {
+                      "enum": ["constructor", "prototype", "__proto__"]
+                    }
+                  }
+                },
+                "additionalProperties": false
               }
-            },
-            "additionalProperties": false
+            ]
           },
           "export": {
             "type": "string",
@@ -174,7 +210,9 @@
               "enum": ["constructor", "__proto__", "prototype"]
             }
           },
-          "expected": {},
+          "expected": {
+            "$ref": "#/$defs/data"
+          },
           "throws": {
             "type": "object",
             "minProperties": 1,
@@ -230,6 +268,25 @@
                 }
               }
             ]
+          },
+          "retain": {
+            "type": "object",
+            "required": ["id", "stage"],
+            "properties": {
+              "id": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 128,
+                "pattern": "^[^\\u0000-\\u001f]+$",
+                "not": {
+                  "enum": ["constructor", "prototype", "__proto__"]
+                }
+              },
+              "stage": {
+                "enum": ["call", "result"]
+              }
+            },
+            "additionalProperties": false
           }
         },
         "oneOf": [
@@ -330,12 +387,49 @@
                 ]
               }
             }
+          },
+          {
+            "if": {
+              "required": ["retain"]
+            },
+            "then": {
+              "not": {
+                "required": ["throws"]
+              }
+            }
+          },
+          {
+            "if": {
+              "required": ["retain"],
+              "properties": {
+                "retain": {
+                  "properties": {
+                    "stage": {
+                      "const": "result"
+                    }
+                  }
+                }
+              }
+            },
+            "then": {
+              "required": ["result"],
+              "properties": {
+                "result": {
+                  "required": ["method"]
+                }
+              }
+            }
           }
         ]
       }
     },
     "sourceExpectation": {
-      "type": "object"
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/$defs/data"
+        }
+      ]
     }
   },
   "additionalProperties": false,
@@ -374,6 +468,157 @@
       "then": {
         "required": ["construct"]
       }
+    },
+    {
+      "if": {
+        "properties": {
+          "probes": {
+            "contains": {
+              "required": ["pending"]
+            }
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "probes": {
+            "items": {
+              "not": {
+                "anyOf": [
+                  {
+                    "required": ["retain"]
+                  },
+                  {
+                    "required": ["result"],
+                    "properties": {
+                      "result": {
+                        "required": ["identityWith"]
+                      }
+                    }
+                  }
+                ]
+              },
+              "properties": {
+                "args": {
+                  "items": {
+                    "$ref": "#/$defs/data"
+                  }
+                },
+                "result": {
+                  "properties": {
+                    "args": {
+                      "items": {
+                        "$ref": "#/$defs/data"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
     }
-  ]
+  ],
+  "$defs": {
+    "reference": {
+      "type": "object",
+      "required": ["$type", "value"],
+      "properties": {
+        "$type": {
+          "const": "reference"
+        },
+        "value": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "pattern": "^[^\\u0000-\\u001f]+$",
+          "not": {
+            "enum": ["constructor", "prototype", "__proto__"]
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "data": {
+      "anyOf": [
+        {
+          "type": ["null", "boolean", "number", "string"]
+        },
+        {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/data"
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/$defs/data"
+          },
+          "not": {
+            "required": ["$type"],
+            "properties": {
+              "$type": {
+                "const": "reference"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "probeData": {
+      "anyOf": [
+        {
+          "type": ["null", "boolean", "number", "string"]
+        },
+        {
+          "$ref": "#/$defs/reference"
+        },
+        {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/probeData"
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/$defs/probeData"
+          },
+          "not": {
+            "required": ["$type"],
+            "properties": {
+              "$type": {
+                "const": "reference"
+              }
+            }
+          },
+          "allOf": [
+            {
+              "if": {
+                "required": ["$type"],
+                "properties": {
+                  "$type": {
+                    "const": "function"
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "returns": {
+                    "$ref": "#/$defs/data"
+                  },
+                  "throws": {
+                    "$ref": "#/$defs/data"
+                  }
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "$comment": "Reference handles are available only from earlier probes, with unique bounded retain IDs. Earlier-probe availability, registry budgets and actual realm object identity are enforced by runtime admission, not cross-field JSON Schema evaluation."
 }
