@@ -1,0 +1,241 @@
+{
+  "schemaVersion": 1,
+  "id": "time-utils",
+  "version": 1,
+  "title": "Original timestamp conversions, skew, calendar and day cache state",
+  "file": "tests/time-utils.test.ts",
+  "helper": "support/time-utils-cases.ts",
+  "capability": "wa-internal:time-utils",
+  "roots": ["WATimeUtils"],
+  "oracle": "Literal signed32/2038/unit-heuristic/hex-long thresholds, RFC UTC date strings, Python datetime/isocalendar/zoneinfo calendar facts and exact source-state cache timelines. Generated ToInt32 expectations use BigInt modular arithmetic with a separate sentinel exclusion rather than archived bitwise conversion; millisecond multiplication uses BigInt rounding and elapsed-day ceilings use integer division. No expected value is obtained by executing WA source. Only the actual original module runs in the selected subject; no time or cache implementation is mocked.",
+  "trials": {
+    "cases": 53,
+    "portablePlanTests": 1,
+    "probesPerRevision": 1783,
+    "maxProbesPerCase": 96,
+    "selectedStaticAssignmentCardinality": 1,
+    "assignments": [{}],
+    "configurationExhaustive": false,
+    "knownGateDescriptors": 0,
+    "originalClosureComplete": false,
+    "generatedNumberDomain": "Deterministic finite grids around signed32,2^32,2^48 and representable2^53 boundaries,257 spaced integer inputs and selected fractions; unbounded numeric/string/time domains remain characterization only",
+    "clockSkewSeconds": [0, 60.5, -120, 3600],
+    "timezones": ["UTC", "Asia/Kolkata", "America/New_York"],
+    "sameDayCacheCases": [
+      "initial epoch-zero sentinel",
+      "skew update retains stale cached weekday",
+      "fresh shifted context"
+    ],
+    "runtimeClock": "Per-probe ISO wall-clock updates only; no timer or monotonic clock simulation"
+  },
+  "observations": [
+    {
+      "revision": "1051710191",
+      "modules": [
+        {
+          "module": "err",
+          "variant": "primary",
+          "printedSourceSha256": "a26a1f88fe2c09505c0ec8e43d1a43c2299b6126ea7ea305c567bf7634fbeea0",
+          "dependencies": ["fb-error"],
+          "citations": ["modules/err.js:1-4"]
+        },
+        {
+          "module": "fb-error",
+          "variant": "primary",
+          "printedSourceSha256": "545144d2d2c50524d5bcfc421916cf76760743cb5b034dcb7a4d7066981f714e",
+          "dependencies": ["performanceNow", "removeFromArray"],
+          "citations": ["modules/fb-error.js:1-698"]
+        },
+        {
+          "module": "performance",
+          "variant": "primary",
+          "printedSourceSha256": "9bee7ad7d1941af3432757b1ce55c980030f812f0a5fb00916e906b8a0b6ced9",
+          "dependencies": [],
+          "citations": ["modules/performance.js:1-5"]
+        },
+        {
+          "module": "performanceNow",
+          "variant": "primary",
+          "printedSourceSha256": "415e5327e020372f7789e27dc42266a9cb3d6bbc2d8c47d0b751b93517a0475f",
+          "dependencies": ["performance"],
+          "citations": ["modules/performanceNow.js:1-15"]
+        },
+        {
+          "module": "Promise",
+          "variant": "primary",
+          "printedSourceSha256": "c94f5132251416675e842ee8bbe98476648325ff897dab0a230b39875e1f3c2a",
+          "dependencies": ["cr:6640"],
+          "citations": ["modules/Promise.js:1-42"]
+        },
+        {
+          "module": "removeFromArray",
+          "variant": "primary",
+          "printedSourceSha256": "c8e194de9e9463716c2f383406ae8269ddff1a9fe5fbc1a7559abcd2aaa666bb",
+          "dependencies": [],
+          "citations": ["modules/removeFromArray.js:1-8"]
+        },
+        {
+          "module": "WAHex",
+          "variant": "primary",
+          "printedSourceSha256": "3d28ad9eb342f6715bec66c8c38fd57a14497e07101f5f9b67fc3c9838e72ffe",
+          "dependencies": ["err"],
+          "citations": ["modules/WAHex.js:1-119"]
+        },
+        {
+          "module": "WATimeUtils",
+          "variant": "primary",
+          "printedSourceSha256": "1bbfac1f0804eefb7f1ba1eed0a8073c67d12b5fd789fd8476e415315dd10295",
+          "dependencies": ["Promise", "WAHex"],
+          "citations": ["modules/WATimeUtils.js:1-150"]
+        }
+      ],
+      "analyzer": {
+        "version": 3,
+        "sourceSha256": "06c35199d0b06c9441486d96cb06b540628d64c562b7c1bbd9f2b5f28c6a3096"
+      },
+      "inventoryDigest": "8f7ce44f5fb9ada42f485429d5437a3210012650198af86267ec6b88bca392b6",
+      "gates": [],
+      "unresolved": [
+        {
+          "code": "missing-module",
+          "module": "cr:6640"
+        }
+      ],
+      "staticCoverage": {
+        "complete": false,
+        "scope": "module-closure-superset",
+        "semanticProof": false,
+        "resolverCoverage": false,
+        "modules": 8,
+        "sourceBytes": 37029,
+        "workBudget": {
+          "limit": 2000000,
+          "consumed": 113795,
+          "exhausted": false
+        },
+        "limitations": [
+          "Only supported gate APIs and static key expressions are inventoried.",
+          "Logical work units bound selected AST traversal and resolution, not parser internals or elapsed time; parsing remains source-byte bounded.",
+          "Declared fixture-provider boundaries exclude their original resolver implementations and dependencies.",
+          "All functions in each dependency module are scanned; exact export and caller reachability is not proven.",
+          "Runtime-discovered gates and externally selected code require separate observations."
+        ]
+      }
+    },
+    {
+      "revision": "1051908825",
+      "modules": [
+        {
+          "module": "err",
+          "variant": "primary",
+          "printedSourceSha256": "a26a1f88fe2c09505c0ec8e43d1a43c2299b6126ea7ea305c567bf7634fbeea0",
+          "dependencies": ["fb-error"],
+          "citations": ["modules/err.js:1-4"]
+        },
+        {
+          "module": "fb-error",
+          "variant": "primary",
+          "printedSourceSha256": "545144d2d2c50524d5bcfc421916cf76760743cb5b034dcb7a4d7066981f714e",
+          "dependencies": ["performanceNow", "removeFromArray"],
+          "citations": ["modules/fb-error.js:1-698"]
+        },
+        {
+          "module": "performance",
+          "variant": "primary",
+          "printedSourceSha256": "9bee7ad7d1941af3432757b1ce55c980030f812f0a5fb00916e906b8a0b6ced9",
+          "dependencies": [],
+          "citations": ["modules/performance.js:1-5"]
+        },
+        {
+          "module": "performanceNow",
+          "variant": "primary",
+          "printedSourceSha256": "415e5327e020372f7789e27dc42266a9cb3d6bbc2d8c47d0b751b93517a0475f",
+          "dependencies": ["performance"],
+          "citations": ["modules/performanceNow.js:1-15"]
+        },
+        {
+          "module": "Promise",
+          "variant": "primary",
+          "printedSourceSha256": "c94f5132251416675e842ee8bbe98476648325ff897dab0a230b39875e1f3c2a",
+          "dependencies": ["cr:6640"],
+          "citations": ["modules/Promise.js:1-42"]
+        },
+        {
+          "module": "removeFromArray",
+          "variant": "primary",
+          "printedSourceSha256": "c8e194de9e9463716c2f383406ae8269ddff1a9fe5fbc1a7559abcd2aaa666bb",
+          "dependencies": [],
+          "citations": ["modules/removeFromArray.js:1-8"]
+        },
+        {
+          "module": "WAHex",
+          "variant": "primary",
+          "printedSourceSha256": "3d28ad9eb342f6715bec66c8c38fd57a14497e07101f5f9b67fc3c9838e72ffe",
+          "dependencies": ["err"],
+          "citations": ["modules/WAHex.js:1-119"]
+        },
+        {
+          "module": "WATimeUtils",
+          "variant": "primary",
+          "printedSourceSha256": "1bbfac1f0804eefb7f1ba1eed0a8073c67d12b5fd789fd8476e415315dd10295",
+          "dependencies": ["Promise", "WAHex"],
+          "citations": ["modules/WATimeUtils.js:1-150"]
+        }
+      ],
+      "analyzer": {
+        "version": 3,
+        "sourceSha256": "06c35199d0b06c9441486d96cb06b540628d64c562b7c1bbd9f2b5f28c6a3096"
+      },
+      "inventoryDigest": "8f7ce44f5fb9ada42f485429d5437a3210012650198af86267ec6b88bca392b6",
+      "gates": [],
+      "unresolved": [
+        {
+          "code": "missing-module",
+          "module": "cr:6640"
+        }
+      ],
+      "staticCoverage": {
+        "complete": false,
+        "scope": "module-closure-superset",
+        "semanticProof": false,
+        "resolverCoverage": false,
+        "modules": 8,
+        "sourceBytes": 37029,
+        "workBudget": {
+          "limit": 2000000,
+          "consumed": 113795,
+          "exhausted": false
+        },
+        "limitations": [
+          "Only supported gate APIs and static key expressions are inventoried.",
+          "Logical work units bound selected AST traversal and resolution, not parser internals or elapsed time; parsing remains source-byte bounded.",
+          "Declared fixture-provider boundaries exclude their original resolver implementations and dependencies.",
+          "All functions in each dependency module are scanned; exact export and caller reachability is not proven.",
+          "Runtime-discovered gates and externally selected code require separate observations."
+        ]
+      }
+    }
+  ],
+  "exclusions": [
+    "All8present original transitive source modules are inventoried at bothpins; no supported gate reads found. Missing cr6640 keeps original closure incomplete, and gates outside this caller scope are not covered. One empty synthetic assignment is not a complete configuration-independence proof.",
+    "Explicit cr6640:null selects the real archived Promise fallback. Original substitution provider and bundle bootstrap remain unproven; no timestamp, conversion, calendar or cache helper is replaced.",
+    "Signed conversion wraps via ToInt32 before excluding reserved minimum; source edge behavior is characterized rather than corrected. Post2038 values do not establish protocol date support.",
+    "Clock skew and timezone are explicit synthetic execution context, not server-delivered clock synchronization or real account state.",
+    "sameDay epoch-zero sentinel, skew-stale cache and fixed86400second cutoff are documented source-state characterizations, not desired calendar-equivalence claims. Repeated/reversed calls preserve actual cache lifetime.",
+    "No delayUntil, setTimeout, event loop delay, performance.now, monotonicTime, monotonicTimeSince or MonotonicTimer acceptance. The misleadingly named performanceAbsoluteNow is actual Date.now and is wall-clock-controlled.",
+    "weekOfYear nominal ISO-week tables use midnight UTC dates. Original code retains subday time before a ceiling, so2016/2021Jan4 at00:00:00.001 or noon returns2 rather than nominal ISOweek1; a separate literal boundary table characterizes this source behavior without claiming general ISO correctness.",
+    "Numeric/string/date domains and sequences are unbounded. Finite grids, three timezones, selected DST and ISO-week facts do not prove every JavaScript coercion, timezone database version or execution history.",
+    "Signed negative-zero transport is not supported or asserted. Invalid Date observation uses getTime projection to avoid treating snapshot toISOString failure as a vendor rejection.",
+    "No network, storage, background expiry, browser, native session, customer account, provider service, cryptographic operation or named-library behavior is exercised.",
+    "Alternative module variants, production containers and isolated authored-TS scheduling remain unexercised; diagnostic process runs must report isolated:false."
+  ],
+  "inventoryRefresh": {
+    "analyzerVersion": 3,
+    "analyzerSourceSha256": "06c35199d0b06c9441486d96cb06b540628d64c562b7c1bbd9f2b5f28c6a3096",
+    "defaultLogicalWorkLimit": 2000000,
+    "kind": "static-source-analysis-only",
+    "behaviorReexecuted": false,
+    "executionProvenance": "Existing execution/assignment observations retain their original receipt context; this metadata refresh does not create new runtime evidence.",
+    "cardinalityScope": "Incomplete/unresolved current inventories have no established total assignment cardinality. Existing finite products describe source-known subsets retained from prior observations, not exhaustive current matrices."
+  }
+}

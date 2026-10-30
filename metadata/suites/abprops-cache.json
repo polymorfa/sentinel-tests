@@ -4065,61 +4065,15 @@
         }
       ],
       "analyzer": {
-        "version": 2,
-        "sourceSha256": "c8a73442da5fcd7510ff5fac193602d19e447ab032505c4550237c0a66f90ea2"
+        "version": 3,
+        "sourceSha256": "06c35199d0b06c9441486d96cb06b540628d64c562b7c1bbd9f2b5f28c6a3096"
       },
-      "inventoryDigest": "c0f5ef8c9ad0bf91bc0e129e80e3d1099a6c7b0e07040274c800500ac9a5162f",
+      "inventoryDigest": "4aeceb9e24ad6ba1fb80be3a0f0c9d5771d02f308af6a56cba6bb61ca2b5c3a8",
       "gates": [
         {
           "kind": "abprops",
-          "key": "in_app_support_capi_number_prefixes",
-          "valueType": "string",
-          "reads": [
-            {
-              "module": "WAWebABPropsCAPISupportNumber",
-              "variant": "primary",
-              "line": 3,
-              "column": 10,
-              "method": "getABPropConfigValue",
-              "timing": "function-body",
-              "expression": "o(\"WAWebABProps\").getABPropConfigValue(\"in_app_support_capi_number_prefixes\")"
-            }
-          ],
-          "config": {
-            "module": "WAWebABPropsConfigs",
-            "line": 7132,
-            "type": "string",
-            "default": "155178684",
-            "alternate": "155178684"
-          }
-        },
-        {
-          "kind": "abprops",
-          "key": "in_app_support_v2_number_prefixes",
-          "valueType": "string",
-          "reads": [
-            {
-              "module": "WAWebABPropsSupportGroup",
-              "variant": "primary",
-              "line": 3,
-              "column": 10,
-              "method": "getABPropConfigValue",
-              "timing": "function-body",
-              "expression": "o(\"WAWebABProps\").getABPropConfigValue(\"in_app_support_v2_number_prefixes\")"
-            }
-          ],
-          "config": {
-            "module": "WAWebABPropsConfigs",
-            "line": 7138,
-            "type": "string",
-            "default": "15517868",
-            "alternate": "15517868"
-          }
-        },
-        {
-          "kind": "abprops",
           "key": "is_meta_employee_or_internal_tester",
-          "valueType": "boolean",
+          "valueType": "unknown",
           "reads": [
             {
               "module": "WAWebCurrentUser",
@@ -4130,88 +4084,12 @@
               "timing": "function-body",
               "expression": "o(\"WAWebABProps\").getABPropConfigValue(\"is_meta_employee_or_internal_tester\")"
             }
-          ],
-          "config": {
-            "module": "WAWebABPropsConfigs",
-            "line": 7342,
-            "type": "bool",
-            "default": false,
-            "alternate": false
-          }
-        },
-        {
-          "kind": "abprops",
-          "key": "payment_support_lids",
-          "valueType": "string",
-          "reads": [
-            {
-              "module": "WAWebABPropsSupportLid",
-              "variant": "primary",
-              "line": 8,
-              "column": 10,
-              "method": "getABPropConfigValue",
-              "timing": "function-body",
-              "expression": "o(\"WAWebABProps\").getABPropConfigValue(\"payment_support_lids\")"
-            }
-          ],
-          "config": {
-            "module": "WAWebABPropsConfigs",
-            "line": 8770,
-            "type": "string",
-            "default": "116664750354676,128385682505839,46635358933114,26521959944357,200206125658243,179985503506636,187797998674170,228746200088715,117914552262794,10158134550607",
-            "alternate": "116664750354676,128385682505839,46635358933114,26521959944357,200206125658243,179985503506636,187797998674170,228746200088715,117914552262794,10158134550607"
-          }
-        },
-        {
-          "kind": "abprops",
-          "key": "remove_pn_dependencies",
-          "valueType": "boolean",
-          "reads": [
-            {
-              "module": "WAWebBeyondPhoneNumberGatingUtils",
-              "variant": "primary",
-              "line": 3,
-              "column": 9,
-              "method": "getABPropConfigValue",
-              "timing": "function-body",
-              "expression": "o(\"WAWebABProps\").getABPropConfigValue(\"remove_pn_dependencies\")"
-            }
-          ],
-          "config": {
-            "module": "WAWebABPropsConfigs",
-            "line": 9916,
-            "type": "bool",
-            "default": false,
-            "alternate": true
-          }
-        },
-        {
-          "kind": "abprops",
-          "key": "support_lids",
-          "valueType": "string",
-          "reads": [
-            {
-              "module": "WAWebABPropsSupportLid",
-              "variant": "primary",
-              "line": 4,
-              "column": 10,
-              "method": "getABPropConfigValue",
-              "timing": "function-body",
-              "expression": "o(\"WAWebABProps\").getABPropConfigValue(\"support_lids\")"
-            }
-          ],
-          "config": {
-            "module": "WAWebABPropsConfigs",
-            "line": 11344,
-            "type": "string",
-            "default": "4200746488034,30563255730192,70334669676777,19349129719984,66065505775654,133814269518032,243799792062487,7323238039569,269290422947912,261718412386336,4351103873168,12391299473616,92410801582180,277730033709185,36090878648473,79882365190287,94274800595104,117794058317863,115784047153172,179250745360524,7301780005088,166653589463190,94249030815912,198964645236955,198427807899653,23656948363422,255735573270728,106670109786240,130932396826763,18855208456329",
-            "alternate": "4200746488034,30563255730192,70334669676777,19349129719984,66065505775654,133814269518032,243799792062487,7323238039569,269290422947912,261718412386336,4351103873168,12391299473616,92410801582180,277730033709185,36090878648473,79882365190287,94274800595104,117794058317863,115784047153172,179250745360524,7301780005088,166653589463190,94249030815912,198964645236955,198427807899653,23656948363422,255735573270728,106670109786240,130932396826763,18855208456329"
-          }
+          ]
         },
         {
           "kind": "abprops",
           "key": "wa_web_jm_to_ts_queues",
-          "valueType": "boolean",
+          "valueType": "unknown",
           "reads": [
             {
               "module": "WAWebJobsMigrationGating",
@@ -4222,19 +4100,12 @@
               "timing": "function-body",
               "expression": "o(\"WAWebABProps\").getABPropConfigValue(\"wa_web_jm_to_ts_queues\")"
             }
-          ],
-          "config": {
-            "module": "WAWebABPropsConfigs",
-            "line": 13690,
-            "type": "bool",
-            "default": false,
-            "alternate": false
-          }
+          ]
         },
         {
           "kind": "abprops",
           "key": "wa_web_jm_to_ts_rest",
-          "valueType": "boolean",
+          "valueType": "unknown",
           "reads": [
             {
               "module": "WAWebJobsMigrationGating",
@@ -4245,19 +4116,12 @@
               "timing": "function-body",
               "expression": "o(\"WAWebABProps\").getABPropConfigValue(\"wa_web_jm_to_ts_rest\")"
             }
-          ],
-          "config": {
-            "module": "WAWebABPropsConfigs",
-            "line": 13696,
-            "type": "bool",
-            "default": false,
-            "alternate": false
-          }
+          ]
         },
         {
           "kind": "abprops",
           "key": "wa_web_jm_to_ts_serviced",
-          "valueType": "boolean",
+          "valueType": "unknown",
           "reads": [
             {
               "module": "WAWebJobsMigrationGating",
@@ -4268,19 +4132,12 @@
               "timing": "function-body",
               "expression": "o(\"WAWebABProps\").getABPropConfigValue(\"wa_web_jm_to_ts_serviced\")"
             }
-          ],
-          "config": {
-            "module": "WAWebABPropsConfigs",
-            "line": 13702,
-            "type": "bool",
-            "default": false,
-            "alternate": false
-          }
+          ]
         },
         {
           "kind": "abprops",
           "key": "wam_disable_expokey_attribute",
-          "valueType": "boolean",
+          "valueType": "unknown",
           "reads": [
             {
               "module": "WAWebABPropsGlobals",
@@ -4291,14 +4148,7 @@
               "timing": "function-body",
               "expression": "o(\"WAWebABProps\").getABPropConfigValue(\"wam_disable_expokey_attribute\")"
             }
-          ],
-          "config": {
-            "module": "WAWebABPropsConfigs",
-            "line": 14398,
-            "type": "bool",
-            "default": false,
-            "alternate": false
-          }
+          ]
         },
         {
           "kind": "gkx",
@@ -4417,83 +4267,6 @@
               "method": "gkx",
               "timing": "function-body",
               "expression": "r(\"gkx\")(\"16539\")"
-            },
-            {
-              "module": "WAWebDBStats",
-              "variant": "primary",
-              "line": 9,
-              "column": 3,
-              "method": "gkx",
-              "timing": "function-body",
-              "expression": "r(\"gkx\")(\"16539\")"
-            },
-            {
-              "module": "WAWebDBStats",
-              "variant": "primary",
-              "line": 25,
-              "column": 7,
-              "method": "gkx",
-              "timing": "function-body",
-              "expression": "r(\"gkx\")(\"16539\")"
-            },
-            {
-              "module": "WAWebDBStats",
-              "variant": "primary",
-              "line": 32,
-              "column": 7,
-              "method": "gkx",
-              "timing": "function-body",
-              "expression": "r(\"gkx\")(\"16539\")"
-            },
-            {
-              "module": "WAWebDBStats",
-              "variant": "primary",
-              "line": 37,
-              "column": 7,
-              "method": "gkx",
-              "timing": "function-body",
-              "expression": "r(\"gkx\")(\"16539\")"
-            },
-            {
-              "module": "WAWebDBStats",
-              "variant": "primary",
-              "line": 43,
-              "column": 3,
-              "method": "gkx",
-              "timing": "function-body",
-              "expression": "r(\"gkx\")(\"16539\")"
-            }
-          ]
-        },
-        {
-          "kind": "gkx",
-          "key": "207",
-          "valueType": "boolean",
-          "reads": [
-            {
-              "module": "logForCrash",
-              "variant": "primary",
-              "line": 33,
-              "column": 42,
-              "method": "gkx",
-              "timing": "function-body",
-              "expression": "r(\"gkx\")(\"207\")"
-            }
-          ]
-        },
-        {
-          "kind": "gkx",
-          "key": "20935",
-          "valueType": "boolean",
-          "reads": [
-            {
-              "module": "ODS",
-              "variant": "primary",
-              "line": 35,
-              "column": 5,
-              "method": "gkx",
-              "timing": "function-body",
-              "expression": "r(\"gkx\")(\"20935\")"
             }
           ]
         },
@@ -4670,96 +4443,6 @@
               "method": "gkx",
               "timing": "function-body",
               "expression": "r(\"gkx\")(\"26258\")"
-            },
-            {
-              "module": "WAWebProfiler",
-              "variant": "primary",
-              "line": 37,
-              "column": 7,
-              "method": "gkx",
-              "timing": "function-body",
-              "expression": "r(\"gkx\")(\"26258\")"
-            },
-            {
-              "module": "WAWebProfiler",
-              "variant": "primary",
-              "line": 54,
-              "column": 7,
-              "method": "gkx",
-              "timing": "function-body",
-              "expression": "r(\"gkx\")(\"26258\")"
-            },
-            {
-              "module": "WAWebProfiler",
-              "variant": "primary",
-              "line": 73,
-              "column": 41,
-              "method": "gkx",
-              "timing": "function-body",
-              "expression": "r(\"gkx\")(\"26258\")"
-            },
-            {
-              "module": "WAWebProfiler",
-              "variant": "primary",
-              "line": 87,
-              "column": 7,
-              "method": "gkx",
-              "timing": "function-body",
-              "expression": "r(\"gkx\")(\"26258\")"
-            },
-            {
-              "module": "WAWebProfiler",
-              "variant": "primary",
-              "line": 123,
-              "column": 10,
-              "method": "gkx",
-              "timing": "function-body",
-              "expression": "r(\"gkx\")(\"26258\")"
-            },
-            {
-              "module": "WAWebProfiler",
-              "variant": "primary",
-              "line": 125,
-              "column": 10,
-              "method": "gkx",
-              "timing": "function-body",
-              "expression": "r(\"gkx\")(\"26258\")"
-            },
-            {
-              "module": "WAWebIdbHelpers",
-              "variant": "primary",
-              "line": 85,
-              "column": 10,
-              "method": "gkx",
-              "timing": "function-body",
-              "expression": "r(\"gkx\")(\"26258\")"
-            },
-            {
-              "module": "WAWebWid",
-              "variant": "primary",
-              "line": 50,
-              "column": 8,
-              "method": "gkx",
-              "timing": "function-body",
-              "expression": "r(\"gkx\")(\"26258\")"
-            },
-            {
-              "module": "WAWebIndexedDBPurge",
-              "variant": "primary",
-              "line": 42,
-              "column": 8,
-              "method": "gkx",
-              "timing": "function-body",
-              "expression": "r(\"gkx\")(\"26258\")"
-            },
-            {
-              "module": "WAWebIndexedDBPurge",
-              "variant": "primary",
-              "line": 55,
-              "column": 14,
-              "method": "gkx",
-              "timing": "function-body",
-              "expression": "r(\"gkx\")(\"26258\")"
             }
           ]
         },
@@ -4817,38 +4500,6 @@
         },
         {
           "kind": "gkx",
-          "key": "27164",
-          "valueType": "boolean",
-          "reads": [
-            {
-              "module": "WAWebDexieObservability",
-              "variant": "primary",
-              "line": 4,
-              "column": 6,
-              "method": "gkx",
-              "timing": "function-body",
-              "expression": "r(\"gkx\")(\"27164\")"
-            }
-          ]
-        },
-        {
-          "kind": "gkx",
-          "key": "3981",
-          "valueType": "boolean",
-          "reads": [
-            {
-              "module": "logForCrash",
-              "variant": "primary",
-              "line": 90,
-              "column": 70,
-              "method": "gkx",
-              "timing": "module-initialization",
-              "expression": "r(\"gkx\")(\"3981\")"
-            }
-          ]
-        },
-        {
-          "kind": "gkx",
           "key": "4112",
           "valueType": "boolean",
           "reads": [
@@ -4860,38 +4511,6 @@
               "method": "gkx",
               "timing": "module-initialization",
               "expression": "r(\"gkx\")(\"4112\")"
-            }
-          ]
-        },
-        {
-          "kind": "knobs",
-          "key": "1276",
-          "valueType": "unknown",
-          "reads": [
-            {
-              "module": "FalcoLoggerInternal",
-              "variant": "primary",
-              "line": 21,
-              "column": 7,
-              "method": "_",
-              "timing": "function-body",
-              "expression": "r(\"justknobx\")._(\"1276\")"
-            }
-          ]
-        },
-        {
-          "kind": "knobs",
-          "key": "1500",
-          "valueType": "unknown",
-          "reads": [
-            {
-              "module": "WAWebBeyondPhoneNumberGatingUtils",
-              "variant": "primary",
-              "line": 3,
-              "column": 77,
-              "method": "_",
-              "timing": "function-body",
-              "expression": "r(\"justknobx\")._(\"1500\")"
             }
           ]
         },
@@ -5089,22 +4708,6 @@
         },
         {
           "kind": "knobs",
-          "key": "195",
-          "valueType": "unknown",
-          "reads": [
-            {
-              "module": "logForCrash",
-              "variant": "primary",
-              "line": 33,
-              "column": 14,
-              "method": "_",
-              "timing": "function-body",
-              "expression": "r(\"justknobx\")._(\"195\")"
-            }
-          ]
-        },
-        {
-          "kind": "knobs",
           "key": "1964",
           "valueType": "unknown",
           "reads": [
@@ -5125,22 +4728,6 @@
               "method": "_",
               "timing": "function-body",
               "expression": "r(\"justknobx\")._(\"1964\")"
-            }
-          ]
-        },
-        {
-          "kind": "knobs",
-          "key": "2451",
-          "valueType": "unknown",
-          "reads": [
-            {
-              "module": "decodeProtobuf",
-              "variant": "primary",
-              "line": 93,
-              "column": 31,
-              "method": "_",
-              "timing": "function-body",
-              "expression": "r(\"justknobx\")._(\"2451\")"
             }
           ]
         },
@@ -5243,36 +4830,12 @@
       ],
       "unresolved": [
         {
-          "code": "dynamic-gate-key",
-          "module": "WAWebABPropsSupportLid",
-          "line": 30,
-          "column": 10
-        },
-        {
-          "code": "dynamic-gate-key",
-          "module": "WAWebABPropsSupportLid",
-          "line": 36,
-          "column": 10
-        },
-        {
-          "code": "missing-module",
-          "module": "AnalyticsCoreData"
-        },
-        {
-          "code": "missing-module",
-          "module": "CookieCoreConfig"
-        },
-        {
-          "code": "missing-module",
-          "module": "CookieCoreLoggingConfig"
-        },
-        {
-          "code": "missing-module",
-          "module": "CookieDomain"
-        },
-        {
-          "code": "missing-module",
-          "module": "cr:1126"
+          "code": "work-budget",
+          "module": "WAWebProtobufSyncAction.pb",
+          "sourceSha256": "4f4c7d8499d69c8644e43fb29c1141b43d4c1599b5c56c0075110e8cd2da6b1a",
+          "required": "analysis-work",
+          "budget": "2000000",
+          "count": 2000000
         },
         {
           "code": "missing-module",
@@ -5284,23 +4847,7 @@
         },
         {
           "code": "missing-module",
-          "module": "cr:310"
-        },
-        {
-          "code": "missing-module",
           "module": "cr:34987"
-        },
-        {
-          "code": "missing-module",
-          "module": "cr:3725"
-        },
-        {
-          "code": "missing-module",
-          "module": "cr:38444"
-        },
-        {
-          "code": "missing-module",
-          "module": "cr:4344"
         },
         {
           "code": "missing-module",
@@ -5308,35 +4855,11 @@
         },
         {
           "code": "missing-module",
-          "module": "cr:5411"
-        },
-        {
-          "code": "missing-module",
           "module": "cr:6640"
         },
         {
           "code": "missing-module",
-          "module": "cr:8958"
-        },
-        {
-          "code": "missing-module",
           "module": "CurrentUserInitialData"
-        },
-        {
-          "code": "missing-module",
-          "module": "InitialCookieConsent"
-        },
-        {
-          "code": "missing-module",
-          "module": "JSErrorLoggingConfig"
-        },
-        {
-          "code": "missing-module",
-          "module": "ServerNonce"
-        },
-        {
-          "code": "missing-module",
-          "module": "ServerTimeData"
         },
         {
           "code": "missing-module",
@@ -5356,18 +4879,6 @@
         },
         {
           "code": "unrecognized-gate-provider",
-          "module": "WAWebWid",
-          "line": 156,
-          "column": 103
-        },
-        {
-          "code": "unrecognized-gate-provider",
-          "module": "WAWebWid",
-          "line": 158,
-          "column": 107
-        },
-        {
-          "code": "unrecognized-gate-provider",
           "module": "WAWebGroupABPropsGlobals",
           "line": 12,
           "column": 11
@@ -5382,18 +4893,6 @@
           "code": "unrecognized-gate-provider",
           "module": "WAWebABPropsCache",
           "line": 170,
-          "column": 11
-        },
-        {
-          "code": "unrecognized-gate-provider",
-          "module": "WAWebWid",
-          "line": 225,
-          "column": 11
-        },
-        {
-          "code": "unrecognized-gate-provider",
-          "module": "WAWebWid",
-          "line": 235,
           "column": 11
         },
         {
@@ -5500,12 +4999,6 @@
         },
         {
           "code": "unrecognized-gate-provider",
-          "module": "WAWebWid",
-          "line": 156,
-          "column": 166
-        },
-        {
-          "code": "unrecognized-gate-provider",
           "module": "WAWebModelStorageInitialize",
           "line": 133,
           "column": 17
@@ -5515,12 +5008,6 @@
           "module": "WAWebABPropsCache",
           "line": 92,
           "column": 17
-        },
-        {
-          "code": "unrecognized-gate-provider",
-          "module": "WAWebWid",
-          "line": 158,
-          "column": 174
         },
         {
           "code": "unrecognized-gate-provider",
@@ -5560,51 +5047,9 @@
         },
         {
           "code": "unrecognized-gate-provider",
-          "module": "WAWebWid",
-          "line": 156,
-          "column": 25
-        },
-        {
-          "code": "unrecognized-gate-provider",
-          "module": "WAWebWid",
-          "line": 158,
-          "column": 25
-        },
-        {
-          "code": "unrecognized-gate-provider",
-          "module": "WAWebWid",
-          "line": 223,
-          "column": 25
-        },
-        {
-          "code": "unrecognized-gate-provider",
-          "module": "WAWebWid",
-          "line": 233,
-          "column": 25
-        },
-        {
-          "code": "unrecognized-gate-provider",
           "module": "WAWebBackendWorkerInitState",
           "line": 66,
           "column": 25
-        },
-        {
-          "code": "unrecognized-gate-provider",
-          "module": "WAWebWid",
-          "line": 162,
-          "column": 30
-        },
-        {
-          "code": "unrecognized-gate-provider",
-          "module": "WAWebWid",
-          "line": 220,
-          "column": 33
-        },
-        {
-          "code": "unrecognized-gate-provider",
-          "module": "WAWebWid",
-          "line": 230,
-          "column": 33
         },
         {
           "code": "unrecognized-gate-provider",
@@ -5635,18 +5080,6 @@
           "module": "WAWebApiAbPropConfig",
           "line": 51,
           "column": 44
-        },
-        {
-          "code": "unrecognized-gate-provider",
-          "module": "WAWebWid",
-          "line": 226,
-          "column": 49
-        },
-        {
-          "code": "unrecognized-gate-provider",
-          "module": "WAWebWid",
-          "line": 236,
-          "column": 49
         },
         {
           "code": "unrecognized-gate-provider",
@@ -5768,14 +5201,1739 @@
         "scope": "module-closure-superset",
         "semanticProof": false,
         "resolverCoverage": false,
-        "modules": 408,
-        "sourceBytes": 1148809,
+        "modules": 247,
+        "sourceBytes": 877511,
+        "workBudget": {
+          "limit": 2000000,
+          "consumed": 2000000,
+          "exhausted": true
+        },
         "limitations": [
           "Only supported gate APIs and static key expressions are inventoried.",
+          "Logical work units bound selected AST traversal and resolution, not parser internals or elapsed time; parsing remains source-byte bounded.",
           "Declared fixture-provider boundaries exclude their original resolver implementations and dependencies.",
           "All functions in each dependency module are scanned; exact export and caller reachability is not proven.",
           "Runtime-discovered gates and externally selected code require separate observations."
         ]
+      },
+      "historicalInventory": {
+        "status": "historical-prior-analyzer-observation",
+        "reason": "Current default logical work budget exhausted before full closure analysis. Retain previously established descriptors/diagnostics with old analyzer provenance; these are not current analyzer completeness or execution evidence.",
+        "roots": ["WAWebABPropsCache", "WAWebABPropsUpdateFromStorage"],
+        "analyzer": {
+          "version": 2,
+          "sourceSha256": "c8a73442da5fcd7510ff5fac193602d19e447ab032505c4550237c0a66f90ea2"
+        },
+        "inventoryDigest": "c0f5ef8c9ad0bf91bc0e129e80e3d1099a6c7b0e07040274c800500ac9a5162f",
+        "gates": [
+          {
+            "kind": "abprops",
+            "key": "in_app_support_capi_number_prefixes",
+            "valueType": "string",
+            "reads": [
+              {
+                "module": "WAWebABPropsCAPISupportNumber",
+                "variant": "primary",
+                "line": 3,
+                "column": 10,
+                "method": "getABPropConfigValue",
+                "timing": "function-body",
+                "expression": "o(\"WAWebABProps\").getABPropConfigValue(\"in_app_support_capi_number_prefixes\")"
+              }
+            ],
+            "config": {
+              "module": "WAWebABPropsConfigs",
+              "line": 7132,
+              "type": "string",
+              "default": "155178684",
+              "alternate": "155178684"
+            }
+          },
+          {
+            "kind": "abprops",
+            "key": "in_app_support_v2_number_prefixes",
+            "valueType": "string",
+            "reads": [
+              {
+                "module": "WAWebABPropsSupportGroup",
+                "variant": "primary",
+                "line": 3,
+                "column": 10,
+                "method": "getABPropConfigValue",
+                "timing": "function-body",
+                "expression": "o(\"WAWebABProps\").getABPropConfigValue(\"in_app_support_v2_number_prefixes\")"
+              }
+            ],
+            "config": {
+              "module": "WAWebABPropsConfigs",
+              "line": 7138,
+              "type": "string",
+              "default": "15517868",
+              "alternate": "15517868"
+            }
+          },
+          {
+            "kind": "abprops",
+            "key": "is_meta_employee_or_internal_tester",
+            "valueType": "boolean",
+            "reads": [
+              {
+                "module": "WAWebCurrentUser",
+                "variant": "primary",
+                "line": 4,
+                "column": 37,
+                "method": "getABPropConfigValue",
+                "timing": "function-body",
+                "expression": "o(\"WAWebABProps\").getABPropConfigValue(\"is_meta_employee_or_internal_tester\")"
+              }
+            ],
+            "config": {
+              "module": "WAWebABPropsConfigs",
+              "line": 7342,
+              "type": "bool",
+              "default": false,
+              "alternate": false
+            }
+          },
+          {
+            "kind": "abprops",
+            "key": "payment_support_lids",
+            "valueType": "string",
+            "reads": [
+              {
+                "module": "WAWebABPropsSupportLid",
+                "variant": "primary",
+                "line": 8,
+                "column": 10,
+                "method": "getABPropConfigValue",
+                "timing": "function-body",
+                "expression": "o(\"WAWebABProps\").getABPropConfigValue(\"payment_support_lids\")"
+              }
+            ],
+            "config": {
+              "module": "WAWebABPropsConfigs",
+              "line": 8770,
+              "type": "string",
+              "default": "116664750354676,128385682505839,46635358933114,26521959944357,200206125658243,179985503506636,187797998674170,228746200088715,117914552262794,10158134550607",
+              "alternate": "116664750354676,128385682505839,46635358933114,26521959944357,200206125658243,179985503506636,187797998674170,228746200088715,117914552262794,10158134550607"
+            }
+          },
+          {
+            "kind": "abprops",
+            "key": "remove_pn_dependencies",
+            "valueType": "boolean",
+            "reads": [
+              {
+                "module": "WAWebBeyondPhoneNumberGatingUtils",
+                "variant": "primary",
+                "line": 3,
+                "column": 9,
+                "method": "getABPropConfigValue",
+                "timing": "function-body",
+                "expression": "o(\"WAWebABProps\").getABPropConfigValue(\"remove_pn_dependencies\")"
+              }
+            ],
+            "config": {
+              "module": "WAWebABPropsConfigs",
+              "line": 9916,
+              "type": "bool",
+              "default": false,
+              "alternate": true
+            }
+          },
+          {
+            "kind": "abprops",
+            "key": "support_lids",
+            "valueType": "string",
+            "reads": [
+              {
+                "module": "WAWebABPropsSupportLid",
+                "variant": "primary",
+                "line": 4,
+                "column": 10,
+                "method": "getABPropConfigValue",
+                "timing": "function-body",
+                "expression": "o(\"WAWebABProps\").getABPropConfigValue(\"support_lids\")"
+              }
+            ],
+            "config": {
+              "module": "WAWebABPropsConfigs",
+              "line": 11344,
+              "type": "string",
+              "default": "4200746488034,30563255730192,70334669676777,19349129719984,66065505775654,133814269518032,243799792062487,7323238039569,269290422947912,261718412386336,4351103873168,12391299473616,92410801582180,277730033709185,36090878648473,79882365190287,94274800595104,117794058317863,115784047153172,179250745360524,7301780005088,166653589463190,94249030815912,198964645236955,198427807899653,23656948363422,255735573270728,106670109786240,130932396826763,18855208456329",
+              "alternate": "4200746488034,30563255730192,70334669676777,19349129719984,66065505775654,133814269518032,243799792062487,7323238039569,269290422947912,261718412386336,4351103873168,12391299473616,92410801582180,277730033709185,36090878648473,79882365190287,94274800595104,117794058317863,115784047153172,179250745360524,7301780005088,166653589463190,94249030815912,198964645236955,198427807899653,23656948363422,255735573270728,106670109786240,130932396826763,18855208456329"
+            }
+          },
+          {
+            "kind": "abprops",
+            "key": "wa_web_jm_to_ts_queues",
+            "valueType": "boolean",
+            "reads": [
+              {
+                "module": "WAWebJobsMigrationGating",
+                "variant": "primary",
+                "line": 21,
+                "column": 11,
+                "method": "getABPropConfigValue",
+                "timing": "function-body",
+                "expression": "o(\"WAWebABProps\").getABPropConfigValue(\"wa_web_jm_to_ts_queues\")"
+              }
+            ],
+            "config": {
+              "module": "WAWebABPropsConfigs",
+              "line": 13690,
+              "type": "bool",
+              "default": false,
+              "alternate": false
+            }
+          },
+          {
+            "kind": "abprops",
+            "key": "wa_web_jm_to_ts_rest",
+            "valueType": "boolean",
+            "reads": [
+              {
+                "module": "WAWebJobsMigrationGating",
+                "variant": "primary",
+                "line": 22,
+                "column": 9,
+                "method": "getABPropConfigValue",
+                "timing": "function-body",
+                "expression": "o(\"WAWebABProps\").getABPropConfigValue(\"wa_web_jm_to_ts_rest\")"
+              }
+            ],
+            "config": {
+              "module": "WAWebABPropsConfigs",
+              "line": 13696,
+              "type": "bool",
+              "default": false,
+              "alternate": false
+            }
+          },
+          {
+            "kind": "abprops",
+            "key": "wa_web_jm_to_ts_serviced",
+            "valueType": "boolean",
+            "reads": [
+              {
+                "module": "WAWebJobsMigrationGating",
+                "variant": "primary",
+                "line": 23,
+                "column": 13,
+                "method": "getABPropConfigValue",
+                "timing": "function-body",
+                "expression": "o(\"WAWebABProps\").getABPropConfigValue(\"wa_web_jm_to_ts_serviced\")"
+              }
+            ],
+            "config": {
+              "module": "WAWebABPropsConfigs",
+              "line": 13702,
+              "type": "bool",
+              "default": false,
+              "alternate": false
+            }
+          },
+          {
+            "kind": "abprops",
+            "key": "wam_disable_expokey_attribute",
+            "valueType": "boolean",
+            "reads": [
+              {
+                "module": "WAWebABPropsGlobals",
+                "variant": "primary",
+                "line": 13,
+                "column": 6,
+                "method": "getABPropConfigValue",
+                "timing": "function-body",
+                "expression": "o(\"WAWebABProps\").getABPropConfigValue(\"wam_disable_expokey_attribute\")"
+              }
+            ],
+            "config": {
+              "module": "WAWebABPropsConfigs",
+              "line": 14398,
+              "type": "bool",
+              "default": false,
+              "alternate": false
+            }
+          },
+          {
+            "kind": "gkx",
+            "key": "10314",
+            "valueType": "boolean",
+            "reads": [
+              {
+                "module": "WAWebEnvironment",
+                "variant": "primary",
+                "line": 2,
+                "column": 39,
+                "method": "gkx",
+                "timing": "module-initialization",
+                "expression": "r(\"gkx\")(\"10314\")"
+              }
+            ]
+          },
+          {
+            "kind": "gkx",
+            "key": "13707",
+            "valueType": "boolean",
+            "reads": [
+              {
+                "module": "WAWebCallsOnlyGating",
+                "variant": "primary",
+                "line": 4,
+                "column": 96,
+                "method": "gkx",
+                "timing": "function-body",
+                "expression": "r(\"gkx\")(\"13707\")"
+              }
+            ]
+          },
+          {
+            "kind": "gkx",
+            "key": "16539",
+            "valueType": "boolean",
+            "reads": [
+              {
+                "module": "WAWebABPropsCache",
+                "variant": "primary",
+                "line": 54,
+                "column": 9,
+                "method": "gkx",
+                "timing": "function-body",
+                "expression": "r(\"gkx\")(\"16539\")"
+              },
+              {
+                "module": "WAWebABPropsCache",
+                "variant": "primary",
+                "line": 100,
+                "column": 9,
+                "method": "gkx",
+                "timing": "function-body",
+                "expression": "r(\"gkx\")(\"16539\")"
+              },
+              {
+                "module": "WAWebABPropsCache",
+                "variant": "primary",
+                "line": 109,
+                "column": 9,
+                "method": "gkx",
+                "timing": "function-body",
+                "expression": "r(\"gkx\")(\"16539\")"
+              },
+              {
+                "module": "WAWebABPropsCache",
+                "variant": "primary",
+                "line": 121,
+                "column": 163,
+                "method": "gkx",
+                "timing": "function-body",
+                "expression": "r(\"gkx\")(\"16539\")"
+              },
+              {
+                "module": "WAWebABPropsCache",
+                "variant": "primary",
+                "line": 153,
+                "column": 11,
+                "method": "gkx",
+                "timing": "function-body",
+                "expression": "r(\"gkx\")(\"16539\")"
+              },
+              {
+                "module": "WAWebABPropsUpdateFromStorage",
+                "variant": "primary",
+                "line": 23,
+                "column": 8,
+                "method": "gkx",
+                "timing": "function-body",
+                "expression": "r(\"gkx\")(\"16539\")"
+              },
+              {
+                "module": "WAWebABPropsUpdateFromStorage",
+                "variant": "primary",
+                "line": 33,
+                "column": 13,
+                "method": "gkx",
+                "timing": "function-body",
+                "expression": "r(\"gkx\")(\"16539\")"
+              },
+              {
+                "module": "WAWebABProps",
+                "variant": "primary",
+                "line": 35,
+                "column": 24,
+                "method": "gkx",
+                "timing": "function-body",
+                "expression": "r(\"gkx\")(\"16539\")"
+              },
+              {
+                "module": "WAWebGroupABPropsCache",
+                "variant": "primary",
+                "line": 36,
+                "column": 33,
+                "method": "gkx",
+                "timing": "function-body",
+                "expression": "r(\"gkx\")(\"16539\")"
+              },
+              {
+                "module": "WAWebDBStats",
+                "variant": "primary",
+                "line": 9,
+                "column": 3,
+                "method": "gkx",
+                "timing": "function-body",
+                "expression": "r(\"gkx\")(\"16539\")"
+              },
+              {
+                "module": "WAWebDBStats",
+                "variant": "primary",
+                "line": 25,
+                "column": 7,
+                "method": "gkx",
+                "timing": "function-body",
+                "expression": "r(\"gkx\")(\"16539\")"
+              },
+              {
+                "module": "WAWebDBStats",
+                "variant": "primary",
+                "line": 32,
+                "column": 7,
+                "method": "gkx",
+                "timing": "function-body",
+                "expression": "r(\"gkx\")(\"16539\")"
+              },
+              {
+                "module": "WAWebDBStats",
+                "variant": "primary",
+                "line": 37,
+                "column": 7,
+                "method": "gkx",
+                "timing": "function-body",
+                "expression": "r(\"gkx\")(\"16539\")"
+              },
+              {
+                "module": "WAWebDBStats",
+                "variant": "primary",
+                "line": 43,
+                "column": 3,
+                "method": "gkx",
+                "timing": "function-body",
+                "expression": "r(\"gkx\")(\"16539\")"
+              }
+            ]
+          },
+          {
+            "kind": "gkx",
+            "key": "207",
+            "valueType": "boolean",
+            "reads": [
+              {
+                "module": "logForCrash",
+                "variant": "primary",
+                "line": 33,
+                "column": 42,
+                "method": "gkx",
+                "timing": "function-body",
+                "expression": "r(\"gkx\")(\"207\")"
+              }
+            ]
+          },
+          {
+            "kind": "gkx",
+            "key": "20935",
+            "valueType": "boolean",
+            "reads": [
+              {
+                "module": "ODS",
+                "variant": "primary",
+                "line": 35,
+                "column": 5,
+                "method": "gkx",
+                "timing": "function-body",
+                "expression": "r(\"gkx\")(\"20935\")"
+              }
+            ]
+          },
+          {
+            "kind": "gkx",
+            "key": "26256",
+            "valueType": "boolean",
+            "reads": [
+              {
+                "module": "WAWebABPropsJestE2EReadLog",
+                "variant": "primary",
+                "line": 4,
+                "column": 9,
+                "method": "gkx",
+                "timing": "function-body",
+                "expression": "r(\"gkx\")(\"26256\")"
+              },
+              {
+                "module": "WAWebNetworkStatus",
+                "variant": "primary",
+                "line": 34,
+                "column": 125,
+                "method": "gkx",
+                "timing": "function-body",
+                "expression": "r(\"gkx\")(\"26256\")"
+              },
+              {
+                "module": "WAWebNetworkStatus",
+                "variant": "primary",
+                "line": 59,
+                "column": 9,
+                "method": "gkx",
+                "timing": "function-body",
+                "expression": "r(\"gkx\")(\"26256\")"
+              }
+            ]
+          },
+          {
+            "kind": "gkx",
+            "key": "26258",
+            "valueType": "boolean",
+            "reads": [
+              {
+                "module": "WAWebUserPrefsGeneral",
+                "variant": "primary",
+                "line": 226,
+                "column": 7,
+                "method": "gkx",
+                "timing": "function-body",
+                "expression": "r(\"gkx\")(\"26258\")"
+              },
+              {
+                "module": "WAWebUserPrefsGeneral",
+                "variant": "primary",
+                "line": 249,
+                "column": 2,
+                "method": "gkx",
+                "timing": "function-body",
+                "expression": "r(\"gkx\")(\"26258\")"
+              },
+              {
+                "module": "WAWebUserPrefsGeneral",
+                "variant": "primary",
+                "line": 252,
+                "column": 7,
+                "method": "gkx",
+                "timing": "function-body",
+                "expression": "r(\"gkx\")(\"26258\")"
+              },
+              {
+                "module": "WAWebUserPrefsGeneral",
+                "variant": "primary",
+                "line": 262,
+                "column": 2,
+                "method": "gkx",
+                "timing": "function-body",
+                "expression": "r(\"gkx\")(\"26258\")"
+              },
+              {
+                "module": "WAWebEnvironment",
+                "variant": "primary",
+                "line": 7,
+                "column": 9,
+                "method": "gkx",
+                "timing": "function-body",
+                "expression": "r(\"gkx\")(\"26258\")"
+              },
+              {
+                "module": "WAWebBaseModel",
+                "variant": "primary",
+                "line": 46,
+                "column": 4,
+                "method": "gkx",
+                "timing": "function-body",
+                "expression": "r(\"gkx\")(\"26258\")"
+              },
+              {
+                "module": "WAWebBuildConstants",
+                "variant": "primary",
+                "line": 9,
+                "column": 12,
+                "method": "gkx",
+                "timing": "module-initialization",
+                "expression": "r(\"gkx\")(\"26258\")"
+              },
+              {
+                "module": "WAWebBuildConstants",
+                "variant": "primary",
+                "line": 36,
+                "column": 1,
+                "method": "gkx",
+                "timing": "module-initialization",
+                "expression": "r(\"gkx\")(\"26258\")"
+              },
+              {
+                "module": "WAWebWamCodegenUtils",
+                "variant": "primary",
+                "line": 69,
+                "column": 36,
+                "method": "gkx",
+                "timing": "function-body",
+                "expression": "r(\"gkx\")(\"26258\")"
+              },
+              {
+                "module": "WAWebStorageGatingUtils",
+                "variant": "primary",
+                "line": 19,
+                "column": 8,
+                "method": "gkx",
+                "timing": "function-body",
+                "expression": "r(\"gkx\")(\"26258\")"
+              },
+              {
+                "module": "WAWebWidJsonReviver",
+                "variant": "primary",
+                "line": 81,
+                "column": 14,
+                "method": "gkx",
+                "timing": "function-body",
+                "expression": "r(\"gkx\")(\"26258\")"
+              },
+              {
+                "module": "WAWebCurrentUser",
+                "variant": "primary",
+                "line": 4,
+                "column": 9,
+                "method": "gkx",
+                "timing": "function-body",
+                "expression": "r(\"gkx\")(\"26258\")"
+              },
+              {
+                "module": "WAWebUserPrefsMeUser",
+                "variant": "primary",
+                "line": 94,
+                "column": 14,
+                "method": "gkx",
+                "timing": "function-body",
+                "expression": "r(\"gkx\")(\"26258\")"
+              },
+              {
+                "module": "WAWebProxyStateFactory",
+                "variant": "primary",
+                "line": 31,
+                "column": 13,
+                "method": "gkx",
+                "timing": "function-body",
+                "expression": "r(\"gkx\")(\"26258\")"
+              },
+              {
+                "module": "WAWebUA",
+                "variant": "primary",
+                "line": 51,
+                "column": 29,
+                "method": "gkx",
+                "timing": "function-body",
+                "expression": "r(\"gkx\")(\"26258\")"
+              },
+              {
+                "module": "WAWebProfiler",
+                "variant": "primary",
+                "line": 37,
+                "column": 7,
+                "method": "gkx",
+                "timing": "function-body",
+                "expression": "r(\"gkx\")(\"26258\")"
+              },
+              {
+                "module": "WAWebProfiler",
+                "variant": "primary",
+                "line": 54,
+                "column": 7,
+                "method": "gkx",
+                "timing": "function-body",
+                "expression": "r(\"gkx\")(\"26258\")"
+              },
+              {
+                "module": "WAWebProfiler",
+                "variant": "primary",
+                "line": 73,
+                "column": 41,
+                "method": "gkx",
+                "timing": "function-body",
+                "expression": "r(\"gkx\")(\"26258\")"
+              },
+              {
+                "module": "WAWebProfiler",
+                "variant": "primary",
+                "line": 87,
+                "column": 7,
+                "method": "gkx",
+                "timing": "function-body",
+                "expression": "r(\"gkx\")(\"26258\")"
+              },
+              {
+                "module": "WAWebProfiler",
+                "variant": "primary",
+                "line": 123,
+                "column": 10,
+                "method": "gkx",
+                "timing": "function-body",
+                "expression": "r(\"gkx\")(\"26258\")"
+              },
+              {
+                "module": "WAWebProfiler",
+                "variant": "primary",
+                "line": 125,
+                "column": 10,
+                "method": "gkx",
+                "timing": "function-body",
+                "expression": "r(\"gkx\")(\"26258\")"
+              },
+              {
+                "module": "WAWebIdbHelpers",
+                "variant": "primary",
+                "line": 85,
+                "column": 10,
+                "method": "gkx",
+                "timing": "function-body",
+                "expression": "r(\"gkx\")(\"26258\")"
+              },
+              {
+                "module": "WAWebWid",
+                "variant": "primary",
+                "line": 50,
+                "column": 8,
+                "method": "gkx",
+                "timing": "function-body",
+                "expression": "r(\"gkx\")(\"26258\")"
+              },
+              {
+                "module": "WAWebIndexedDBPurge",
+                "variant": "primary",
+                "line": 42,
+                "column": 8,
+                "method": "gkx",
+                "timing": "function-body",
+                "expression": "r(\"gkx\")(\"26258\")"
+              },
+              {
+                "module": "WAWebIndexedDBPurge",
+                "variant": "primary",
+                "line": 55,
+                "column": 14,
+                "method": "gkx",
+                "timing": "function-body",
+                "expression": "r(\"gkx\")(\"26258\")"
+              }
+            ]
+          },
+          {
+            "kind": "gkx",
+            "key": "26259",
+            "valueType": "boolean",
+            "reads": [
+              {
+                "module": "WAWebABPropsUpdateFromStorage",
+                "variant": "primary",
+                "line": 25,
+                "column": 5,
+                "method": "gkx",
+                "timing": "function-body",
+                "expression": "r(\"gkx\")(\"26259\")"
+              },
+              {
+                "module": "WAWebEnvironment",
+                "variant": "primary",
+                "line": 7,
+                "column": 38,
+                "method": "gkx",
+                "timing": "function-body",
+                "expression": "r(\"gkx\")(\"26259\")"
+              },
+              {
+                "module": "WAWebBuildConstants",
+                "variant": "primary",
+                "line": 9,
+                "column": 33,
+                "method": "gkx",
+                "timing": "module-initialization",
+                "expression": "r(\"gkx\")(\"26259\")"
+              },
+              {
+                "module": "WAWebBuildConstants",
+                "variant": "primary",
+                "line": 36,
+                "column": 23,
+                "method": "gkx",
+                "timing": "module-initialization",
+                "expression": "r(\"gkx\")(\"26259\")"
+              },
+              {
+                "module": "WAWebWamCodegenUtils",
+                "variant": "primary",
+                "line": 69,
+                "column": 3,
+                "method": "gkx",
+                "timing": "function-body",
+                "expression": "r(\"gkx\")(\"26259\")"
+              }
+            ]
+          },
+          {
+            "kind": "gkx",
+            "key": "27164",
+            "valueType": "boolean",
+            "reads": [
+              {
+                "module": "WAWebDexieObservability",
+                "variant": "primary",
+                "line": 4,
+                "column": 6,
+                "method": "gkx",
+                "timing": "function-body",
+                "expression": "r(\"gkx\")(\"27164\")"
+              }
+            ]
+          },
+          {
+            "kind": "gkx",
+            "key": "3981",
+            "valueType": "boolean",
+            "reads": [
+              {
+                "module": "logForCrash",
+                "variant": "primary",
+                "line": 90,
+                "column": 70,
+                "method": "gkx",
+                "timing": "module-initialization",
+                "expression": "r(\"gkx\")(\"3981\")"
+              }
+            ]
+          },
+          {
+            "kind": "gkx",
+            "key": "4112",
+            "valueType": "boolean",
+            "reads": [
+              {
+                "module": "WAWebEnvironment",
+                "variant": "primary",
+                "line": 2,
+                "column": 9,
+                "method": "gkx",
+                "timing": "module-initialization",
+                "expression": "r(\"gkx\")(\"4112\")"
+              }
+            ]
+          },
+          {
+            "kind": "knobs",
+            "key": "1276",
+            "valueType": "unknown",
+            "reads": [
+              {
+                "module": "FalcoLoggerInternal",
+                "variant": "primary",
+                "line": 21,
+                "column": 7,
+                "method": "_",
+                "timing": "function-body",
+                "expression": "r(\"justknobx\")._(\"1276\")"
+              }
+            ]
+          },
+          {
+            "kind": "knobs",
+            "key": "1500",
+            "valueType": "unknown",
+            "reads": [
+              {
+                "module": "WAWebBeyondPhoneNumberGatingUtils",
+                "variant": "primary",
+                "line": 3,
+                "column": 77,
+                "method": "_",
+                "timing": "function-body",
+                "expression": "r(\"justknobx\")._(\"1500\")"
+              }
+            ]
+          },
+          {
+            "kind": "knobs",
+            "key": "1600",
+            "valueType": "unknown",
+            "reads": [
+              {
+                "module": "WAWebWamCodegenUtils",
+                "variant": "primary",
+                "line": 25,
+                "column": 87,
+                "method": "_",
+                "timing": "module-initialization",
+                "expression": "r(\"justknobx\")._(\"1600\")"
+              }
+            ]
+          },
+          {
+            "kind": "knobs",
+            "key": "1617",
+            "valueType": "unknown",
+            "reads": [
+              {
+                "module": "WAWebDbRolloutUtil",
+                "variant": "primary",
+                "line": 28,
+                "column": 11,
+                "method": "_",
+                "timing": "function-body",
+                "expression": "r(\"justknobx\")._(\"1617\")"
+              }
+            ]
+          },
+          {
+            "kind": "knobs",
+            "key": "1618",
+            "valueType": "unknown",
+            "reads": [
+              {
+                "module": "WAWebDbRolloutUtil",
+                "variant": "primary",
+                "line": 32,
+                "column": 11,
+                "method": "_",
+                "timing": "function-body",
+                "expression": "r(\"justknobx\")._(\"1618\")"
+              }
+            ]
+          },
+          {
+            "kind": "knobs",
+            "key": "1619",
+            "valueType": "unknown",
+            "reads": [
+              {
+                "module": "WAWebDbRolloutUtil",
+                "variant": "primary",
+                "line": 36,
+                "column": 11,
+                "method": "_",
+                "timing": "function-body",
+                "expression": "r(\"justknobx\")._(\"1619\")"
+              }
+            ]
+          },
+          {
+            "kind": "knobs",
+            "key": "1620",
+            "valueType": "unknown",
+            "reads": [
+              {
+                "module": "WAWebDbRolloutUtil",
+                "variant": "primary",
+                "line": 40,
+                "column": 11,
+                "method": "_",
+                "timing": "function-body",
+                "expression": "r(\"justknobx\")._(\"1620\")"
+              }
+            ]
+          },
+          {
+            "kind": "knobs",
+            "key": "1621",
+            "valueType": "unknown",
+            "reads": [
+              {
+                "module": "WAWebDbRolloutUtil",
+                "variant": "primary",
+                "line": 44,
+                "column": 11,
+                "method": "_",
+                "timing": "function-body",
+                "expression": "r(\"justknobx\")._(\"1621\")"
+              }
+            ]
+          },
+          {
+            "kind": "knobs",
+            "key": "1623",
+            "valueType": "unknown",
+            "reads": [
+              {
+                "module": "WAWebDbRolloutUtil",
+                "variant": "primary",
+                "line": 48,
+                "column": 11,
+                "method": "_",
+                "timing": "function-body",
+                "expression": "r(\"justknobx\")._(\"1623\")"
+              }
+            ]
+          },
+          {
+            "kind": "knobs",
+            "key": "1624",
+            "valueType": "unknown",
+            "reads": [
+              {
+                "module": "WAWebDbRolloutUtil",
+                "variant": "primary",
+                "line": 56,
+                "column": 11,
+                "method": "_",
+                "timing": "function-body",
+                "expression": "r(\"justknobx\")._(\"1624\")"
+              }
+            ]
+          },
+          {
+            "kind": "knobs",
+            "key": "1662",
+            "valueType": "unknown",
+            "reads": [
+              {
+                "module": "WAWebDbRolloutUtil",
+                "variant": "primary",
+                "line": 60,
+                "column": 11,
+                "method": "_",
+                "timing": "function-body",
+                "expression": "r(\"justknobx\")._(\"1662\")"
+              }
+            ]
+          },
+          {
+            "kind": "knobs",
+            "key": "1663",
+            "valueType": "unknown",
+            "reads": [
+              {
+                "module": "WAWebDbRolloutUtil",
+                "variant": "primary",
+                "line": 64,
+                "column": 11,
+                "method": "_",
+                "timing": "function-body",
+                "expression": "r(\"justknobx\")._(\"1663\")"
+              }
+            ]
+          },
+          {
+            "kind": "knobs",
+            "key": "1664",
+            "valueType": "unknown",
+            "reads": [
+              {
+                "module": "WAWebDbRolloutUtil",
+                "variant": "primary",
+                "line": 68,
+                "column": 11,
+                "method": "_",
+                "timing": "function-body",
+                "expression": "r(\"justknobx\")._(\"1664\")"
+              }
+            ]
+          },
+          {
+            "kind": "knobs",
+            "key": "1854",
+            "valueType": "unknown",
+            "reads": [
+              {
+                "module": "WAWebDbRolloutUtil",
+                "variant": "primary",
+                "line": 18,
+                "column": 8,
+                "method": "_",
+                "timing": "function-body",
+                "expression": "r(\"justknobx\")._(\"1854\")"
+              }
+            ]
+          },
+          {
+            "kind": "knobs",
+            "key": "195",
+            "valueType": "unknown",
+            "reads": [
+              {
+                "module": "logForCrash",
+                "variant": "primary",
+                "line": 33,
+                "column": 14,
+                "method": "_",
+                "timing": "function-body",
+                "expression": "r(\"justknobx\")._(\"195\")"
+              }
+            ]
+          },
+          {
+            "kind": "knobs",
+            "key": "1964",
+            "valueType": "unknown",
+            "reads": [
+              {
+                "module": "WAWebABPropsGlobals",
+                "variant": "primary",
+                "line": 23,
+                "column": 2,
+                "method": "_",
+                "timing": "function-body",
+                "expression": "r(\"justknobx\")._(\"1964\")"
+              },
+              {
+                "module": "WAWebGroupABPropsGlobals",
+                "variant": "primary",
+                "line": 17,
+                "column": 2,
+                "method": "_",
+                "timing": "function-body",
+                "expression": "r(\"justknobx\")._(\"1964\")"
+              }
+            ]
+          },
+          {
+            "kind": "knobs",
+            "key": "2451",
+            "valueType": "unknown",
+            "reads": [
+              {
+                "module": "decodeProtobuf",
+                "variant": "primary",
+                "line": 93,
+                "column": 31,
+                "method": "_",
+                "timing": "function-body",
+                "expression": "r(\"justknobx\")._(\"2451\")"
+              }
+            ]
+          },
+          {
+            "kind": "knobs",
+            "key": "3717",
+            "valueType": "unknown",
+            "reads": [
+              {
+                "module": "WAWebDbRolloutUtil",
+                "variant": "primary",
+                "line": 72,
+                "column": 11,
+                "method": "_",
+                "timing": "function-body",
+                "expression": "r(\"justknobx\")._(\"3717\")"
+              }
+            ]
+          },
+          {
+            "kind": "knobs",
+            "key": "3982",
+            "valueType": "unknown",
+            "reads": [
+              {
+                "module": "WAWebDbRolloutUtil",
+                "variant": "primary",
+                "line": 52,
+                "column": 11,
+                "method": "_",
+                "timing": "function-body",
+                "expression": "r(\"justknobx\")._(\"3982\")"
+              }
+            ]
+          },
+          {
+            "kind": "knobs",
+            "key": "5257",
+            "valueType": "unknown",
+            "reads": [
+              {
+                "module": "WAWebBuildConstants",
+                "variant": "primary",
+                "line": 31,
+                "column": 7,
+                "method": "_",
+                "timing": "function-body",
+                "expression": "r(\"justknobx\")._(\"5257\")"
+              }
+            ]
+          },
+          {
+            "kind": "knobs",
+            "key": "5333",
+            "valueType": "unknown",
+            "reads": [
+              {
+                "module": "WAWebStorage",
+                "variant": "primary",
+                "line": 143,
+                "column": 9,
+                "method": "_",
+                "timing": "function-body",
+                "expression": "r(\"justknobx\")._(\"5333\")"
+              }
+            ]
+          },
+          {
+            "kind": "knobs",
+            "key": "6120",
+            "valueType": "unknown",
+            "reads": [
+              {
+                "module": "WAWebABPropsCache",
+                "variant": "primary",
+                "line": 152,
+                "column": 8,
+                "method": "_",
+                "timing": "function-body",
+                "expression": "r(\"justknobx\")._(\"6120\")"
+              }
+            ]
+          },
+          {
+            "kind": "knobs",
+            "key": "6581",
+            "valueType": "unknown",
+            "reads": [
+              {
+                "module": "WAWebABPropsCache",
+                "variant": "primary",
+                "line": 86,
+                "column": 22,
+                "method": "_",
+                "timing": "function-body",
+                "expression": "r(\"justknobx\")._(\"6581\")"
+              }
+            ]
+          }
+        ],
+        "unresolved": [
+          {
+            "code": "dynamic-gate-key",
+            "module": "WAWebABPropsSupportLid",
+            "line": 30,
+            "column": 10
+          },
+          {
+            "code": "dynamic-gate-key",
+            "module": "WAWebABPropsSupportLid",
+            "line": 36,
+            "column": 10
+          },
+          {
+            "code": "missing-module",
+            "module": "AnalyticsCoreData"
+          },
+          {
+            "code": "missing-module",
+            "module": "CookieCoreConfig"
+          },
+          {
+            "code": "missing-module",
+            "module": "CookieCoreLoggingConfig"
+          },
+          {
+            "code": "missing-module",
+            "module": "CookieDomain"
+          },
+          {
+            "code": "missing-module",
+            "module": "cr:1126"
+          },
+          {
+            "code": "missing-module",
+            "module": "cr:16728"
+          },
+          {
+            "code": "missing-module",
+            "module": "cr:21223"
+          },
+          {
+            "code": "missing-module",
+            "module": "cr:310"
+          },
+          {
+            "code": "missing-module",
+            "module": "cr:34987"
+          },
+          {
+            "code": "missing-module",
+            "module": "cr:3725"
+          },
+          {
+            "code": "missing-module",
+            "module": "cr:38444"
+          },
+          {
+            "code": "missing-module",
+            "module": "cr:4344"
+          },
+          {
+            "code": "missing-module",
+            "module": "cr:5292"
+          },
+          {
+            "code": "missing-module",
+            "module": "cr:5411"
+          },
+          {
+            "code": "missing-module",
+            "module": "cr:6640"
+          },
+          {
+            "code": "missing-module",
+            "module": "cr:8958"
+          },
+          {
+            "code": "missing-module",
+            "module": "CurrentUserInitialData"
+          },
+          {
+            "code": "missing-module",
+            "module": "InitialCookieConsent"
+          },
+          {
+            "code": "missing-module",
+            "module": "JSErrorLoggingConfig"
+          },
+          {
+            "code": "missing-module",
+            "module": "ServerNonce"
+          },
+          {
+            "code": "missing-module",
+            "module": "ServerTimeData"
+          },
+          {
+            "code": "missing-module",
+            "module": "SiteData"
+          },
+          {
+            "code": "unrecognized-gate-provider",
+            "module": "WAWebABPropsGlobals",
+            "line": 28,
+            "column": 10
+          },
+          {
+            "code": "unrecognized-gate-provider",
+            "module": "WAWebApiAbPropConfig",
+            "line": 51,
+            "column": 101
+          },
+          {
+            "code": "unrecognized-gate-provider",
+            "module": "WAWebWid",
+            "line": 156,
+            "column": 103
+          },
+          {
+            "code": "unrecognized-gate-provider",
+            "module": "WAWebWid",
+            "line": 158,
+            "column": 107
+          },
+          {
+            "code": "unrecognized-gate-provider",
+            "module": "WAWebGroupABPropsGlobals",
+            "line": 12,
+            "column": 11
+          },
+          {
+            "code": "unrecognized-gate-provider",
+            "module": "WAWebABPropsGlobals",
+            "line": 15,
+            "column": 11
+          },
+          {
+            "code": "unrecognized-gate-provider",
+            "module": "WAWebABPropsCache",
+            "line": 170,
+            "column": 11
+          },
+          {
+            "code": "unrecognized-gate-provider",
+            "module": "WAWebWid",
+            "line": 225,
+            "column": 11
+          },
+          {
+            "code": "unrecognized-gate-provider",
+            "module": "WAWebWid",
+            "line": 235,
+            "column": 11
+          },
+          {
+            "code": "unrecognized-gate-provider",
+            "module": "WAWebABPropsCache",
+            "line": 92,
+            "column": 112
+          },
+          {
+            "code": "unrecognized-gate-provider",
+            "module": "WAWebABPropsUpdateFromStorage",
+            "line": 32,
+            "column": 116
+          },
+          {
+            "code": "unrecognized-gate-provider",
+            "module": "WAWebGroupABPropsCache",
+            "line": 23,
+            "column": 117
+          },
+          {
+            "code": "unrecognized-gate-provider",
+            "module": "WAWebGroupABPropsGlobals",
+            "line": 25,
+            "column": 12
+          },
+          {
+            "code": "unrecognized-gate-provider",
+            "module": "WAWebGroupABPropsCache",
+            "line": 47,
+            "column": 12
+          },
+          {
+            "code": "unrecognized-gate-provider",
+            "module": "WAWebABPropsUpdateFromStorage",
+            "line": 46,
+            "column": 124
+          },
+          {
+            "code": "unrecognized-gate-provider",
+            "module": "WAWebABPropsCache",
+            "line": 191,
+            "column": 13
+          },
+          {
+            "code": "unrecognized-gate-provider",
+            "module": "WAWebGroupABPropsCache",
+            "line": 22,
+            "column": 13
+          },
+          {
+            "code": "unrecognized-gate-provider",
+            "module": "WAWebABPropsUpdateFromStorage",
+            "line": 29,
+            "column": 13
+          },
+          {
+            "code": "unrecognized-gate-provider",
+            "module": "WAWebApiAbPropConfig",
+            "line": 60,
+            "column": 13
+          },
+          {
+            "code": "unrecognized-gate-provider",
+            "module": "WAWebApiGroupAbPropConfig",
+            "line": 37,
+            "column": 15
+          },
+          {
+            "code": "unrecognized-gate-provider",
+            "module": "WAWebApiGroupAbPropConfig",
+            "line": 39,
+            "column": 15
+          },
+          {
+            "code": "unrecognized-gate-provider",
+            "module": "WAWebApiAbPropConfig",
+            "line": 28,
+            "column": 16
+          },
+          {
+            "code": "unrecognized-gate-provider",
+            "module": "WAWebABPropsUpdateFromStorage",
+            "line": 46,
+            "column": 16
+          },
+          {
+            "code": "unrecognized-gate-provider",
+            "module": "WAWebBackendWorkerInitState",
+            "line": 65,
+            "column": 16
+          },
+          {
+            "code": "unrecognized-gate-provider",
+            "module": "WAWebABPropsCache",
+            "line": 92,
+            "column": 161
+          },
+          {
+            "code": "unrecognized-gate-provider",
+            "module": "WAWebABPropsCache",
+            "line": 169,
+            "column": 163
+          },
+          {
+            "code": "unrecognized-gate-provider",
+            "module": "WAWebWid",
+            "line": 156,
+            "column": 166
+          },
+          {
+            "code": "unrecognized-gate-provider",
+            "module": "WAWebModelStorageInitialize",
+            "line": 133,
+            "column": 17
+          },
+          {
+            "code": "unrecognized-gate-provider",
+            "module": "WAWebABPropsCache",
+            "line": 92,
+            "column": 17
+          },
+          {
+            "code": "unrecognized-gate-provider",
+            "module": "WAWebWid",
+            "line": 158,
+            "column": 174
+          },
+          {
+            "code": "unrecognized-gate-provider",
+            "module": "WAWebABPropsUpdateFromStorage",
+            "line": 46,
+            "column": 176
+          },
+          {
+            "code": "unrecognized-gate-provider",
+            "module": "WAWebABPropsCache",
+            "line": 89,
+            "column": 19
+          },
+          {
+            "code": "unrecognized-gate-provider",
+            "module": "WAWebABProps",
+            "line": 43,
+            "column": 2
+          },
+          {
+            "code": "unrecognized-gate-provider",
+            "module": "WAWebGroupABPropsUpdateFromStorage",
+            "line": 55,
+            "column": 2
+          },
+          {
+            "code": "unrecognized-gate-provider",
+            "module": "WAWebGroupABPropsUpdateFromStorage",
+            "line": 17,
+            "column": 210
+          },
+          {
+            "code": "unrecognized-gate-provider",
+            "module": "WAWebGroupABPropsCache",
+            "line": 58,
+            "column": 24
+          },
+          {
+            "code": "unrecognized-gate-provider",
+            "module": "WAWebWid",
+            "line": 156,
+            "column": 25
+          },
+          {
+            "code": "unrecognized-gate-provider",
+            "module": "WAWebWid",
+            "line": 158,
+            "column": 25
+          },
+          {
+            "code": "unrecognized-gate-provider",
+            "module": "WAWebWid",
+            "line": 223,
+            "column": 25
+          },
+          {
+            "code": "unrecognized-gate-provider",
+            "module": "WAWebWid",
+            "line": 233,
+            "column": 25
+          },
+          {
+            "code": "unrecognized-gate-provider",
+            "module": "WAWebBackendWorkerInitState",
+            "line": 66,
+            "column": 25
+          },
+          {
+            "code": "unrecognized-gate-provider",
+            "module": "WAWebWid",
+            "line": 162,
+            "column": 30
+          },
+          {
+            "code": "unrecognized-gate-provider",
+            "module": "WAWebWid",
+            "line": 220,
+            "column": 33
+          },
+          {
+            "code": "unrecognized-gate-provider",
+            "module": "WAWebWid",
+            "line": 230,
+            "column": 33
+          },
+          {
+            "code": "unrecognized-gate-provider",
+            "module": "WAWebGroupABPropsCache",
+            "line": 48,
+            "column": 33
+          },
+          {
+            "code": "unrecognized-gate-provider",
+            "module": "WAWebGroupABPropsCache",
+            "line": 23,
+            "column": 34
+          },
+          {
+            "code": "unrecognized-gate-provider",
+            "module": "WAWebABPropsUpdateFromStorage",
+            "line": 27,
+            "column": 4
+          },
+          {
+            "code": "unrecognized-gate-provider",
+            "module": "WAWebStorage",
+            "line": 160,
+            "column": 44
+          },
+          {
+            "code": "unrecognized-gate-provider",
+            "module": "WAWebApiAbPropConfig",
+            "line": 51,
+            "column": 44
+          },
+          {
+            "code": "unrecognized-gate-provider",
+            "module": "WAWebWid",
+            "line": 226,
+            "column": 49
+          },
+          {
+            "code": "unrecognized-gate-provider",
+            "module": "WAWebWid",
+            "line": 236,
+            "column": 49
+          },
+          {
+            "code": "unrecognized-gate-provider",
+            "module": "WAWebGroupABPropsUpdateFromStorage",
+            "line": 42,
+            "column": 5
+          },
+          {
+            "code": "unrecognized-gate-provider",
+            "module": "WAWebABPropsCache",
+            "line": 51,
+            "column": 55
+          },
+          {
+            "code": "unrecognized-gate-provider",
+            "module": "WAWebABPropsCache",
+            "line": 191,
+            "column": 63
+          },
+          {
+            "code": "unrecognized-gate-provider",
+            "module": "WAWebABPropsCache",
+            "line": 92,
+            "column": 66
+          },
+          {
+            "code": "unrecognized-gate-provider",
+            "module": "WAWebGroupABPropsCache",
+            "line": 51,
+            "column": 7
+          },
+          {
+            "code": "unrecognized-gate-provider",
+            "module": "WAWebABProps",
+            "line": 43,
+            "column": 72
+          },
+          {
+            "code": "unrecognized-gate-provider",
+            "module": "WAWebABPropsUpdateFromStorage",
+            "line": 33,
+            "column": 74
+          },
+          {
+            "code": "unrecognized-gate-provider",
+            "module": "WAWebABPropsCache",
+            "line": 169,
+            "column": 75
+          },
+          {
+            "code": "unrecognized-gate-provider",
+            "module": "WAWebABPropsUpdateFromStorage",
+            "line": 46,
+            "column": 76
+          },
+          {
+            "code": "unrecognized-gate-provider",
+            "module": "WAWebABPropsCache",
+            "line": 129,
+            "column": 9
+          },
+          {
+            "code": "unrecognized-gate-provider",
+            "module": "WAWebApiGroupAbPropConfig",
+            "line": 48,
+            "column": 9
+          },
+          {
+            "code": "unrecognized-gate-provider",
+            "module": "WAWebUserPrefsMeUser",
+            "line": 54,
+            "column": 9
+          },
+          {
+            "code": "unrecognized-gate-provider",
+            "module": "WAWebUserPrefsMeUser",
+            "line": 57,
+            "column": 9
+          },
+          {
+            "code": "unrecognized-gate-provider",
+            "module": "WAWebABPropsCache",
+            "line": 59,
+            "column": 9
+          },
+          {
+            "code": "unrecognized-gate-provider",
+            "module": "WAWebUserPrefsMeUser",
+            "line": 60,
+            "column": 9
+          },
+          {
+            "code": "unrecognized-gate-provider",
+            "module": "WAWebGroupABPropsUpdateFromStorage",
+            "line": 17,
+            "column": 99
+          },
+          {
+            "code": "unresolved-gate-accessor",
+            "module": "WAWebABPropsUpdateFromStorage",
+            "line": 28,
+            "column": 18
+          },
+          {
+            "code": "unsupported-gate-accessor",
+            "module": "WAWebABPropsCache",
+            "line": 51,
+            "column": 2
+          },
+          {
+            "code": "unsupported-gate-accessor",
+            "module": "WAWebABPropsCache",
+            "line": 73,
+            "column": 8
+          }
+        ],
+        "staticCoverage": {
+          "complete": false,
+          "scope": "module-closure-superset",
+          "semanticProof": false,
+          "resolverCoverage": false,
+          "modules": 408,
+          "sourceBytes": 1148809,
+          "limitations": [
+            "Only supported gate APIs and static key expressions are inventoried.",
+            "Declared fixture-provider boundaries exclude their original resolver implementations and dependencies.",
+            "All functions in each dependency module are scanned; exact export and caller reachability is not proven.",
+            "Runtime-discovered gates and externally selected code require separate observations."
+          ]
+        },
+        "selectedModulePinsSha256": "3751269b5c08c3e2e0936cc00518034acd6d392ae7cf93f80252e17e5fed08b9"
       }
     },
     {
@@ -9819,61 +10977,15 @@
         }
       ],
       "analyzer": {
-        "version": 2,
-        "sourceSha256": "c8a73442da5fcd7510ff5fac193602d19e447ab032505c4550237c0a66f90ea2"
+        "version": 3,
+        "sourceSha256": "06c35199d0b06c9441486d96cb06b540628d64c562b7c1bbd9f2b5f28c6a3096"
       },
-      "inventoryDigest": "e77214a4eb1d6945777d64b39d5b63151716f800d482fa52f34375ea50280221",
+      "inventoryDigest": "18ff5ae7d444efcd5d80d82ce1450085bc142c5f33ddd38ed0b7712ae5746459",
       "gates": [
         {
           "kind": "abprops",
-          "key": "in_app_support_capi_number_prefixes",
-          "valueType": "string",
-          "reads": [
-            {
-              "module": "WAWebABPropsCAPISupportNumber",
-              "variant": "primary",
-              "line": 3,
-              "column": 10,
-              "method": "getABPropConfigValue",
-              "timing": "function-body",
-              "expression": "o(\"WAWebABProps\").getABPropConfigValue(\"in_app_support_capi_number_prefixes\")"
-            }
-          ],
-          "config": {
-            "module": "WAWebABPropsConfigs",
-            "line": 7162,
-            "type": "string",
-            "default": "155178684",
-            "alternate": "155178684"
-          }
-        },
-        {
-          "kind": "abprops",
-          "key": "in_app_support_v2_number_prefixes",
-          "valueType": "string",
-          "reads": [
-            {
-              "module": "WAWebABPropsSupportGroup",
-              "variant": "primary",
-              "line": 3,
-              "column": 10,
-              "method": "getABPropConfigValue",
-              "timing": "function-body",
-              "expression": "o(\"WAWebABProps\").getABPropConfigValue(\"in_app_support_v2_number_prefixes\")"
-            }
-          ],
-          "config": {
-            "module": "WAWebABPropsConfigs",
-            "line": 7168,
-            "type": "string",
-            "default": "15517868",
-            "alternate": "15517868"
-          }
-        },
-        {
-          "kind": "abprops",
           "key": "is_meta_employee_or_internal_tester",
-          "valueType": "boolean",
+          "valueType": "unknown",
           "reads": [
             {
               "module": "WAWebCurrentUser",
@@ -9884,88 +10996,12 @@
               "timing": "function-body",
               "expression": "o(\"WAWebABProps\").getABPropConfigValue(\"is_meta_employee_or_internal_tester\")"
             }
-          ],
-          "config": {
-            "module": "WAWebABPropsConfigs",
-            "line": 7372,
-            "type": "bool",
-            "default": false,
-            "alternate": false
-          }
-        },
-        {
-          "kind": "abprops",
-          "key": "payment_support_lids",
-          "valueType": "string",
-          "reads": [
-            {
-              "module": "WAWebABPropsSupportLid",
-              "variant": "primary",
-              "line": 8,
-              "column": 10,
-              "method": "getABPropConfigValue",
-              "timing": "function-body",
-              "expression": "o(\"WAWebABProps\").getABPropConfigValue(\"payment_support_lids\")"
-            }
-          ],
-          "config": {
-            "module": "WAWebABPropsConfigs",
-            "line": 8806,
-            "type": "string",
-            "default": "116664750354676,128385682505839,46635358933114,26521959944357,200206125658243,179985503506636,187797998674170,228746200088715,117914552262794,10158134550607",
-            "alternate": "116664750354676,128385682505839,46635358933114,26521959944357,200206125658243,179985503506636,187797998674170,228746200088715,117914552262794,10158134550607"
-          }
-        },
-        {
-          "kind": "abprops",
-          "key": "remove_pn_dependencies",
-          "valueType": "boolean",
-          "reads": [
-            {
-              "module": "WAWebBeyondPhoneNumberGatingUtils",
-              "variant": "primary",
-              "line": 3,
-              "column": 9,
-              "method": "getABPropConfigValue",
-              "timing": "function-body",
-              "expression": "o(\"WAWebABProps\").getABPropConfigValue(\"remove_pn_dependencies\")"
-            }
-          ],
-          "config": {
-            "module": "WAWebABPropsConfigs",
-            "line": 9952,
-            "type": "bool",
-            "default": false,
-            "alternate": true
-          }
-        },
-        {
-          "kind": "abprops",
-          "key": "support_lids",
-          "valueType": "string",
-          "reads": [
-            {
-              "module": "WAWebABPropsSupportLid",
-              "variant": "primary",
-              "line": 4,
-              "column": 10,
-              "method": "getABPropConfigValue",
-              "timing": "function-body",
-              "expression": "o(\"WAWebABProps\").getABPropConfigValue(\"support_lids\")"
-            }
-          ],
-          "config": {
-            "module": "WAWebABPropsConfigs",
-            "line": 11386,
-            "type": "string",
-            "default": "4200746488034,30563255730192,70334669676777,19349129719984,66065505775654,133814269518032,243799792062487,7323238039569,269290422947912,261718412386336,4351103873168,12391299473616,92410801582180,277730033709185,36090878648473,79882365190287,94274800595104,117794058317863,115784047153172,179250745360524,7301780005088,166653589463190,94249030815912,198964645236955,198427807899653,23656948363422,255735573270728,106670109786240,130932396826763,18855208456329",
-            "alternate": "4200746488034,30563255730192,70334669676777,19349129719984,66065505775654,133814269518032,243799792062487,7323238039569,269290422947912,261718412386336,4351103873168,12391299473616,92410801582180,277730033709185,36090878648473,79882365190287,94274800595104,117794058317863,115784047153172,179250745360524,7301780005088,166653589463190,94249030815912,198964645236955,198427807899653,23656948363422,255735573270728,106670109786240,130932396826763,18855208456329"
-          }
+          ]
         },
         {
           "kind": "abprops",
           "key": "wa_web_jm_to_ts_queues",
-          "valueType": "boolean",
+          "valueType": "unknown",
           "reads": [
             {
               "module": "WAWebJobsMigrationGating",
@@ -9976,19 +11012,12 @@
               "timing": "function-body",
               "expression": "o(\"WAWebABProps\").getABPropConfigValue(\"wa_web_jm_to_ts_queues\")"
             }
-          ],
-          "config": {
-            "module": "WAWebABPropsConfigs",
-            "line": 13726,
-            "type": "bool",
-            "default": false,
-            "alternate": false
-          }
+          ]
         },
         {
           "kind": "abprops",
           "key": "wa_web_jm_to_ts_rest",
-          "valueType": "boolean",
+          "valueType": "unknown",
           "reads": [
             {
               "module": "WAWebJobsMigrationGating",
@@ -9999,19 +11028,12 @@
               "timing": "function-body",
               "expression": "o(\"WAWebABProps\").getABPropConfigValue(\"wa_web_jm_to_ts_rest\")"
             }
-          ],
-          "config": {
-            "module": "WAWebABPropsConfigs",
-            "line": 13732,
-            "type": "bool",
-            "default": false,
-            "alternate": false
-          }
+          ]
         },
         {
           "kind": "abprops",
           "key": "wa_web_jm_to_ts_serviced",
-          "valueType": "boolean",
+          "valueType": "unknown",
           "reads": [
             {
               "module": "WAWebJobsMigrationGating",
@@ -10022,19 +11044,12 @@
               "timing": "function-body",
               "expression": "o(\"WAWebABProps\").getABPropConfigValue(\"wa_web_jm_to_ts_serviced\")"
             }
-          ],
-          "config": {
-            "module": "WAWebABPropsConfigs",
-            "line": 13738,
-            "type": "bool",
-            "default": false,
-            "alternate": false
-          }
+          ]
         },
         {
           "kind": "abprops",
           "key": "wam_disable_expokey_attribute",
-          "valueType": "boolean",
+          "valueType": "unknown",
           "reads": [
             {
               "module": "WAWebABPropsGlobals",
@@ -10045,14 +11060,7 @@
               "timing": "function-body",
               "expression": "o(\"WAWebABProps\").getABPropConfigValue(\"wam_disable_expokey_attribute\")"
             }
-          ],
-          "config": {
-            "module": "WAWebABPropsConfigs",
-            "line": 14434,
-            "type": "bool",
-            "default": false,
-            "alternate": false
-          }
+          ]
         },
         {
           "kind": "gkx",
@@ -10187,83 +11195,6 @@
               "method": "gkx",
               "timing": "function-body",
               "expression": "r(\"gkx\")(\"16539\")"
-            },
-            {
-              "module": "WAWebDBStats",
-              "variant": "primary",
-              "line": 9,
-              "column": 3,
-              "method": "gkx",
-              "timing": "function-body",
-              "expression": "r(\"gkx\")(\"16539\")"
-            },
-            {
-              "module": "WAWebDBStats",
-              "variant": "primary",
-              "line": 25,
-              "column": 7,
-              "method": "gkx",
-              "timing": "function-body",
-              "expression": "r(\"gkx\")(\"16539\")"
-            },
-            {
-              "module": "WAWebDBStats",
-              "variant": "primary",
-              "line": 32,
-              "column": 7,
-              "method": "gkx",
-              "timing": "function-body",
-              "expression": "r(\"gkx\")(\"16539\")"
-            },
-            {
-              "module": "WAWebDBStats",
-              "variant": "primary",
-              "line": 37,
-              "column": 7,
-              "method": "gkx",
-              "timing": "function-body",
-              "expression": "r(\"gkx\")(\"16539\")"
-            },
-            {
-              "module": "WAWebDBStats",
-              "variant": "primary",
-              "line": 43,
-              "column": 3,
-              "method": "gkx",
-              "timing": "function-body",
-              "expression": "r(\"gkx\")(\"16539\")"
-            }
-          ]
-        },
-        {
-          "kind": "gkx",
-          "key": "207",
-          "valueType": "boolean",
-          "reads": [
-            {
-              "module": "logForCrash",
-              "variant": "primary",
-              "line": 33,
-              "column": 42,
-              "method": "gkx",
-              "timing": "function-body",
-              "expression": "r(\"gkx\")(\"207\")"
-            }
-          ]
-        },
-        {
-          "kind": "gkx",
-          "key": "20935",
-          "valueType": "boolean",
-          "reads": [
-            {
-              "module": "ODS",
-              "variant": "primary",
-              "line": 35,
-              "column": 5,
-              "method": "gkx",
-              "timing": "function-body",
-              "expression": "r(\"gkx\")(\"20935\")"
             }
           ]
         },
@@ -10431,87 +11362,6 @@
               "method": "gkx",
               "timing": "function-body",
               "expression": "r(\"gkx\")(\"26258\")"
-            },
-            {
-              "module": "WAWebProfiler",
-              "variant": "primary",
-              "line": 36,
-              "column": 7,
-              "method": "gkx",
-              "timing": "function-body",
-              "expression": "r(\"gkx\")(\"26258\")"
-            },
-            {
-              "module": "WAWebProfiler",
-              "variant": "primary",
-              "line": 55,
-              "column": 41,
-              "method": "gkx",
-              "timing": "function-body",
-              "expression": "r(\"gkx\")(\"26258\")"
-            },
-            {
-              "module": "WAWebProfiler",
-              "variant": "primary",
-              "line": 69,
-              "column": 7,
-              "method": "gkx",
-              "timing": "function-body",
-              "expression": "r(\"gkx\")(\"26258\")"
-            },
-            {
-              "module": "WAWebProfiler",
-              "variant": "primary",
-              "line": 105,
-              "column": 10,
-              "method": "gkx",
-              "timing": "function-body",
-              "expression": "r(\"gkx\")(\"26258\")"
-            },
-            {
-              "module": "WAWebProfiler",
-              "variant": "primary",
-              "line": 107,
-              "column": 10,
-              "method": "gkx",
-              "timing": "function-body",
-              "expression": "r(\"gkx\")(\"26258\")"
-            },
-            {
-              "module": "WAWebIdbHelpers",
-              "variant": "primary",
-              "line": 85,
-              "column": 10,
-              "method": "gkx",
-              "timing": "function-body",
-              "expression": "r(\"gkx\")(\"26258\")"
-            },
-            {
-              "module": "WAWebWid",
-              "variant": "primary",
-              "line": 50,
-              "column": 8,
-              "method": "gkx",
-              "timing": "function-body",
-              "expression": "r(\"gkx\")(\"26258\")"
-            },
-            {
-              "module": "WAWebIndexedDBPurge",
-              "variant": "primary",
-              "line": 42,
-              "column": 8,
-              "method": "gkx",
-              "timing": "function-body",
-              "expression": "r(\"gkx\")(\"26258\")"
-            },
-            {
-              "module": "WAWebIndexedDBPurge",
-              "variant": "primary",
-              "line": 58,
-              "column": 14,
-              "method": "gkx",
-              "timing": "function-body",
-              "expression": "r(\"gkx\")(\"26258\")"
             }
           ]
         },
@@ -10569,38 +11419,6 @@
         },
         {
           "kind": "gkx",
-          "key": "27164",
-          "valueType": "boolean",
-          "reads": [
-            {
-              "module": "WAWebDexieObservability",
-              "variant": "primary",
-              "line": 4,
-              "column": 6,
-              "method": "gkx",
-              "timing": "function-body",
-              "expression": "r(\"gkx\")(\"27164\")"
-            }
-          ]
-        },
-        {
-          "kind": "gkx",
-          "key": "3981",
-          "valueType": "boolean",
-          "reads": [
-            {
-              "module": "logForCrash",
-              "variant": "primary",
-              "line": 90,
-              "column": 70,
-              "method": "gkx",
-              "timing": "module-initialization",
-              "expression": "r(\"gkx\")(\"3981\")"
-            }
-          ]
-        },
-        {
-          "kind": "gkx",
           "key": "4112",
           "valueType": "boolean",
           "reads": [
@@ -10612,38 +11430,6 @@
               "method": "gkx",
               "timing": "module-initialization",
               "expression": "r(\"gkx\")(\"4112\")"
-            }
-          ]
-        },
-        {
-          "kind": "knobs",
-          "key": "1276",
-          "valueType": "unknown",
-          "reads": [
-            {
-              "module": "FalcoLoggerInternal",
-              "variant": "primary",
-              "line": 21,
-              "column": 7,
-              "method": "_",
-              "timing": "function-body",
-              "expression": "r(\"justknobx\")._(\"1276\")"
-            }
-          ]
-        },
-        {
-          "kind": "knobs",
-          "key": "1500",
-          "valueType": "unknown",
-          "reads": [
-            {
-              "module": "WAWebBeyondPhoneNumberGatingUtils",
-              "variant": "primary",
-              "line": 3,
-              "column": 77,
-              "method": "_",
-              "timing": "function-body",
-              "expression": "r(\"justknobx\")._(\"1500\")"
             }
           ]
         },
@@ -10841,22 +11627,6 @@
         },
         {
           "kind": "knobs",
-          "key": "195",
-          "valueType": "unknown",
-          "reads": [
-            {
-              "module": "logForCrash",
-              "variant": "primary",
-              "line": 33,
-              "column": 14,
-              "method": "_",
-              "timing": "function-body",
-              "expression": "r(\"justknobx\")._(\"195\")"
-            }
-          ]
-        },
-        {
-          "kind": "knobs",
           "key": "1964",
           "valueType": "unknown",
           "reads": [
@@ -10877,22 +11647,6 @@
               "method": "_",
               "timing": "function-body",
               "expression": "r(\"justknobx\")._(\"1964\")"
-            }
-          ]
-        },
-        {
-          "kind": "knobs",
-          "key": "2451",
-          "valueType": "unknown",
-          "reads": [
-            {
-              "module": "decodeProtobuf",
-              "variant": "primary",
-              "line": 93,
-              "column": 31,
-              "method": "_",
-              "timing": "function-body",
-              "expression": "r(\"justknobx\")._(\"2451\")"
             }
           ]
         },
@@ -10995,36 +11749,12 @@
       ],
       "unresolved": [
         {
-          "code": "dynamic-gate-key",
-          "module": "WAWebABPropsSupportLid",
-          "line": 30,
-          "column": 10
-        },
-        {
-          "code": "dynamic-gate-key",
-          "module": "WAWebABPropsSupportLid",
-          "line": 36,
-          "column": 10
-        },
-        {
-          "code": "missing-module",
-          "module": "AnalyticsCoreData"
-        },
-        {
-          "code": "missing-module",
-          "module": "CookieCoreConfig"
-        },
-        {
-          "code": "missing-module",
-          "module": "CookieCoreLoggingConfig"
-        },
-        {
-          "code": "missing-module",
-          "module": "CookieDomain"
-        },
-        {
-          "code": "missing-module",
-          "module": "cr:1126"
+          "code": "work-budget",
+          "module": "WAWebProtobufSyncAction.pb",
+          "sourceSha256": "4f4c7d8499d69c8644e43fb29c1141b43d4c1599b5c56c0075110e8cd2da6b1a",
+          "required": "analysis-work",
+          "budget": "2000000",
+          "count": 2000000
         },
         {
           "code": "missing-module",
@@ -11036,23 +11766,7 @@
         },
         {
           "code": "missing-module",
-          "module": "cr:310"
-        },
-        {
-          "code": "missing-module",
           "module": "cr:34987"
-        },
-        {
-          "code": "missing-module",
-          "module": "cr:3725"
-        },
-        {
-          "code": "missing-module",
-          "module": "cr:38444"
-        },
-        {
-          "code": "missing-module",
-          "module": "cr:4344"
         },
         {
           "code": "missing-module",
@@ -11064,27 +11778,7 @@
         },
         {
           "code": "missing-module",
-          "module": "cr:8958"
-        },
-        {
-          "code": "missing-module",
           "module": "CurrentUserInitialData"
-        },
-        {
-          "code": "missing-module",
-          "module": "InitialCookieConsent"
-        },
-        {
-          "code": "missing-module",
-          "module": "JSErrorLoggingConfig"
-        },
-        {
-          "code": "missing-module",
-          "module": "ServerNonce"
-        },
-        {
-          "code": "missing-module",
-          "module": "ServerTimeData"
         },
         {
           "code": "missing-module",
@@ -11104,18 +11798,6 @@
         },
         {
           "code": "unrecognized-gate-provider",
-          "module": "WAWebWid",
-          "line": 156,
-          "column": 103
-        },
-        {
-          "code": "unrecognized-gate-provider",
-          "module": "WAWebWid",
-          "line": 158,
-          "column": 107
-        },
-        {
-          "code": "unrecognized-gate-provider",
           "module": "WAWebGroupABPropsGlobals",
           "line": 12,
           "column": 11
@@ -11130,18 +11812,6 @@
           "code": "unrecognized-gate-provider",
           "module": "WAWebABPropsCache",
           "line": 172,
-          "column": 11
-        },
-        {
-          "code": "unrecognized-gate-provider",
-          "module": "WAWebWid",
-          "line": 225,
-          "column": 11
-        },
-        {
-          "code": "unrecognized-gate-provider",
-          "module": "WAWebWid",
-          "line": 235,
           "column": 11
         },
         {
@@ -11248,12 +11918,6 @@
         },
         {
           "code": "unrecognized-gate-provider",
-          "module": "WAWebWid",
-          "line": 156,
-          "column": 166
-        },
-        {
-          "code": "unrecognized-gate-provider",
           "module": "WAWebModelStorageInitialize",
           "line": 133,
           "column": 17
@@ -11263,12 +11927,6 @@
           "module": "WAWebABPropsCache",
           "line": 94,
           "column": 17
-        },
-        {
-          "code": "unrecognized-gate-provider",
-          "module": "WAWebWid",
-          "line": 158,
-          "column": 174
         },
         {
           "code": "unrecognized-gate-provider",
@@ -11308,30 +11966,6 @@
         },
         {
           "code": "unrecognized-gate-provider",
-          "module": "WAWebWid",
-          "line": 156,
-          "column": 25
-        },
-        {
-          "code": "unrecognized-gate-provider",
-          "module": "WAWebWid",
-          "line": 158,
-          "column": 25
-        },
-        {
-          "code": "unrecognized-gate-provider",
-          "module": "WAWebWid",
-          "line": 223,
-          "column": 25
-        },
-        {
-          "code": "unrecognized-gate-provider",
-          "module": "WAWebWid",
-          "line": 233,
-          "column": 25
-        },
-        {
-          "code": "unrecognized-gate-provider",
           "module": "WAWebBackendWorkerInitState",
           "line": 66,
           "column": 25
@@ -11341,24 +11975,6 @@
           "module": "WAWebABPropsCache",
           "line": 58,
           "column": 29
-        },
-        {
-          "code": "unrecognized-gate-provider",
-          "module": "WAWebWid",
-          "line": 162,
-          "column": 30
-        },
-        {
-          "code": "unrecognized-gate-provider",
-          "module": "WAWebWid",
-          "line": 220,
-          "column": 33
-        },
-        {
-          "code": "unrecognized-gate-provider",
-          "module": "WAWebWid",
-          "line": 230,
-          "column": 33
         },
         {
           "code": "unrecognized-gate-provider",
@@ -11389,18 +12005,6 @@
           "module": "WAWebApiAbPropConfig",
           "line": 51,
           "column": 44
-        },
-        {
-          "code": "unrecognized-gate-provider",
-          "module": "WAWebWid",
-          "line": 226,
-          "column": 49
-        },
-        {
-          "code": "unrecognized-gate-provider",
-          "module": "WAWebWid",
-          "line": 236,
-          "column": 49
         },
         {
           "code": "unrecognized-gate-provider",
@@ -11522,14 +12126,1739 @@
         "scope": "module-closure-superset",
         "semanticProof": false,
         "resolverCoverage": false,
-        "modules": 409,
-        "sourceBytes": 1147772,
+        "modules": 249,
+        "sourceBytes": 879135,
+        "workBudget": {
+          "limit": 2000000,
+          "consumed": 2000000,
+          "exhausted": true
+        },
         "limitations": [
           "Only supported gate APIs and static key expressions are inventoried.",
+          "Logical work units bound selected AST traversal and resolution, not parser internals or elapsed time; parsing remains source-byte bounded.",
           "Declared fixture-provider boundaries exclude their original resolver implementations and dependencies.",
           "All functions in each dependency module are scanned; exact export and caller reachability is not proven.",
           "Runtime-discovered gates and externally selected code require separate observations."
         ]
+      },
+      "historicalInventory": {
+        "status": "historical-prior-analyzer-observation",
+        "reason": "Current default logical work budget exhausted before full closure analysis. Retain previously established descriptors/diagnostics with old analyzer provenance; these are not current analyzer completeness or execution evidence.",
+        "roots": ["WAWebABPropsCache", "WAWebABPropsUpdateFromStorage"],
+        "analyzer": {
+          "version": 2,
+          "sourceSha256": "c8a73442da5fcd7510ff5fac193602d19e447ab032505c4550237c0a66f90ea2"
+        },
+        "inventoryDigest": "e77214a4eb1d6945777d64b39d5b63151716f800d482fa52f34375ea50280221",
+        "gates": [
+          {
+            "kind": "abprops",
+            "key": "in_app_support_capi_number_prefixes",
+            "valueType": "string",
+            "reads": [
+              {
+                "module": "WAWebABPropsCAPISupportNumber",
+                "variant": "primary",
+                "line": 3,
+                "column": 10,
+                "method": "getABPropConfigValue",
+                "timing": "function-body",
+                "expression": "o(\"WAWebABProps\").getABPropConfigValue(\"in_app_support_capi_number_prefixes\")"
+              }
+            ],
+            "config": {
+              "module": "WAWebABPropsConfigs",
+              "line": 7162,
+              "type": "string",
+              "default": "155178684",
+              "alternate": "155178684"
+            }
+          },
+          {
+            "kind": "abprops",
+            "key": "in_app_support_v2_number_prefixes",
+            "valueType": "string",
+            "reads": [
+              {
+                "module": "WAWebABPropsSupportGroup",
+                "variant": "primary",
+                "line": 3,
+                "column": 10,
+                "method": "getABPropConfigValue",
+                "timing": "function-body",
+                "expression": "o(\"WAWebABProps\").getABPropConfigValue(\"in_app_support_v2_number_prefixes\")"
+              }
+            ],
+            "config": {
+              "module": "WAWebABPropsConfigs",
+              "line": 7168,
+              "type": "string",
+              "default": "15517868",
+              "alternate": "15517868"
+            }
+          },
+          {
+            "kind": "abprops",
+            "key": "is_meta_employee_or_internal_tester",
+            "valueType": "boolean",
+            "reads": [
+              {
+                "module": "WAWebCurrentUser",
+                "variant": "primary",
+                "line": 4,
+                "column": 37,
+                "method": "getABPropConfigValue",
+                "timing": "function-body",
+                "expression": "o(\"WAWebABProps\").getABPropConfigValue(\"is_meta_employee_or_internal_tester\")"
+              }
+            ],
+            "config": {
+              "module": "WAWebABPropsConfigs",
+              "line": 7372,
+              "type": "bool",
+              "default": false,
+              "alternate": false
+            }
+          },
+          {
+            "kind": "abprops",
+            "key": "payment_support_lids",
+            "valueType": "string",
+            "reads": [
+              {
+                "module": "WAWebABPropsSupportLid",
+                "variant": "primary",
+                "line": 8,
+                "column": 10,
+                "method": "getABPropConfigValue",
+                "timing": "function-body",
+                "expression": "o(\"WAWebABProps\").getABPropConfigValue(\"payment_support_lids\")"
+              }
+            ],
+            "config": {
+              "module": "WAWebABPropsConfigs",
+              "line": 8806,
+              "type": "string",
+              "default": "116664750354676,128385682505839,46635358933114,26521959944357,200206125658243,179985503506636,187797998674170,228746200088715,117914552262794,10158134550607",
+              "alternate": "116664750354676,128385682505839,46635358933114,26521959944357,200206125658243,179985503506636,187797998674170,228746200088715,117914552262794,10158134550607"
+            }
+          },
+          {
+            "kind": "abprops",
+            "key": "remove_pn_dependencies",
+            "valueType": "boolean",
+            "reads": [
+              {
+                "module": "WAWebBeyondPhoneNumberGatingUtils",
+                "variant": "primary",
+                "line": 3,
+                "column": 9,
+                "method": "getABPropConfigValue",
+                "timing": "function-body",
+                "expression": "o(\"WAWebABProps\").getABPropConfigValue(\"remove_pn_dependencies\")"
+              }
+            ],
+            "config": {
+              "module": "WAWebABPropsConfigs",
+              "line": 9952,
+              "type": "bool",
+              "default": false,
+              "alternate": true
+            }
+          },
+          {
+            "kind": "abprops",
+            "key": "support_lids",
+            "valueType": "string",
+            "reads": [
+              {
+                "module": "WAWebABPropsSupportLid",
+                "variant": "primary",
+                "line": 4,
+                "column": 10,
+                "method": "getABPropConfigValue",
+                "timing": "function-body",
+                "expression": "o(\"WAWebABProps\").getABPropConfigValue(\"support_lids\")"
+              }
+            ],
+            "config": {
+              "module": "WAWebABPropsConfigs",
+              "line": 11386,
+              "type": "string",
+              "default": "4200746488034,30563255730192,70334669676777,19349129719984,66065505775654,133814269518032,243799792062487,7323238039569,269290422947912,261718412386336,4351103873168,12391299473616,92410801582180,277730033709185,36090878648473,79882365190287,94274800595104,117794058317863,115784047153172,179250745360524,7301780005088,166653589463190,94249030815912,198964645236955,198427807899653,23656948363422,255735573270728,106670109786240,130932396826763,18855208456329",
+              "alternate": "4200746488034,30563255730192,70334669676777,19349129719984,66065505775654,133814269518032,243799792062487,7323238039569,269290422947912,261718412386336,4351103873168,12391299473616,92410801582180,277730033709185,36090878648473,79882365190287,94274800595104,117794058317863,115784047153172,179250745360524,7301780005088,166653589463190,94249030815912,198964645236955,198427807899653,23656948363422,255735573270728,106670109786240,130932396826763,18855208456329"
+            }
+          },
+          {
+            "kind": "abprops",
+            "key": "wa_web_jm_to_ts_queues",
+            "valueType": "boolean",
+            "reads": [
+              {
+                "module": "WAWebJobsMigrationGating",
+                "variant": "primary",
+                "line": 33,
+                "column": 11,
+                "method": "getABPropConfigValue",
+                "timing": "function-body",
+                "expression": "o(\"WAWebABProps\").getABPropConfigValue(\"wa_web_jm_to_ts_queues\")"
+              }
+            ],
+            "config": {
+              "module": "WAWebABPropsConfigs",
+              "line": 13726,
+              "type": "bool",
+              "default": false,
+              "alternate": false
+            }
+          },
+          {
+            "kind": "abprops",
+            "key": "wa_web_jm_to_ts_rest",
+            "valueType": "boolean",
+            "reads": [
+              {
+                "module": "WAWebJobsMigrationGating",
+                "variant": "primary",
+                "line": 34,
+                "column": 9,
+                "method": "getABPropConfigValue",
+                "timing": "function-body",
+                "expression": "o(\"WAWebABProps\").getABPropConfigValue(\"wa_web_jm_to_ts_rest\")"
+              }
+            ],
+            "config": {
+              "module": "WAWebABPropsConfigs",
+              "line": 13732,
+              "type": "bool",
+              "default": false,
+              "alternate": false
+            }
+          },
+          {
+            "kind": "abprops",
+            "key": "wa_web_jm_to_ts_serviced",
+            "valueType": "boolean",
+            "reads": [
+              {
+                "module": "WAWebJobsMigrationGating",
+                "variant": "primary",
+                "line": 35,
+                "column": 13,
+                "method": "getABPropConfigValue",
+                "timing": "function-body",
+                "expression": "o(\"WAWebABProps\").getABPropConfigValue(\"wa_web_jm_to_ts_serviced\")"
+              }
+            ],
+            "config": {
+              "module": "WAWebABPropsConfigs",
+              "line": 13738,
+              "type": "bool",
+              "default": false,
+              "alternate": false
+            }
+          },
+          {
+            "kind": "abprops",
+            "key": "wam_disable_expokey_attribute",
+            "valueType": "boolean",
+            "reads": [
+              {
+                "module": "WAWebABPropsGlobals",
+                "variant": "primary",
+                "line": 13,
+                "column": 6,
+                "method": "getABPropConfigValue",
+                "timing": "function-body",
+                "expression": "o(\"WAWebABProps\").getABPropConfigValue(\"wam_disable_expokey_attribute\")"
+              }
+            ],
+            "config": {
+              "module": "WAWebABPropsConfigs",
+              "line": 14434,
+              "type": "bool",
+              "default": false,
+              "alternate": false
+            }
+          },
+          {
+            "kind": "gkx",
+            "key": "10314",
+            "valueType": "boolean",
+            "reads": [
+              {
+                "module": "WAWebEnvironment",
+                "variant": "primary",
+                "line": 2,
+                "column": 39,
+                "method": "gkx",
+                "timing": "module-initialization",
+                "expression": "r(\"gkx\")(\"10314\")"
+              }
+            ]
+          },
+          {
+            "kind": "gkx",
+            "key": "13707",
+            "valueType": "boolean",
+            "reads": [
+              {
+                "module": "WAWebCallsOnlyGating",
+                "variant": "primary",
+                "line": 4,
+                "column": 96,
+                "method": "gkx",
+                "timing": "function-body",
+                "expression": "r(\"gkx\")(\"13707\")"
+              }
+            ]
+          },
+          {
+            "kind": "gkx",
+            "key": "14549",
+            "valueType": "boolean",
+            "reads": [
+              {
+                "module": "WAWebJobsMigrationGating",
+                "variant": "primary",
+                "line": 31,
+                "column": 9,
+                "method": "gkx",
+                "timing": "function-body",
+                "expression": "r(\"gkx\")(\"14549\")"
+              }
+            ]
+          },
+          {
+            "kind": "gkx",
+            "key": "16539",
+            "valueType": "boolean",
+            "reads": [
+              {
+                "module": "WAWebABPropsCache",
+                "variant": "primary",
+                "line": 55,
+                "column": 9,
+                "method": "gkx",
+                "timing": "function-body",
+                "expression": "r(\"gkx\")(\"16539\")"
+              },
+              {
+                "module": "WAWebABPropsCache",
+                "variant": "primary",
+                "line": 102,
+                "column": 9,
+                "method": "gkx",
+                "timing": "function-body",
+                "expression": "r(\"gkx\")(\"16539\")"
+              },
+              {
+                "module": "WAWebABPropsCache",
+                "variant": "primary",
+                "line": 111,
+                "column": 9,
+                "method": "gkx",
+                "timing": "function-body",
+                "expression": "r(\"gkx\")(\"16539\")"
+              },
+              {
+                "module": "WAWebABPropsCache",
+                "variant": "primary",
+                "line": 123,
+                "column": 126,
+                "method": "gkx",
+                "timing": "function-body",
+                "expression": "r(\"gkx\")(\"16539\")"
+              },
+              {
+                "module": "WAWebABPropsCache",
+                "variant": "primary",
+                "line": 155,
+                "column": 11,
+                "method": "gkx",
+                "timing": "function-body",
+                "expression": "r(\"gkx\")(\"16539\")"
+              },
+              {
+                "module": "WAWebABPropsUpdateFromStorage",
+                "variant": "primary",
+                "line": 23,
+                "column": 8,
+                "method": "gkx",
+                "timing": "function-body",
+                "expression": "r(\"gkx\")(\"16539\")"
+              },
+              {
+                "module": "WAWebABPropsUpdateFromStorage",
+                "variant": "primary",
+                "line": 33,
+                "column": 13,
+                "method": "gkx",
+                "timing": "function-body",
+                "expression": "r(\"gkx\")(\"16539\")"
+              },
+              {
+                "module": "WAWebABProps",
+                "variant": "primary",
+                "line": 35,
+                "column": 24,
+                "method": "gkx",
+                "timing": "function-body",
+                "expression": "r(\"gkx\")(\"16539\")"
+              },
+              {
+                "module": "WAWebGroupABPropsCache",
+                "variant": "primary",
+                "line": 36,
+                "column": 33,
+                "method": "gkx",
+                "timing": "function-body",
+                "expression": "r(\"gkx\")(\"16539\")"
+              },
+              {
+                "module": "WAWebDBStats",
+                "variant": "primary",
+                "line": 9,
+                "column": 3,
+                "method": "gkx",
+                "timing": "function-body",
+                "expression": "r(\"gkx\")(\"16539\")"
+              },
+              {
+                "module": "WAWebDBStats",
+                "variant": "primary",
+                "line": 25,
+                "column": 7,
+                "method": "gkx",
+                "timing": "function-body",
+                "expression": "r(\"gkx\")(\"16539\")"
+              },
+              {
+                "module": "WAWebDBStats",
+                "variant": "primary",
+                "line": 32,
+                "column": 7,
+                "method": "gkx",
+                "timing": "function-body",
+                "expression": "r(\"gkx\")(\"16539\")"
+              },
+              {
+                "module": "WAWebDBStats",
+                "variant": "primary",
+                "line": 37,
+                "column": 7,
+                "method": "gkx",
+                "timing": "function-body",
+                "expression": "r(\"gkx\")(\"16539\")"
+              },
+              {
+                "module": "WAWebDBStats",
+                "variant": "primary",
+                "line": 43,
+                "column": 3,
+                "method": "gkx",
+                "timing": "function-body",
+                "expression": "r(\"gkx\")(\"16539\")"
+              }
+            ]
+          },
+          {
+            "kind": "gkx",
+            "key": "207",
+            "valueType": "boolean",
+            "reads": [
+              {
+                "module": "logForCrash",
+                "variant": "primary",
+                "line": 33,
+                "column": 42,
+                "method": "gkx",
+                "timing": "function-body",
+                "expression": "r(\"gkx\")(\"207\")"
+              }
+            ]
+          },
+          {
+            "kind": "gkx",
+            "key": "20935",
+            "valueType": "boolean",
+            "reads": [
+              {
+                "module": "ODS",
+                "variant": "primary",
+                "line": 35,
+                "column": 5,
+                "method": "gkx",
+                "timing": "function-body",
+                "expression": "r(\"gkx\")(\"20935\")"
+              }
+            ]
+          },
+          {
+            "kind": "gkx",
+            "key": "26256",
+            "valueType": "boolean",
+            "reads": [
+              {
+                "module": "WAWebABPropsJestE2EReadLog",
+                "variant": "primary",
+                "line": 4,
+                "column": 9,
+                "method": "gkx",
+                "timing": "function-body",
+                "expression": "r(\"gkx\")(\"26256\")"
+              },
+              {
+                "module": "WAWebNetworkStatus",
+                "variant": "primary",
+                "line": 34,
+                "column": 125,
+                "method": "gkx",
+                "timing": "function-body",
+                "expression": "r(\"gkx\")(\"26256\")"
+              },
+              {
+                "module": "WAWebNetworkStatus",
+                "variant": "primary",
+                "line": 59,
+                "column": 9,
+                "method": "gkx",
+                "timing": "function-body",
+                "expression": "r(\"gkx\")(\"26256\")"
+              }
+            ]
+          },
+          {
+            "kind": "gkx",
+            "key": "26258",
+            "valueType": "boolean",
+            "reads": [
+              {
+                "module": "WAWebUserPrefsGeneral",
+                "variant": "primary",
+                "line": 226,
+                "column": 7,
+                "method": "gkx",
+                "timing": "function-body",
+                "expression": "r(\"gkx\")(\"26258\")"
+              },
+              {
+                "module": "WAWebUserPrefsGeneral",
+                "variant": "primary",
+                "line": 249,
+                "column": 2,
+                "method": "gkx",
+                "timing": "function-body",
+                "expression": "r(\"gkx\")(\"26258\")"
+              },
+              {
+                "module": "WAWebUserPrefsGeneral",
+                "variant": "primary",
+                "line": 252,
+                "column": 7,
+                "method": "gkx",
+                "timing": "function-body",
+                "expression": "r(\"gkx\")(\"26258\")"
+              },
+              {
+                "module": "WAWebUserPrefsGeneral",
+                "variant": "primary",
+                "line": 262,
+                "column": 2,
+                "method": "gkx",
+                "timing": "function-body",
+                "expression": "r(\"gkx\")(\"26258\")"
+              },
+              {
+                "module": "WAWebEnvironment",
+                "variant": "primary",
+                "line": 7,
+                "column": 9,
+                "method": "gkx",
+                "timing": "function-body",
+                "expression": "r(\"gkx\")(\"26258\")"
+              },
+              {
+                "module": "WAWebBuildConstants",
+                "variant": "primary",
+                "line": 9,
+                "column": 12,
+                "method": "gkx",
+                "timing": "module-initialization",
+                "expression": "r(\"gkx\")(\"26258\")"
+              },
+              {
+                "module": "WAWebBuildConstants",
+                "variant": "primary",
+                "line": 36,
+                "column": 1,
+                "method": "gkx",
+                "timing": "module-initialization",
+                "expression": "r(\"gkx\")(\"26258\")"
+              },
+              {
+                "module": "WAWebWamCodegenUtils",
+                "variant": "primary",
+                "line": 69,
+                "column": 36,
+                "method": "gkx",
+                "timing": "function-body",
+                "expression": "r(\"gkx\")(\"26258\")"
+              },
+              {
+                "module": "WAWebStorageGatingUtils",
+                "variant": "primary",
+                "line": 19,
+                "column": 8,
+                "method": "gkx",
+                "timing": "function-body",
+                "expression": "r(\"gkx\")(\"26258\")"
+              },
+              {
+                "module": "WAWebWidJsonReviver",
+                "variant": "primary",
+                "line": 81,
+                "column": 14,
+                "method": "gkx",
+                "timing": "function-body",
+                "expression": "r(\"gkx\")(\"26258\")"
+              },
+              {
+                "module": "WAWebCurrentUser",
+                "variant": "primary",
+                "line": 4,
+                "column": 9,
+                "method": "gkx",
+                "timing": "function-body",
+                "expression": "r(\"gkx\")(\"26258\")"
+              },
+              {
+                "module": "WAWebUserPrefsMeUser",
+                "variant": "primary",
+                "line": 94,
+                "column": 14,
+                "method": "gkx",
+                "timing": "function-body",
+                "expression": "r(\"gkx\")(\"26258\")"
+              },
+              {
+                "module": "WAWebProxyStateFactory",
+                "variant": "primary",
+                "line": 31,
+                "column": 13,
+                "method": "gkx",
+                "timing": "function-body",
+                "expression": "r(\"gkx\")(\"26258\")"
+              },
+              {
+                "module": "WAWebUA",
+                "variant": "primary",
+                "line": 51,
+                "column": 29,
+                "method": "gkx",
+                "timing": "function-body",
+                "expression": "r(\"gkx\")(\"26258\")"
+              },
+              {
+                "module": "WAWebProfiler",
+                "variant": "primary",
+                "line": 36,
+                "column": 7,
+                "method": "gkx",
+                "timing": "function-body",
+                "expression": "r(\"gkx\")(\"26258\")"
+              },
+              {
+                "module": "WAWebProfiler",
+                "variant": "primary",
+                "line": 55,
+                "column": 41,
+                "method": "gkx",
+                "timing": "function-body",
+                "expression": "r(\"gkx\")(\"26258\")"
+              },
+              {
+                "module": "WAWebProfiler",
+                "variant": "primary",
+                "line": 69,
+                "column": 7,
+                "method": "gkx",
+                "timing": "function-body",
+                "expression": "r(\"gkx\")(\"26258\")"
+              },
+              {
+                "module": "WAWebProfiler",
+                "variant": "primary",
+                "line": 105,
+                "column": 10,
+                "method": "gkx",
+                "timing": "function-body",
+                "expression": "r(\"gkx\")(\"26258\")"
+              },
+              {
+                "module": "WAWebProfiler",
+                "variant": "primary",
+                "line": 107,
+                "column": 10,
+                "method": "gkx",
+                "timing": "function-body",
+                "expression": "r(\"gkx\")(\"26258\")"
+              },
+              {
+                "module": "WAWebIdbHelpers",
+                "variant": "primary",
+                "line": 85,
+                "column": 10,
+                "method": "gkx",
+                "timing": "function-body",
+                "expression": "r(\"gkx\")(\"26258\")"
+              },
+              {
+                "module": "WAWebWid",
+                "variant": "primary",
+                "line": 50,
+                "column": 8,
+                "method": "gkx",
+                "timing": "function-body",
+                "expression": "r(\"gkx\")(\"26258\")"
+              },
+              {
+                "module": "WAWebIndexedDBPurge",
+                "variant": "primary",
+                "line": 42,
+                "column": 8,
+                "method": "gkx",
+                "timing": "function-body",
+                "expression": "r(\"gkx\")(\"26258\")"
+              },
+              {
+                "module": "WAWebIndexedDBPurge",
+                "variant": "primary",
+                "line": 58,
+                "column": 14,
+                "method": "gkx",
+                "timing": "function-body",
+                "expression": "r(\"gkx\")(\"26258\")"
+              }
+            ]
+          },
+          {
+            "kind": "gkx",
+            "key": "26259",
+            "valueType": "boolean",
+            "reads": [
+              {
+                "module": "WAWebABPropsUpdateFromStorage",
+                "variant": "primary",
+                "line": 25,
+                "column": 5,
+                "method": "gkx",
+                "timing": "function-body",
+                "expression": "r(\"gkx\")(\"26259\")"
+              },
+              {
+                "module": "WAWebEnvironment",
+                "variant": "primary",
+                "line": 7,
+                "column": 38,
+                "method": "gkx",
+                "timing": "function-body",
+                "expression": "r(\"gkx\")(\"26259\")"
+              },
+              {
+                "module": "WAWebBuildConstants",
+                "variant": "primary",
+                "line": 9,
+                "column": 33,
+                "method": "gkx",
+                "timing": "module-initialization",
+                "expression": "r(\"gkx\")(\"26259\")"
+              },
+              {
+                "module": "WAWebBuildConstants",
+                "variant": "primary",
+                "line": 36,
+                "column": 23,
+                "method": "gkx",
+                "timing": "module-initialization",
+                "expression": "r(\"gkx\")(\"26259\")"
+              },
+              {
+                "module": "WAWebWamCodegenUtils",
+                "variant": "primary",
+                "line": 69,
+                "column": 3,
+                "method": "gkx",
+                "timing": "function-body",
+                "expression": "r(\"gkx\")(\"26259\")"
+              }
+            ]
+          },
+          {
+            "kind": "gkx",
+            "key": "27164",
+            "valueType": "boolean",
+            "reads": [
+              {
+                "module": "WAWebDexieObservability",
+                "variant": "primary",
+                "line": 4,
+                "column": 6,
+                "method": "gkx",
+                "timing": "function-body",
+                "expression": "r(\"gkx\")(\"27164\")"
+              }
+            ]
+          },
+          {
+            "kind": "gkx",
+            "key": "3981",
+            "valueType": "boolean",
+            "reads": [
+              {
+                "module": "logForCrash",
+                "variant": "primary",
+                "line": 90,
+                "column": 70,
+                "method": "gkx",
+                "timing": "module-initialization",
+                "expression": "r(\"gkx\")(\"3981\")"
+              }
+            ]
+          },
+          {
+            "kind": "gkx",
+            "key": "4112",
+            "valueType": "boolean",
+            "reads": [
+              {
+                "module": "WAWebEnvironment",
+                "variant": "primary",
+                "line": 2,
+                "column": 9,
+                "method": "gkx",
+                "timing": "module-initialization",
+                "expression": "r(\"gkx\")(\"4112\")"
+              }
+            ]
+          },
+          {
+            "kind": "knobs",
+            "key": "1276",
+            "valueType": "unknown",
+            "reads": [
+              {
+                "module": "FalcoLoggerInternal",
+                "variant": "primary",
+                "line": 21,
+                "column": 7,
+                "method": "_",
+                "timing": "function-body",
+                "expression": "r(\"justknobx\")._(\"1276\")"
+              }
+            ]
+          },
+          {
+            "kind": "knobs",
+            "key": "1500",
+            "valueType": "unknown",
+            "reads": [
+              {
+                "module": "WAWebBeyondPhoneNumberGatingUtils",
+                "variant": "primary",
+                "line": 3,
+                "column": 77,
+                "method": "_",
+                "timing": "function-body",
+                "expression": "r(\"justknobx\")._(\"1500\")"
+              }
+            ]
+          },
+          {
+            "kind": "knobs",
+            "key": "1600",
+            "valueType": "unknown",
+            "reads": [
+              {
+                "module": "WAWebWamCodegenUtils",
+                "variant": "primary",
+                "line": 25,
+                "column": 87,
+                "method": "_",
+                "timing": "module-initialization",
+                "expression": "r(\"justknobx\")._(\"1600\")"
+              }
+            ]
+          },
+          {
+            "kind": "knobs",
+            "key": "1617",
+            "valueType": "unknown",
+            "reads": [
+              {
+                "module": "WAWebDbRolloutUtil",
+                "variant": "primary",
+                "line": 28,
+                "column": 11,
+                "method": "_",
+                "timing": "function-body",
+                "expression": "r(\"justknobx\")._(\"1617\")"
+              }
+            ]
+          },
+          {
+            "kind": "knobs",
+            "key": "1618",
+            "valueType": "unknown",
+            "reads": [
+              {
+                "module": "WAWebDbRolloutUtil",
+                "variant": "primary",
+                "line": 32,
+                "column": 11,
+                "method": "_",
+                "timing": "function-body",
+                "expression": "r(\"justknobx\")._(\"1618\")"
+              }
+            ]
+          },
+          {
+            "kind": "knobs",
+            "key": "1619",
+            "valueType": "unknown",
+            "reads": [
+              {
+                "module": "WAWebDbRolloutUtil",
+                "variant": "primary",
+                "line": 36,
+                "column": 11,
+                "method": "_",
+                "timing": "function-body",
+                "expression": "r(\"justknobx\")._(\"1619\")"
+              }
+            ]
+          },
+          {
+            "kind": "knobs",
+            "key": "1620",
+            "valueType": "unknown",
+            "reads": [
+              {
+                "module": "WAWebDbRolloutUtil",
+                "variant": "primary",
+                "line": 40,
+                "column": 11,
+                "method": "_",
+                "timing": "function-body",
+                "expression": "r(\"justknobx\")._(\"1620\")"
+              }
+            ]
+          },
+          {
+            "kind": "knobs",
+            "key": "1621",
+            "valueType": "unknown",
+            "reads": [
+              {
+                "module": "WAWebDbRolloutUtil",
+                "variant": "primary",
+                "line": 44,
+                "column": 11,
+                "method": "_",
+                "timing": "function-body",
+                "expression": "r(\"justknobx\")._(\"1621\")"
+              }
+            ]
+          },
+          {
+            "kind": "knobs",
+            "key": "1623",
+            "valueType": "unknown",
+            "reads": [
+              {
+                "module": "WAWebDbRolloutUtil",
+                "variant": "primary",
+                "line": 48,
+                "column": 11,
+                "method": "_",
+                "timing": "function-body",
+                "expression": "r(\"justknobx\")._(\"1623\")"
+              }
+            ]
+          },
+          {
+            "kind": "knobs",
+            "key": "1624",
+            "valueType": "unknown",
+            "reads": [
+              {
+                "module": "WAWebDbRolloutUtil",
+                "variant": "primary",
+                "line": 56,
+                "column": 11,
+                "method": "_",
+                "timing": "function-body",
+                "expression": "r(\"justknobx\")._(\"1624\")"
+              }
+            ]
+          },
+          {
+            "kind": "knobs",
+            "key": "1662",
+            "valueType": "unknown",
+            "reads": [
+              {
+                "module": "WAWebDbRolloutUtil",
+                "variant": "primary",
+                "line": 60,
+                "column": 11,
+                "method": "_",
+                "timing": "function-body",
+                "expression": "r(\"justknobx\")._(\"1662\")"
+              }
+            ]
+          },
+          {
+            "kind": "knobs",
+            "key": "1663",
+            "valueType": "unknown",
+            "reads": [
+              {
+                "module": "WAWebDbRolloutUtil",
+                "variant": "primary",
+                "line": 64,
+                "column": 11,
+                "method": "_",
+                "timing": "function-body",
+                "expression": "r(\"justknobx\")._(\"1663\")"
+              }
+            ]
+          },
+          {
+            "kind": "knobs",
+            "key": "1664",
+            "valueType": "unknown",
+            "reads": [
+              {
+                "module": "WAWebDbRolloutUtil",
+                "variant": "primary",
+                "line": 68,
+                "column": 11,
+                "method": "_",
+                "timing": "function-body",
+                "expression": "r(\"justknobx\")._(\"1664\")"
+              }
+            ]
+          },
+          {
+            "kind": "knobs",
+            "key": "1854",
+            "valueType": "unknown",
+            "reads": [
+              {
+                "module": "WAWebDbRolloutUtil",
+                "variant": "primary",
+                "line": 18,
+                "column": 8,
+                "method": "_",
+                "timing": "function-body",
+                "expression": "r(\"justknobx\")._(\"1854\")"
+              }
+            ]
+          },
+          {
+            "kind": "knobs",
+            "key": "195",
+            "valueType": "unknown",
+            "reads": [
+              {
+                "module": "logForCrash",
+                "variant": "primary",
+                "line": 33,
+                "column": 14,
+                "method": "_",
+                "timing": "function-body",
+                "expression": "r(\"justknobx\")._(\"195\")"
+              }
+            ]
+          },
+          {
+            "kind": "knobs",
+            "key": "1964",
+            "valueType": "unknown",
+            "reads": [
+              {
+                "module": "WAWebABPropsGlobals",
+                "variant": "primary",
+                "line": 23,
+                "column": 2,
+                "method": "_",
+                "timing": "function-body",
+                "expression": "r(\"justknobx\")._(\"1964\")"
+              },
+              {
+                "module": "WAWebGroupABPropsGlobals",
+                "variant": "primary",
+                "line": 17,
+                "column": 2,
+                "method": "_",
+                "timing": "function-body",
+                "expression": "r(\"justknobx\")._(\"1964\")"
+              }
+            ]
+          },
+          {
+            "kind": "knobs",
+            "key": "2451",
+            "valueType": "unknown",
+            "reads": [
+              {
+                "module": "decodeProtobuf",
+                "variant": "primary",
+                "line": 93,
+                "column": 31,
+                "method": "_",
+                "timing": "function-body",
+                "expression": "r(\"justknobx\")._(\"2451\")"
+              }
+            ]
+          },
+          {
+            "kind": "knobs",
+            "key": "3717",
+            "valueType": "unknown",
+            "reads": [
+              {
+                "module": "WAWebDbRolloutUtil",
+                "variant": "primary",
+                "line": 72,
+                "column": 11,
+                "method": "_",
+                "timing": "function-body",
+                "expression": "r(\"justknobx\")._(\"3717\")"
+              }
+            ]
+          },
+          {
+            "kind": "knobs",
+            "key": "3982",
+            "valueType": "unknown",
+            "reads": [
+              {
+                "module": "WAWebDbRolloutUtil",
+                "variant": "primary",
+                "line": 52,
+                "column": 11,
+                "method": "_",
+                "timing": "function-body",
+                "expression": "r(\"justknobx\")._(\"3982\")"
+              }
+            ]
+          },
+          {
+            "kind": "knobs",
+            "key": "5257",
+            "valueType": "unknown",
+            "reads": [
+              {
+                "module": "WAWebBuildConstants",
+                "variant": "primary",
+                "line": 31,
+                "column": 7,
+                "method": "_",
+                "timing": "function-body",
+                "expression": "r(\"justknobx\")._(\"5257\")"
+              }
+            ]
+          },
+          {
+            "kind": "knobs",
+            "key": "5333",
+            "valueType": "unknown",
+            "reads": [
+              {
+                "module": "WAWebStorage",
+                "variant": "primary",
+                "line": 143,
+                "column": 9,
+                "method": "_",
+                "timing": "function-body",
+                "expression": "r(\"justknobx\")._(\"5333\")"
+              }
+            ]
+          },
+          {
+            "kind": "knobs",
+            "key": "6120",
+            "valueType": "unknown",
+            "reads": [
+              {
+                "module": "WAWebABPropsCache",
+                "variant": "primary",
+                "line": 154,
+                "column": 8,
+                "method": "_",
+                "timing": "function-body",
+                "expression": "r(\"justknobx\")._(\"6120\")"
+              }
+            ]
+          },
+          {
+            "kind": "knobs",
+            "key": "6581",
+            "valueType": "unknown",
+            "reads": [
+              {
+                "module": "WAWebABPropsCache",
+                "variant": "primary",
+                "line": 88,
+                "column": 22,
+                "method": "_",
+                "timing": "function-body",
+                "expression": "r(\"justknobx\")._(\"6581\")"
+              }
+            ]
+          }
+        ],
+        "unresolved": [
+          {
+            "code": "dynamic-gate-key",
+            "module": "WAWebABPropsSupportLid",
+            "line": 30,
+            "column": 10
+          },
+          {
+            "code": "dynamic-gate-key",
+            "module": "WAWebABPropsSupportLid",
+            "line": 36,
+            "column": 10
+          },
+          {
+            "code": "missing-module",
+            "module": "AnalyticsCoreData"
+          },
+          {
+            "code": "missing-module",
+            "module": "CookieCoreConfig"
+          },
+          {
+            "code": "missing-module",
+            "module": "CookieCoreLoggingConfig"
+          },
+          {
+            "code": "missing-module",
+            "module": "CookieDomain"
+          },
+          {
+            "code": "missing-module",
+            "module": "cr:1126"
+          },
+          {
+            "code": "missing-module",
+            "module": "cr:16728"
+          },
+          {
+            "code": "missing-module",
+            "module": "cr:21223"
+          },
+          {
+            "code": "missing-module",
+            "module": "cr:310"
+          },
+          {
+            "code": "missing-module",
+            "module": "cr:34987"
+          },
+          {
+            "code": "missing-module",
+            "module": "cr:3725"
+          },
+          {
+            "code": "missing-module",
+            "module": "cr:38444"
+          },
+          {
+            "code": "missing-module",
+            "module": "cr:4344"
+          },
+          {
+            "code": "missing-module",
+            "module": "cr:5292"
+          },
+          {
+            "code": "missing-module",
+            "module": "cr:6640"
+          },
+          {
+            "code": "missing-module",
+            "module": "cr:8958"
+          },
+          {
+            "code": "missing-module",
+            "module": "CurrentUserInitialData"
+          },
+          {
+            "code": "missing-module",
+            "module": "InitialCookieConsent"
+          },
+          {
+            "code": "missing-module",
+            "module": "JSErrorLoggingConfig"
+          },
+          {
+            "code": "missing-module",
+            "module": "ServerNonce"
+          },
+          {
+            "code": "missing-module",
+            "module": "ServerTimeData"
+          },
+          {
+            "code": "missing-module",
+            "module": "SiteData"
+          },
+          {
+            "code": "unrecognized-gate-provider",
+            "module": "WAWebABPropsGlobals",
+            "line": 28,
+            "column": 10
+          },
+          {
+            "code": "unrecognized-gate-provider",
+            "module": "WAWebApiAbPropConfig",
+            "line": 51,
+            "column": 101
+          },
+          {
+            "code": "unrecognized-gate-provider",
+            "module": "WAWebWid",
+            "line": 156,
+            "column": 103
+          },
+          {
+            "code": "unrecognized-gate-provider",
+            "module": "WAWebWid",
+            "line": 158,
+            "column": 107
+          },
+          {
+            "code": "unrecognized-gate-provider",
+            "module": "WAWebGroupABPropsGlobals",
+            "line": 12,
+            "column": 11
+          },
+          {
+            "code": "unrecognized-gate-provider",
+            "module": "WAWebABPropsGlobals",
+            "line": 15,
+            "column": 11
+          },
+          {
+            "code": "unrecognized-gate-provider",
+            "module": "WAWebABPropsCache",
+            "line": 172,
+            "column": 11
+          },
+          {
+            "code": "unrecognized-gate-provider",
+            "module": "WAWebWid",
+            "line": 225,
+            "column": 11
+          },
+          {
+            "code": "unrecognized-gate-provider",
+            "module": "WAWebWid",
+            "line": 235,
+            "column": 11
+          },
+          {
+            "code": "unrecognized-gate-provider",
+            "module": "WAWebABPropsCache",
+            "line": 94,
+            "column": 112
+          },
+          {
+            "code": "unrecognized-gate-provider",
+            "module": "WAWebABPropsUpdateFromStorage",
+            "line": 32,
+            "column": 116
+          },
+          {
+            "code": "unrecognized-gate-provider",
+            "module": "WAWebGroupABPropsCache",
+            "line": 23,
+            "column": 117
+          },
+          {
+            "code": "unrecognized-gate-provider",
+            "module": "WAWebGroupABPropsGlobals",
+            "line": 25,
+            "column": 12
+          },
+          {
+            "code": "unrecognized-gate-provider",
+            "module": "WAWebGroupABPropsCache",
+            "line": 47,
+            "column": 12
+          },
+          {
+            "code": "unrecognized-gate-provider",
+            "module": "WAWebABPropsUpdateFromStorage",
+            "line": 46,
+            "column": 124
+          },
+          {
+            "code": "unrecognized-gate-provider",
+            "module": "WAWebABPropsCache",
+            "line": 193,
+            "column": 13
+          },
+          {
+            "code": "unrecognized-gate-provider",
+            "module": "WAWebGroupABPropsCache",
+            "line": 22,
+            "column": 13
+          },
+          {
+            "code": "unrecognized-gate-provider",
+            "module": "WAWebABPropsUpdateFromStorage",
+            "line": 29,
+            "column": 13
+          },
+          {
+            "code": "unrecognized-gate-provider",
+            "module": "WAWebApiAbPropConfig",
+            "line": 60,
+            "column": 13
+          },
+          {
+            "code": "unrecognized-gate-provider",
+            "module": "WAWebApiGroupAbPropConfig",
+            "line": 37,
+            "column": 15
+          },
+          {
+            "code": "unrecognized-gate-provider",
+            "module": "WAWebApiGroupAbPropConfig",
+            "line": 39,
+            "column": 15
+          },
+          {
+            "code": "unrecognized-gate-provider",
+            "module": "WAWebApiAbPropConfig",
+            "line": 28,
+            "column": 16
+          },
+          {
+            "code": "unrecognized-gate-provider",
+            "module": "WAWebABPropsUpdateFromStorage",
+            "line": 46,
+            "column": 16
+          },
+          {
+            "code": "unrecognized-gate-provider",
+            "module": "WAWebBackendWorkerInitState",
+            "line": 65,
+            "column": 16
+          },
+          {
+            "code": "unrecognized-gate-provider",
+            "module": "WAWebABPropsCache",
+            "line": 94,
+            "column": 161
+          },
+          {
+            "code": "unrecognized-gate-provider",
+            "module": "WAWebABPropsCache",
+            "line": 171,
+            "column": 163
+          },
+          {
+            "code": "unrecognized-gate-provider",
+            "module": "WAWebWid",
+            "line": 156,
+            "column": 166
+          },
+          {
+            "code": "unrecognized-gate-provider",
+            "module": "WAWebModelStorageInitialize",
+            "line": 133,
+            "column": 17
+          },
+          {
+            "code": "unrecognized-gate-provider",
+            "module": "WAWebABPropsCache",
+            "line": 94,
+            "column": 17
+          },
+          {
+            "code": "unrecognized-gate-provider",
+            "module": "WAWebWid",
+            "line": 158,
+            "column": 174
+          },
+          {
+            "code": "unrecognized-gate-provider",
+            "module": "WAWebABPropsUpdateFromStorage",
+            "line": 46,
+            "column": 176
+          },
+          {
+            "code": "unrecognized-gate-provider",
+            "module": "WAWebABPropsCache",
+            "line": 91,
+            "column": 19
+          },
+          {
+            "code": "unrecognized-gate-provider",
+            "module": "WAWebABProps",
+            "line": 43,
+            "column": 2
+          },
+          {
+            "code": "unrecognized-gate-provider",
+            "module": "WAWebGroupABPropsUpdateFromStorage",
+            "line": 55,
+            "column": 2
+          },
+          {
+            "code": "unrecognized-gate-provider",
+            "module": "WAWebGroupABPropsUpdateFromStorage",
+            "line": 17,
+            "column": 210
+          },
+          {
+            "code": "unrecognized-gate-provider",
+            "module": "WAWebGroupABPropsCache",
+            "line": 58,
+            "column": 24
+          },
+          {
+            "code": "unrecognized-gate-provider",
+            "module": "WAWebWid",
+            "line": 156,
+            "column": 25
+          },
+          {
+            "code": "unrecognized-gate-provider",
+            "module": "WAWebWid",
+            "line": 158,
+            "column": 25
+          },
+          {
+            "code": "unrecognized-gate-provider",
+            "module": "WAWebWid",
+            "line": 223,
+            "column": 25
+          },
+          {
+            "code": "unrecognized-gate-provider",
+            "module": "WAWebWid",
+            "line": 233,
+            "column": 25
+          },
+          {
+            "code": "unrecognized-gate-provider",
+            "module": "WAWebBackendWorkerInitState",
+            "line": 66,
+            "column": 25
+          },
+          {
+            "code": "unrecognized-gate-provider",
+            "module": "WAWebABPropsCache",
+            "line": 58,
+            "column": 29
+          },
+          {
+            "code": "unrecognized-gate-provider",
+            "module": "WAWebWid",
+            "line": 162,
+            "column": 30
+          },
+          {
+            "code": "unrecognized-gate-provider",
+            "module": "WAWebWid",
+            "line": 220,
+            "column": 33
+          },
+          {
+            "code": "unrecognized-gate-provider",
+            "module": "WAWebWid",
+            "line": 230,
+            "column": 33
+          },
+          {
+            "code": "unrecognized-gate-provider",
+            "module": "WAWebGroupABPropsCache",
+            "line": 48,
+            "column": 33
+          },
+          {
+            "code": "unrecognized-gate-provider",
+            "module": "WAWebGroupABPropsCache",
+            "line": 23,
+            "column": 34
+          },
+          {
+            "code": "unrecognized-gate-provider",
+            "module": "WAWebABPropsUpdateFromStorage",
+            "line": 27,
+            "column": 4
+          },
+          {
+            "code": "unrecognized-gate-provider",
+            "module": "WAWebStorage",
+            "line": 160,
+            "column": 44
+          },
+          {
+            "code": "unrecognized-gate-provider",
+            "module": "WAWebApiAbPropConfig",
+            "line": 51,
+            "column": 44
+          },
+          {
+            "code": "unrecognized-gate-provider",
+            "module": "WAWebWid",
+            "line": 226,
+            "column": 49
+          },
+          {
+            "code": "unrecognized-gate-provider",
+            "module": "WAWebWid",
+            "line": 236,
+            "column": 49
+          },
+          {
+            "code": "unrecognized-gate-provider",
+            "module": "WAWebGroupABPropsUpdateFromStorage",
+            "line": 42,
+            "column": 5
+          },
+          {
+            "code": "unrecognized-gate-provider",
+            "module": "WAWebABPropsCache",
+            "line": 52,
+            "column": 55
+          },
+          {
+            "code": "unrecognized-gate-provider",
+            "module": "WAWebABPropsCache",
+            "line": 193,
+            "column": 63
+          },
+          {
+            "code": "unrecognized-gate-provider",
+            "module": "WAWebABPropsCache",
+            "line": 94,
+            "column": 66
+          },
+          {
+            "code": "unrecognized-gate-provider",
+            "module": "WAWebGroupABPropsCache",
+            "line": 51,
+            "column": 7
+          },
+          {
+            "code": "unrecognized-gate-provider",
+            "module": "WAWebABProps",
+            "line": 43,
+            "column": 72
+          },
+          {
+            "code": "unrecognized-gate-provider",
+            "module": "WAWebABPropsUpdateFromStorage",
+            "line": 33,
+            "column": 74
+          },
+          {
+            "code": "unrecognized-gate-provider",
+            "module": "WAWebABPropsCache",
+            "line": 171,
+            "column": 75
+          },
+          {
+            "code": "unrecognized-gate-provider",
+            "module": "WAWebABPropsUpdateFromStorage",
+            "line": 46,
+            "column": 76
+          },
+          {
+            "code": "unrecognized-gate-provider",
+            "module": "WAWebABPropsCache",
+            "line": 131,
+            "column": 9
+          },
+          {
+            "code": "unrecognized-gate-provider",
+            "module": "WAWebApiGroupAbPropConfig",
+            "line": 48,
+            "column": 9
+          },
+          {
+            "code": "unrecognized-gate-provider",
+            "module": "WAWebUserPrefsMeUser",
+            "line": 54,
+            "column": 9
+          },
+          {
+            "code": "unrecognized-gate-provider",
+            "module": "WAWebUserPrefsMeUser",
+            "line": 57,
+            "column": 9
+          },
+          {
+            "code": "unrecognized-gate-provider",
+            "module": "WAWebUserPrefsMeUser",
+            "line": 60,
+            "column": 9
+          },
+          {
+            "code": "unrecognized-gate-provider",
+            "module": "WAWebABPropsCache",
+            "line": 61,
+            "column": 9
+          },
+          {
+            "code": "unrecognized-gate-provider",
+            "module": "WAWebGroupABPropsUpdateFromStorage",
+            "line": 17,
+            "column": 99
+          },
+          {
+            "code": "unresolved-gate-accessor",
+            "module": "WAWebABPropsUpdateFromStorage",
+            "line": 28,
+            "column": 18
+          },
+          {
+            "code": "unsupported-gate-accessor",
+            "module": "WAWebABPropsCache",
+            "line": 52,
+            "column": 2
+          },
+          {
+            "code": "unsupported-gate-accessor",
+            "module": "WAWebABPropsCache",
+            "line": 75,
+            "column": 8
+          }
+        ],
+        "staticCoverage": {
+          "complete": false,
+          "scope": "module-closure-superset",
+          "semanticProof": false,
+          "resolverCoverage": false,
+          "modules": 409,
+          "sourceBytes": 1147772,
+          "limitations": [
+            "Only supported gate APIs and static key expressions are inventoried.",
+            "Declared fixture-provider boundaries exclude their original resolver implementations and dependencies.",
+            "All functions in each dependency module are scanned; exact export and caller reachability is not proven.",
+            "Runtime-discovered gates and externally selected code require separate observations."
+          ]
+        },
+        "selectedModulePinsSha256": "90feb5ff62de1a3250e935568772b02d986a968260a5905436065a3726d77b6b"
       }
     }
   ],
@@ -11542,7 +13871,16 @@
     "Original storage acquisition/transactions, getABPropConfigs persistence, user preference beta selection and failed database operations are not exercised by direct cache updates",
     "Pending wait barriers, concurrent updates, timers/first-access exposure delivery, backend worker bridge, WAM delivery and bug-report Blob serialization are not exercised",
     "Snapshot results observe call-time data only; live Map/record reference identity and later mutation through external references are not asserted",
-    "Original Babel bootstrap unavailable; selected realm-native extends/taggedTemplateLiteralLoose compatibility fixtures are recorded explicitly",
+    "The actual Babel helper producer has been recovered privately but is not admitted or executed by this suite. Selected realm-native extends/taggedTemplateLiteralLoose remain explicit compatibility fixtures; full bootstrap is unproven",
     "Alternate source variants, containers, production scheduling, accounts, network and named library implementation parity remain unexercised"
-  ]
+  ],
+  "inventoryRefresh": {
+    "analyzerVersion": 3,
+    "analyzerSourceSha256": "06c35199d0b06c9441486d96cb06b540628d64c562b7c1bbd9f2b5f28c6a3096",
+    "defaultLogicalWorkLimit": 2000000,
+    "kind": "static-source-analysis-only",
+    "behaviorReexecuted": false,
+    "executionProvenance": "Existing execution/assignment observations retain their original receipt context; this metadata refresh does not create new runtime evidence.",
+    "cardinalityScope": "Incomplete/unresolved current inventories have no established total assignment cardinality. Existing finite products describe source-known subsets retained from prior observations, not exhaustive current matrices."
+  }
 }

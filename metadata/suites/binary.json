@@ -85,27 +85,26 @@
         }
       ],
       "analyzer": {
-        "version": 1,
-        "sourceSha256": "01036d720caccf437f31062c23335fffcae7bb94f46e346de330ae6a744bfd80"
+        "version": 3,
+        "sourceSha256": "06c35199d0b06c9441486d96cb06b540628d64c562b7c1bbd9f2b5f28c6a3096"
       },
       "gates": [],
-      "unresolved": [
-        {
-          "code": "dynamic-code-or-import",
-          "module": "fb-error",
-          "line": 367,
-          "column": 11
-        }
-      ],
+      "unresolved": [],
       "staticCoverage": {
-        "complete": false,
+        "complete": true,
         "scope": "module-closure-superset",
         "semanticProof": false,
         "resolverCoverage": false,
         "modules": 8,
         "sourceBytes": 46096,
+        "workBudget": {
+          "limit": 2000000,
+          "consumed": 149010,
+          "exhausted": false
+        },
         "limitations": [
           "Only supported gate APIs and static key expressions are inventoried.",
+          "Logical work units bound selected AST traversal and resolution, not parser internals or elapsed time; parsing remains source-byte bounded.",
           "Declared fixture-provider boundaries exclude their original resolver implementations and dependencies.",
           "All functions in each dependency module are scanned; exact export and caller reachability is not proven.",
           "Runtime-discovered gates and externally selected code require separate observations."
@@ -114,8 +113,8 @@
       "base32Inventory": {
         "schemaVersion": 1,
         "analyzer": {
-          "version": 1,
-          "sourceSha256": "01036d720caccf437f31062c23335fffcae7bb94f46e346de330ae6a744bfd80"
+          "version": 3,
+          "sourceSha256": "06c35199d0b06c9441486d96cb06b540628d64c562b7c1bbd9f2b5f28c6a3096"
         },
         "roots": ["WAWebAltDeviceLinkingBase32Encode"],
         "boundaries": [],
@@ -136,14 +135,20 @@
           "resolverCoverage": false,
           "modules": 1,
           "sourceBytes": 425,
+          "workBudget": {
+            "limit": 2000000,
+            "consumed": 1288,
+            "exhausted": false
+          },
           "limitations": [
             "Only supported gate APIs and static key expressions are inventoried.",
+            "Logical work units bound selected AST traversal and resolution, not parser internals or elapsed time; parsing remains source-byte bounded.",
             "Declared fixture-provider boundaries exclude their original resolver implementations and dependencies.",
             "All functions in each dependency module are scanned; exact export and caller reachability is not proven.",
             "Runtime-discovered gates and externally selected code require separate observations."
           ]
         },
-        "digest": "6e08e2174df78f4e076c37e47b10ce56a23d2aa3647b17d48bf8ca42f6bd8335"
+        "digest": "196a9d92f11fc4a2f48ca98161985bd97ae77cddd8aa1976e3009fe9a596b27f"
       },
       "assignmentCoverage": {
         "base32": {
@@ -156,10 +161,10 @@
           "assignments": [{}],
           "executed": true,
           "exhaustive": false,
-          "reason": "fb-error Function.prototype.apply.call at line 367 remains an analyzer dynamic-code-or-import diagnostic; zero recognized gates is not an ungated classification."
+          "reason": "Current analyzer completes the supported selected module closure with no gate reads; fb-error Function.prototype.apply.call is recognized as an intrinsic invocation. Existing execution is historical, and this static-only refresh does not establish new exhaustive assignment/caller/variant coverage."
         }
       },
-      "inventoryDigest": "3d115da065d8d2d85db9b4400f9cf6d0b40dbc6ab2989f0bacc2abba9bf9ccad"
+      "inventoryDigest": "d37aeefaa707eb550008a9fe735a79c26ac96716749021a26a24c6cd87f96de8"
     },
     {
       "revision": "1051908825",
@@ -227,27 +232,26 @@
         }
       ],
       "analyzer": {
-        "version": 1,
-        "sourceSha256": "01036d720caccf437f31062c23335fffcae7bb94f46e346de330ae6a744bfd80"
+        "version": 3,
+        "sourceSha256": "06c35199d0b06c9441486d96cb06b540628d64c562b7c1bbd9f2b5f28c6a3096"
       },
       "gates": [],
-      "unresolved": [
-        {
-          "code": "dynamic-code-or-import",
-          "module": "fb-error",
-          "line": 367,
-          "column": 11
-        }
-      ],
+      "unresolved": [],
       "staticCoverage": {
-        "complete": false,
+        "complete": true,
         "scope": "module-closure-superset",
         "semanticProof": false,
         "resolverCoverage": false,
         "modules": 8,
         "sourceBytes": 46096,
+        "workBudget": {
+          "limit": 2000000,
+          "consumed": 149010,
+          "exhausted": false
+        },
         "limitations": [
           "Only supported gate APIs and static key expressions are inventoried.",
+          "Logical work units bound selected AST traversal and resolution, not parser internals or elapsed time; parsing remains source-byte bounded.",
           "Declared fixture-provider boundaries exclude their original resolver implementations and dependencies.",
           "All functions in each dependency module are scanned; exact export and caller reachability is not proven.",
           "Runtime-discovered gates and externally selected code require separate observations."
@@ -256,8 +260,8 @@
       "base32Inventory": {
         "schemaVersion": 1,
         "analyzer": {
-          "version": 1,
-          "sourceSha256": "01036d720caccf437f31062c23335fffcae7bb94f46e346de330ae6a744bfd80"
+          "version": 3,
+          "sourceSha256": "06c35199d0b06c9441486d96cb06b540628d64c562b7c1bbd9f2b5f28c6a3096"
         },
         "roots": ["WAWebAltDeviceLinkingBase32Encode"],
         "boundaries": [],
@@ -278,14 +282,20 @@
           "resolverCoverage": false,
           "modules": 1,
           "sourceBytes": 425,
+          "workBudget": {
+            "limit": 2000000,
+            "consumed": 1288,
+            "exhausted": false
+          },
           "limitations": [
             "Only supported gate APIs and static key expressions are inventoried.",
+            "Logical work units bound selected AST traversal and resolution, not parser internals or elapsed time; parsing remains source-byte bounded.",
             "Declared fixture-provider boundaries exclude their original resolver implementations and dependencies.",
             "All functions in each dependency module are scanned; exact export and caller reachability is not proven.",
             "Runtime-discovered gates and externally selected code require separate observations."
           ]
         },
-        "digest": "6e08e2174df78f4e076c37e47b10ce56a23d2aa3647b17d48bf8ca42f6bd8335"
+        "digest": "196a9d92f11fc4a2f48ca98161985bd97ae77cddd8aa1976e3009fe9a596b27f"
       },
       "assignmentCoverage": {
         "base32": {
@@ -298,10 +308,10 @@
           "assignments": [{}],
           "executed": true,
           "exhaustive": false,
-          "reason": "fb-error Function.prototype.apply.call at line 367 remains an analyzer dynamic-code-or-import diagnostic; zero recognized gates is not an ungated classification."
+          "reason": "Current analyzer completes the supported selected module closure with no gate reads; fb-error Function.prototype.apply.call is recognized as an intrinsic invocation. Existing execution is historical, and this static-only refresh does not establish new exhaustive assignment/caller/variant coverage."
         }
       },
-      "inventoryDigest": "3d115da065d8d2d85db9b4400f9cf6d0b40dbc6ab2989f0bacc2abba9bf9ccad"
+      "inventoryDigest": "d37aeefaa707eb550008a9fe735a79c26ac96716749021a26a24c6cd87f96de8"
     }
   ],
   "runtime": {
@@ -311,9 +321,18 @@
   },
   "exclusions": [
     "Alternative archived module variants and production callers are not covered.",
-    "Gate closure for Binary and WAHex remains incomplete under the supported analyzer because fb-error contains a flagged dynamic invocation. No exhaustive assignment claim for that closure.",
+    "The supported selected Binary/WAHex AST closure now has no unresolved diagnostics; caller reachability, alternate variants and full application behavior remain outside this static scope. No new exhaustive execution claim is made.",
     "Custom Base32 is the shipped non-RFC alphabet; this suite does not assert server acceptance of linking codes.",
     "Base64, message padding, Binary callback-based peek/atomic operations, varint decoding, 64-bit instance read/write, malformed UTF-8 replacement and shared reference mutation are not covered.",
     "No WhatsApp account, credentials, Signal sessions, browser lifecycle, native library parity, provider/server acceptance or release availability is exercised."
-  ]
+  ],
+  "inventoryRefresh": {
+    "analyzerVersion": 3,
+    "analyzerSourceSha256": "06c35199d0b06c9441486d96cb06b540628d64c562b7c1bbd9f2b5f28c6a3096",
+    "defaultLogicalWorkLimit": 2000000,
+    "kind": "static-source-analysis-only",
+    "behaviorReexecuted": false,
+    "executionProvenance": "Existing execution/assignment observations retain their original receipt context; this metadata refresh does not create new runtime evidence.",
+    "cardinalityScope": "Incomplete/unresolved current inventories have no established total assignment cardinality. Existing finite products describe source-known subsets retained from prior observations, not exhaustive current matrices."
+  }
 }

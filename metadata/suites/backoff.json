@@ -64,28 +64,27 @@
         }
       ],
       "analyzer": {
-        "version": 1,
-        "sourceSha256": "01036d720caccf437f31062c23335fffcae7bb94f46e346de330ae6a744bfd80"
+        "version": 3,
+        "sourceSha256": "06c35199d0b06c9441486d96cb06b540628d64c562b7c1bbd9f2b5f28c6a3096"
       },
-      "inventoryDigest": "075de0f468cf69e4f2d771489cde2fc94a1b8b68ae8f41fb02423a2ef45947bd",
+      "inventoryDigest": "dfe23916d1a6cf3fe03bb0f41664114aab0da03c0fcd2eaa993e615d460ab762",
       "gates": [],
-      "unresolved": [
-        {
-          "code": "dynamic-code-or-import",
-          "module": "fb-error",
-          "line": 367,
-          "column": 11
-        }
-      ],
+      "unresolved": [],
       "staticCoverage": {
-        "complete": false,
+        "complete": true,
         "scope": "module-closure-superset",
         "semanticProof": false,
         "resolverCoverage": false,
         "modules": 6,
         "sourceBytes": 30126,
+        "workBudget": {
+          "limit": 2000000,
+          "consumed": 92120,
+          "exhausted": false
+        },
         "limitations": [
           "Only supported gate APIs and static key expressions are inventoried.",
+          "Logical work units bound selected AST traversal and resolution, not parser internals or elapsed time; parsing remains source-byte bounded.",
           "Declared fixture-provider boundaries exclude their original resolver implementations and dependencies.",
           "All functions in each dependency module are scanned; exact export and caller reachability is not proven.",
           "Runtime-discovered gates and externally selected code require separate observations."
@@ -139,28 +138,27 @@
         }
       ],
       "analyzer": {
-        "version": 1,
-        "sourceSha256": "01036d720caccf437f31062c23335fffcae7bb94f46e346de330ae6a744bfd80"
+        "version": 3,
+        "sourceSha256": "06c35199d0b06c9441486d96cb06b540628d64c562b7c1bbd9f2b5f28c6a3096"
       },
-      "inventoryDigest": "075de0f468cf69e4f2d771489cde2fc94a1b8b68ae8f41fb02423a2ef45947bd",
+      "inventoryDigest": "dfe23916d1a6cf3fe03bb0f41664114aab0da03c0fcd2eaa993e615d460ab762",
       "gates": [],
-      "unresolved": [
-        {
-          "code": "dynamic-code-or-import",
-          "module": "fb-error",
-          "line": 367,
-          "column": 11
-        }
-      ],
+      "unresolved": [],
       "staticCoverage": {
-        "complete": false,
+        "complete": true,
         "scope": "module-closure-superset",
         "semanticProof": false,
         "resolverCoverage": false,
         "modules": 6,
         "sourceBytes": 30126,
+        "workBudget": {
+          "limit": 2000000,
+          "consumed": 92120,
+          "exhausted": false
+        },
         "limitations": [
           "Only supported gate APIs and static key expressions are inventoried.",
+          "Logical work units bound selected AST traversal and resolution, not parser internals or elapsed time; parsing remains source-byte bounded.",
           "Declared fixture-provider boundaries exclude their original resolver implementations and dependencies.",
           "All functions in each dependency module are scanned; exact export and caller reachability is not proven.",
           "Runtime-discovered gates and externally selected code require separate observations."
@@ -169,10 +167,19 @@
     }
   ],
   "exclusions": [
-    "The full selected closure retains fb-error dynamic-code-or-import at line367; no recognized gate reads does not establish an empty gate inventory.",
+    "Current analyzer completes the supported selected closure with no gate reads; the prior fb-error intrinsic-call false positive is removed. Full caller/variant/configuration behavior and new execution under this inventory remain unqualified.",
     "Alternative module variants, callers, browser timers and cross-worker propagation are outside this helper scope.",
     "Per-probe clock control exercises real Date.now calls; it does not establish scheduler or server retry behavior.",
     "Arbitrary object key identity, non-finite interval values, async concurrent callers and external cache mutation are not covered.",
     "Container sandbox and live WhatsApp/provider behavior were not exercised."
-  ]
+  ],
+  "inventoryRefresh": {
+    "analyzerVersion": 3,
+    "analyzerSourceSha256": "06c35199d0b06c9441486d96cb06b540628d64c562b7c1bbd9f2b5f28c6a3096",
+    "defaultLogicalWorkLimit": 2000000,
+    "kind": "static-source-analysis-only",
+    "behaviorReexecuted": false,
+    "executionProvenance": "Existing execution/assignment observations retain their original receipt context; this metadata refresh does not create new runtime evidence.",
+    "cardinalityScope": "Incomplete/unresolved current inventories have no established total assignment cardinality. Existing finite products describe source-known subsets retained from prior observations, not exhaustive current matrices."
+  }
 }

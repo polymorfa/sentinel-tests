@@ -96,28 +96,27 @@
         }
       ],
       "analyzer": {
-        "version": 1,
-        "sourceSha256": "01036d720caccf437f31062c23335fffcae7bb94f46e346de330ae6a744bfd80"
+        "version": 3,
+        "sourceSha256": "06c35199d0b06c9441486d96cb06b540628d64c562b7c1bbd9f2b5f28c6a3096"
       },
-      "inventoryDigest": "5461c0419d31b08be5508c90b9cec8c9ffbf7c3cbb5388fc463253d339fb6c2f",
+      "inventoryDigest": "df31d6a5e3571d2373aaac8224a58aa176509240a5420db727fa46b9005f51ab",
       "gates": [],
-      "unresolved": [
-        {
-          "code": "dynamic-code-or-import",
-          "module": "fb-error",
-          "line": 367,
-          "column": 11
-        }
-      ],
+      "unresolved": [],
       "staticCoverage": {
-        "complete": false,
+        "complete": true,
         "scope": "module-closure-superset",
         "semanticProof": false,
         "resolverCoverage": false,
         "modules": 8,
         "sourceBytes": 30243,
+        "workBudget": {
+          "limit": 2000000,
+          "consumed": 92633,
+          "exhausted": false
+        },
         "limitations": [
           "Only supported gate APIs and static key expressions are inventoried.",
+          "Logical work units bound selected AST traversal and resolution, not parser internals or elapsed time; parsing remains source-byte bounded.",
           "Declared fixture-provider boundaries exclude their original resolver implementations and dependencies.",
           "All functions in each dependency module are scanned; exact export and caller reachability is not proven.",
           "Runtime-discovered gates and externally selected code require separate observations."
@@ -185,28 +184,27 @@
         }
       ],
       "analyzer": {
-        "version": 1,
-        "sourceSha256": "01036d720caccf437f31062c23335fffcae7bb94f46e346de330ae6a744bfd80"
+        "version": 3,
+        "sourceSha256": "06c35199d0b06c9441486d96cb06b540628d64c562b7c1bbd9f2b5f28c6a3096"
       },
-      "inventoryDigest": "5461c0419d31b08be5508c90b9cec8c9ffbf7c3cbb5388fc463253d339fb6c2f",
+      "inventoryDigest": "df31d6a5e3571d2373aaac8224a58aa176509240a5420db727fa46b9005f51ab",
       "gates": [],
-      "unresolved": [
-        {
-          "code": "dynamic-code-or-import",
-          "module": "fb-error",
-          "line": 367,
-          "column": 11
-        }
-      ],
+      "unresolved": [],
       "staticCoverage": {
-        "complete": false,
+        "complete": true,
         "scope": "module-closure-superset",
         "semanticProof": false,
         "resolverCoverage": false,
         "modules": 8,
         "sourceBytes": 30243,
+        "workBudget": {
+          "limit": 2000000,
+          "consumed": 92633,
+          "exhausted": false
+        },
         "limitations": [
           "Only supported gate APIs and static key expressions are inventoried.",
+          "Logical work units bound selected AST traversal and resolution, not parser internals or elapsed time; parsing remains source-byte bounded.",
           "Declared fixture-provider boundaries exclude their original resolver implementations and dependencies.",
           "All functions in each dependency module are scanned; exact export and caller reachability is not proven.",
           "Runtime-discovered gates and externally selected code require separate observations."
@@ -215,9 +213,9 @@
     }
   ],
   "gateInventory": {
-    "scope": "All eight declared dependency modules parsed for both primary roots. No gate reads discovered; fb-error Function.prototype.apply.call at line 367 flagged conservatively by the analyzer leaves the conservative module-level AST inventory incomplete. One empty assignment is an observation, not exhaustive configuration coverage.",
+    "scope": "All eight declared dependency modules are analyzed under the current default logical work budget. No supported gate reads or unresolved diagnostics are found; fb-error Function.prototype.apply.call is recognized as an intrinsic invocation. Completeness is limited to supported AST syntax and selected module closure, not cryptographic providers, callers or semantic proof.",
     "gaps": [
-      "fb-error dynamic-code-or-import at modules/fb-error.js:367 prevents complete conservative module-level inventory. The selected error factory path at lines 9-18 does not call the guarded applyWithGuard source branch using Function.prototype.apply.call, but export reachability is not proven by the analyzer.",
+      "The former fb-error intrinsic-call false positive is removed by the current analyzer. Export/caller reachability and externally selected code remain outside this conservative module-level inventory.",
       "Callers, real cryptographic operation selection, server configuration and alternative variants are excluded.",
       "WACryptoDependencies reads self.crypto, but no crypto provider method is called by the selected leaf exports.",
       "No runtime read establishes real server configuration."
@@ -238,5 +236,14 @@
     "Signal address/Wid/contact mapping and real key storage/state.",
     "Malformed non-byte or non-BigInt types beyond the selected fixture contract.",
     "Browser/workers/live accounts/server assignments, library adapters and container admission."
-  ]
+  ],
+  "inventoryRefresh": {
+    "analyzerVersion": 3,
+    "analyzerSourceSha256": "06c35199d0b06c9441486d96cb06b540628d64c562b7c1bbd9f2b5f28c6a3096",
+    "defaultLogicalWorkLimit": 2000000,
+    "kind": "static-source-analysis-only",
+    "behaviorReexecuted": false,
+    "executionProvenance": "Existing execution/assignment observations retain their original receipt context; this metadata refresh does not create new runtime evidence.",
+    "cardinalityScope": "Incomplete/unresolved current inventories have no established total assignment cardinality. Existing finite products describe source-known subsets retained from prior observations, not exhaustive current matrices."
+  }
 }

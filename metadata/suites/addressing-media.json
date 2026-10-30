@@ -88,28 +88,27 @@
         }
       ],
       "analyzer": {
-        "version": 1,
-        "sourceSha256": "01036d720caccf437f31062c23335fffcae7bb94f46e346de330ae6a744bfd80"
+        "version": 3,
+        "sourceSha256": "06c35199d0b06c9441486d96cb06b540628d64c562b7c1bbd9f2b5f28c6a3096"
       },
-      "inventoryDigest": "84abb8c759b84785273431b62ff8316f5c30c04c8e6b8fee22f32694cd81ed2e",
+      "inventoryDigest": "f6124f67a19d4535e1bc174b7bcbf19ff2f0a7802a141d0a666a5f50db90de39",
       "gates": [],
-      "unresolved": [
-        {
-          "code": "dynamic-code-or-import",
-          "module": "fb-error",
-          "line": 367,
-          "column": 11
-        }
-      ],
+      "unresolved": [],
       "staticCoverage": {
-        "complete": false,
+        "complete": true,
         "scope": "module-closure-superset",
         "semanticProof": false,
         "resolverCoverage": false,
         "modules": 9,
         "sourceBytes": 46971,
+        "workBudget": {
+          "limit": 2000000,
+          "consumed": 128676,
+          "exhausted": false
+        },
         "limitations": [
           "Only supported gate APIs and static key expressions are inventoried.",
+          "Logical work units bound selected AST traversal and resolution, not parser internals or elapsed time; parsing remains source-byte bounded.",
           "Declared fixture-provider boundaries exclude their original resolver implementations and dependencies.",
           "All functions in each dependency module are scanned; exact export and caller reachability is not proven.",
           "Runtime-discovered gates and externally selected code require separate observations."
@@ -118,8 +117,8 @@
       "mediaInventory": {
         "schemaVersion": 1,
         "analyzer": {
-          "version": 1,
-          "sourceSha256": "01036d720caccf437f31062c23335fffcae7bb94f46e346de330ae6a744bfd80"
+          "version": 3,
+          "sourceSha256": "06c35199d0b06c9441486d96cb06b540628d64c562b7c1bbd9f2b5f28c6a3096"
         },
         "roots": ["WAProtocolMediaType", "WAServerMediaType"],
         "boundaries": [],
@@ -146,14 +145,20 @@
           "resolverCoverage": false,
           "modules": 2,
           "sourceBytes": 2981,
+          "workBudget": {
+            "limit": 2000000,
+            "consumed": 3004,
+            "exhausted": false
+          },
           "limitations": [
             "Only supported gate APIs and static key expressions are inventoried.",
+            "Logical work units bound selected AST traversal and resolution, not parser internals or elapsed time; parsing remains source-byte bounded.",
             "Declared fixture-provider boundaries exclude their original resolver implementations and dependencies.",
             "All functions in each dependency module are scanned; exact export and caller reachability is not proven.",
             "Runtime-discovered gates and externally selected code require separate observations."
           ]
         },
-        "digest": "fac56934468ae899c0ab662b9f537e74bce0fa00814657c90ffa838af65ffa06"
+        "digest": "ce12bb73740307bf9ab5f65f9edb50cf1b25c07e25cb92130fc110b92f288a19"
       }
     },
     {
@@ -224,28 +229,27 @@
         }
       ],
       "analyzer": {
-        "version": 1,
-        "sourceSha256": "01036d720caccf437f31062c23335fffcae7bb94f46e346de330ae6a744bfd80"
+        "version": 3,
+        "sourceSha256": "06c35199d0b06c9441486d96cb06b540628d64c562b7c1bbd9f2b5f28c6a3096"
       },
-      "inventoryDigest": "84abb8c759b84785273431b62ff8316f5c30c04c8e6b8fee22f32694cd81ed2e",
+      "inventoryDigest": "f6124f67a19d4535e1bc174b7bcbf19ff2f0a7802a141d0a666a5f50db90de39",
       "gates": [],
-      "unresolved": [
-        {
-          "code": "dynamic-code-or-import",
-          "module": "fb-error",
-          "line": 367,
-          "column": 11
-        }
-      ],
+      "unresolved": [],
       "staticCoverage": {
-        "complete": false,
+        "complete": true,
         "scope": "module-closure-superset",
         "semanticProof": false,
         "resolverCoverage": false,
         "modules": 9,
         "sourceBytes": 46971,
+        "workBudget": {
+          "limit": 2000000,
+          "consumed": 128676,
+          "exhausted": false
+        },
         "limitations": [
           "Only supported gate APIs and static key expressions are inventoried.",
+          "Logical work units bound selected AST traversal and resolution, not parser internals or elapsed time; parsing remains source-byte bounded.",
           "Declared fixture-provider boundaries exclude their original resolver implementations and dependencies.",
           "All functions in each dependency module are scanned; exact export and caller reachability is not proven.",
           "Runtime-discovered gates and externally selected code require separate observations."
@@ -254,8 +258,8 @@
       "mediaInventory": {
         "schemaVersion": 1,
         "analyzer": {
-          "version": 1,
-          "sourceSha256": "01036d720caccf437f31062c23335fffcae7bb94f46e346de330ae6a744bfd80"
+          "version": 3,
+          "sourceSha256": "06c35199d0b06c9441486d96cb06b540628d64c562b7c1bbd9f2b5f28c6a3096"
         },
         "roots": ["WAProtocolMediaType", "WAServerMediaType"],
         "boundaries": [],
@@ -282,23 +286,38 @@
           "resolverCoverage": false,
           "modules": 2,
           "sourceBytes": 2981,
+          "workBudget": {
+            "limit": 2000000,
+            "consumed": 3004,
+            "exhausted": false
+          },
           "limitations": [
             "Only supported gate APIs and static key expressions are inventoried.",
+            "Logical work units bound selected AST traversal and resolution, not parser internals or elapsed time; parsing remains source-byte bounded.",
             "Declared fixture-provider boundaries exclude their original resolver implementations and dependencies.",
             "All functions in each dependency module are scanned; exact export and caller reachability is not proven.",
             "Runtime-discovered gates and externally selected code require separate observations."
           ]
         },
-        "digest": "fac56934468ae899c0ab662b9f537e74bce0fa00814657c90ffa838af65ffa06"
+        "digest": "ce12bb73740307bf9ab5f65f9edb50cf1b25c07e25cb92130fc110b92f288a19"
       }
     }
   ],
   "exclusions": [
-    "WAJids closure retains fb-error dynamic-code-or-import at line367; zero recognized gates does not prove a complete empty gate inventory.",
+    "Current analyzer completes the supported selected WAJids closure with no gate reads; the prior fb-error intrinsic-call false positive is removed. This does not prove caller behavior, alternate variants or full application configuration independence.",
     "Only primary source variants and isolated helper exports are selected; caller gates, cross-account identity and device routing are outside scope.",
     "WAWebWidValidator imports WALogger; its unselected graph, WidFactory, contact mapping, LID/phone resolution and browser identity state are not tested or stubbed.",
     "Constructive samples exercise a bounded decimal input model, not every possible JID or malformed Unicode string.",
     "Media casts do not prove upload/encryption/download, MIME validation, delivery, actual server acceptance or library parity.",
     "No accounts, network/providers or container sandbox execution were exercised."
-  ]
+  ],
+  "inventoryRefresh": {
+    "analyzerVersion": 3,
+    "analyzerSourceSha256": "06c35199d0b06c9441486d96cb06b540628d64c562b7c1bbd9f2b5f28c6a3096",
+    "defaultLogicalWorkLimit": 2000000,
+    "kind": "static-source-analysis-only",
+    "behaviorReexecuted": false,
+    "executionProvenance": "Existing execution/assignment observations retain their original receipt context; this metadata refresh does not create new runtime evidence.",
+    "cardinalityScope": "Incomplete/unresolved current inventories have no established total assignment cardinality. Existing finite products describe source-known subsets retained from prior observations, not exhaustive current matrices."
+  }
 }

@@ -12,10 +12,10 @@
       "revision": "1051710191",
       "variant": "primary",
       "analyzer": {
-        "version": 1,
-        "sourceSha256": "01036d720caccf437f31062c23335fffcae7bb94f46e346de330ae6a744bfd80"
+        "version": 3,
+        "sourceSha256": "06c35199d0b06c9441486d96cb06b540628d64c562b7c1bbd9f2b5f28c6a3096"
       },
-      "inventoryDigest": "581c41928e679e6202f6d75f079bc30905ebe5dced9ce8edd03e7e2c476a77cf",
+      "inventoryDigest": "f6e6f7cc6724c2188a6fd4bed1b1e5ed50fed300de7b5d44d37d51af5db9ad69",
       "modules": [
         {
           "module": "err",
@@ -82,23 +82,22 @@
         }
       ],
       "gates": [],
-      "unresolved": [
-        {
-          "code": "dynamic-code-or-import",
-          "module": "fb-error",
-          "line": 367,
-          "column": 11
-        }
-      ],
+      "unresolved": [],
       "staticCoverage": {
-        "complete": false,
+        "complete": true,
         "scope": "module-closure-superset",
         "semanticProof": false,
         "resolverCoverage": false,
         "modules": 9,
         "sourceBytes": 49075,
+        "workBudget": {
+          "limit": 2000000,
+          "consumed": 159426,
+          "exhausted": false
+        },
         "limitations": [
           "Only supported gate APIs and static key expressions are inventoried.",
+          "Logical work units bound selected AST traversal and resolution, not parser internals or elapsed time; parsing remains source-byte bounded.",
           "Declared fixture-provider boundaries exclude their original resolver implementations and dependencies.",
           "All functions in each dependency module are scanned; exact export and caller reachability is not proven.",
           "Runtime-discovered gates and externally selected code require separate observations."
@@ -109,10 +108,10 @@
       "revision": "1051908825",
       "variant": "primary",
       "analyzer": {
-        "version": 1,
-        "sourceSha256": "01036d720caccf437f31062c23335fffcae7bb94f46e346de330ae6a744bfd80"
+        "version": 3,
+        "sourceSha256": "06c35199d0b06c9441486d96cb06b540628d64c562b7c1bbd9f2b5f28c6a3096"
       },
-      "inventoryDigest": "581c41928e679e6202f6d75f079bc30905ebe5dced9ce8edd03e7e2c476a77cf",
+      "inventoryDigest": "f6e6f7cc6724c2188a6fd4bed1b1e5ed50fed300de7b5d44d37d51af5db9ad69",
       "modules": [
         {
           "module": "err",
@@ -179,23 +178,22 @@
         }
       ],
       "gates": [],
-      "unresolved": [
-        {
-          "code": "dynamic-code-or-import",
-          "module": "fb-error",
-          "line": 367,
-          "column": 11
-        }
-      ],
+      "unresolved": [],
       "staticCoverage": {
-        "complete": false,
+        "complete": true,
         "scope": "module-closure-superset",
         "semanticProof": false,
         "resolverCoverage": false,
         "modules": 9,
         "sourceBytes": 49075,
+        "workBudget": {
+          "limit": 2000000,
+          "consumed": 159426,
+          "exhausted": false
+        },
         "limitations": [
           "Only supported gate APIs and static key expressions are inventoried.",
+          "Logical work units bound selected AST traversal and resolution, not parser internals or elapsed time; parsing remains source-byte bounded.",
           "Declared fixture-provider boundaries exclude their original resolver implementations and dependencies.",
           "All functions in each dependency module are scanned; exact export and caller reachability is not proven.",
           "Runtime-discovered gates and externally selected code require separate observations."
@@ -226,7 +224,7 @@
       "module": "fb-error",
       "path": "modules/fb-error.js",
       "lines": [361, 368],
-      "purpose": "Conservative dynamic invocation analysis gap"
+      "purpose": "Intrinsic Function.prototype.apply.call invocation recognized by current analyzer; callback semantics are outside WAM acceptance"
     }
   ],
   "oracle": "Literal independent header/record byte fixtures; signed little-endian integer vectors; IEEE754 1.5 and standard UTF-8 Unicode bytes. Admission expectations characterize real coercion and error behavior. No vendor source or captured telemetry included.",
@@ -235,7 +233,7 @@
     "knownAssignments": [{}],
     "plannedKnownAssignmentCardinality": 1,
     "exhaustive": false,
-    "reason": "All nine selected modules parsed. No supported gate reads found; fb-error dynamic Function.prototype.apply invocation remains unresolved. Callers, variants, external assignment and delivery paths are excluded."
+    "reason": "All nine selected modules complete supported AST analysis with no gate reads or unresolved diagnostics. The former fb-error intrinsic-call false positive is removed. Existing single-context execution is historical; callers, variants, external assignment and delivery paths remain excluded."
   },
   "execution": {
     "runtime": "Bun 1.4.4",
@@ -248,7 +246,7 @@
     "Complete WAM family coverage",
     "WAWam manager, channel manager, storage, batching, sampling and Falco",
     "Schema catalog compatibility and generated event emitters",
-    "Dynamic callback closure in fb-error and non-primary module variants",
+    "Callback semantics in fb-error and non-primary module variants; current static intrinsic-call recognition does not establish runtime callback coverage",
     "ABProps/GKX/knob server assignment and cohort behavior",
     "Telemetry network delivery or account behavior",
     "Container isolation and production scheduling",
@@ -263,5 +261,14 @@
     "seed": null,
     "assignmentCardinalityForKnownGates": 1,
     "configurationExhaustive": false
+  },
+  "inventoryRefresh": {
+    "analyzerVersion": 3,
+    "analyzerSourceSha256": "06c35199d0b06c9441486d96cb06b540628d64c562b7c1bbd9f2b5f28c6a3096",
+    "defaultLogicalWorkLimit": 2000000,
+    "kind": "static-source-analysis-only",
+    "behaviorReexecuted": false,
+    "executionProvenance": "Existing execution/assignment observations retain their original receipt context; this metadata refresh does not create new runtime evidence.",
+    "cardinalityScope": "Incomplete/unresolved current inventories have no established total assignment cardinality. Existing finite products describe source-known subsets retained from prior observations, not exhaustive current matrices."
   }
 }

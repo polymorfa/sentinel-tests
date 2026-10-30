@@ -239,10 +239,10 @@
         }
       ],
       "analyzer": {
-        "version": 1,
-        "sourceSha256": "01036d720caccf437f31062c23335fffcae7bb94f46e346de330ae6a744bfd80"
+        "version": 3,
+        "sourceSha256": "06c35199d0b06c9441486d96cb06b540628d64c562b7c1bbd9f2b5f28c6a3096"
       },
-      "inventoryDigest": "5af8ffbcf0fac92f994c11046c00e0f450f98b8c60fbadb84b4acbd8e37f95c3",
+      "inventoryDigest": "5a94ad3f8d8e9d8da0e0211d907d1f518ee188d4e5db3462a5098394e4dfebd9",
       "gates": [
         {
           "kind": "knobs",
@@ -263,12 +263,6 @@
       ],
       "unresolved": [
         {
-          "code": "dynamic-code-or-import",
-          "module": "fb-error",
-          "line": 367,
-          "column": 11
-        },
-        {
           "code": "missing-module",
           "module": "cr:6640"
         }
@@ -280,8 +274,14 @@
         "resolverCoverage": false,
         "modules": 27,
         "sourceBytes": 82038,
+        "workBudget": {
+          "limit": 2000000,
+          "consumed": 266170,
+          "exhausted": false
+        },
         "limitations": [
           "Only supported gate APIs and static key expressions are inventoried.",
+          "Logical work units bound selected AST traversal and resolution, not parser internals or elapsed time; parsing remains source-byte bounded.",
           "Declared fixture-provider boundaries exclude their original resolver implementations and dependencies.",
           "All functions in each dependency module are scanned; exact export and caller reachability is not proven.",
           "Runtime-discovered gates and externally selected code require separate observations."
@@ -501,10 +501,10 @@
         }
       ],
       "analyzer": {
-        "version": 1,
-        "sourceSha256": "01036d720caccf437f31062c23335fffcae7bb94f46e346de330ae6a744bfd80"
+        "version": 3,
+        "sourceSha256": "06c35199d0b06c9441486d96cb06b540628d64c562b7c1bbd9f2b5f28c6a3096"
       },
-      "inventoryDigest": "5af8ffbcf0fac92f994c11046c00e0f450f98b8c60fbadb84b4acbd8e37f95c3",
+      "inventoryDigest": "5a94ad3f8d8e9d8da0e0211d907d1f518ee188d4e5db3462a5098394e4dfebd9",
       "gates": [
         {
           "kind": "knobs",
@@ -525,12 +525,6 @@
       ],
       "unresolved": [
         {
-          "code": "dynamic-code-or-import",
-          "module": "fb-error",
-          "line": 367,
-          "column": 11
-        },
-        {
           "code": "missing-module",
           "module": "cr:6640"
         }
@@ -542,8 +536,14 @@
         "resolverCoverage": false,
         "modules": 27,
         "sourceBytes": 82038,
+        "workBudget": {
+          "limit": 2000000,
+          "consumed": 266170,
+          "exhausted": false
+        },
         "limitations": [
           "Only supported gate APIs and static key expressions are inventoried.",
+          "Logical work units bound selected AST traversal and resolution, not parser internals or elapsed time; parsing remains source-byte bounded.",
           "Declared fixture-provider boundaries exclude their original resolver implementations and dependencies.",
           "All functions in each dependency module are scanned; exact export and caller reachability is not proven.",
           "Runtime-discovered gates and externally selected code require separate observations."
@@ -554,13 +554,22 @@
   "exclusions": [
     "Missing cr:6640 archived source; explicit null environment fixture exercises real Promise fallback to global Promise, not original substitution",
     "Original justknobx resolver and server/cohort assignments excluded; true/false exercise the local depth-guard branch",
-    "Conservative AST dynamic closure and computed-key diagnostics prevent exhaustive configuration claim",
+    "Current supported AST closure retains missing cr6640 source. Original knob domain, provider resolution, callers and alternate variants remain outside exhaustive configuration acceptance.",
     "WALogger diagnostics use real archived implementation, but delivery and initialization are outside this test",
     "Generated WhatsApp message catalogs and application caller behavior",
     "Map decoder entries, unknown-field preservation, tagged unions, exhaustive malformed wire space",
     "Alternate module variants, container execution, production scheduling, accounts and network",
     "Language-library parity",
-    "Original Babel bootstrap unavailable; explicit extends and taggedTemplateLiteralLoose worker compatibility fixtures, recorded in context",
+    "The actual Babel helper producer has been recovered privately but is not admitted or executed by this suite. Selected extends/taggedTemplateLiteralLoose remain explicit worker compatibility fixtures, recorded in context; full bootstrap is unproven",
     "Recursion chains are bounded acyclic synthetic singular/repeated shapes through depth120; other schema graphs, unbounded depths and asynchronous configuration changes are not covered"
-  ]
+  ],
+  "inventoryRefresh": {
+    "analyzerVersion": 3,
+    "analyzerSourceSha256": "06c35199d0b06c9441486d96cb06b540628d64c562b7c1bbd9f2b5f28c6a3096",
+    "defaultLogicalWorkLimit": 2000000,
+    "kind": "static-source-analysis-only",
+    "behaviorReexecuted": false,
+    "executionProvenance": "Existing execution/assignment observations retain their original receipt context; this metadata refresh does not create new runtime evidence.",
+    "cardinalityScope": "Incomplete/unresolved current inventories have no established total assignment cardinality. Existing finite products describe source-known subsets retained from prior observations, not exhaustive current matrices."
+  }
 }

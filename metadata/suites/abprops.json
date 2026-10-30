@@ -49,10 +49,10 @@
         }
       ],
       "analyzer": {
-        "version": 1,
-        "sourceSha256": "01036d720caccf437f31062c23335fffcae7bb94f46e346de330ae6a744bfd80"
+        "version": 3,
+        "sourceSha256": "06c35199d0b06c9441486d96cb06b540628d64c562b7c1bbd9f2b5f28c6a3096"
       },
-      "inventoryDigest": "92ed0f5e382f49ca2404af2ed4df8df85aa8f80f1ebda7062147f02aede4ae06",
+      "inventoryDigest": "1b5839c8604af2ee34416027f06976b2c255c989db357d7f98f6d9a0ed934416",
       "gates": [],
       "unresolved": [],
       "staticCoverage": {
@@ -62,8 +62,14 @@
         "resolverCoverage": false,
         "modules": 2,
         "sourceBytes": 474,
+        "workBudget": {
+          "limit": 2000000,
+          "consumed": 927,
+          "exhausted": false
+        },
         "limitations": [
           "Only supported gate APIs and static key expressions are inventoried.",
+          "Logical work units bound selected AST traversal and resolution, not parser internals or elapsed time; parsing remains source-byte bounded.",
           "Declared fixture-provider boundaries exclude their original resolver implementations and dependencies.",
           "All functions in each dependency module are scanned; exact export and caller reachability is not proven.",
           "Runtime-discovered gates and externally selected code require separate observations."
@@ -89,10 +95,10 @@
         }
       ],
       "analyzer": {
-        "version": 1,
-        "sourceSha256": "01036d720caccf437f31062c23335fffcae7bb94f46e346de330ae6a744bfd80"
+        "version": 3,
+        "sourceSha256": "06c35199d0b06c9441486d96cb06b540628d64c562b7c1bbd9f2b5f28c6a3096"
       },
-      "inventoryDigest": "92ed0f5e382f49ca2404af2ed4df8df85aa8f80f1ebda7062147f02aede4ae06",
+      "inventoryDigest": "1b5839c8604af2ee34416027f06976b2c255c989db357d7f98f6d9a0ed934416",
       "gates": [],
       "unresolved": [],
       "staticCoverage": {
@@ -102,8 +108,14 @@
         "resolverCoverage": false,
         "modules": 2,
         "sourceBytes": 474,
+        "workBudget": {
+          "limit": 2000000,
+          "consumed": 927,
+          "exhausted": false
+        },
         "limitations": [
           "Only supported gate APIs and static key expressions are inventoried.",
+          "Logical work units bound selected AST traversal and resolution, not parser internals or elapsed time; parsing remains source-byte bounded.",
           "Declared fixture-provider boundaries exclude their original resolver implementations and dependencies.",
           "All functions in each dependency module are scanned; exact export and caller reachability is not proven.",
           "Runtime-discovered gates and externally selected code require separate observations."
@@ -134,5 +146,14 @@
     "Unbounded numeric/string/object inputs; finite selected malformed probes are characterization only.",
     "Exposure caller Set deduplication, global state, telemetry/network delivery.",
     "Live accounts, real server assignments, worker/browser transitions and library adapters."
-  ]
+  ],
+  "inventoryRefresh": {
+    "analyzerVersion": 3,
+    "analyzerSourceSha256": "06c35199d0b06c9441486d96cb06b540628d64c562b7c1bbd9f2b5f28c6a3096",
+    "defaultLogicalWorkLimit": 2000000,
+    "kind": "static-source-analysis-only",
+    "behaviorReexecuted": false,
+    "executionProvenance": "Existing execution/assignment observations retain their original receipt context; this metadata refresh does not create new runtime evidence.",
+    "cardinalityScope": "Incomplete/unresolved current inventories have no established total assignment cardinality. Existing finite products describe source-known subsets retained from prior observations, not exhaustive current matrices."
+  }
 }

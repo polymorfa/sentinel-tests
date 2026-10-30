@@ -761,10 +761,10 @@
         }
       ],
       "analyzer": {
-        "version": 2,
-        "sourceSha256": "c8a73442da5fcd7510ff5fac193602d19e447ab032505c4550237c0a66f90ea2"
+        "version": 3,
+        "sourceSha256": "06c35199d0b06c9441486d96cb06b540628d64c562b7c1bbd9f2b5f28c6a3096"
       },
-      "inventoryDigest": "11d3161af30d543e37270668e2c274f8e1d7511bc0a7c71f02cc827f8b5174c1",
+      "inventoryDigest": "b4b8307d96c7ab9b5af3189ee7d9207146187f91150e978bfc7f63a0e685c851",
       "gates": [
         {
           "kind": "abprops",
@@ -1307,8 +1307,14 @@
         "resolverCoverage": false,
         "modules": 87,
         "sourceBytes": 559632,
+        "workBudget": {
+          "limit": 2000000,
+          "consumed": 1167530,
+          "exhausted": false
+        },
         "limitations": [
           "Only supported gate APIs and static key expressions are inventoried.",
+          "Logical work units bound selected AST traversal and resolution, not parser internals or elapsed time; parsing remains source-byte bounded.",
           "Declared fixture-provider boundaries exclude their original resolver implementations and dependencies.",
           "All functions in each dependency module are scanned; exact export and caller reachability is not proven.",
           "Runtime-discovered gates and externally selected code require separate observations."
@@ -2056,10 +2062,10 @@
         }
       ],
       "analyzer": {
-        "version": 2,
-        "sourceSha256": "c8a73442da5fcd7510ff5fac193602d19e447ab032505c4550237c0a66f90ea2"
+        "version": 3,
+        "sourceSha256": "06c35199d0b06c9441486d96cb06b540628d64c562b7c1bbd9f2b5f28c6a3096"
       },
-      "inventoryDigest": "160a065b72e5ab253873476139b458f43f224fc30d825ec0cc6011803611afa6",
+      "inventoryDigest": "63403cc577076d27790a249a49a3db847393d25a937295f7a85567c24f33af7e",
       "gates": [
         {
           "kind": "abprops",
@@ -2598,8 +2604,14 @@
         "resolverCoverage": false,
         "modules": 89,
         "sourceBytes": 560785,
+        "workBudget": {
+          "limit": 2000000,
+          "consumed": 1169056,
+          "exhausted": false
+        },
         "limitations": [
           "Only supported gate APIs and static key expressions are inventoried.",
+          "Logical work units bound selected AST traversal and resolution, not parser internals or elapsed time; parsing remains source-byte bounded.",
           "Declared fixture-provider boundaries exclude their original resolver implementations and dependencies.",
           "All functions in each dependency module are scanned; exact export and caller reachability is not proven.",
           "Runtime-discovered gates and externally selected code require separate observations."
@@ -2612,11 +2624,20 @@
     "Full finite boolean product is budget-blocked and string/knob/dynamic domains are unresolved. Eight selected gkx contexts are not full configuration coverage",
     "Worker environment isWorker:true is explicit fixture; actual environment detection/main-thread preference storage, native account restoration and provider/session acquisition remain unexercised",
     "Missing provider imports use throwing fixtures if invoked; cr6640:null chooses original Promise realm-global fallback. No Wid, cache, self-user memoizer, globals or validator implementation is replaced",
-    "Only selected realm-native extends/taggedTemplateLiteralLoose compatibility helpers are provided; original bundle bootstrap is not established. InvalidWidError paths require missing wrapNativeSuper/inheritsLoose helpers and remain unsupported rather than mocked",
+    "The actual Babel helper producer has been recovered privately but is not admitted or executed. Selected realm-native extends/taggedTemplateLiteralLoose remain explicit compatibility fixtures; full bootstrap is unproven. InvalidWidError paths require original wrapNativeSuper/inheritsLoose execution and remain unsupported rather than mocked",
     "Actual retained Wid arguments now cover selected positive equals/ordering/account predicates and factory coercions. JSON Widlike API input and negative plain-object instanceof guards remain separate characterization; complete user/device/contact PN-LID equivalence is not established.",
     "Retained in-realm object identity proves only the exact aliases/cache keys/reset sequence tested. Legacy server alias hits the same object; agent-zero normalized representation can occupy a distinct cache entry. Cross-worker/process identity, persistence and all cache mutations are not covered.",
     "Generated values/user/device strings and temporal sequences are bounded characterization of unbounded input and schedule domains",
     "PN/LID support-list resolvers, contact/account PN-LID mapping, network-authorized identity and native device/address changes are not covered",
     "MsgKey, Signal/Noise crypto, new-id randomness, containers, production scheduling, alternate module variants and named-library implementation parity remain unexercised"
-  ]
+  ],
+  "inventoryRefresh": {
+    "analyzerVersion": 3,
+    "analyzerSourceSha256": "06c35199d0b06c9441486d96cb06b540628d64c562b7c1bbd9f2b5f28c6a3096",
+    "defaultLogicalWorkLimit": 2000000,
+    "kind": "static-source-analysis-only",
+    "behaviorReexecuted": false,
+    "executionProvenance": "Existing execution/assignment observations retain their original receipt context; this metadata refresh does not create new runtime evidence.",
+    "cardinalityScope": "Incomplete/unresolved current inventories have no established total assignment cardinality. Existing finite products describe source-known subsets retained from prior observations, not exhaustive current matrices."
+  }
 }
