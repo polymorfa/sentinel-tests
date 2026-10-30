@@ -54,3 +54,5 @@ The [generic state-manager suite](docs/generic-state-manager.md) executes origin
 The separate [Baileys JID leaf suite](docs/baileys-jid.md) exercises one exact import-free implementation component through a reviewed local Subject. Its named-library metadata is outside the WA corpus importer; local source observations do not establish registered service execution, full-package behavior or protocol compliance.
 
 The separate [whatsapp-web.js Reaction/Base suite](docs/wwebjs-reaction.md) exercises original constructors, patch/clone lifetimes and ID normalization at one exact commit. Both original CommonJS bodies remain unchanged; browser/client services and full-library compliance are outside this local component scope.
+
+The [Semaphore reservation suite](docs/semaphore-state.md) executes original acquisition counters, one immediate real release and held-object distinction across bounded capacities. Separate pending-only cases inspect unresolved waits; later release, FIFO, repeated release and fairness remain unsupported lifecycle observations.
