@@ -1,0 +1,249 @@
+{
+  "schemaVersion": 1,
+  "id": "backoff-iterator",
+  "version": 1,
+  "title": "Actual exponential generators and selected iterator consumers",
+  "file": "tests/backoff-iterator.test.ts",
+  "helper": "support/backoff-iterator-cases.ts",
+  "capability": "wa-internal:backoff-iterator",
+  "roots": [
+    "WAExponentialIterator",
+    "WAExponentialBackoffIterator",
+    "WAIterableOperators",
+    "isEmptyIterable"
+  ],
+  "oracle": "Literal powers, finite retry/count tables, cap/minimum/overflow cases and independent rational jitter arithmetic over three fixed uint32 random-input profiles. Diagnostic random profiles are independently calculated with integer modular arithmetic for the declared runtime seed; expected values are not obtained from WA source output and do not assert entropy. Every next step advances the same retained original generator through a fresh actual WAIterableOperators.iteratorFromArray consumer; it is a selected diagnostic bridge, not claimed production caller behavior. Actual first/isEmptyIterable/takeIterator exercise early close, including count0 extra-pull profile consumption. No callbacks, custom wrappers or iterator implementations replace the code under test.",
+  "trials": {
+    "cases": 111,
+    "portablePlanTests": 1,
+    "probesPerRevision": 849,
+    "generatorCases": 84,
+    "consumerCases": 27,
+    "maxProbesPerCase": 66,
+    "maxRetainedObjectsPerCase": 2,
+    "assignments": [{}],
+    "knownGateDescriptors": 0,
+    "selectedFiniteGateAssignmentCardinality": 1,
+    "configurationExhaustive": false,
+    "finiteBackoffRetryInputs": [-5, -0.5, 0, 0.25, 0.999, 1, 1.25, 1.999, 2, 2.999, 3, 64],
+    "largeOrUnboundedRetryPrefixes": [2147483647, 9007199254740991, "NaN", "Infinity", "missing"],
+    "infinitePrefixLength": 8,
+    "sourceConsumers": [
+      "iteratorFromArray",
+      "rangeIterator",
+      "takeIterator",
+      "first",
+      "isEmptyIterable"
+    ],
+    "jitterSeeds": [0, 1, 4294967295],
+    "jitterInputs": [-1, 0, 0.5, 1, 2],
+    "jitterCaps": [20, 1048576],
+    "randomProfileWordsPerContext": 8,
+    "randomProfileDefinition": "LCG1664525*x+1013904223 modulo2^32; profile words fixed as input metadata in TS and divided by2^32 by the diagnostic runtime",
+    "numericAndSequenceDomains": "Unbounded characterization only; finite retry64 is completely observed but large/unbounded streams are bounded prefixes followed by an actual closing consumer"
+  },
+  "observations": [
+    {
+      "revision": "1051710191",
+      "modules": [
+        {
+          "module": "WAExponentialBackoffIterator",
+          "variant": "primary",
+          "printedSourceSha256": "f814b23c9eeb723f8dabdc62df8092209d62636c570b93c4fde6831c856ac65b",
+          "dependencies": ["WAExponentialIterator"],
+          "citations": ["modules/WAExponentialBackoffIterator.js:1-17"]
+        },
+        {
+          "module": "WAExponentialIterator",
+          "variant": "primary",
+          "printedSourceSha256": "05862abd34cb3fdd2d40ea347dfc82ab686798a0454c7e53d7b18b227bbf0cdb",
+          "dependencies": [],
+          "citations": ["modules/WAExponentialIterator.js:1-7"]
+        },
+        {
+          "module": "WAIterableOperators",
+          "variant": "primary",
+          "printedSourceSha256": "285173211f711af033318118efc6c52720185b63e6f73bb3f295fdefe21e328f",
+          "dependencies": ["err"],
+          "citations": ["modules/WAIterableOperators.js:1-38"]
+        },
+        {
+          "module": "err",
+          "variant": "primary",
+          "printedSourceSha256": "a26a1f88fe2c09505c0ec8e43d1a43c2299b6126ea7ea305c567bf7634fbeea0",
+          "dependencies": ["fb-error"],
+          "citations": ["modules/err.js:1-4"]
+        },
+        {
+          "module": "fb-error",
+          "variant": "primary",
+          "printedSourceSha256": "545144d2d2c50524d5bcfc421916cf76760743cb5b034dcb7a4d7066981f714e",
+          "dependencies": ["performanceNow", "removeFromArray"],
+          "citations": ["modules/fb-error.js:1-698"]
+        },
+        {
+          "module": "isEmptyIterable",
+          "variant": "primary",
+          "printedSourceSha256": "318a655b80ec0bf02b8048be11a3b6862f7ec2506c512d4de94832257d1b048c",
+          "dependencies": [],
+          "citations": ["modules/isEmptyIterable.js:1-8"]
+        },
+        {
+          "module": "performance",
+          "variant": "primary",
+          "printedSourceSha256": "9bee7ad7d1941af3432757b1ce55c980030f812f0a5fb00916e906b8a0b6ced9",
+          "dependencies": [],
+          "citations": ["modules/performance.js:1-5"]
+        },
+        {
+          "module": "performanceNow",
+          "variant": "primary",
+          "printedSourceSha256": "415e5327e020372f7789e27dc42266a9cb3d6bbc2d8c47d0b751b93517a0475f",
+          "dependencies": ["performance"],
+          "citations": ["modules/performanceNow.js:1-15"]
+        },
+        {
+          "module": "removeFromArray",
+          "variant": "primary",
+          "printedSourceSha256": "c8e194de9e9463716c2f383406ae8269ddff1a9fe5fbc1a7559abcd2aaa666bb",
+          "dependencies": [],
+          "citations": ["modules/removeFromArray.js:1-8"]
+        }
+      ],
+      "analyzer": {
+        "version": 3,
+        "sourceSha256": "06c35199d0b06c9441486d96cb06b540628d64c562b7c1bbd9f2b5f28c6a3096"
+      },
+      "inventoryDigest": "5b3a650d229f16b52406b6df63c8071e6cc41c7d62b866bd2983efa6fd245499",
+      "gates": [],
+      "unresolved": [],
+      "staticCoverage": {
+        "complete": true,
+        "scope": "module-closure-superset",
+        "semanticProof": false,
+        "resolverCoverage": false,
+        "modules": 9,
+        "sourceBytes": 30385,
+        "workBudget": {
+          "limit": 2000000,
+          "consumed": 92686,
+          "exhausted": false
+        },
+        "limitations": [
+          "Only supported gate APIs and static key expressions are inventoried.",
+          "Logical work units bound selected AST traversal and resolution, not parser internals or elapsed time; parsing remains source-byte bounded.",
+          "Declared fixture-provider boundaries exclude their original resolver implementations and dependencies.",
+          "All functions in each dependency module are scanned; exact export and caller reachability is not proven.",
+          "Runtime-discovered gates and externally selected code require separate observations."
+        ]
+      }
+    },
+    {
+      "revision": "1051908825",
+      "modules": [
+        {
+          "module": "WAExponentialBackoffIterator",
+          "variant": "primary",
+          "printedSourceSha256": "f814b23c9eeb723f8dabdc62df8092209d62636c570b93c4fde6831c856ac65b",
+          "dependencies": ["WAExponentialIterator"],
+          "citations": ["modules/WAExponentialBackoffIterator.js:1-17"]
+        },
+        {
+          "module": "WAExponentialIterator",
+          "variant": "primary",
+          "printedSourceSha256": "05862abd34cb3fdd2d40ea347dfc82ab686798a0454c7e53d7b18b227bbf0cdb",
+          "dependencies": [],
+          "citations": ["modules/WAExponentialIterator.js:1-7"]
+        },
+        {
+          "module": "WAIterableOperators",
+          "variant": "primary",
+          "printedSourceSha256": "285173211f711af033318118efc6c52720185b63e6f73bb3f295fdefe21e328f",
+          "dependencies": ["err"],
+          "citations": ["modules/WAIterableOperators.js:1-38"]
+        },
+        {
+          "module": "err",
+          "variant": "primary",
+          "printedSourceSha256": "a26a1f88fe2c09505c0ec8e43d1a43c2299b6126ea7ea305c567bf7634fbeea0",
+          "dependencies": ["fb-error"],
+          "citations": ["modules/err.js:1-4"]
+        },
+        {
+          "module": "fb-error",
+          "variant": "primary",
+          "printedSourceSha256": "545144d2d2c50524d5bcfc421916cf76760743cb5b034dcb7a4d7066981f714e",
+          "dependencies": ["performanceNow", "removeFromArray"],
+          "citations": ["modules/fb-error.js:1-698"]
+        },
+        {
+          "module": "isEmptyIterable",
+          "variant": "primary",
+          "printedSourceSha256": "318a655b80ec0bf02b8048be11a3b6862f7ec2506c512d4de94832257d1b048c",
+          "dependencies": [],
+          "citations": ["modules/isEmptyIterable.js:1-8"]
+        },
+        {
+          "module": "performance",
+          "variant": "primary",
+          "printedSourceSha256": "9bee7ad7d1941af3432757b1ce55c980030f812f0a5fb00916e906b8a0b6ced9",
+          "dependencies": [],
+          "citations": ["modules/performance.js:1-5"]
+        },
+        {
+          "module": "performanceNow",
+          "variant": "primary",
+          "printedSourceSha256": "415e5327e020372f7789e27dc42266a9cb3d6bbc2d8c47d0b751b93517a0475f",
+          "dependencies": ["performance"],
+          "citations": ["modules/performanceNow.js:1-15"]
+        },
+        {
+          "module": "removeFromArray",
+          "variant": "primary",
+          "printedSourceSha256": "c8e194de9e9463716c2f383406ae8269ddff1a9fe5fbc1a7559abcd2aaa666bb",
+          "dependencies": [],
+          "citations": ["modules/removeFromArray.js:1-8"]
+        }
+      ],
+      "analyzer": {
+        "version": 3,
+        "sourceSha256": "06c35199d0b06c9441486d96cb06b540628d64c562b7c1bbd9f2b5f28c6a3096"
+      },
+      "inventoryDigest": "5b3a650d229f16b52406b6df63c8071e6cc41c7d62b866bd2983efa6fd245499",
+      "gates": [],
+      "unresolved": [],
+      "staticCoverage": {
+        "complete": true,
+        "scope": "module-closure-superset",
+        "semanticProof": false,
+        "resolverCoverage": false,
+        "modules": 9,
+        "sourceBytes": 30385,
+        "workBudget": {
+          "limit": 2000000,
+          "consumed": 92686,
+          "exhausted": false
+        },
+        "limitations": [
+          "Only supported gate APIs and static key expressions are inventoried.",
+          "Logical work units bound selected AST traversal and resolution, not parser internals or elapsed time; parsing remains source-byte bounded.",
+          "Declared fixture-provider boundaries exclude their original resolver implementations and dependencies.",
+          "All functions in each dependency module are scanned; exact export and caller reachability is not proven.",
+          "Runtime-discovered gates and externally selected code require separate observations."
+        ]
+      }
+    }
+  ],
+  "exclusions": [
+    "Both selected full multi-root graphs have9present modules/6edges with identical printed sources, no missing dependencies and no supported gate reads at either pin. One empty gate fixture assignment covers the established finite gate domain within this AST scope; it does not prove every JavaScript behavior or gated caller outside the selected graph.",
+    "The original Babel helper producer has been recovered privately but is not admitted/executed; an explicitly selected realm-native Object.assign compatibility fixture supplies extends. This is not a claim of canonical prelude equivalence.",
+    "Fresh actual iteratorFromArray generators are diagnostic consumers for next-step access to the same retained original generator. They are not production scheduler/consumer acceptance or custom wrapper code.",
+    "Finite retry counts through64 are observed to repeated completion. Positive fractional backoff retry bounds truncate by the source counter comparison; NaN/missing/infinite and very large bounds are deliberately prefix-only observations, then closed by an actual consumer.",
+    "Actual takeIterator fractional counts yield a ceiling number of elements; count0 pulls before its check and closes the underlying generator. Those are source characterizations, not corrected retry/scheduler requirements.",
+    "All randomness is deterministic synthetic Math.random input under a named seed/profile. No entropy, cryptographic randomness, statistical jitter distribution, wall-clock delay, timer, scheduler, reconnect or provider behavior is established.",
+    "Numeric/factor/minimum/cap/jitter/count/sequence domains are unbounded. Selected powers, fractions, negative values, nonfinite typed inputs and overflow cases are bounded characterization, not exhaustive numeric proof.",
+    "Map/filter callback operations and equalsIterable/enumerate or any path requiring missing FB_enumerate bootstrap remain excluded. No callbacks, host objects, callback fixtures or FB_enumerate implementation are synthesized.",
+    "Generator objects are retained only inside the worker realm and projected through actual next/consumer methods. Opaque generator empty-object snapshots are never used as passing observations.",
+    "Alternative variants, production containers, isolated authored-TS scheduling, native sessions, network services and named-library parity remain unexercised. Diagnostic process execution reports isolated:false."
+  ]
+}

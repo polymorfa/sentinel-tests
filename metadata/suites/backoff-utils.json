@@ -1,0 +1,253 @@
+{
+  "schemaVersion": 1,
+  "id": "backoff-utils",
+  "version": 1,
+  "title": "Original exponential backoff arithmetic, coercion and seeded jitter inputs",
+  "file": "tests/backoff-utils.test.ts",
+  "helper": "support/backoff-utils-cases.ts",
+  "capability": "wa-internal:backoff-utils",
+  "roots": ["WABackoffUtils"],
+  "oracle": "Actual WABackoffUtils.expBackoff. Integer binary powers use independent repeated doubling/halving. Finite bounds use mathematical interval medians and explicit lower-bound priority for contradictory bounds; attempt0 has separately reviewed minimum-or-zero expectations. Coercion cases have literal typed expectations. Fractional attempts use independently known clamped ranges, not unbounded fractional Math.pow rounding. Jitter uses the configured realm random input profile with independent BigInt modulo2^32 arithmetic; no archived code is invoked to calculate expected results.",
+  "trials": {
+    "cases": 16,
+    "probesPerRevision": 1057,
+    "maxProbesPerCase": 96,
+    "finiteBoundGrid": {
+      "attempts": "all integers -16 through16",
+      "maximums": [-8, 0, 3, 31, 1025],
+      "minimums": [-5, 0, 1, 7, 33],
+      "assignments": 825,
+      "meaning": "825 finite parameter-grid combinations, not gate assignments"
+    },
+    "integerPowerExponents": "35 selected signed integer exponents from -1075 through1025, including subnormal/overflow edges and strictzero special case",
+    "fractionalClampedAttempts": [-1023.5, -32.5, -4.5, -0.5, 0.5, 1.5, 4.5, 32.5, 1023.5],
+    "randomSeeds": [0, 1, 4294967295, 3735928559],
+    "randomInputProfile": {
+      "kind": "Sentinel deterministic realm Math.random input fixture",
+      "stateBits": 32,
+      "multiplier": 1664525,
+      "increment": 1013904223,
+      "modulus": 4294967296,
+      "normalization": "next unsigned state divided by2^32",
+      "oracle": "Independent BigInt modular arithmetic; configured input, not vendor entropy or a crypto provider"
+    },
+    "jitterSequenceProbesPerSeed": 27,
+    "jitterScope": "Falsy jitter skips draws; truthy zero-coercing jitter and zero output still consume input. Default/negative/large/nonfinite/coercing jitter and error-path draw order are characterized. Jitter applies after bounds and is not reclamped.",
+    "knownGateDescriptors": 0,
+    "selectedStaticAssignmentCardinality": 1,
+    "configurationExhaustive": false,
+    "domainEvidence": "No supported gate reads in all nine present original dependency modules. Missing cr6640 source remains unresolved, so one known empty context is not a complete closure/configuration claim. Number/string/coercion and sequence domains are unbounded; finite grids and seeded inputs are characterization only."
+  },
+  "observations": [
+    {
+      "revision": "1051710191",
+      "modules": [
+        {
+          "module": "fb-error",
+          "variant": "primary",
+          "printedSourceSha256": "545144d2d2c50524d5bcfc421916cf76760743cb5b034dcb7a4d7066981f714e",
+          "dependencies": ["performanceNow", "removeFromArray"],
+          "citations": ["modules/fb-error.js:1-698"]
+        },
+        {
+          "module": "performance",
+          "variant": "primary",
+          "printedSourceSha256": "9bee7ad7d1941af3432757b1ce55c980030f812f0a5fb00916e906b8a0b6ced9",
+          "dependencies": [],
+          "citations": ["modules/performance.js:1-5"]
+        },
+        {
+          "module": "performanceNow",
+          "variant": "primary",
+          "printedSourceSha256": "415e5327e020372f7789e27dc42266a9cb3d6bbc2d8c47d0b751b93517a0475f",
+          "dependencies": ["performance"],
+          "citations": ["modules/performanceNow.js:1-15"]
+        },
+        {
+          "module": "Promise",
+          "variant": "primary",
+          "printedSourceSha256": "c94f5132251416675e842ee8bbe98476648325ff897dab0a230b39875e1f3c2a",
+          "dependencies": ["cr:6640"],
+          "citations": ["modules/Promise.js:1-42"]
+        },
+        {
+          "module": "removeFromArray",
+          "variant": "primary",
+          "printedSourceSha256": "c8e194de9e9463716c2f383406ae8269ddff1a9fe5fbc1a7559abcd2aaa666bb",
+          "dependencies": [],
+          "citations": ["modules/removeFromArray.js:1-8"]
+        },
+        {
+          "module": "WAAbortError",
+          "variant": "primary",
+          "printedSourceSha256": "b5cf83506ce31b3ccf8a0beccffdf7989723ea46dac67008dbda4e87120aaa3d",
+          "dependencies": ["WACustomError"],
+          "citations": ["modules/WAAbortError.js:1-17"]
+        },
+        {
+          "module": "WABackoffUtils",
+          "variant": "primary",
+          "printedSourceSha256": "112d246abbf6e69f63410f541b76f95fb4980de529df6c951f913dd58f8496b1",
+          "dependencies": ["WAPromiseDelays"],
+          "citations": ["modules/WABackoffUtils.js:1-12"]
+        },
+        {
+          "module": "WACustomError",
+          "variant": "primary",
+          "printedSourceSha256": "5d1bdf0db1fc7934930362079c89db68a32e685cc1fa69bf80b922c5bfd883fa",
+          "dependencies": ["fb-error"],
+          "citations": ["modules/WACustomError.js:1-37"]
+        },
+        {
+          "module": "WAPromiseDelays",
+          "variant": "primary",
+          "printedSourceSha256": "755fbdb124a4dd8e79e5f3e110d33d38a8a6827ee00fdca15524fc8981c1f546",
+          "dependencies": ["Promise", "WAAbortError"],
+          "citations": ["modules/WAPromiseDelays.js:1-34"]
+        }
+      ],
+      "analyzer": {
+        "version": 3,
+        "sourceSha256": "06c35199d0b06c9441486d96cb06b540628d64c562b7c1bbd9f2b5f28c6a3096"
+      },
+      "inventoryDigest": "ae7f855f20552779307022566eed736db206ab16aabda2fff70be81bcaaac018",
+      "gates": [],
+      "unresolved": [
+        {
+          "code": "missing-module",
+          "module": "cr:6640"
+        }
+      ],
+      "staticCoverage": {
+        "complete": false,
+        "scope": "module-closure-superset",
+        "semanticProof": false,
+        "resolverCoverage": false,
+        "modules": 9,
+        "sourceBytes": 32872,
+        "workBudget": {
+          "limit": 2000000,
+          "consumed": 99918,
+          "exhausted": false
+        },
+        "limitations": [
+          "Only supported gate APIs and static key expressions are inventoried.",
+          "Logical work units bound selected AST traversal and resolution, not parser internals or elapsed time; parsing remains source-byte bounded.",
+          "Declared fixture-provider boundaries exclude their original resolver implementations and dependencies.",
+          "All functions in each dependency module are scanned; exact export and caller reachability is not proven.",
+          "Runtime-discovered gates and externally selected code require separate observations."
+        ]
+      }
+    },
+    {
+      "revision": "1051908825",
+      "modules": [
+        {
+          "module": "fb-error",
+          "variant": "primary",
+          "printedSourceSha256": "545144d2d2c50524d5bcfc421916cf76760743cb5b034dcb7a4d7066981f714e",
+          "dependencies": ["performanceNow", "removeFromArray"],
+          "citations": ["modules/fb-error.js:1-698"]
+        },
+        {
+          "module": "performance",
+          "variant": "primary",
+          "printedSourceSha256": "9bee7ad7d1941af3432757b1ce55c980030f812f0a5fb00916e906b8a0b6ced9",
+          "dependencies": [],
+          "citations": ["modules/performance.js:1-5"]
+        },
+        {
+          "module": "performanceNow",
+          "variant": "primary",
+          "printedSourceSha256": "415e5327e020372f7789e27dc42266a9cb3d6bbc2d8c47d0b751b93517a0475f",
+          "dependencies": ["performance"],
+          "citations": ["modules/performanceNow.js:1-15"]
+        },
+        {
+          "module": "Promise",
+          "variant": "primary",
+          "printedSourceSha256": "c94f5132251416675e842ee8bbe98476648325ff897dab0a230b39875e1f3c2a",
+          "dependencies": ["cr:6640"],
+          "citations": ["modules/Promise.js:1-42"]
+        },
+        {
+          "module": "removeFromArray",
+          "variant": "primary",
+          "printedSourceSha256": "c8e194de9e9463716c2f383406ae8269ddff1a9fe5fbc1a7559abcd2aaa666bb",
+          "dependencies": [],
+          "citations": ["modules/removeFromArray.js:1-8"]
+        },
+        {
+          "module": "WAAbortError",
+          "variant": "primary",
+          "printedSourceSha256": "b5cf83506ce31b3ccf8a0beccffdf7989723ea46dac67008dbda4e87120aaa3d",
+          "dependencies": ["WACustomError"],
+          "citations": ["modules/WAAbortError.js:1-17"]
+        },
+        {
+          "module": "WABackoffUtils",
+          "variant": "primary",
+          "printedSourceSha256": "112d246abbf6e69f63410f541b76f95fb4980de529df6c951f913dd58f8496b1",
+          "dependencies": ["WAPromiseDelays"],
+          "citations": ["modules/WABackoffUtils.js:1-12"]
+        },
+        {
+          "module": "WACustomError",
+          "variant": "primary",
+          "printedSourceSha256": "5d1bdf0db1fc7934930362079c89db68a32e685cc1fa69bf80b922c5bfd883fa",
+          "dependencies": ["fb-error"],
+          "citations": ["modules/WACustomError.js:1-37"]
+        },
+        {
+          "module": "WAPromiseDelays",
+          "variant": "primary",
+          "printedSourceSha256": "755fbdb124a4dd8e79e5f3e110d33d38a8a6827ee00fdca15524fc8981c1f546",
+          "dependencies": ["Promise", "WAAbortError"],
+          "citations": ["modules/WAPromiseDelays.js:1-34"]
+        }
+      ],
+      "analyzer": {
+        "version": 3,
+        "sourceSha256": "06c35199d0b06c9441486d96cb06b540628d64c562b7c1bbd9f2b5f28c6a3096"
+      },
+      "inventoryDigest": "ae7f855f20552779307022566eed736db206ab16aabda2fff70be81bcaaac018",
+      "gates": [],
+      "unresolved": [
+        {
+          "code": "missing-module",
+          "module": "cr:6640"
+        }
+      ],
+      "staticCoverage": {
+        "complete": false,
+        "scope": "module-closure-superset",
+        "semanticProof": false,
+        "resolverCoverage": false,
+        "modules": 9,
+        "sourceBytes": 32872,
+        "workBudget": {
+          "limit": 2000000,
+          "consumed": 99918,
+          "exhausted": false
+        },
+        "limitations": [
+          "Only supported gate APIs and static key expressions are inventoried.",
+          "Logical work units bound selected AST traversal and resolution, not parser internals or elapsed time; parsing remains source-byte bounded.",
+          "Declared fixture-provider boundaries exclude their original resolver implementations and dependencies.",
+          "All functions in each dependency module are scanned; exact export and caller reachability is not proven.",
+          "Runtime-discovered gates and externally selected code require separate observations."
+        ]
+      }
+    }
+  ],
+  "exclusions": [
+    "Full transitive inventory includes WAPromiseDelays, Promise, WAAbortError, WACustomError and logger dependencies. Missing original cr6640 source remains unresolved even with the explicit null runtime fixture",
+    "Only module-export fixture cr6640:null is supplied. Original delay, AbortError, cache and numeric-operation modules are not replaced. Realm Math.random is explicitly configured as the deterministic input profile described in trials; timer APIs remain unsupported.",
+    "expDelaySec, real timers, Promise delay/abort/timeout execution, scheduler behavior and network/provider retry policies remain unsupported/unexecuted. Arithmetic return values do not establish real delay scheduling",
+    "The actual Babel helper producer has been recovered privately but is not admitted/executed. expBackoff does not require a Babel compatibility fixture; original CustomError/AbortError initialization and full bootstrap remain unproven",
+    "Seeded realm Math.random is an injected input profile, not observed WhatsApp randomness, entropy, cryptographic behavior or a named provider acceptance result",
+    "Fractional attempts are covered through known bounded ranges; exact unbounded fractional-power rounding, signed-zero transport identity, Symbol/function coercion and arbitrary valueOf/toString callbacks are not asserted",
+    "Generated finite grids, typed nonfinite/BigInt/string/array/object examples and ordered random-input histories do not enumerate all inputs or asynchronous schedules",
+    "Alternate module variants, caller behavior, container execution, production scheduling, sessions/accounts, named-library adapters and customer availability remain unexercised"
+  ]
+}
