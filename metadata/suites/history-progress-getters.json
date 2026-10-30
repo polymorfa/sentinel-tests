@@ -8,7 +8,7 @@
   "capability": "wa-internal:history-progress-getters",
   "requiresBootstrapKinds": ["babel-helpers"],
   "roots": ["WAWebHistorySyncProgressGetters", "WAWebGetters"],
-  "oracle": "Literal progress/null/cap/paused/truthiness boundaries and independent signed integer sum grids. Actual WAWebGetters.unsafeIdentityGetter returns the same synthetic model-shaped realm record, retained through result projection for repeated actual history getter reads. Actual source Map cache entry counts are observed through clearAllGetterCaches, repeated clear/repopulation, stringified-ID collisions, failed-key and failed-arithmetic recovery. No fake model/cache/provider or mutation callbacks.",
+  "oracle": "Literal progress/null/cap/paused/truthiness boundaries and independent signed integer sum grids. Actual WAWebGetters.unsafeIdentityGetter returns the same synthetic model-shaped realm record, retained through result projection for repeated actual history getter reads. Actual source Map cache entry counts are observed through clearAllGetterCaches, repeated clear/repopulation, stringified-ID collisions, failed-key and failed-arithmetic recovery. No fake model/cache factory or mutation callbacks. ABProps is an explicit consumer fixture; cr:6640=null selects the real Promise fallback and does not supply the missing provider.",
   "trials": {
     "cases": 48,
     "portablePlanTests": 1,
