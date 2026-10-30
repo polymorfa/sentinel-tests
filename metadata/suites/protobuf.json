@@ -1,0 +1,562 @@
+{
+  "schemaVersion": 1,
+  "id": "protobuf-core",
+  "version": 1,
+  "title": "Protobuf descriptor, schema compilation and real binary codec",
+  "file": "tests/protobuf-core.test.ts",
+  "helper": "support/protobuf-cases.ts",
+  "capability": "wa-internal:protobuf-core",
+  "roots": ["WAProtoUtils", "WAProtoCompile", "encodeProtobuf", "decodeProtobuf"],
+  "oracle": "Independent fixed protobuf wire vectors: standard field keys, unsigned and zigzag varints, little-endian fixed integers and IEEE754 1.5, UTF-8 and length-delimited nested/repeated/packed fields. Descriptor expectation tables cover all 18 declared types and eight combinations of three flags. Schema/error expectations come from reviewed contracts, never from execution output.",
+  "trials": {
+    "utilityTypeFlagAssignments": 144,
+    "utilityExports": 4,
+    "utilityProbes": 576,
+    "seed": null,
+    "decoderKnobAssignments": [false, true],
+    "decoderKnobKey": "2451",
+    "configurationExhaustive": false,
+    "cases": 40,
+    "probesPerRevision": 681,
+    "literalCodecVectors": 24,
+    "decoderTransitionDirections": 2
+  },
+  "observations": [
+    {
+      "revision": "1051710191",
+      "modules": [
+        {
+          "module": "$InternalEnum",
+          "variant": "primary",
+          "printedSourceSha256": "2ceb4779145d3f716cdabff27facf6fec30f45f844896ccd78300320a44a69a9",
+          "dependencies": [],
+          "citations": ["modules/$InternalEnum.js:1-51"]
+        },
+        {
+          "module": "asyncToGeneratorRuntime",
+          "variant": "primary",
+          "printedSourceSha256": "147052b2a1cdc6d21087a611043d0974d5babedeeee624185babb023bbcf72f3",
+          "dependencies": ["Promise"],
+          "citations": ["modules/asyncToGeneratorRuntime.js:1-29"]
+        },
+        {
+          "module": "decodeProtobuf",
+          "variant": "primary",
+          "printedSourceSha256": "144c6ec88cce9b152905f4e1cea9fd744785b97f8b3fda6904ba21170eea9b9b",
+          "dependencies": [
+            "WABaseProto",
+            "WABinary",
+            "WAHasProperty",
+            "WAHex",
+            "WALogger",
+            "WAProtoCompile",
+            "WAProtoConst",
+            "WAProtoUtils",
+            "WAProtoValidate",
+            "err",
+            "justknobx"
+          ],
+          "citations": ["modules/decodeProtobuf.js:1-191"]
+        },
+        {
+          "module": "encodeProtobuf",
+          "variant": "primary",
+          "printedSourceSha256": "35c9a8b1927c7a1d546e1960f4398293f060f7ff470d11c7d0a484014302a819",
+          "dependencies": [
+            "WABinary",
+            "WAHex",
+            "WAProtoCompile",
+            "WAProtoConst",
+            "WAProtoUtils",
+            "WAProtoValidate"
+          ],
+          "citations": ["modules/encodeProtobuf.js:1-137"]
+        },
+        {
+          "module": "Env",
+          "variant": "primary",
+          "printedSourceSha256": "ad5c3d19c3db7a10d569dceb202b62801ac1014c42a99cf21d3249a124319082",
+          "dependencies": [],
+          "citations": ["modules/Env.js:1-22"]
+        },
+        {
+          "module": "err",
+          "variant": "primary",
+          "printedSourceSha256": "a26a1f88fe2c09505c0ec8e43d1a43c2299b6126ea7ea305c567bf7634fbeea0",
+          "dependencies": ["fb-error"],
+          "citations": ["modules/err.js:1-4"]
+        },
+        {
+          "module": "fb-error",
+          "variant": "primary",
+          "printedSourceSha256": "545144d2d2c50524d5bcfc421916cf76760743cb5b034dcb7a4d7066981f714e",
+          "dependencies": ["performanceNow", "removeFromArray"],
+          "citations": ["modules/fb-error.js:1-698"]
+        },
+        {
+          "module": "fb-error-lite",
+          "variant": "primary",
+          "printedSourceSha256": "70182c28f267319e6122d9da5fa9d01bc3c60775130d33429a71874503924b64",
+          "dependencies": [],
+          "citations": ["modules/fb-error-lite.js:1-25"]
+        },
+        {
+          "module": "FBLogger",
+          "variant": "primary",
+          "printedSourceSha256": "5b78358a73a6900d013f27628afaffe9b58fdb92dc37233690ec50441114c7c2",
+          "dependencies": ["fb-error"],
+          "citations": ["modules/FBLogger.js:1-4"]
+        },
+        {
+          "module": "invariant",
+          "variant": "primary",
+          "printedSourceSha256": "6b377021188adf8be5add1781bb1a5b3a7da5d0021df951267b1ae8d331f705f",
+          "dependencies": ["Env", "fb-error-lite", "sprintf"],
+          "citations": ["modules/invariant.js:1-42"]
+        },
+        {
+          "module": "justknobx",
+          "variant": "primary",
+          "printedSourceSha256": "f42afc172240cd5ff466368ab522c6b917cdf148a6527126ecf1052ed718ec9e",
+          "dependencies": ["invariant"],
+          "citations": ["modules/justknobx.js:1-19"]
+        },
+        {
+          "module": "performance",
+          "variant": "primary",
+          "printedSourceSha256": "9bee7ad7d1941af3432757b1ce55c980030f812f0a5fb00916e906b8a0b6ced9",
+          "dependencies": [],
+          "citations": ["modules/performance.js:1-5"]
+        },
+        {
+          "module": "performanceNow",
+          "variant": "primary",
+          "printedSourceSha256": "415e5327e020372f7789e27dc42266a9cb3d6bbc2d8c47d0b751b93517a0475f",
+          "dependencies": ["performance"],
+          "citations": ["modules/performanceNow.js:1-15"]
+        },
+        {
+          "module": "Promise",
+          "variant": "primary",
+          "printedSourceSha256": "c94f5132251416675e842ee8bbe98476648325ff897dab0a230b39875e1f3c2a",
+          "dependencies": ["cr:6640"],
+          "citations": ["modules/Promise.js:1-42"]
+        },
+        {
+          "module": "removeFromArray",
+          "variant": "primary",
+          "printedSourceSha256": "c8e194de9e9463716c2f383406ae8269ddff1a9fe5fbc1a7559abcd2aaa666bb",
+          "dependencies": [],
+          "citations": ["modules/removeFromArray.js:1-8"]
+        },
+        {
+          "module": "sprintf",
+          "variant": "primary",
+          "printedSourceSha256": "7860c49011bd89ed50d0db8ed061d00ec9a2ba42b75f298a10c3d6ef98888361",
+          "dependencies": [],
+          "citations": ["modules/sprintf.js:1-11"]
+        },
+        {
+          "module": "WABaseProto",
+          "variant": "primary",
+          "printedSourceSha256": "17b2a75f1d4c2f1197bff1188d215e276359284153652ddac757d63bccbf4b94",
+          "dependencies": [],
+          "citations": ["modules/WABaseProto.js:1-5"]
+        },
+        {
+          "module": "WABinary",
+          "variant": "primary",
+          "printedSourceSha256": "03edbd33455894b148adb38944ff3c6a27b3102631d3c00bf1cdeea5480884d4",
+          "dependencies": ["WAHex", "err"],
+          "citations": ["modules/WABinary.js:1-360"]
+        },
+        {
+          "module": "WAHasProperty",
+          "variant": "primary",
+          "printedSourceSha256": "cf0558a470139e372976955e35563f61a6c158418a4a061dfd9bc8f487cbd1aa",
+          "dependencies": [],
+          "citations": ["modules/WAHasProperty.js:1-7"]
+        },
+        {
+          "module": "WAHex",
+          "variant": "primary",
+          "printedSourceSha256": "3d28ad9eb342f6715bec66c8c38fd57a14497e07101f5f9b67fc3c9838e72ffe",
+          "dependencies": ["err"],
+          "citations": ["modules/WAHex.js:1-119"]
+        },
+        {
+          "module": "WALogger",
+          "variant": "primary",
+          "printedSourceSha256": "0406e777eb10eef04870576148db402f9aa20fe709545e0701a314d5b8583837",
+          "dependencies": ["$InternalEnum", "WATagsLogger"],
+          "citations": ["modules/WALogger.js:1-27"]
+        },
+        {
+          "module": "WALoggerUtils",
+          "variant": "primary",
+          "printedSourceSha256": "e1baf5e4850088801148e9a6a46e6720e52efba4aca6f4a139f585fd162f364b",
+          "dependencies": ["WAHex"],
+          "citations": ["modules/WALoggerUtils.js:1-35"]
+        },
+        {
+          "module": "WAProtoCompile",
+          "variant": "primary",
+          "printedSourceSha256": "5a13a0d788df776bccf3f31d0ac029d176ebbba783b8dfcd0f78322527e7be15",
+          "dependencies": ["WAProtoConst"],
+          "citations": ["modules/WAProtoCompile.js:1-71"]
+        },
+        {
+          "module": "WAProtoConst",
+          "variant": "primary",
+          "printedSourceSha256": "81df9db77fae48ee6663df7c35e94a6f2f6a33675abc65029c5236b743076cfe",
+          "dependencies": [],
+          "citations": ["modules/WAProtoConst.js:1-38"]
+        },
+        {
+          "module": "WAProtoUtils",
+          "variant": "primary",
+          "printedSourceSha256": "2885fa318ebb830e60a7e5f86e9a0237ba353f5230efa9c1ee30178d0ee9633a",
+          "dependencies": ["WAProtoConst"],
+          "citations": ["modules/WAProtoUtils.js:1-18"]
+        },
+        {
+          "module": "WAProtoValidate",
+          "variant": "primary",
+          "printedSourceSha256": "60238656810c762dd7c4c14456d822a84ca179860b16ec61c9c0009cc09a885d",
+          "dependencies": ["WAHasProperty", "WALogger", "WAProtoCompile", "WAProtoConst"],
+          "citations": ["modules/WAProtoValidate.js:1-166"]
+        },
+        {
+          "module": "WATagsLogger",
+          "variant": "primary",
+          "printedSourceSha256": "c6cb8a0516b1ec1b5a373d50cd3d75f952707f12547d2f46820d9d352bb26ad7",
+          "dependencies": ["FBLogger", "Promise", "WALoggerUtils", "asyncToGeneratorRuntime"],
+          "citations": ["modules/WATagsLogger.js:1-189"]
+        }
+      ],
+      "analyzer": {
+        "version": 1,
+        "sourceSha256": "01036d720caccf437f31062c23335fffcae7bb94f46e346de330ae6a744bfd80"
+      },
+      "inventoryDigest": "5af8ffbcf0fac92f994c11046c00e0f450f98b8c60fbadb84b4acbd8e37f95c3",
+      "gates": [
+        {
+          "kind": "knobs",
+          "key": "2451",
+          "valueType": "unknown",
+          "reads": [
+            {
+              "module": "decodeProtobuf",
+              "variant": "primary",
+              "line": 93,
+              "column": 31,
+              "method": "_",
+              "timing": "function-body",
+              "expression": "r(\"justknobx\")._(\"2451\")"
+            }
+          ]
+        }
+      ],
+      "unresolved": [
+        {
+          "code": "dynamic-code-or-import",
+          "module": "fb-error",
+          "line": 367,
+          "column": 11
+        },
+        {
+          "code": "missing-module",
+          "module": "cr:6640"
+        }
+      ],
+      "staticCoverage": {
+        "complete": false,
+        "scope": "module-closure-superset",
+        "semanticProof": false,
+        "resolverCoverage": false,
+        "modules": 27,
+        "sourceBytes": 82038,
+        "limitations": [
+          "Only supported gate APIs and static key expressions are inventoried.",
+          "Declared fixture-provider boundaries exclude their original resolver implementations and dependencies.",
+          "All functions in each dependency module are scanned; exact export and caller reachability is not proven.",
+          "Runtime-discovered gates and externally selected code require separate observations."
+        ]
+      }
+    },
+    {
+      "revision": "1051908825",
+      "modules": [
+        {
+          "module": "$InternalEnum",
+          "variant": "primary",
+          "printedSourceSha256": "2ceb4779145d3f716cdabff27facf6fec30f45f844896ccd78300320a44a69a9",
+          "dependencies": [],
+          "citations": ["modules/$InternalEnum.js:1-51"]
+        },
+        {
+          "module": "asyncToGeneratorRuntime",
+          "variant": "primary",
+          "printedSourceSha256": "147052b2a1cdc6d21087a611043d0974d5babedeeee624185babb023bbcf72f3",
+          "dependencies": ["Promise"],
+          "citations": ["modules/asyncToGeneratorRuntime.js:1-29"]
+        },
+        {
+          "module": "decodeProtobuf",
+          "variant": "primary",
+          "printedSourceSha256": "144c6ec88cce9b152905f4e1cea9fd744785b97f8b3fda6904ba21170eea9b9b",
+          "dependencies": [
+            "WABaseProto",
+            "WABinary",
+            "WAHasProperty",
+            "WAHex",
+            "WALogger",
+            "WAProtoCompile",
+            "WAProtoConst",
+            "WAProtoUtils",
+            "WAProtoValidate",
+            "err",
+            "justknobx"
+          ],
+          "citations": ["modules/decodeProtobuf.js:1-191"]
+        },
+        {
+          "module": "encodeProtobuf",
+          "variant": "primary",
+          "printedSourceSha256": "35c9a8b1927c7a1d546e1960f4398293f060f7ff470d11c7d0a484014302a819",
+          "dependencies": [
+            "WABinary",
+            "WAHex",
+            "WAProtoCompile",
+            "WAProtoConst",
+            "WAProtoUtils",
+            "WAProtoValidate"
+          ],
+          "citations": ["modules/encodeProtobuf.js:1-137"]
+        },
+        {
+          "module": "Env",
+          "variant": "primary",
+          "printedSourceSha256": "ad5c3d19c3db7a10d569dceb202b62801ac1014c42a99cf21d3249a124319082",
+          "dependencies": [],
+          "citations": ["modules/Env.js:1-22"]
+        },
+        {
+          "module": "err",
+          "variant": "primary",
+          "printedSourceSha256": "a26a1f88fe2c09505c0ec8e43d1a43c2299b6126ea7ea305c567bf7634fbeea0",
+          "dependencies": ["fb-error"],
+          "citations": ["modules/err.js:1-4"]
+        },
+        {
+          "module": "fb-error",
+          "variant": "primary",
+          "printedSourceSha256": "545144d2d2c50524d5bcfc421916cf76760743cb5b034dcb7a4d7066981f714e",
+          "dependencies": ["performanceNow", "removeFromArray"],
+          "citations": ["modules/fb-error.js:1-698"]
+        },
+        {
+          "module": "fb-error-lite",
+          "variant": "primary",
+          "printedSourceSha256": "70182c28f267319e6122d9da5fa9d01bc3c60775130d33429a71874503924b64",
+          "dependencies": [],
+          "citations": ["modules/fb-error-lite.js:1-25"]
+        },
+        {
+          "module": "FBLogger",
+          "variant": "primary",
+          "printedSourceSha256": "5b78358a73a6900d013f27628afaffe9b58fdb92dc37233690ec50441114c7c2",
+          "dependencies": ["fb-error"],
+          "citations": ["modules/FBLogger.js:1-4"]
+        },
+        {
+          "module": "invariant",
+          "variant": "primary",
+          "printedSourceSha256": "6b377021188adf8be5add1781bb1a5b3a7da5d0021df951267b1ae8d331f705f",
+          "dependencies": ["Env", "fb-error-lite", "sprintf"],
+          "citations": ["modules/invariant.js:1-42"]
+        },
+        {
+          "module": "justknobx",
+          "variant": "primary",
+          "printedSourceSha256": "f42afc172240cd5ff466368ab522c6b917cdf148a6527126ecf1052ed718ec9e",
+          "dependencies": ["invariant"],
+          "citations": ["modules/justknobx.js:1-19"]
+        },
+        {
+          "module": "performance",
+          "variant": "primary",
+          "printedSourceSha256": "9bee7ad7d1941af3432757b1ce55c980030f812f0a5fb00916e906b8a0b6ced9",
+          "dependencies": [],
+          "citations": ["modules/performance.js:1-5"]
+        },
+        {
+          "module": "performanceNow",
+          "variant": "primary",
+          "printedSourceSha256": "415e5327e020372f7789e27dc42266a9cb3d6bbc2d8c47d0b751b93517a0475f",
+          "dependencies": ["performance"],
+          "citations": ["modules/performanceNow.js:1-15"]
+        },
+        {
+          "module": "Promise",
+          "variant": "primary",
+          "printedSourceSha256": "c94f5132251416675e842ee8bbe98476648325ff897dab0a230b39875e1f3c2a",
+          "dependencies": ["cr:6640"],
+          "citations": ["modules/Promise.js:1-42"]
+        },
+        {
+          "module": "removeFromArray",
+          "variant": "primary",
+          "printedSourceSha256": "c8e194de9e9463716c2f383406ae8269ddff1a9fe5fbc1a7559abcd2aaa666bb",
+          "dependencies": [],
+          "citations": ["modules/removeFromArray.js:1-8"]
+        },
+        {
+          "module": "sprintf",
+          "variant": "primary",
+          "printedSourceSha256": "7860c49011bd89ed50d0db8ed061d00ec9a2ba42b75f298a10c3d6ef98888361",
+          "dependencies": [],
+          "citations": ["modules/sprintf.js:1-11"]
+        },
+        {
+          "module": "WABaseProto",
+          "variant": "primary",
+          "printedSourceSha256": "17b2a75f1d4c2f1197bff1188d215e276359284153652ddac757d63bccbf4b94",
+          "dependencies": [],
+          "citations": ["modules/WABaseProto.js:1-5"]
+        },
+        {
+          "module": "WABinary",
+          "variant": "primary",
+          "printedSourceSha256": "03edbd33455894b148adb38944ff3c6a27b3102631d3c00bf1cdeea5480884d4",
+          "dependencies": ["WAHex", "err"],
+          "citations": ["modules/WABinary.js:1-360"]
+        },
+        {
+          "module": "WAHasProperty",
+          "variant": "primary",
+          "printedSourceSha256": "cf0558a470139e372976955e35563f61a6c158418a4a061dfd9bc8f487cbd1aa",
+          "dependencies": [],
+          "citations": ["modules/WAHasProperty.js:1-7"]
+        },
+        {
+          "module": "WAHex",
+          "variant": "primary",
+          "printedSourceSha256": "3d28ad9eb342f6715bec66c8c38fd57a14497e07101f5f9b67fc3c9838e72ffe",
+          "dependencies": ["err"],
+          "citations": ["modules/WAHex.js:1-119"]
+        },
+        {
+          "module": "WALogger",
+          "variant": "primary",
+          "printedSourceSha256": "0406e777eb10eef04870576148db402f9aa20fe709545e0701a314d5b8583837",
+          "dependencies": ["$InternalEnum", "WATagsLogger"],
+          "citations": ["modules/WALogger.js:1-27"]
+        },
+        {
+          "module": "WALoggerUtils",
+          "variant": "primary",
+          "printedSourceSha256": "e1baf5e4850088801148e9a6a46e6720e52efba4aca6f4a139f585fd162f364b",
+          "dependencies": ["WAHex"],
+          "citations": ["modules/WALoggerUtils.js:1-35"]
+        },
+        {
+          "module": "WAProtoCompile",
+          "variant": "primary",
+          "printedSourceSha256": "5a13a0d788df776bccf3f31d0ac029d176ebbba783b8dfcd0f78322527e7be15",
+          "dependencies": ["WAProtoConst"],
+          "citations": ["modules/WAProtoCompile.js:1-71"]
+        },
+        {
+          "module": "WAProtoConst",
+          "variant": "primary",
+          "printedSourceSha256": "81df9db77fae48ee6663df7c35e94a6f2f6a33675abc65029c5236b743076cfe",
+          "dependencies": [],
+          "citations": ["modules/WAProtoConst.js:1-38"]
+        },
+        {
+          "module": "WAProtoUtils",
+          "variant": "primary",
+          "printedSourceSha256": "2885fa318ebb830e60a7e5f86e9a0237ba353f5230efa9c1ee30178d0ee9633a",
+          "dependencies": ["WAProtoConst"],
+          "citations": ["modules/WAProtoUtils.js:1-18"]
+        },
+        {
+          "module": "WAProtoValidate",
+          "variant": "primary",
+          "printedSourceSha256": "60238656810c762dd7c4c14456d822a84ca179860b16ec61c9c0009cc09a885d",
+          "dependencies": ["WAHasProperty", "WALogger", "WAProtoCompile", "WAProtoConst"],
+          "citations": ["modules/WAProtoValidate.js:1-166"]
+        },
+        {
+          "module": "WATagsLogger",
+          "variant": "primary",
+          "printedSourceSha256": "c6cb8a0516b1ec1b5a373d50cd3d75f952707f12547d2f46820d9d352bb26ad7",
+          "dependencies": ["FBLogger", "Promise", "WALoggerUtils", "asyncToGeneratorRuntime"],
+          "citations": ["modules/WATagsLogger.js:1-189"]
+        }
+      ],
+      "analyzer": {
+        "version": 1,
+        "sourceSha256": "01036d720caccf437f31062c23335fffcae7bb94f46e346de330ae6a744bfd80"
+      },
+      "inventoryDigest": "5af8ffbcf0fac92f994c11046c00e0f450f98b8c60fbadb84b4acbd8e37f95c3",
+      "gates": [
+        {
+          "kind": "knobs",
+          "key": "2451",
+          "valueType": "unknown",
+          "reads": [
+            {
+              "module": "decodeProtobuf",
+              "variant": "primary",
+              "line": 93,
+              "column": 31,
+              "method": "_",
+              "timing": "function-body",
+              "expression": "r(\"justknobx\")._(\"2451\")"
+            }
+          ]
+        }
+      ],
+      "unresolved": [
+        {
+          "code": "dynamic-code-or-import",
+          "module": "fb-error",
+          "line": 367,
+          "column": 11
+        },
+        {
+          "code": "missing-module",
+          "module": "cr:6640"
+        }
+      ],
+      "staticCoverage": {
+        "complete": false,
+        "scope": "module-closure-superset",
+        "semanticProof": false,
+        "resolverCoverage": false,
+        "modules": 27,
+        "sourceBytes": 82038,
+        "limitations": [
+          "Only supported gate APIs and static key expressions are inventoried.",
+          "Declared fixture-provider boundaries exclude their original resolver implementations and dependencies.",
+          "All functions in each dependency module are scanned; exact export and caller reachability is not proven.",
+          "Runtime-discovered gates and externally selected code require separate observations."
+        ]
+      }
+    }
+  ],
+  "exclusions": [
+    "Missing cr:6640 archived source; explicit null environment fixture exercises real Promise fallback to global Promise, not original substitution",
+    "Original justknobx resolver and server/cohort assignments excluded; true/false exercise the local depth-guard branch",
+    "Conservative AST dynamic closure and computed-key diagnostics prevent exhaustive configuration claim",
+    "WALogger diagnostics use real archived implementation, but delivery and initialization are outside this test",
+    "Generated WhatsApp message catalogs and application caller behavior",
+    "Map decoder entries, unknown-field preservation, tagged unions, recursion-limit transitions and exhaustive malformed wire space",
+    "Alternate module variants, container execution, production scheduling, accounts and network",
+    "Language-library parity",
+    "Original Babel bootstrap unavailable; explicit extends and taggedTemplateLiteralLoose worker compatibility fixtures, recorded in context",
+    "100-level decoder recursion-limit edge exceeds existing JSON fixture nesting bound; local knob rereads only"
+  ]
+}

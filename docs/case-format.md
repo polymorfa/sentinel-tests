@@ -33,6 +33,8 @@ For a real class, set `construct:{args:[…]}` and name a `method` on each probe
 
 Optional per-probe `clock` timestamps advance or rewind scenario Date values. Actual applied timestamps return in `clockUpdates`; wall time and timers remain separate. Typed Uint8Array inputs can include `byteOffset` and `byteLength`, with `value` containing the full backing bytes. Snapshots compare logical bytes and cannot prove alias identity.
 
+`result:{method,args?}` calls a method on the actual returned object before comparing its snapshot, for example reading bytes from an encoder's Binary return. It is a recorded operation on the real result. `context.babelHelpers` can explicitly select supported realm-native transpiler compatibility fixtures. Those fixtures must be reported as environment replacements, with original bundle bootstrap behavior excluded.
+
 `runCase` returns a status and actual `{id, actual}` or `{id, thrown}` observations. Tests recompute their assertions from those observations. A bare `pass` flag is insufficient. Return `unsupported` for an unavailable operation; unexpected load/runtime failures fail the test.
 
 An optional `compareCase(testCase)` runs a comparable source pair and returns `{status, baseline, candidate}`. The fixture suite checks the recorded expected comparison, including the intentional explicit-date mismatch. It never rewrites an expected value because a new revision differs. `close()` releases the subject's owned resources after each suite file.

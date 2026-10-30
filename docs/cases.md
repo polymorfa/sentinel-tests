@@ -11,6 +11,8 @@ The authored TS suites extend the eight historical fixtures below. The metadata 
 | WAM buffer            | Actual headers/records, channels, signed widths, strings, event flags, admission and finalization.                                   |
 | Crypto representation | All padding tail bytes across selected sizes/offsets, fixed-width integer encoding, little-endian decoding and hex characterization. |
 | Backoff state         | Ordered per-key retry/expiry/reset behavior, exact time boundaries, exhausted intervals and backward clocks.                         |
+| Addressing/media      | JID grammar, constructors, normalization, literal media types and malformed values.                                                  |
+| Protobuf core         | Field/type flags, schema compilation, independent wire vectors, actual encoder/decoder and knob transitions.                         |
 
 These assertions run actual archived implementations when a capable subject is explicitly selected. They do not cover original provider resolution, live server behavior or complete library compliance. Binary/WAM/error closures retain the unresolved analyzer diagnostic recorded in their metadata. Large WAM strings verify size transitions where full byte expectations exceed the retained payload bound.
 

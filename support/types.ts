@@ -11,6 +11,7 @@ export interface GateUpdate {
 }
 export interface BehaviorContext {
   clock?: string;
+  babelHelpers?: ('extends' | 'taggedTemplateLiteralLoose')[];
   timezone?: string;
   randomSeed?: number;
   gates?: GateConfig;
@@ -26,6 +27,7 @@ export type Probe = {
   export?: string;
   method?: string;
   clock?: string;
+  result?: { method: string; args?: JsonValue[] };
 } & ({ expected: JsonValue; throws?: never } | { expected?: never; throws: ErrorExpectation });
 export interface BehaviorCase {
   schemaVersion: 1;

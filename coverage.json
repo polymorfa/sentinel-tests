@@ -41,7 +41,8 @@
       "id": "message-formats-and-encryption",
       "cases": ["protocol-media-type-cast@1"],
       "status": "partial",
-      "scope": "Media type literal/alias classification only; serialization, rendering, encryption and server acceptance remain uncovered"
+      "scope": "Protocol/server media type conversion and selected actual protobuf schema/encoding/decoding vectors; not complete message, rendering or encryption coverage",
+      "suiteIds": ["addressing-media@1", "protobuf-core@1"]
     },
     {
       "id": "app-state-and-lthash",
@@ -111,6 +112,13 @@
       "suiteIds": ["wam-buffer-behavior@1"],
       "status": "partial",
       "scope": "Actual offline buffer encoding/admission; no event routing, sampling, uploader or Meta ingestion"
+    },
+    {
+      "id": "addressing",
+      "cases": [],
+      "suiteIds": ["addressing-media@1"],
+      "status": "partial",
+      "scope": "Actual JID grammar, constructors and normalization under selected types; WidFactory/contact mapping and live identity remain excluded"
     }
   ],
   "executableSuites": [
@@ -121,6 +129,14 @@
       "metadata": "metadata/suites/abprops.json",
       "status": "partial",
       "capability": "wa-internal:abprops-leaves"
+    },
+    {
+      "id": "addressing-media",
+      "version": 1,
+      "file": "tests/addressing-media.test.ts",
+      "metadata": "metadata/suites/addressing-media.json",
+      "status": "partial",
+      "capability": "wa-internal:addressing-media"
     },
     {
       "id": "backoff-state",
@@ -145,6 +161,14 @@
       "metadata": "metadata/suites/crypto-representation.json",
       "status": "partial",
       "capability": "wa-internal:crypto-representation"
+    },
+    {
+      "id": "protobuf-core",
+      "version": 1,
+      "file": "tests/protobuf-core.test.ts",
+      "metadata": "metadata/suites/protobuf.json",
+      "status": "partial",
+      "capability": "wa-internal:protobuf-core"
     },
     {
       "id": "wam-buffer-behavior",

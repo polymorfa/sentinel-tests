@@ -58,6 +58,15 @@ export async function validateFixtures(): Promise<FixtureEntry[]> {
         Number(value.context.randomSeed) <= 0xffffffff,
     );
     assert.ok(record(value.context.gates));
+    if (value.context.babelHelpers !== undefined)
+      assert.ok(
+        Array.isArray(value.context.babelHelpers) &&
+          value.context.babelHelpers.length <= 2 &&
+          value.context.babelHelpers.every((helper) =>
+            ['extends', 'taggedTemplateLiteralLoose'].includes(String(helper)),
+          ) &&
+          new Set(value.context.babelHelpers).size === value.context.babelHelpers.length,
+      );
     if (value.construct !== undefined)
       assert.ok(
         record(value.construct) &&
@@ -70,6 +79,15 @@ export async function validateFixtures(): Promise<FixtureEntry[]> {
       assert.ok(record(probe) && typeof probe.id === 'string' && !probeIds.has(probe.id));
       probeIds.add(probe.id);
       assert.ok(Array.isArray(probe.args));
+      if (probe.result !== undefined)
+        assert.ok(
+          record(probe.result) &&
+            typeof probe.result.method === 'string' &&
+            /^[A-Za-z_$][\w$]*$/.test(probe.result.method) &&
+            !['constructor', '__proto__', 'prototype'].includes(probe.result.method) &&
+            (probe.result.args === undefined || Array.isArray(probe.result.args)) &&
+            Object.keys(probe.result).every((key) => ['method', 'args'].includes(key)),
+        );
       if (probe.clock !== undefined)
         assert.ok(
           typeof probe.clock === 'string' &&

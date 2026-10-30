@@ -22,6 +22,12 @@
       "required": ["clock", "timezone", "randomSeed", "gates"],
       "properties": {
         "clock": { "type": "string", "format": "date-time" },
+        "babelHelpers": {
+          "type": "array",
+          "maxItems": 2,
+          "uniqueItems": true,
+          "items": { "enum": ["extends", "taggedTemplateLiteralLoose"] }
+        },
         "timezone": { "type": "string", "minLength": 1 },
         "randomSeed": { "type": "integer", "minimum": 0, "maximum": 4294967295 },
         "gates": {
@@ -71,6 +77,19 @@
           "id": { "type": "string", "minLength": 1 },
           "args": { "type": "array" },
           "clock": { "type": "string", "format": "date-time" },
+          "result": {
+            "type": "object",
+            "required": ["method"],
+            "properties": {
+              "method": {
+                "type": "string",
+                "pattern": "^[A-Za-z_$][A-Za-z0-9_$]*$",
+                "not": { "enum": ["constructor", "__proto__", "prototype"] }
+              },
+              "args": { "type": "array" }
+            },
+            "additionalProperties": false
+          },
           "export": { "type": "string", "minLength": 1, "maxLength": 256 },
           "method": {
             "type": "string",

@@ -1,0 +1,304 @@
+{
+  "schemaVersion": 1,
+  "id": "addressing-media",
+  "version": 1,
+  "title": "JID address and media representation contracts",
+  "file": "tests/addressing-media.test.ts",
+  "helper": "support/addressing-media-cases.ts",
+  "capability": "wa-internal:addressing-media",
+  "roots": ["WAJids", "WAProtocolMediaType", "WAServerMediaType"],
+  "oracle": "Constructive synthetic address families carry explicit expected tags and fields; decimal ID/device/agent substitutions yield independent string expectations. Media casts use reviewed closed literal tables and strict identity; invalid mutations are assigned null and unmatched message types throw. No vendor regex, parser or contact mapper computes expectations.",
+  "trials": {
+    "tests": 45,
+    "probesPerSingleRevisionPass": 4517,
+    "seed": null,
+    "constructiveUserSamples": 128,
+    "serverMediaLiteralCount": 37,
+    "protocolMediaLiteralCount": 8,
+    "mediaAssignments": [{}],
+    "mediaAssignmentCardinality": 1,
+    "jidExhaustiveGateCoverage": false
+  },
+  "observations": [
+    {
+      "revision": "1051710191",
+      "modules": [
+        {
+          "module": "err",
+          "variant": "primary",
+          "printedSourceSha256": "a26a1f88fe2c09505c0ec8e43d1a43c2299b6126ea7ea305c567bf7634fbeea0",
+          "dependencies": ["fb-error"],
+          "citations": ["modules/err.js:1-4"]
+        },
+        {
+          "module": "fb-error",
+          "variant": "primary",
+          "printedSourceSha256": "545144d2d2c50524d5bcfc421916cf76760743cb5b034dcb7a4d7066981f714e",
+          "dependencies": ["performanceNow", "removeFromArray"],
+          "citations": ["modules/fb-error.js:1-698"]
+        },
+        {
+          "module": "performance",
+          "variant": "primary",
+          "printedSourceSha256": "9bee7ad7d1941af3432757b1ce55c980030f812f0a5fb00916e906b8a0b6ced9",
+          "dependencies": [],
+          "citations": ["modules/performance.js:1-5"]
+        },
+        {
+          "module": "performanceNow",
+          "variant": "primary",
+          "printedSourceSha256": "415e5327e020372f7789e27dc42266a9cb3d6bbc2d8c47d0b751b93517a0475f",
+          "dependencies": ["performance"],
+          "citations": ["modules/performanceNow.js:1-15"]
+        },
+        {
+          "module": "removeFromArray",
+          "variant": "primary",
+          "printedSourceSha256": "c8e194de9e9463716c2f383406ae8269ddff1a9fe5fbc1a7559abcd2aaa666bb",
+          "dependencies": [],
+          "citations": ["modules/removeFromArray.js:1-8"]
+        },
+        {
+          "module": "WAAssertUnreachable",
+          "variant": "primary",
+          "printedSourceSha256": "0a3f98d4cb30e6e90818323c41ed1ad2012bd64cc82c3fc09accea5299c2d400",
+          "dependencies": ["err"],
+          "citations": ["modules/WAAssertUnreachable.js:1-7"]
+        },
+        {
+          "module": "WAJids",
+          "variant": "primary",
+          "printedSourceSha256": "42733fc49d99d76539f7b4873fa7cbe6f9994de25560f5b6eb24ae3e5532253c",
+          "dependencies": ["WAAssertUnreachable", "err"],
+          "citations": ["modules/WAJids.js:1-475"]
+        },
+        {
+          "module": "WAProtocolMediaType",
+          "variant": "primary",
+          "printedSourceSha256": "6d5a818f200347b0f05a2ad7a0b9756f2a2c3d73aa79fb736f9227a659cb398e",
+          "dependencies": [],
+          "citations": ["modules/WAProtocolMediaType.js:1-17"]
+        },
+        {
+          "module": "WAServerMediaType",
+          "variant": "primary",
+          "printedSourceSha256": "b45cc129c20aed5ffb57fac71b33ac025ce6a7cafc4f7a32b77a3dcd40e33f6b",
+          "dependencies": [],
+          "citations": ["modules/WAServerMediaType.js:1-90"]
+        }
+      ],
+      "analyzer": {
+        "version": 1,
+        "sourceSha256": "01036d720caccf437f31062c23335fffcae7bb94f46e346de330ae6a744bfd80"
+      },
+      "inventoryDigest": "84abb8c759b84785273431b62ff8316f5c30c04c8e6b8fee22f32694cd81ed2e",
+      "gates": [],
+      "unresolved": [
+        {
+          "code": "dynamic-code-or-import",
+          "module": "fb-error",
+          "line": 367,
+          "column": 11
+        }
+      ],
+      "staticCoverage": {
+        "complete": false,
+        "scope": "module-closure-superset",
+        "semanticProof": false,
+        "resolverCoverage": false,
+        "modules": 9,
+        "sourceBytes": 46971,
+        "limitations": [
+          "Only supported gate APIs and static key expressions are inventoried.",
+          "Declared fixture-provider boundaries exclude their original resolver implementations and dependencies.",
+          "All functions in each dependency module are scanned; exact export and caller reachability is not proven.",
+          "Runtime-discovered gates and externally selected code require separate observations."
+        ]
+      },
+      "mediaInventory": {
+        "schemaVersion": 1,
+        "analyzer": {
+          "version": 1,
+          "sourceSha256": "01036d720caccf437f31062c23335fffcae7bb94f46e346de330ae6a744bfd80"
+        },
+        "roots": ["WAProtocolMediaType", "WAServerMediaType"],
+        "boundaries": [],
+        "modules": [
+          {
+            "name": "WAProtocolMediaType",
+            "variant": "primary",
+            "sourceSha256": "6d5a818f200347b0f05a2ad7a0b9756f2a2c3d73aa79fb736f9227a659cb398e",
+            "dependencies": []
+          },
+          {
+            "name": "WAServerMediaType",
+            "variant": "primary",
+            "sourceSha256": "b45cc129c20aed5ffb57fac71b33ac025ce6a7cafc4f7a32b77a3dcd40e33f6b",
+            "dependencies": []
+          }
+        ],
+        "gates": [],
+        "unresolved": [],
+        "coverage": {
+          "complete": true,
+          "scope": "module-closure-superset",
+          "semanticProof": false,
+          "resolverCoverage": false,
+          "modules": 2,
+          "sourceBytes": 2981,
+          "limitations": [
+            "Only supported gate APIs and static key expressions are inventoried.",
+            "Declared fixture-provider boundaries exclude their original resolver implementations and dependencies.",
+            "All functions in each dependency module are scanned; exact export and caller reachability is not proven.",
+            "Runtime-discovered gates and externally selected code require separate observations."
+          ]
+        },
+        "digest": "fac56934468ae899c0ab662b9f537e74bce0fa00814657c90ffa838af65ffa06"
+      }
+    },
+    {
+      "revision": "1051908825",
+      "modules": [
+        {
+          "module": "err",
+          "variant": "primary",
+          "printedSourceSha256": "a26a1f88fe2c09505c0ec8e43d1a43c2299b6126ea7ea305c567bf7634fbeea0",
+          "dependencies": ["fb-error"],
+          "citations": ["modules/err.js:1-4"]
+        },
+        {
+          "module": "fb-error",
+          "variant": "primary",
+          "printedSourceSha256": "545144d2d2c50524d5bcfc421916cf76760743cb5b034dcb7a4d7066981f714e",
+          "dependencies": ["performanceNow", "removeFromArray"],
+          "citations": ["modules/fb-error.js:1-698"]
+        },
+        {
+          "module": "performance",
+          "variant": "primary",
+          "printedSourceSha256": "9bee7ad7d1941af3432757b1ce55c980030f812f0a5fb00916e906b8a0b6ced9",
+          "dependencies": [],
+          "citations": ["modules/performance.js:1-5"]
+        },
+        {
+          "module": "performanceNow",
+          "variant": "primary",
+          "printedSourceSha256": "415e5327e020372f7789e27dc42266a9cb3d6bbc2d8c47d0b751b93517a0475f",
+          "dependencies": ["performance"],
+          "citations": ["modules/performanceNow.js:1-15"]
+        },
+        {
+          "module": "removeFromArray",
+          "variant": "primary",
+          "printedSourceSha256": "c8e194de9e9463716c2f383406ae8269ddff1a9fe5fbc1a7559abcd2aaa666bb",
+          "dependencies": [],
+          "citations": ["modules/removeFromArray.js:1-8"]
+        },
+        {
+          "module": "WAAssertUnreachable",
+          "variant": "primary",
+          "printedSourceSha256": "0a3f98d4cb30e6e90818323c41ed1ad2012bd64cc82c3fc09accea5299c2d400",
+          "dependencies": ["err"],
+          "citations": ["modules/WAAssertUnreachable.js:1-7"]
+        },
+        {
+          "module": "WAJids",
+          "variant": "primary",
+          "printedSourceSha256": "42733fc49d99d76539f7b4873fa7cbe6f9994de25560f5b6eb24ae3e5532253c",
+          "dependencies": ["WAAssertUnreachable", "err"],
+          "citations": ["modules/WAJids.js:1-475"]
+        },
+        {
+          "module": "WAProtocolMediaType",
+          "variant": "primary",
+          "printedSourceSha256": "6d5a818f200347b0f05a2ad7a0b9756f2a2c3d73aa79fb736f9227a659cb398e",
+          "dependencies": [],
+          "citations": ["modules/WAProtocolMediaType.js:1-17"]
+        },
+        {
+          "module": "WAServerMediaType",
+          "variant": "primary",
+          "printedSourceSha256": "b45cc129c20aed5ffb57fac71b33ac025ce6a7cafc4f7a32b77a3dcd40e33f6b",
+          "dependencies": [],
+          "citations": ["modules/WAServerMediaType.js:1-90"]
+        }
+      ],
+      "analyzer": {
+        "version": 1,
+        "sourceSha256": "01036d720caccf437f31062c23335fffcae7bb94f46e346de330ae6a744bfd80"
+      },
+      "inventoryDigest": "84abb8c759b84785273431b62ff8316f5c30c04c8e6b8fee22f32694cd81ed2e",
+      "gates": [],
+      "unresolved": [
+        {
+          "code": "dynamic-code-or-import",
+          "module": "fb-error",
+          "line": 367,
+          "column": 11
+        }
+      ],
+      "staticCoverage": {
+        "complete": false,
+        "scope": "module-closure-superset",
+        "semanticProof": false,
+        "resolverCoverage": false,
+        "modules": 9,
+        "sourceBytes": 46971,
+        "limitations": [
+          "Only supported gate APIs and static key expressions are inventoried.",
+          "Declared fixture-provider boundaries exclude their original resolver implementations and dependencies.",
+          "All functions in each dependency module are scanned; exact export and caller reachability is not proven.",
+          "Runtime-discovered gates and externally selected code require separate observations."
+        ]
+      },
+      "mediaInventory": {
+        "schemaVersion": 1,
+        "analyzer": {
+          "version": 1,
+          "sourceSha256": "01036d720caccf437f31062c23335fffcae7bb94f46e346de330ae6a744bfd80"
+        },
+        "roots": ["WAProtocolMediaType", "WAServerMediaType"],
+        "boundaries": [],
+        "modules": [
+          {
+            "name": "WAProtocolMediaType",
+            "variant": "primary",
+            "sourceSha256": "6d5a818f200347b0f05a2ad7a0b9756f2a2c3d73aa79fb736f9227a659cb398e",
+            "dependencies": []
+          },
+          {
+            "name": "WAServerMediaType",
+            "variant": "primary",
+            "sourceSha256": "b45cc129c20aed5ffb57fac71b33ac025ce6a7cafc4f7a32b77a3dcd40e33f6b",
+            "dependencies": []
+          }
+        ],
+        "gates": [],
+        "unresolved": [],
+        "coverage": {
+          "complete": true,
+          "scope": "module-closure-superset",
+          "semanticProof": false,
+          "resolverCoverage": false,
+          "modules": 2,
+          "sourceBytes": 2981,
+          "limitations": [
+            "Only supported gate APIs and static key expressions are inventoried.",
+            "Declared fixture-provider boundaries exclude their original resolver implementations and dependencies.",
+            "All functions in each dependency module are scanned; exact export and caller reachability is not proven.",
+            "Runtime-discovered gates and externally selected code require separate observations."
+          ]
+        },
+        "digest": "fac56934468ae899c0ab662b9f537e74bce0fa00814657c90ffa838af65ffa06"
+      }
+    }
+  ],
+  "exclusions": [
+    "WAJids closure retains fb-error dynamic-code-or-import at line367; zero recognized gates does not prove a complete empty gate inventory.",
+    "Only primary source variants and isolated helper exports are selected; caller gates, cross-account identity and device routing are outside scope.",
+    "WAWebWidValidator imports WALogger; its unselected graph, WidFactory, contact mapping, LID/phone resolution and browser identity state are not tested or stubbed.",
+    "Constructive samples exercise a bounded decimal input model, not every possible JID or malformed Unicode string.",
+    "Media casts do not prove upload/encryption/download, MIME validation, delivery, actual server acceptance or library parity.",
+    "No accounts, network/providers or container sandbox execution were exercised."
+  ]
+}
