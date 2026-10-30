@@ -1,0 +1,295 @@
+{
+  "schemaVersion": 1,
+  "id": "wav-header",
+  "version": 1,
+  "title": "Original WAV signature guard and raw header fields",
+  "file": "tests/wav-header.test.ts",
+  "helper": "support/wav-header-cases.ts",
+  "capability": "wa-internal:wav-header",
+  "roots": ["WAParseWav"],
+  "oracle": "Independently packed RIFF/WAVE signature bytes and literal little-endian uint16 channels/uint32 sample-rate inputs supply expectations. Single-bit mutations use explicit numeric field changes; source outputs are not reused as their own golden. Native DataView wrong-brand/range failures are expected by error name only; no exact engine message is claimed.",
+  "trials": {
+    "cases": 24,
+    "probesPerRevision": 1395,
+    "portablePlanTests": 1,
+    "maxProbesPerCase": 64,
+    "maxSerializedCaseBytes": 70851,
+    "probeLimit": 64,
+    "serializedCaseByteLimit": 262144,
+    "execution": "Focused actual primary-source diagnostics passed25 tests for24 cases/1395probes per revision, with24 unchanged comparisons across1051710191 and1051908825. A private observer retained48 full content-addressed records before assertions, covering72 source executions/4185 probes. All24 frozen files matched before/after. Observed60 native TypeErrors and84 native RangeErrors with144 same-export successful retries; error expectations remain name-only. Three true returned-ArrayBuffer identity observations and three natural parses of that actual retained return matched independent byte/field expectations. The256selectedfield cells are at length44 only; ten other-length samples use one fixed field pair, not a joint field-by-length product. All72 supported-static inventories are complete with zero recognized gates/diagnostics, work1672 at unchanged2000000limit; semantic/environment proof remains false. Runtime87c9bd140246ef9c064145491a3517376c6c15ccea1da44ac9a98826741dcc64; explicit process diagnostic isolated:false. Other families were not reexecuted. These source observations do not establish complete RIFF/WAV/PCM validity, WAValidateMedia/audio/WASM/provider integration, ownership/mutation, clean committed primary receipts, container or production acceptance.",
+    "recognizedGateAssignmentCardinality": 1,
+    "recognizedGateAssignmentScope": "The complete supported-static import-free inventory recognizes zero gate descriptors; a single empty-gate context covers the sole modeled assignment, not all input/JavaScript/format/native-environment behavior.",
+    "configurationExhaustive": false,
+    "inputDomainExhaustive": false,
+    "families": {
+      "fieldGrid": 512,
+      "shortLengthsAndRecovery": 116,
+      "largerLengths": 20,
+      "magicSingleBitFlips": 128,
+      "otherHeaderSingleBitFlips": 576,
+      "wrongBrandsAndRecovery": 40,
+      "returnedBufferIdentity": 3
+    },
+    "fieldGrid": {
+      "channels": [0, 1, 2, 3, 7, 8, 15, 16, 127, 128, 255, 256, 32767, 32768, 65534, 65535],
+      "sampleRates": [
+        0, 1, 2, 8000, 11025, 16000, 22050, 44100, 48000, 96000, 192000, 65535, 65536, 2147483647,
+        2147483648, 4294967295
+      ],
+      "byteLength": 44,
+      "cells": 256,
+      "operations": ["validateWav", "parseWav"],
+      "scope": "All16selectedchannels\u00d716selectedrates at length44 only. This does not claim the joint product with the separate larger-length samples, or full uint16\u00d7uint32 output/input domains."
+    },
+    "shortLengths": {
+      "byteLengths": [
+        0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24,
+        25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43
+      ],
+      "validateNullObservations": 44,
+      "parseRangeFailures": 28,
+      "immediateParseRetries": 28,
+      "unvalidatedRawParses": 16,
+      "scope": "validateWav constructs DataView before testing byteLength44, then returns null for these short ArrayBuffers. parseWav does not validate signatures/minimum44: lengths0..27 throw native RangeError; selected lengths28..43 return raw fields even with an invalid signature."
+    },
+    "largerLengths": {
+      "byteLengths": [44, 45, 63, 64, 65, 127, 128, 129, 1024, 4097],
+      "fixedChannels": 65535,
+      "fixedSampleRate": 4294967295,
+      "scope": "Ten selected lengths at this one field pair only; RIFF-size/data-length metadata are not updated to assert complete file consistency."
+    },
+    "singleBitMutations": {
+      "fixedHeaderByteLength": 44,
+      "magicPositions": [0, 1, 2, 3, 8, 9, 10, 11],
+      "magicBits": 64,
+      "otherPositions": 36,
+      "otherBits": 288,
+      "operationsPerMutation": 2,
+      "scope": "One bit at a time in a fixed header. Magic mutations reject validation while raw parse still reads fields. Other mutations keep the two signatures and selected channels/rate bits change expected little-endian values. Multiple-bit/general-file domains remain unclosed."
+    },
+    "fixtureValidityScope": "Synthetic signature-bearing scaffolding uses byteRate0/blockAlign0 and fixed RIFF-size36/data-length0. Values such as channels0 or65535 are deliberately not claims of valid PCM/audio. Positive validateWav results characterize its narrow actual length/signature predicate, not full RIFF/WAV validity.",
+    "nativeErrorScope": "Ten selected wrong-brand values for each export expect native TypeError, then a same-export literal baseline retry. Selected short raw buffers expect RangeError then same-export parse retry. Names only are specified where messages are unproved; invalid framework fixtures/infrastructure errors cannot satisfy source failures.",
+    "returnedIdentityScope": "Retain an actual signature-accepted ArrayBuffer with an independent byte expectation, feed that genuine return back to validateWav and compare identity true, then parse the retained buffer against independent literal fields. This is natural source-return composition, not argument-retention, backing ownership or mutation-isolation proof.",
+    "sourcePredicate": "validateWav tests only ArrayBuffer byteLength>=44 and big-endian RIFF/WAVE constants at0/8, after DataView construction. parseWav directly reads little-endian uint16@22 and uint32@24 and never calls validateWav.",
+    "sourceClosure": {
+      "primaryModulesPerRevision": 1,
+      "printedSourceBytesPerRevision": 413,
+      "rawDefinitionSha256": "4f82ac57e20b09b03386012d09f81553f73c7ed3e6f2e59c39ea046c1b0cbc33",
+      "declaredDependencies": [],
+      "variants": [],
+      "staticWorkUnits": 1672,
+      "defaultLogicalWorkLimit": 2000000
+    },
+    "fixtures": "Only ordinary JSON and realm ArrayBuffer/typed data fixtures. No stubs, gate fixtures, Babel/bootstrap helpers, clock/pending/callback/host-object/provider/native-audio authority is selected.",
+    "caseRows": [
+      {
+        "caseId": "wav-header-fields-0-v1",
+        "probes": 64,
+        "serializedCaseBytes": 20707
+      },
+      {
+        "caseId": "wav-header-fields-1-v1",
+        "probes": 64,
+        "serializedCaseBytes": 20707
+      },
+      {
+        "caseId": "wav-header-fields-2-v1",
+        "probes": 64,
+        "serializedCaseBytes": 20707
+      },
+      {
+        "caseId": "wav-header-fields-3-v1",
+        "probes": 64,
+        "serializedCaseBytes": 20899
+      },
+      {
+        "caseId": "wav-header-fields-4-v1",
+        "probes": 64,
+        "serializedCaseBytes": 21091
+      },
+      {
+        "caseId": "wav-header-fields-5-v1",
+        "probes": 64,
+        "serializedCaseBytes": 20995
+      },
+      {
+        "caseId": "wav-header-fields-6-v1",
+        "probes": 64,
+        "serializedCaseBytes": 21379
+      },
+      {
+        "caseId": "wav-header-fields-7-v1",
+        "probes": 64,
+        "serializedCaseBytes": 21475
+      },
+      {
+        "caseId": "wav-header-short-lengths-0-v1",
+        "probes": 64,
+        "serializedCaseBytes": 11699
+      },
+      {
+        "caseId": "wav-header-short-lengths-1-v1",
+        "probes": 52,
+        "serializedCaseBytes": 11261
+      },
+      {
+        "caseId": "wav-header-larger-lengths-0-v1",
+        "probes": 20,
+        "serializedCaseBytes": 70851
+      },
+      {
+        "caseId": "wav-header-magic-bit-flips-0-v1",
+        "probes": 64,
+        "serializedCaseBytes": 15944
+      },
+      {
+        "caseId": "wav-header-magic-bit-flips-1-v1",
+        "probes": 64,
+        "serializedCaseBytes": 15976
+      },
+      {
+        "caseId": "wav-header-other-header-bit-flips-0-v1",
+        "probes": 64,
+        "serializedCaseBytes": 20629
+      },
+      {
+        "caseId": "wav-header-other-header-bit-flips-1-v1",
+        "probes": 64,
+        "serializedCaseBytes": 20624
+      },
+      {
+        "caseId": "wav-header-other-header-bit-flips-2-v1",
+        "probes": 64,
+        "serializedCaseBytes": 20690
+      },
+      {
+        "caseId": "wav-header-other-header-bit-flips-3-v1",
+        "probes": 64,
+        "serializedCaseBytes": 20714
+      },
+      {
+        "caseId": "wav-header-other-header-bit-flips-4-v1",
+        "probes": 64,
+        "serializedCaseBytes": 20709
+      },
+      {
+        "caseId": "wav-header-other-header-bit-flips-5-v1",
+        "probes": 64,
+        "serializedCaseBytes": 20705
+      },
+      {
+        "caseId": "wav-header-other-header-bit-flips-6-v1",
+        "probes": 64,
+        "serializedCaseBytes": 20690
+      },
+      {
+        "caseId": "wav-header-other-header-bit-flips-7-v1",
+        "probes": 64,
+        "serializedCaseBytes": 20654
+      },
+      {
+        "caseId": "wav-header-other-header-bit-flips-8-v1",
+        "probes": 64,
+        "serializedCaseBytes": 20705
+      },
+      {
+        "caseId": "wav-header-wrong-brands-0-v1",
+        "probes": 40,
+        "serializedCaseBytes": 9105
+      },
+      {
+        "caseId": "wav-header-returned-buffer-identity-0-v1",
+        "probes": 3,
+        "serializedCaseBytes": 848
+      }
+    ]
+  },
+  "observations": [
+    {
+      "revision": "1051710191",
+      "modules": [
+        {
+          "module": "WAParseWav",
+          "variant": "primary",
+          "printedSourceSha256": "3d5a261e837cec7e43e83f2b9726806169f19f04f811bc27296e2583ec70ad12",
+          "dependencies": [],
+          "citations": ["modules/WAParseWav.js:1-15"]
+        }
+      ],
+      "analyzer": {
+        "version": 5,
+        "sourceSha256": "227dc637e157fb8708c4f58e3c7fd821d78fdff3fc3ad7ec48ff6b5818e54f82"
+      },
+      "inventoryDigest": "585f4ba940ae28ef3bda552917ba12bb2bc35c7a2d31e8a61b3ce27d3d42a28c",
+      "gates": [],
+      "unresolved": [],
+      "staticCoverage": {
+        "complete": true,
+        "scope": "module-closure-superset",
+        "semanticProof": false,
+        "resolverCoverage": false,
+        "modules": 1,
+        "sourceBytes": 413,
+        "workBudget": {
+          "limit": 2000000,
+          "consumed": 1672,
+          "exhausted": false
+        },
+        "limitations": [
+          "Only supported gate APIs and static key expressions are inventoried.",
+          "Logical work units bound selected AST traversal and resolution, not parser internals or elapsed time; parsing remains source-byte bounded.",
+          "Declared fixture-provider boundaries exclude their original resolver implementations and dependencies.",
+          "All functions in each dependency module are scanned; exact export and caller reachability is not proven.",
+          "Runtime-discovered gates and externally selected code require separate observations."
+        ]
+      }
+    },
+    {
+      "revision": "1051908825",
+      "modules": [
+        {
+          "module": "WAParseWav",
+          "variant": "primary",
+          "printedSourceSha256": "3d5a261e837cec7e43e83f2b9726806169f19f04f811bc27296e2583ec70ad12",
+          "dependencies": [],
+          "citations": ["modules/WAParseWav.js:1-15"]
+        }
+      ],
+      "analyzer": {
+        "version": 5,
+        "sourceSha256": "227dc637e157fb8708c4f58e3c7fd821d78fdff3fc3ad7ec48ff6b5818e54f82"
+      },
+      "inventoryDigest": "585f4ba940ae28ef3bda552917ba12bb2bc35c7a2d31e8a61b3ce27d3d42a28c",
+      "gates": [],
+      "unresolved": [],
+      "staticCoverage": {
+        "complete": true,
+        "scope": "module-closure-superset",
+        "semanticProof": false,
+        "resolverCoverage": false,
+        "modules": 1,
+        "sourceBytes": 413,
+        "workBudget": {
+          "limit": 2000000,
+          "consumed": 1672,
+          "exhausted": false
+        },
+        "limitations": [
+          "Only supported gate APIs and static key expressions are inventoried.",
+          "Logical work units bound selected AST traversal and resolution, not parser internals or elapsed time; parsing remains source-byte bounded.",
+          "Declared fixture-provider boundaries exclude their original resolver implementations and dependencies.",
+          "All functions in each dependency module are scanned; exact export and caller reachability is not proven.",
+          "Runtime-discovered gates and externally selected code require separate observations."
+        ]
+      }
+    }
+  ],
+  "exclusions": [
+    "Focused execution covers selected signature/raw-field/native-error/identity observations only. It does not establish arbitrary file/JavaScript/native-environment behavior, complete RIFF/WAV validity, caller integration, clean committed primary receipt evidence or production acceptance.",
+    "validateWav and parseWav do not establish complete RIFF chunk/file validation, PCM consistency, sample validity, playable audio or semantic media acceptance.",
+    "The256field cells and separate ten-length samples are not a joint16\u00d716\u00d710 product. Single-bit mutations and selected JavaScript brands/lengths do not close unbounded input/format domains.",
+    "Native DataView TypeError/RangeError expectations are name-only where exact messages are unproved; no parser-error message taxonomy or permissive framework/infrastructure fallback.",
+    "Returned ArrayBuffer identity/composition does not prove caller-input mutation behavior, independent backing ownership, detachment/slice semantics, nested identity or universal aliasing.",
+    "No WAValidateMedia caller integration, browser/native audio decoding, WASM, provider/account/network authority, security/compliance, container isolation, named-library adapter or production authored-suite scheduling acceptance."
+  ]
+}
