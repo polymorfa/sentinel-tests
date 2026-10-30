@@ -1,0 +1,248 @@
+{
+  "schemaVersion": 1,
+  "id": "gkx-provider-state",
+  "version": 1,
+  "title": "Original gkx first-write, logged reads and metrics state",
+  "file": "tests/gkx-provider-state.test.ts",
+  "helper": "support/gkx-provider-state-cases.ts",
+  "capability": "wa-internal:gkx-provider-state",
+  "roots": ["gkx"],
+  "oracle": "Source-reviewed literal first-write/no-op-reset/logging/error expectations; direct nonboolean/raw results and original returned-object identity; actual reader-returned metrics carrier mutation; independent Map/Set first-seen/read-order bookkeeping for bounded histories. No provider or exposure mock.",
+  "trials": {
+    "cases": 17,
+    "portablePlanTests": 1,
+    "probesPerRevision": 254,
+    "maxProbesPerCase": 53,
+    "maxRetainedObjectsPerCase": 2,
+    "maxSerializedCaseBytes": 8292,
+    "rawResultKinds": 18,
+    "generatedHistories": 2,
+    "batchesPerHistory": 6,
+    "freshKeysPerBatch": 4,
+    "selectedKnownGateAssignmentCardinality": 1,
+    "totalConfigurationAssignments": null,
+    "configurationExhaustive": false,
+    "inputDomainExhaustive": false,
+    "execution": "Executed partial fresh-realm provider state against actual archived gkx sources at 1051710191 and 1051908825 through the generic core Subject: 17 cases and 254 probes per revision, 17 unchanged comparisons; 18 tests passed. A private observer retained 34 full content-addressed records before assertions, covering 51 single-revision executions and 762 probes including repeated baseline runs. All 27 frozen inputs remained unchanged. Explicit diagnostic process mode reports isolated:false; no container, original backend/cohort, exposure delivery or production scheduling proof.",
+    "contextScope": "context.gates:{} with NO gkx key, stubs, gate updates or Babel fixtures. An empty gkx:{} would replace the original provider and is excluded.",
+    "providerScope": "Actual staged records target original gkx APIs; original server/bootstrap population, cohort data, consumer branch assignments and exposure dispatch are not accepted.",
+    "identityScope": "Actual reader result objects are retained; a staged result carrier supplies metrics directly through the original provider return boundary. No argument-retention feature or synthetic identity helper.",
+    "domains": "Keys, entry/result/metrics values and histories are unbounded; bounded literal/generated characterization. Provider returns result without Boolean coercion. No original Boolean input/key domain is established.",
+    "bootstrapScope": "ExecutionEnvironment bootstrap remains unresolved. Null/undefined hashes and prelogged nonnull hashes avoid exposure paths. Existing-global Env merge/Babel branch, DOM/workers and original backend data remain unaccepted."
+  },
+  "observations": [
+    {
+      "revision": "1051710191",
+      "modules": [
+        {
+          "module": "BanzaiLazyQueue",
+          "variant": "primary",
+          "printedSourceSha256": "c4b206703179790d810f00c914c5ff13123e8a5d479a1fc017e2d8fb06c62d49",
+          "dependencies": ["SimpleHook"],
+          "citations": ["modules/BanzaiLazyQueue.js:1"]
+        },
+        {
+          "module": "Env",
+          "variant": "primary",
+          "printedSourceSha256": "ad5c3d19c3db7a10d569dceb202b62801ac1014c42a99cf21d3249a124319082",
+          "dependencies": [],
+          "citations": ["modules/Env.js:1"]
+        },
+        {
+          "module": "ExecutionEnvironment",
+          "variant": "primary",
+          "printedSourceSha256": "4f49de6e0ddb5be88f962a8196f5a2370427b931db218b019e4a2bd020b1891e",
+          "dependencies": [],
+          "citations": ["modules/ExecutionEnvironment.js:1"]
+        },
+        {
+          "module": "SimpleHook",
+          "variant": "primary",
+          "printedSourceSha256": "fd56db80143da1644f5f104549955a5a4fc38e3bafb9ae56cc3f2e4e33885eca",
+          "dependencies": [],
+          "citations": ["modules/SimpleHook.js:1"]
+        },
+        {
+          "module": "emptyFunction",
+          "variant": "primary",
+          "printedSourceSha256": "efc2fa885be346ba40045503e3a0588374c842f36261ce8138988d63608ecb48",
+          "dependencies": [],
+          "citations": ["modules/emptyFunction.js:1"]
+        },
+        {
+          "module": "fb-error-lite",
+          "variant": "primary",
+          "printedSourceSha256": "70182c28f267319e6122d9da5fa9d01bc3c60775130d33429a71874503924b64",
+          "dependencies": [],
+          "citations": ["modules/fb-error-lite.js:1"]
+        },
+        {
+          "module": "gkx",
+          "variant": "primary",
+          "printedSourceSha256": "e84fc9d0a08a52702897502d1eb33202bd0d97b9633277aa18df81d9cb902cf6",
+          "dependencies": ["invariant", "BanzaiLazyQueue", "ExecutionEnvironment", "emptyFunction"],
+          "citations": ["modules/gkx.js:1"]
+        },
+        {
+          "module": "invariant",
+          "variant": "primary",
+          "printedSourceSha256": "6b377021188adf8be5add1781bb1a5b3a7da5d0021df951267b1ae8d331f705f",
+          "dependencies": ["Env", "fb-error-lite", "sprintf"],
+          "citations": ["modules/invariant.js:1"]
+        },
+        {
+          "module": "sprintf",
+          "variant": "primary",
+          "printedSourceSha256": "7860c49011bd89ed50d0db8ed061d00ec9a2ba42b75f298a10c3d6ef98888361",
+          "dependencies": [],
+          "citations": ["modules/sprintf.js:1"]
+        }
+      ],
+      "analyzer": {
+        "version": 4,
+        "sourceSha256": "73c5e31e59ff601a01114ab03a0dc183d81389987e3af5832c53d9ac8bd8c06b"
+      },
+      "inventoryDigest": "55e1b436019bcb62bdafa012a1429b134bedb234757ddf2cd56020ce21201d84",
+      "gates": [],
+      "unresolved": [
+        {
+          "code": "unresolved-bootstrap-provider",
+          "module": "ExecutionEnvironment",
+          "line": 3,
+          "column": 12
+        }
+      ],
+      "staticCoverage": {
+        "complete": false,
+        "scope": "module-closure-superset",
+        "semanticProof": false,
+        "resolverCoverage": false,
+        "modules": 9,
+        "sourceBytes": 6203,
+        "workBudget": {
+          "limit": 2000000,
+          "consumed": 23016,
+          "exhausted": false
+        },
+        "limitations": [
+          "Only supported gate APIs and static key expressions are inventoried.",
+          "Logical work units bound selected AST traversal and resolution, not parser internals or elapsed time; parsing remains source-byte bounded.",
+          "Declared fixture-provider boundaries exclude their original resolver implementations and dependencies.",
+          "All functions in each dependency module are scanned; exact export and caller reachability is not proven.",
+          "Runtime-discovered gates and externally selected code require separate observations."
+        ]
+      }
+    },
+    {
+      "revision": "1051908825",
+      "modules": [
+        {
+          "module": "BanzaiLazyQueue",
+          "variant": "primary",
+          "printedSourceSha256": "c4b206703179790d810f00c914c5ff13123e8a5d479a1fc017e2d8fb06c62d49",
+          "dependencies": ["SimpleHook"],
+          "citations": ["modules/BanzaiLazyQueue.js:1"]
+        },
+        {
+          "module": "Env",
+          "variant": "primary",
+          "printedSourceSha256": "ad5c3d19c3db7a10d569dceb202b62801ac1014c42a99cf21d3249a124319082",
+          "dependencies": [],
+          "citations": ["modules/Env.js:1"]
+        },
+        {
+          "module": "ExecutionEnvironment",
+          "variant": "primary",
+          "printedSourceSha256": "4f49de6e0ddb5be88f962a8196f5a2370427b931db218b019e4a2bd020b1891e",
+          "dependencies": [],
+          "citations": ["modules/ExecutionEnvironment.js:1"]
+        },
+        {
+          "module": "SimpleHook",
+          "variant": "primary",
+          "printedSourceSha256": "fd56db80143da1644f5f104549955a5a4fc38e3bafb9ae56cc3f2e4e33885eca",
+          "dependencies": [],
+          "citations": ["modules/SimpleHook.js:1"]
+        },
+        {
+          "module": "emptyFunction",
+          "variant": "primary",
+          "printedSourceSha256": "efc2fa885be346ba40045503e3a0588374c842f36261ce8138988d63608ecb48",
+          "dependencies": [],
+          "citations": ["modules/emptyFunction.js:1"]
+        },
+        {
+          "module": "fb-error-lite",
+          "variant": "primary",
+          "printedSourceSha256": "70182c28f267319e6122d9da5fa9d01bc3c60775130d33429a71874503924b64",
+          "dependencies": [],
+          "citations": ["modules/fb-error-lite.js:1"]
+        },
+        {
+          "module": "gkx",
+          "variant": "primary",
+          "printedSourceSha256": "e84fc9d0a08a52702897502d1eb33202bd0d97b9633277aa18df81d9cb902cf6",
+          "dependencies": ["invariant", "BanzaiLazyQueue", "ExecutionEnvironment", "emptyFunction"],
+          "citations": ["modules/gkx.js:1"]
+        },
+        {
+          "module": "invariant",
+          "variant": "primary",
+          "printedSourceSha256": "6b377021188adf8be5add1781bb1a5b3a7da5d0021df951267b1ae8d331f705f",
+          "dependencies": ["Env", "fb-error-lite", "sprintf"],
+          "citations": ["modules/invariant.js:1"]
+        },
+        {
+          "module": "sprintf",
+          "variant": "primary",
+          "printedSourceSha256": "7860c49011bd89ed50d0db8ed061d00ec9a2ba42b75f298a10c3d6ef98888361",
+          "dependencies": [],
+          "citations": ["modules/sprintf.js:1"]
+        }
+      ],
+      "analyzer": {
+        "version": 4,
+        "sourceSha256": "73c5e31e59ff601a01114ab03a0dc183d81389987e3af5832c53d9ac8bd8c06b"
+      },
+      "inventoryDigest": "55e1b436019bcb62bdafa012a1429b134bedb234757ddf2cd56020ce21201d84",
+      "gates": [],
+      "unresolved": [
+        {
+          "code": "unresolved-bootstrap-provider",
+          "module": "ExecutionEnvironment",
+          "line": 3,
+          "column": 12
+        }
+      ],
+      "staticCoverage": {
+        "complete": false,
+        "scope": "module-closure-superset",
+        "semanticProof": false,
+        "resolverCoverage": false,
+        "modules": 9,
+        "sourceBytes": 6203,
+        "workBudget": {
+          "limit": 2000000,
+          "consumed": 23016,
+          "exhausted": false
+        },
+        "limitations": [
+          "Only supported gate APIs and static key expressions are inventoried.",
+          "Logical work units bound selected AST traversal and resolution, not parser internals or elapsed time; parsing remains source-byte bounded.",
+          "Declared fixture-provider boundaries exclude their original resolver implementations and dependencies.",
+          "All functions in each dependency module are scanned; exact export and caller reachability is not proven.",
+          "Runtime-discovered gates and externally selected code require separate observations."
+        ]
+      }
+    }
+  ],
+  "exclusions": [
+    "Executed provider mechanics are partial fresh-realm observations under staged synthetic records. They do not establish original bootstrap/server data, consumer semantics or complete configuration acceptance.",
+    "Full nine-module declared closure is retained, including unresolved ExecutionEnvironment bootstrap. No known gate descriptors does not establish full configuration or consumer coverage.",
+    "No original server/cohort assignment, Boolean result/input contract, finite key domain, browser/worker exposure, Banzai sink or network/provider operation.",
+    "No real reset/readiness API exists here: clear/setPass/setFail are source no-ops and fresh cases create new realms, not persisted restarts.",
+    "No callbacks, native Object/meta/prototype access, property mutation, argument retention, helper/provider aliases or new runtime controls.",
+    "Original Babel producer is recovered privately but neither admitted nor executed here; the conditional existing-Env merge branch and full original bootstrap remain unproven.",
+    "No service registration, isolated container proof or production TS-suite scheduling."
+  ]
+}

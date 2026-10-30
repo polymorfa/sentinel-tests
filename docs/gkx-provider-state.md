@@ -1,0 +1,11 @@
+# Original gkx provider state
+
+This suite executes 17 cases with 254 probes per revision against the original `gkx` provider at WhatsApp revisions 1051710191 and 1051908825. The selected actual-source run passed 18 tests and produced 17 unchanged comparisons. A private observer retained 34 full content-addressed records before assertions; all 27 frozen inputs stayed unchanged. Each source execution used a fresh worker in explicit diagnostic process mode (`isolated:false`). These are partial local provider observations, not container or production acceptance.
+
+Cases select `$module` for the actual reader and bare own methods such as `add` and `getLogged`. Metro flags98 unwrap the default export to the function; `default.*` selectors would be incorrect. Context uses `gates:{}` with no gkx key: even `gkx:{}` would replace the provider. No provider stubs, callbacks or Babel fixtures are supplied.
+
+Source-derived oracles cover first-write-wins, missing-read/retry, logged ordering, direct results without Boolean coercion, returned-object identity, real metrics mutation, failed primitive metrics before insertion, invalid first entries that cannot be repaired, prelogged entries, and bounded generated histories. A staged result carrier returns its metrics record through the actual reader, permitting retention without an argument-retention helper. `clear`, `setPass` and `setFail` are source no-ops. Fresh cases create separate realms; they are not reset or persisted-restart acceptance.
+
+Ordinary reads use null/undefined hashes. Hash-bearing cases call actual `addLoggedInternal` before reading, avoiding exposure dispatch. The full nine-module graph remains in metadata, including the unresolved ExecutionEnvironment bootstrap diagnostic. The conditional existing-Env Babel merge branch, DOM/worker behavior, original server/cohort assignments and Banzai/network delivery are not accepted.
+
+The provider returns the stored `result` directly. Synthetic nonboolean values characterize this code; they do not establish valid server configuration domains. Keys, entry/result/metrics inputs and histories remain unbounded. Zero discovered gate descriptors does not prove exhaustive configuration or consumer coverage. This suite does not register a service adapter, prove container isolation or implement production authored-suite scheduling.

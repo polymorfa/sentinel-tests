@@ -58,3 +58,7 @@ The separate [whatsapp-web.js Reaction/Base suite](docs/wwebjs-reaction.md) exer
 The [Semaphore reservation suite](docs/semaphore-state.md) executes original acquisition counters, one immediate real release and held-object distinction across bounded capacities. Separate pending-only cases inspect unresolved waits; later release, FIFO, repeated release and fairness remain unsupported lifecycle observations.
 
 The [byte-buffer suite](docs/byte-buffer.md) covers original Latin-1 conversions, chunk boundaries, offset views, error recovery and returned-buffer identities. The complementary [byte-array suite](docs/byte-array.md) covers integer bytes, sliced views and byte equality with independent generated oracles. Private cursor APIs and unobserved ownership remain outside scope.
+
+The [original knob-provider suite](docs/knob-provider-state.md) executes real raw reads, first-write cache state, source-returned metrics mutation, failed insertion and retry. No knob fixture replaces the provider. Staged keys and values do not establish backend assignments or close unknown consumer domains.
+
+The [original gkx-provider suite](docs/gkx-provider-state.md) executes real first-write and logged-read state, no-op reset-named methods, source-returned metrics and failed updates. Raw results remain uncoerced; full environment/bootstrap diagnostics and unknown assignment domains remain explicit.
