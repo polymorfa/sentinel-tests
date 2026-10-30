@@ -48,3 +48,5 @@ Discovered using a monitor developed by @purpshell at polymorfa.com
 Licensed under [MIT](LICENSE).
 
 The [history progress getter suite](docs/history-progress-getters.md) exercises original getter caches, repeated reads, clearing, failures and retry across eight established boolean assignments. Inputs remain explicit synthetic model-shaped records; actual model updates, persistence and the original ABProps resolver are separate gaps.
+
+The [generic state-manager suite](docs/generic-state-manager.md) executes original state replacement and internal subscriptions through bounded pending controls. It covers waiter ordering, strict matches, skipped values, generated updates and returned-object identity; the original Promise-provider binding remains unresolved behind an explicit fallback fixture.

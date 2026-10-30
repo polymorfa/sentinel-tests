@@ -1,0 +1,225 @@
+{
+  "schemaVersion": 1,
+  "id": "generic-state-manager",
+  "version": 1,
+  "title": "Original generic state manager replacements and internal subscription waiters",
+  "file": "tests/generic-state-manager.test.ts",
+  "helper": "support/generic-state-manager-cases.ts",
+  "capability": "wa-internal:generic-state-manager",
+  "roots": ["WAGenericStateManager"],
+  "oracle": "Literal state replacements, strict-equality target boundaries, immediate/already-current waits, independently tracked first-seen primitive targets across generated histories, and actual pending settlement snapshots. Original waitForValue creates and removes its own actual WAPubSub subscriptions; no supplied callbacks or mock readiness. Separate reference-only cases prove genuine set/get returned-object identity and restoration without mixing retained refs with pending controls.",
+  "trials": {
+    "cases": 17,
+    "portablePlanTests": 1,
+    "probesPerRevision": 437,
+    "maxProbesPerCase": 82,
+    "maxPendingHandlesPerCase": 5,
+    "selectedKnownGateAssignmentCardinality": 1,
+    "configurationExhaustive": false,
+    "execution": "Focused archived-source check passed all17 original cases at both pins through the reviewed generic core adapter (baseline and compared candidate), plus portable validation:18tests passed. Diagnostic process mode isolated:false; missing original conditional provider and full configuration gaps remain.",
+    "knownGateScope": "Zero recognized reads in the eight present primary dependency modules; missing original cr:6640 prevents complete original closure/configuration acceptance.",
+    "generatedWaitHistories": 3,
+    "updatesPerGeneratedHistory": 18,
+    "distinctTargetsPerGeneratedHistory": 5,
+    "unsettledWaitScope": "NaN strict-equality wait and equal-looking fresh object target are observed pending after bounded updates, never awaited. No cancellation or disposal operation is invented.",
+    "objectIdentityScope": "Actual constructor-held state/get/set returns retained only in a separate no-pending case. No in-place record mutation is claimed.",
+    "inputDomain": "Bounded primitive/nullish/nonfinite/BigInt/record/array/large-string values and finite histories characterize unbounded input and sequence domains."
+  },
+  "observations": [
+    {
+      "revision": "1051710191",
+      "modules": [
+        {
+          "module": "Promise",
+          "variant": "primary",
+          "printedSourceSha256": "c94f5132251416675e842ee8bbe98476648325ff897dab0a230b39875e1f3c2a",
+          "dependencies": ["cr:6640"],
+          "citations": ["modules/Promise.js:1"]
+        },
+        {
+          "module": "WAGenericStateManager",
+          "variant": "primary",
+          "printedSourceSha256": "6a870ed2b536ec9f4b044cf08a500771d08c939e404c31bdcdfa909f16597943",
+          "dependencies": ["Promise", "WAPubSub"],
+          "citations": ["modules/WAGenericStateManager.js:1"]
+        },
+        {
+          "module": "WAPubSub",
+          "variant": "primary",
+          "printedSourceSha256": "e347a6f045355307f55cb07f6457247fe32e662e954f2a8970db7b4c8dcb91eb",
+          "dependencies": ["err"],
+          "citations": ["modules/WAPubSub.js:1"]
+        },
+        {
+          "module": "err",
+          "variant": "primary",
+          "printedSourceSha256": "a26a1f88fe2c09505c0ec8e43d1a43c2299b6126ea7ea305c567bf7634fbeea0",
+          "dependencies": ["fb-error"],
+          "citations": ["modules/err.js:1"]
+        },
+        {
+          "module": "fb-error",
+          "variant": "primary",
+          "printedSourceSha256": "545144d2d2c50524d5bcfc421916cf76760743cb5b034dcb7a4d7066981f714e",
+          "dependencies": ["performanceNow", "removeFromArray"],
+          "citations": ["modules/fb-error.js:1"]
+        },
+        {
+          "module": "performance",
+          "variant": "primary",
+          "printedSourceSha256": "9bee7ad7d1941af3432757b1ce55c980030f812f0a5fb00916e906b8a0b6ced9",
+          "dependencies": [],
+          "citations": ["modules/performance.js:1"]
+        },
+        {
+          "module": "performanceNow",
+          "variant": "primary",
+          "printedSourceSha256": "415e5327e020372f7789e27dc42266a9cb3d6bbc2d8c47d0b751b93517a0475f",
+          "dependencies": ["performance"],
+          "citations": ["modules/performanceNow.js:1"]
+        },
+        {
+          "module": "removeFromArray",
+          "variant": "primary",
+          "printedSourceSha256": "c8e194de9e9463716c2f383406ae8269ddff1a9fe5fbc1a7559abcd2aaa666bb",
+          "dependencies": [],
+          "citations": ["modules/removeFromArray.js:1"]
+        }
+      ],
+      "analyzer": {
+        "version": 4,
+        "sourceSha256": "73c5e31e59ff601a01114ab03a0dc183d81389987e3af5832c53d9ac8bd8c06b"
+      },
+      "inventoryDigest": "b6a665b6937ac49be3ae44230fee209df399da526e8f4f2a13ff12f2e4299055",
+      "gates": [],
+      "unresolved": [
+        {
+          "code": "missing-module",
+          "module": "cr:6640"
+        }
+      ],
+      "staticCoverage": {
+        "complete": false,
+        "scope": "module-closure-superset",
+        "semanticProof": false,
+        "resolverCoverage": false,
+        "modules": 8,
+        "sourceBytes": 31492,
+        "workBudget": {
+          "limit": 2000000,
+          "consumed": 137865,
+          "exhausted": false
+        },
+        "limitations": [
+          "Only supported gate APIs and static key expressions are inventoried.",
+          "Logical work units bound selected AST traversal and resolution, not parser internals or elapsed time; parsing remains source-byte bounded.",
+          "Declared fixture-provider boundaries exclude their original resolver implementations and dependencies.",
+          "All functions in each dependency module are scanned; exact export and caller reachability is not proven.",
+          "Runtime-discovered gates and externally selected code require separate observations."
+        ]
+      }
+    },
+    {
+      "revision": "1051908825",
+      "modules": [
+        {
+          "module": "Promise",
+          "variant": "primary",
+          "printedSourceSha256": "c94f5132251416675e842ee8bbe98476648325ff897dab0a230b39875e1f3c2a",
+          "dependencies": ["cr:6640"],
+          "citations": ["modules/Promise.js:1"]
+        },
+        {
+          "module": "WAGenericStateManager",
+          "variant": "primary",
+          "printedSourceSha256": "6a870ed2b536ec9f4b044cf08a500771d08c939e404c31bdcdfa909f16597943",
+          "dependencies": ["Promise", "WAPubSub"],
+          "citations": ["modules/WAGenericStateManager.js:1"]
+        },
+        {
+          "module": "WAPubSub",
+          "variant": "primary",
+          "printedSourceSha256": "e347a6f045355307f55cb07f6457247fe32e662e954f2a8970db7b4c8dcb91eb",
+          "dependencies": ["err"],
+          "citations": ["modules/WAPubSub.js:1"]
+        },
+        {
+          "module": "err",
+          "variant": "primary",
+          "printedSourceSha256": "a26a1f88fe2c09505c0ec8e43d1a43c2299b6126ea7ea305c567bf7634fbeea0",
+          "dependencies": ["fb-error"],
+          "citations": ["modules/err.js:1"]
+        },
+        {
+          "module": "fb-error",
+          "variant": "primary",
+          "printedSourceSha256": "545144d2d2c50524d5bcfc421916cf76760743cb5b034dcb7a4d7066981f714e",
+          "dependencies": ["performanceNow", "removeFromArray"],
+          "citations": ["modules/fb-error.js:1"]
+        },
+        {
+          "module": "performance",
+          "variant": "primary",
+          "printedSourceSha256": "9bee7ad7d1941af3432757b1ce55c980030f812f0a5fb00916e906b8a0b6ced9",
+          "dependencies": [],
+          "citations": ["modules/performance.js:1"]
+        },
+        {
+          "module": "performanceNow",
+          "variant": "primary",
+          "printedSourceSha256": "415e5327e020372f7789e27dc42266a9cb3d6bbc2d8c47d0b751b93517a0475f",
+          "dependencies": ["performance"],
+          "citations": ["modules/performanceNow.js:1"]
+        },
+        {
+          "module": "removeFromArray",
+          "variant": "primary",
+          "printedSourceSha256": "c8e194de9e9463716c2f383406ae8269ddff1a9fe5fbc1a7559abcd2aaa666bb",
+          "dependencies": [],
+          "citations": ["modules/removeFromArray.js:1"]
+        }
+      ],
+      "analyzer": {
+        "version": 4,
+        "sourceSha256": "73c5e31e59ff601a01114ab03a0dc183d81389987e3af5832c53d9ac8bd8c06b"
+      },
+      "inventoryDigest": "b6a665b6937ac49be3ae44230fee209df399da526e8f4f2a13ff12f2e4299055",
+      "gates": [],
+      "unresolved": [
+        {
+          "code": "missing-module",
+          "module": "cr:6640"
+        }
+      ],
+      "staticCoverage": {
+        "complete": false,
+        "scope": "module-closure-superset",
+        "semanticProof": false,
+        "resolverCoverage": false,
+        "modules": 8,
+        "sourceBytes": 31492,
+        "workBudget": {
+          "limit": 2000000,
+          "consumed": 137865,
+          "exhausted": false
+        },
+        "limitations": [
+          "Only supported gate APIs and static key expressions are inventoried.",
+          "Logical work units bound selected AST traversal and resolution, not parser internals or elapsed time; parsing remains source-byte bounded.",
+          "Declared fixture-provider boundaries exclude their original resolver implementations and dependencies.",
+          "All functions in each dependency module are scanned; exact export and caller reachability is not proven.",
+          "Runtime-discovered gates and externally selected code require separate observations."
+        ]
+      }
+    }
+  ],
+  "exclusions": [
+    "Actual state manager and the simple internal WAPubSub subscription path only; no supplied subscribers, callback fixture, fake readiness, timers, host Promise/function/object injection or provider replacement.",
+    "cr:6640=null explicitly selects the actual Promise module's native realm fallback. The missing original conditional Promise implementation, resolver/initialization equivalence and complete original provider acceptance remain unproved.",
+    "Pending settlement is observed at the runtime's bounded native microtask checkpoints; no arbitrary timer/task/interleaving order, full publication trace, subscription count/deletion/memory cleanup or cancellation/disposal guarantee is established.",
+    "Fresh equal-looking object targets are distinct input objects; same-object wait targets cannot be passed using retained refs because pending/reference case-wide exclusion remains unchanged.",
+    "Retained-object set/get restoration is a separate no-pending scenario. State replacement does not mutate previously retained data or establish model/history/connection/application state behavior.",
+    "WAPubSub keyed API, external subscribers, listener exceptions/reentrancy, process restart, account/network/storage/authentication/crypto and arbitrary state/sequence domains remain unexercised.",
+    "No container production isolation, authored-suite scheduling, browser bootstrap equivalence or named-library implementation parity is established."
+  ]
+}
