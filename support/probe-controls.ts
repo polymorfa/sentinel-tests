@@ -106,7 +106,7 @@ export function validateProbeControls(value: unknown): void {
       'Unknown probe control',
     );
     probeIds.add(probe.id);
-    if (probe.construct !== undefined)
+    if (probe.construct !== undefined) {
       assert.ok(
         probe.construct === true &&
           value.construct === undefined &&
@@ -114,6 +114,11 @@ export function validateProbeControls(value: unknown): void {
           probe.pending === undefined,
         'Probe construction requires a module scenario and no method or pending operation',
       );
+      assert.ok(
+        probe.result !== undefined || own(probe, 'throws'),
+        'Probe construction requires an explicit result projection or error assertion',
+      );
+    }
     const { args, result, ...outsideArgs } = probe;
     references(outsideArgs, retained);
     usesReferences = references(args, retained, true) || usesReferences;

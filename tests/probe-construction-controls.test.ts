@@ -3,10 +3,14 @@ import assert from 'node:assert/strict';
 import { validateProbeControls } from '../support/probe-controls.ts';
 
 const reference = (value: string) => ({ $type: 'reference', value });
-const construction = (id = 'make', patch: Record<string, unknown> = {}) => ({
+const construction = (
+  id = 'make',
+  patch: Record<string, unknown> = {},
+): Record<string, unknown> => ({
   id,
   args: [],
   construct: true,
+  result: { method: 'read' },
   expected: null,
   ...patch,
 });
@@ -148,8 +152,11 @@ test('construction preserves retention-stage, duplicate-ID and exception exclusi
     { id: 'item', stage: 'result' },
     { id: 'constructor', stage: 'call' },
     { id: 'x'.repeat(129), stage: 'call' },
-  ])
-    reject(scenario([construction('invalid', { retain })]));
+  ]) {
+    const probe = construction('invalid', { retain });
+    if (retain.stage === 'result') delete probe.result;
+    reject(scenario([probe]));
+  }
   reject(
     scenario([
       construction('one', { retain: { id: 'same', stage: 'call' } }),
@@ -189,4 +196,20 @@ test('construction cases remain limited to one through128 probes and case-local 
   validateProbeControls(scenario(maximum));
   reject(scenario([...maximum, construction('overflow')]));
   reject(scenario([construction('separate-case', { args: [reference('object-127')] })]));
+});
+
+test('construction requires an explicit result projection unless an application throw is expected', () => {
+  const opaque = construction('no-projection');
+  delete opaque.result;
+  reject(scenario([opaque]));
+  validateProbeControls(
+    scenario([
+      {
+        id: 'constructor-error',
+        construct: true,
+        args: [],
+        throws: { name: 'TypeError' },
+      },
+    ]),
+  );
 });
