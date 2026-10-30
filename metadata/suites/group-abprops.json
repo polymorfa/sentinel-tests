@@ -1,0 +1,3091 @@
+{
+  "schemaVersion": 1,
+  "id": "group-abprops",
+  "version": 1,
+  "title": "Original group ABProps cache readiness, public reader and record lifetimes",
+  "file": "tests/group-abprops.test.ts",
+  "helper": "support/group-abprops-cases.ts",
+  "capability": "wa-internal:group-abprops",
+  "roots": [
+    "WAWebGroupABProps",
+    "WAWebGroupABPropsCache",
+    "WAWebGroupABPropsConfigs",
+    "WAWebGroupABPropsGlobals"
+  ],
+  "oracle": "Literal original config names/codes/defaults plus source-grounded ready/installed-hook state tables, failed-prefix/duplicate/merge outcomes, record-array reference assertions and an independent named-group ordered-record list for bounded histories. Actual public GroupABProps reader resolves through the original cache implementation and WAResolvable. A failed first-group write retains prefix records but does not resolve readiness; a successful empty write in another group resolves global readiness and exposes them. Retained array containers are fresh Array.from snapshots sharing actual record objects. No readiness, reader, resolver, cache, config definitions or logging implementation is mocked. A separate21probe state-transition model runs every one of the64Cartesian fixture contexts for all six source-established booleanGKX keys, with expectations conditional on16539 where the actual selected source reads it. The otherfive boolean assignments are retained even when unobserved in that bounded flow; this does not establish all gated consumers or branch coverage.",
+  "trials": {
+    "cases": 86,
+    "portablePlanTests": 1,
+    "probesPerRevision": 2152,
+    "maxProbesPerCase": 90,
+    "maxRetainedObjectsPerCase": 3,
+    "selectedAssignments": [
+      {
+        "gkx": {
+          "16539": false
+        },
+        "knobs": {
+          "1600": false,
+          "1964": false,
+          "5257": false
+        }
+      },
+      {
+        "gkx": {
+          "16539": true
+        },
+        "knobs": {
+          "1600": false,
+          "1964": false,
+          "5257": false
+        }
+      }
+    ],
+    "sameInstanceGateTransitions": true,
+    "configurationExhaustive": false,
+    "fullBooleanSubsetKeys": ["10314", "16539", "26256", "26258", "26259", "4112"],
+    "fullBooleanSubsetCardinality": 64,
+    "fullBooleanSubsetExecution": "All64 Cartesian boolean fixture contexts executed at bothpins for the named21probe transition model. This is a selected boolean-input subset; unknown knobs, original providers and unresolved group reads still block full configuration/inventory coverage.",
+    "unknownKnobDomains": ["1600", "1964", "5257"],
+    "knownGateDescriptors": 9,
+    "sourceDeclaredGroupConfigDefaults": 19,
+    "selectedRecordCodes": [23245, 26270, 35639],
+    "generatedPagesPerSelectedAssignment": 3,
+    "generatedRoundsPerPage": 12,
+    "generatedGroupsPerHistory": 3,
+    "generatedHistoryOperations": [
+      "initialize",
+      "merge",
+      "empty-success",
+      "failed-prefix",
+      "clear",
+      "gate-update"
+    ],
+    "telemetryContext": "Every ordinary record has hasAccessed:true and configExpoKey:null; real first-access exposure delivery is excluded",
+    "inputDomains": "Numeric/group-id/record/sequence domains remain unbounded characterization. Source bool/int declarations do not turn raw cache records into schema validation or backend assignment proof.",
+    "booleanFixtureContextModel": {
+      "name": "initialize,failed-prefix,other-group-empty-success,reinit,clear,failed-retry,empty-success,local-override,duplicate-merge",
+      "contexts": 64,
+      "probesPerContext": 21,
+      "probesPerRevision": 1344,
+      "keys": ["10314", "16539", "26256", "26258", "26259", "4112"],
+      "assignments": [
+        {
+          "gkx": {
+            "4112": false,
+            "10314": false,
+            "16539": false,
+            "26256": false,
+            "26258": false,
+            "26259": false
+          },
+          "knobs": {
+            "1600": false,
+            "1964": false,
+            "5257": false
+          }
+        },
+        {
+          "gkx": {
+            "4112": false,
+            "10314": true,
+            "16539": false,
+            "26256": false,
+            "26258": false,
+            "26259": false
+          },
+          "knobs": {
+            "1600": false,
+            "1964": false,
+            "5257": false
+          }
+        },
+        {
+          "gkx": {
+            "4112": false,
+            "10314": false,
+            "16539": true,
+            "26256": false,
+            "26258": false,
+            "26259": false
+          },
+          "knobs": {
+            "1600": false,
+            "1964": false,
+            "5257": false
+          }
+        },
+        {
+          "gkx": {
+            "4112": false,
+            "10314": true,
+            "16539": true,
+            "26256": false,
+            "26258": false,
+            "26259": false
+          },
+          "knobs": {
+            "1600": false,
+            "1964": false,
+            "5257": false
+          }
+        },
+        {
+          "gkx": {
+            "4112": false,
+            "10314": false,
+            "16539": false,
+            "26256": true,
+            "26258": false,
+            "26259": false
+          },
+          "knobs": {
+            "1600": false,
+            "1964": false,
+            "5257": false
+          }
+        },
+        {
+          "gkx": {
+            "4112": false,
+            "10314": true,
+            "16539": false,
+            "26256": true,
+            "26258": false,
+            "26259": false
+          },
+          "knobs": {
+            "1600": false,
+            "1964": false,
+            "5257": false
+          }
+        },
+        {
+          "gkx": {
+            "4112": false,
+            "10314": false,
+            "16539": true,
+            "26256": true,
+            "26258": false,
+            "26259": false
+          },
+          "knobs": {
+            "1600": false,
+            "1964": false,
+            "5257": false
+          }
+        },
+        {
+          "gkx": {
+            "4112": false,
+            "10314": true,
+            "16539": true,
+            "26256": true,
+            "26258": false,
+            "26259": false
+          },
+          "knobs": {
+            "1600": false,
+            "1964": false,
+            "5257": false
+          }
+        },
+        {
+          "gkx": {
+            "4112": false,
+            "10314": false,
+            "16539": false,
+            "26256": false,
+            "26258": true,
+            "26259": false
+          },
+          "knobs": {
+            "1600": false,
+            "1964": false,
+            "5257": false
+          }
+        },
+        {
+          "gkx": {
+            "4112": false,
+            "10314": true,
+            "16539": false,
+            "26256": false,
+            "26258": true,
+            "26259": false
+          },
+          "knobs": {
+            "1600": false,
+            "1964": false,
+            "5257": false
+          }
+        },
+        {
+          "gkx": {
+            "4112": false,
+            "10314": false,
+            "16539": true,
+            "26256": false,
+            "26258": true,
+            "26259": false
+          },
+          "knobs": {
+            "1600": false,
+            "1964": false,
+            "5257": false
+          }
+        },
+        {
+          "gkx": {
+            "4112": false,
+            "10314": true,
+            "16539": true,
+            "26256": false,
+            "26258": true,
+            "26259": false
+          },
+          "knobs": {
+            "1600": false,
+            "1964": false,
+            "5257": false
+          }
+        },
+        {
+          "gkx": {
+            "4112": false,
+            "10314": false,
+            "16539": false,
+            "26256": true,
+            "26258": true,
+            "26259": false
+          },
+          "knobs": {
+            "1600": false,
+            "1964": false,
+            "5257": false
+          }
+        },
+        {
+          "gkx": {
+            "4112": false,
+            "10314": true,
+            "16539": false,
+            "26256": true,
+            "26258": true,
+            "26259": false
+          },
+          "knobs": {
+            "1600": false,
+            "1964": false,
+            "5257": false
+          }
+        },
+        {
+          "gkx": {
+            "4112": false,
+            "10314": false,
+            "16539": true,
+            "26256": true,
+            "26258": true,
+            "26259": false
+          },
+          "knobs": {
+            "1600": false,
+            "1964": false,
+            "5257": false
+          }
+        },
+        {
+          "gkx": {
+            "4112": false,
+            "10314": true,
+            "16539": true,
+            "26256": true,
+            "26258": true,
+            "26259": false
+          },
+          "knobs": {
+            "1600": false,
+            "1964": false,
+            "5257": false
+          }
+        },
+        {
+          "gkx": {
+            "4112": false,
+            "10314": false,
+            "16539": false,
+            "26256": false,
+            "26258": false,
+            "26259": true
+          },
+          "knobs": {
+            "1600": false,
+            "1964": false,
+            "5257": false
+          }
+        },
+        {
+          "gkx": {
+            "4112": false,
+            "10314": true,
+            "16539": false,
+            "26256": false,
+            "26258": false,
+            "26259": true
+          },
+          "knobs": {
+            "1600": false,
+            "1964": false,
+            "5257": false
+          }
+        },
+        {
+          "gkx": {
+            "4112": false,
+            "10314": false,
+            "16539": true,
+            "26256": false,
+            "26258": false,
+            "26259": true
+          },
+          "knobs": {
+            "1600": false,
+            "1964": false,
+            "5257": false
+          }
+        },
+        {
+          "gkx": {
+            "4112": false,
+            "10314": true,
+            "16539": true,
+            "26256": false,
+            "26258": false,
+            "26259": true
+          },
+          "knobs": {
+            "1600": false,
+            "1964": false,
+            "5257": false
+          }
+        },
+        {
+          "gkx": {
+            "4112": false,
+            "10314": false,
+            "16539": false,
+            "26256": true,
+            "26258": false,
+            "26259": true
+          },
+          "knobs": {
+            "1600": false,
+            "1964": false,
+            "5257": false
+          }
+        },
+        {
+          "gkx": {
+            "4112": false,
+            "10314": true,
+            "16539": false,
+            "26256": true,
+            "26258": false,
+            "26259": true
+          },
+          "knobs": {
+            "1600": false,
+            "1964": false,
+            "5257": false
+          }
+        },
+        {
+          "gkx": {
+            "4112": false,
+            "10314": false,
+            "16539": true,
+            "26256": true,
+            "26258": false,
+            "26259": true
+          },
+          "knobs": {
+            "1600": false,
+            "1964": false,
+            "5257": false
+          }
+        },
+        {
+          "gkx": {
+            "4112": false,
+            "10314": true,
+            "16539": true,
+            "26256": true,
+            "26258": false,
+            "26259": true
+          },
+          "knobs": {
+            "1600": false,
+            "1964": false,
+            "5257": false
+          }
+        },
+        {
+          "gkx": {
+            "4112": false,
+            "10314": false,
+            "16539": false,
+            "26256": false,
+            "26258": true,
+            "26259": true
+          },
+          "knobs": {
+            "1600": false,
+            "1964": false,
+            "5257": false
+          }
+        },
+        {
+          "gkx": {
+            "4112": false,
+            "10314": true,
+            "16539": false,
+            "26256": false,
+            "26258": true,
+            "26259": true
+          },
+          "knobs": {
+            "1600": false,
+            "1964": false,
+            "5257": false
+          }
+        },
+        {
+          "gkx": {
+            "4112": false,
+            "10314": false,
+            "16539": true,
+            "26256": false,
+            "26258": true,
+            "26259": true
+          },
+          "knobs": {
+            "1600": false,
+            "1964": false,
+            "5257": false
+          }
+        },
+        {
+          "gkx": {
+            "4112": false,
+            "10314": true,
+            "16539": true,
+            "26256": false,
+            "26258": true,
+            "26259": true
+          },
+          "knobs": {
+            "1600": false,
+            "1964": false,
+            "5257": false
+          }
+        },
+        {
+          "gkx": {
+            "4112": false,
+            "10314": false,
+            "16539": false,
+            "26256": true,
+            "26258": true,
+            "26259": true
+          },
+          "knobs": {
+            "1600": false,
+            "1964": false,
+            "5257": false
+          }
+        },
+        {
+          "gkx": {
+            "4112": false,
+            "10314": true,
+            "16539": false,
+            "26256": true,
+            "26258": true,
+            "26259": true
+          },
+          "knobs": {
+            "1600": false,
+            "1964": false,
+            "5257": false
+          }
+        },
+        {
+          "gkx": {
+            "4112": false,
+            "10314": false,
+            "16539": true,
+            "26256": true,
+            "26258": true,
+            "26259": true
+          },
+          "knobs": {
+            "1600": false,
+            "1964": false,
+            "5257": false
+          }
+        },
+        {
+          "gkx": {
+            "4112": false,
+            "10314": true,
+            "16539": true,
+            "26256": true,
+            "26258": true,
+            "26259": true
+          },
+          "knobs": {
+            "1600": false,
+            "1964": false,
+            "5257": false
+          }
+        },
+        {
+          "gkx": {
+            "4112": true,
+            "10314": false,
+            "16539": false,
+            "26256": false,
+            "26258": false,
+            "26259": false
+          },
+          "knobs": {
+            "1600": false,
+            "1964": false,
+            "5257": false
+          }
+        },
+        {
+          "gkx": {
+            "4112": true,
+            "10314": true,
+            "16539": false,
+            "26256": false,
+            "26258": false,
+            "26259": false
+          },
+          "knobs": {
+            "1600": false,
+            "1964": false,
+            "5257": false
+          }
+        },
+        {
+          "gkx": {
+            "4112": true,
+            "10314": false,
+            "16539": true,
+            "26256": false,
+            "26258": false,
+            "26259": false
+          },
+          "knobs": {
+            "1600": false,
+            "1964": false,
+            "5257": false
+          }
+        },
+        {
+          "gkx": {
+            "4112": true,
+            "10314": true,
+            "16539": true,
+            "26256": false,
+            "26258": false,
+            "26259": false
+          },
+          "knobs": {
+            "1600": false,
+            "1964": false,
+            "5257": false
+          }
+        },
+        {
+          "gkx": {
+            "4112": true,
+            "10314": false,
+            "16539": false,
+            "26256": true,
+            "26258": false,
+            "26259": false
+          },
+          "knobs": {
+            "1600": false,
+            "1964": false,
+            "5257": false
+          }
+        },
+        {
+          "gkx": {
+            "4112": true,
+            "10314": true,
+            "16539": false,
+            "26256": true,
+            "26258": false,
+            "26259": false
+          },
+          "knobs": {
+            "1600": false,
+            "1964": false,
+            "5257": false
+          }
+        },
+        {
+          "gkx": {
+            "4112": true,
+            "10314": false,
+            "16539": true,
+            "26256": true,
+            "26258": false,
+            "26259": false
+          },
+          "knobs": {
+            "1600": false,
+            "1964": false,
+            "5257": false
+          }
+        },
+        {
+          "gkx": {
+            "4112": true,
+            "10314": true,
+            "16539": true,
+            "26256": true,
+            "26258": false,
+            "26259": false
+          },
+          "knobs": {
+            "1600": false,
+            "1964": false,
+            "5257": false
+          }
+        },
+        {
+          "gkx": {
+            "4112": true,
+            "10314": false,
+            "16539": false,
+            "26256": false,
+            "26258": true,
+            "26259": false
+          },
+          "knobs": {
+            "1600": false,
+            "1964": false,
+            "5257": false
+          }
+        },
+        {
+          "gkx": {
+            "4112": true,
+            "10314": true,
+            "16539": false,
+            "26256": false,
+            "26258": true,
+            "26259": false
+          },
+          "knobs": {
+            "1600": false,
+            "1964": false,
+            "5257": false
+          }
+        },
+        {
+          "gkx": {
+            "4112": true,
+            "10314": false,
+            "16539": true,
+            "26256": false,
+            "26258": true,
+            "26259": false
+          },
+          "knobs": {
+            "1600": false,
+            "1964": false,
+            "5257": false
+          }
+        },
+        {
+          "gkx": {
+            "4112": true,
+            "10314": true,
+            "16539": true,
+            "26256": false,
+            "26258": true,
+            "26259": false
+          },
+          "knobs": {
+            "1600": false,
+            "1964": false,
+            "5257": false
+          }
+        },
+        {
+          "gkx": {
+            "4112": true,
+            "10314": false,
+            "16539": false,
+            "26256": true,
+            "26258": true,
+            "26259": false
+          },
+          "knobs": {
+            "1600": false,
+            "1964": false,
+            "5257": false
+          }
+        },
+        {
+          "gkx": {
+            "4112": true,
+            "10314": true,
+            "16539": false,
+            "26256": true,
+            "26258": true,
+            "26259": false
+          },
+          "knobs": {
+            "1600": false,
+            "1964": false,
+            "5257": false
+          }
+        },
+        {
+          "gkx": {
+            "4112": true,
+            "10314": false,
+            "16539": true,
+            "26256": true,
+            "26258": true,
+            "26259": false
+          },
+          "knobs": {
+            "1600": false,
+            "1964": false,
+            "5257": false
+          }
+        },
+        {
+          "gkx": {
+            "4112": true,
+            "10314": true,
+            "16539": true,
+            "26256": true,
+            "26258": true,
+            "26259": false
+          },
+          "knobs": {
+            "1600": false,
+            "1964": false,
+            "5257": false
+          }
+        },
+        {
+          "gkx": {
+            "4112": true,
+            "10314": false,
+            "16539": false,
+            "26256": false,
+            "26258": false,
+            "26259": true
+          },
+          "knobs": {
+            "1600": false,
+            "1964": false,
+            "5257": false
+          }
+        },
+        {
+          "gkx": {
+            "4112": true,
+            "10314": true,
+            "16539": false,
+            "26256": false,
+            "26258": false,
+            "26259": true
+          },
+          "knobs": {
+            "1600": false,
+            "1964": false,
+            "5257": false
+          }
+        },
+        {
+          "gkx": {
+            "4112": true,
+            "10314": false,
+            "16539": true,
+            "26256": false,
+            "26258": false,
+            "26259": true
+          },
+          "knobs": {
+            "1600": false,
+            "1964": false,
+            "5257": false
+          }
+        },
+        {
+          "gkx": {
+            "4112": true,
+            "10314": true,
+            "16539": true,
+            "26256": false,
+            "26258": false,
+            "26259": true
+          },
+          "knobs": {
+            "1600": false,
+            "1964": false,
+            "5257": false
+          }
+        },
+        {
+          "gkx": {
+            "4112": true,
+            "10314": false,
+            "16539": false,
+            "26256": true,
+            "26258": false,
+            "26259": true
+          },
+          "knobs": {
+            "1600": false,
+            "1964": false,
+            "5257": false
+          }
+        },
+        {
+          "gkx": {
+            "4112": true,
+            "10314": true,
+            "16539": false,
+            "26256": true,
+            "26258": false,
+            "26259": true
+          },
+          "knobs": {
+            "1600": false,
+            "1964": false,
+            "5257": false
+          }
+        },
+        {
+          "gkx": {
+            "4112": true,
+            "10314": false,
+            "16539": true,
+            "26256": true,
+            "26258": false,
+            "26259": true
+          },
+          "knobs": {
+            "1600": false,
+            "1964": false,
+            "5257": false
+          }
+        },
+        {
+          "gkx": {
+            "4112": true,
+            "10314": true,
+            "16539": true,
+            "26256": true,
+            "26258": false,
+            "26259": true
+          },
+          "knobs": {
+            "1600": false,
+            "1964": false,
+            "5257": false
+          }
+        },
+        {
+          "gkx": {
+            "4112": true,
+            "10314": false,
+            "16539": false,
+            "26256": false,
+            "26258": true,
+            "26259": true
+          },
+          "knobs": {
+            "1600": false,
+            "1964": false,
+            "5257": false
+          }
+        },
+        {
+          "gkx": {
+            "4112": true,
+            "10314": true,
+            "16539": false,
+            "26256": false,
+            "26258": true,
+            "26259": true
+          },
+          "knobs": {
+            "1600": false,
+            "1964": false,
+            "5257": false
+          }
+        },
+        {
+          "gkx": {
+            "4112": true,
+            "10314": false,
+            "16539": true,
+            "26256": false,
+            "26258": true,
+            "26259": true
+          },
+          "knobs": {
+            "1600": false,
+            "1964": false,
+            "5257": false
+          }
+        },
+        {
+          "gkx": {
+            "4112": true,
+            "10314": true,
+            "16539": true,
+            "26256": false,
+            "26258": true,
+            "26259": true
+          },
+          "knobs": {
+            "1600": false,
+            "1964": false,
+            "5257": false
+          }
+        },
+        {
+          "gkx": {
+            "4112": true,
+            "10314": false,
+            "16539": false,
+            "26256": true,
+            "26258": true,
+            "26259": true
+          },
+          "knobs": {
+            "1600": false,
+            "1964": false,
+            "5257": false
+          }
+        },
+        {
+          "gkx": {
+            "4112": true,
+            "10314": true,
+            "16539": false,
+            "26256": true,
+            "26258": true,
+            "26259": true
+          },
+          "knobs": {
+            "1600": false,
+            "1964": false,
+            "5257": false
+          }
+        },
+        {
+          "gkx": {
+            "4112": true,
+            "10314": false,
+            "16539": true,
+            "26256": true,
+            "26258": true,
+            "26259": true
+          },
+          "knobs": {
+            "1600": false,
+            "1964": false,
+            "5257": false
+          }
+        },
+        {
+          "gkx": {
+            "4112": true,
+            "10314": true,
+            "16539": true,
+            "26256": true,
+            "26258": true,
+            "26259": true
+          },
+          "knobs": {
+            "1600": false,
+            "1964": false,
+            "5257": false
+          }
+        }
+      ],
+      "observedConditionalValueKey": "16539",
+      "otherBooleanKeys": "Explicitly assigned in every Cartesian context even when not observed by this bounded flow; assignment coverage does not establish branch/consumer coverage",
+      "knobInputScope": "All3unknown knob inputs fixedfalse for these source cases only; their domains remain unestablished",
+      "original22CasePlanSha256": "caac2a3ad516357f3f825bdc4b123c8448de520638e7b65a54137f8d37324212",
+      "execution": "Diagnostic process observations and identical-context baseline/candidate comparisons, isolated:false; no saved scheduler/container proof"
+    }
+  },
+  "observations": [
+    {
+      "revision": "1051710191",
+      "modules": [
+        {
+          "module": "$InternalEnum",
+          "variant": "primary",
+          "printedSourceSha256": "2ceb4779145d3f716cdabff27facf6fec30f45f844896ccd78300320a44a69a9",
+          "dependencies": [],
+          "citations": ["modules/$InternalEnum.js:1-51"]
+        },
+        {
+          "module": "BanzaiLazyQueue",
+          "variant": "primary",
+          "printedSourceSha256": "c4b206703179790d810f00c914c5ff13123e8a5d479a1fc017e2d8fb06c62d49",
+          "dependencies": ["SimpleHook"],
+          "citations": ["modules/BanzaiLazyQueue.js:1-17"]
+        },
+        {
+          "module": "Env",
+          "variant": "primary",
+          "printedSourceSha256": "ad5c3d19c3db7a10d569dceb202b62801ac1014c42a99cf21d3249a124319082",
+          "dependencies": [],
+          "citations": ["modules/Env.js:1-22"]
+        },
+        {
+          "module": "ExecutionEnvironment",
+          "variant": "primary",
+          "printedSourceSha256": "4f49de6e0ddb5be88f962a8196f5a2370427b931db218b019e4a2bd020b1891e",
+          "dependencies": [],
+          "citations": ["modules/ExecutionEnvironment.js:1-14"]
+        },
+        {
+          "module": "FBLogger",
+          "variant": "primary",
+          "printedSourceSha256": "5b78358a73a6900d013f27628afaffe9b58fdb92dc37233690ec50441114c7c2",
+          "dependencies": ["fb-error"],
+          "citations": ["modules/FBLogger.js:1-4"]
+        },
+        {
+          "module": "Promise",
+          "variant": "primary",
+          "printedSourceSha256": "c94f5132251416675e842ee8bbe98476648325ff897dab0a230b39875e1f3c2a",
+          "dependencies": ["cr:6640"],
+          "citations": ["modules/Promise.js:1-42"]
+        },
+        {
+          "module": "SimpleHook",
+          "variant": "primary",
+          "printedSourceSha256": "fd56db80143da1644f5f104549955a5a4fc38e3bafb9ae56cc3f2e4e33885eca",
+          "dependencies": [],
+          "citations": ["modules/SimpleHook.js:1-43"]
+        },
+        {
+          "module": "WAAbortError",
+          "variant": "primary",
+          "printedSourceSha256": "b5cf83506ce31b3ccf8a0beccffdf7989723ea46dac67008dbda4e87120aaa3d",
+          "dependencies": ["WACustomError"],
+          "citations": ["modules/WAAbortError.js:1-17"]
+        },
+        {
+          "module": "WABase64",
+          "variant": "primary",
+          "printedSourceSha256": "249860e69ae3618cc03cc3d55b7effc9754cb713c319610149c001880e05154e",
+          "dependencies": ["WALogger", "err"],
+          "citations": ["modules/WABase64.js:1-80"]
+        },
+        {
+          "module": "WABinary",
+          "variant": "primary",
+          "printedSourceSha256": "03edbd33455894b148adb38944ff3c6a27b3102631d3c00bf1cdeea5480884d4",
+          "dependencies": ["WAHex", "err"],
+          "citations": ["modules/WABinary.js:1-360"]
+        },
+        {
+          "module": "WACamelCase",
+          "variant": "primary",
+          "printedSourceSha256": "8d9b21dfa6b6bf9f98d325aa95bf9caa461ecddf70a7b8a55b1201e83b603dad",
+          "dependencies": [],
+          "citations": ["modules/WACamelCase.js:1-12"]
+        },
+        {
+          "module": "WACryptoDependencies",
+          "variant": "primary",
+          "printedSourceSha256": "7c9ee7d20b1017ee8993d85c1a4add7b1fa8684344c210fbec3388d72aea6baa",
+          "dependencies": [],
+          "citations": ["modules/WACryptoDependencies.js:1-11"]
+        },
+        {
+          "module": "WACryptoHmac",
+          "variant": "primary",
+          "printedSourceSha256": "60b32583c1a636251a5914db4198e7a7cde56f3a7b6eb4eb40213292b37ee287",
+          "dependencies": ["WACryptoDependencies", "WATypedArraysCast"],
+          "citations": ["modules/WACryptoHmac.js:1-52"]
+        },
+        {
+          "module": "WACustomError",
+          "variant": "primary",
+          "printedSourceSha256": "5d1bdf0db1fc7934930362079c89db68a32e685cc1fa69bf80b922c5bfd883fa",
+          "dependencies": ["fb-error"],
+          "citations": ["modules/WACustomError.js:1-37"]
+        },
+        {
+          "module": "WAGenericStateManager",
+          "variant": "primary",
+          "printedSourceSha256": "6a870ed2b536ec9f4b044cf08a500771d08c939e404c31bdcdfa909f16597943",
+          "dependencies": ["Promise", "WAPubSub"],
+          "citations": ["modules/WAGenericStateManager.js:1-24"]
+        },
+        {
+          "module": "WAHex",
+          "variant": "primary",
+          "printedSourceSha256": "3d28ad9eb342f6715bec66c8c38fd57a14497e07101f5f9b67fc3c9838e72ffe",
+          "dependencies": ["err"],
+          "citations": ["modules/WAHex.js:1-119"]
+        },
+        {
+          "module": "WALogger",
+          "variant": "primary",
+          "printedSourceSha256": "0406e777eb10eef04870576148db402f9aa20fe709545e0701a314d5b8583837",
+          "dependencies": ["$InternalEnum", "WATagsLogger"],
+          "citations": ["modules/WALogger.js:1-27"]
+        },
+        {
+          "module": "WALoggerUtils",
+          "variant": "primary",
+          "printedSourceSha256": "e1baf5e4850088801148e9a6a46e6720e52efba4aca6f4a139f585fd162f364b",
+          "dependencies": ["WAHex"],
+          "citations": ["modules/WALoggerUtils.js:1-35"]
+        },
+        {
+          "module": "WAMemoizeCache",
+          "variant": "primary",
+          "printedSourceSha256": "99f780ded9a4069dcc506d1b6e84da8971b647a66845abbcba3480f9636b5256",
+          "dependencies": [],
+          "citations": ["modules/WAMemoizeCache.js:1-22"]
+        },
+        {
+          "module": "WAMemoizeConcurrent",
+          "variant": "primary",
+          "printedSourceSha256": "9809feee74d23e8e75d0858ddaedf2fd412096182dd0c2f655723a7542c0f45a",
+          "dependencies": ["Promise", "WAAbortError", "WAPromiseRaceAbort", "WASignalAggregator"],
+          "citations": ["modules/WAMemoizeConcurrent.js:1-29"]
+        },
+        {
+          "module": "WAPromiseRaceAbort",
+          "variant": "primary",
+          "printedSourceSha256": "9018e5965930bd9cf3d87f30c9be27d6a794d798989c1e2654d23a104068b4cf",
+          "dependencies": ["Promise", "WAAbortError"],
+          "citations": ["modules/WAPromiseRaceAbort.js:1-19"]
+        },
+        {
+          "module": "WAPubSub",
+          "variant": "primary",
+          "printedSourceSha256": "e347a6f045355307f55cb07f6457247fe32e662e954f2a8970db7b4c8dcb91eb",
+          "dependencies": ["err"],
+          "citations": ["modules/WAPubSub.js:1-44"]
+        },
+        {
+          "module": "WAResolvable",
+          "variant": "primary",
+          "printedSourceSha256": "ec4c38142d06da51d05ff33d00fe8c031008f09efde8d962fe883715079d5376",
+          "dependencies": ["Promise"],
+          "citations": ["modules/WAResolvable.js:1-20"]
+        },
+        {
+          "module": "WASignalAggregator",
+          "variant": "primary",
+          "printedSourceSha256": "a0ddfe83a5d80a7b051d273368c66e1307687926332602b266bb759c7d02d637",
+          "dependencies": ["err"],
+          "citations": ["modules/WASignalAggregator.js:1-41"]
+        },
+        {
+          "module": "WATagsLogger",
+          "variant": "primary",
+          "printedSourceSha256": "c6cb8a0516b1ec1b5a373d50cd3d75f952707f12547d2f46820d9d352bb26ad7",
+          "dependencies": ["FBLogger", "Promise", "WALoggerUtils", "asyncToGeneratorRuntime"],
+          "citations": ["modules/WATagsLogger.js:1-189"]
+        },
+        {
+          "module": "WATypeUtils",
+          "variant": "primary",
+          "printedSourceSha256": "692d60676bfcba61805b5c319fc172976c527ccb5cda2d3822a67b24da5f8e25",
+          "dependencies": [],
+          "citations": ["modules/WATypeUtils.js:1-16"]
+        },
+        {
+          "module": "WATypedArraysCast",
+          "variant": "primary",
+          "printedSourceSha256": "5f37f9fcdce34e6ed635e7d8de803c98a8558384811c57a62eef0b5faf5ae07a",
+          "dependencies": ["WABase64"],
+          "citations": ["modules/WATypedArraysCast.js:1-7"]
+        },
+        {
+          "module": "WAUpperFirst",
+          "variant": "primary",
+          "printedSourceSha256": "d29705feaff8679438284528eaca852ceb4948244237daa0350abec70b704c01",
+          "dependencies": [],
+          "citations": ["modules/WAUpperFirst.js:1-7"]
+        },
+        {
+          "module": "WAWebABPropsExpoKeyUtils",
+          "variant": "primary",
+          "printedSourceSha256": "cd2563a9b135430dcb697195297a9f88b080451793d3a67b97cb8f0ac1ef4546",
+          "dependencies": [],
+          "citations": ["modules/WAWebABPropsExpoKeyUtils.js:1-6"]
+        },
+        {
+          "module": "WAWebBaseMirror",
+          "variant": "primary",
+          "printedSourceSha256": "f66f1eebc6fbd23f11b2bb75f1ab14c78dc44cbbaa4e8afb113c6a97db9da739",
+          "dependencies": [],
+          "citations": ["modules/WAWebBaseMirror.js:1-65"]
+        },
+        {
+          "module": "WAWebBaseModel",
+          "variant": "primary",
+          "printedSourceSha256": "3409f7c99af19ca3506c08317ea7fe170e7fc99128f20844701ca9f947d02384",
+          "dependencies": [
+            "WALogger",
+            "WAWebBaseMirror",
+            "WAWebEventEmitter",
+            "WAWebModelUtils",
+            "WAWebNetworkStatus",
+            "WAWebProxyStateFactory",
+            "WAWebUiIdleEventBus",
+            "cr:5292",
+            "err",
+            "gkx",
+            "nullthrows"
+          ],
+          "citations": ["modules/WAWebBaseModel.js:1-188"]
+        },
+        {
+          "module": "WAWebBrowserInfo",
+          "variant": "primary",
+          "printedSourceSha256": "8a53aa5d0f8eac49e65de4186278fe9fcf0c5b1ce360c685d43721241d894eef",
+          "dependencies": ["WAWebUA"],
+          "citations": ["modules/WAWebBrowserInfo.js:1-25"]
+        },
+        {
+          "module": "WAWebBuildConstants",
+          "variant": "primary",
+          "printedSourceSha256": "2ab0b643515571399eb5a5e2bdff507cd21849a79d3bd122db9c701cce8b6823",
+          "dependencies": [
+            "SiteData",
+            "WALogger",
+            "WAWebEnvironment",
+            "WAWebWindowsQueryParams",
+            "gkx",
+            "justknobx"
+          ],
+          "citations": ["modules/WAWebBuildConstants.js:1-39"]
+        },
+        {
+          "module": "WAWebCreateFile",
+          "variant": "primary",
+          "printedSourceSha256": "c107fd15a2eed6bbe708bb47cb984e7a4e163cd0bf26b5ef04d4a284c1110ba7",
+          "dependencies": [],
+          "citations": ["modules/WAWebCreateFile.js:1-7"]
+        },
+        {
+          "module": "WAWebDataUrlToBlob",
+          "variant": "primary",
+          "printedSourceSha256": "4b7dbecdec00ccfbe5b0a4282f62cb2aca4a3ed3b6a867815ae8a0207092c29f",
+          "dependencies": ["err"],
+          "citations": ["modules/WAWebDataUrlToBlob.js:1-12"]
+        },
+        {
+          "module": "WAWebDebounce",
+          "variant": "primary",
+          "printedSourceSha256": "30955ad99678ddf4a6de95db01d80a3f4f02c9dbd318e22bf57b17df1c391282",
+          "dependencies": [],
+          "citations": ["modules/WAWebDebounce.js:1-37"]
+        },
+        {
+          "module": "WAWebEnvironment",
+          "variant": "primary",
+          "printedSourceSha256": "61f690b57e6049ea5c8e0fffa7270bcf48de8cdc1a2d6032521f37575d004913",
+          "dependencies": ["WAWebPwaDocumentMetadataUtils", "gkx"],
+          "citations": ["modules/WAWebEnvironment.js:1-21"]
+        },
+        {
+          "module": "WAWebEventEmitter",
+          "variant": "primary",
+          "printedSourceSha256": "aa98ae5d192cbc62de117c64637257cd4f6ce8eac240a19a2b982ab28a1ec5f9",
+          "dependencies": ["err", "isEmptyObject"],
+          "citations": ["modules/WAWebEventEmitter.js:1-142"]
+        },
+        {
+          "module": "WAWebGroupABProps",
+          "variant": "primary",
+          "printedSourceSha256": "2c5c88d64d9644e52562bbce2c65983f71d9cb4d93e0bb60ea5ac6c051c5c4b5",
+          "dependencies": ["WALogger", "WAWebGroupABPropsCache", "WAWebGroupABPropsConfigs", "gkx"],
+          "citations": ["modules/WAWebGroupABProps.js:1-17"]
+        },
+        {
+          "module": "WAWebGroupABPropsCache",
+          "variant": "primary",
+          "printedSourceSha256": "457d5c52934e9a02d6caa12c7beb15e8a82ca6a64a497788e13bcf26c29ad1a7",
+          "dependencies": [
+            "WALogger",
+            "WAResolvable",
+            "WAWebGroupABPropsConfigs",
+            "WAWebGroupABPropsGlobals",
+            "gkx"
+          ],
+          "citations": ["modules/WAWebGroupABPropsCache.js:1-61"]
+        },
+        {
+          "module": "WAWebGroupABPropsConfigs",
+          "variant": "primary",
+          "printedSourceSha256": "4690802af7f48eff0671c0647559a9eb06e126dba383d3230a973967489666f0",
+          "dependencies": [],
+          "citations": ["modules/WAWebGroupABPropsConfigs.js:1-120"]
+        },
+        {
+          "module": "WAWebGroupABPropsGlobals",
+          "variant": "primary",
+          "printedSourceSha256": "985f8afee36bbad4be83ba84a4543e3b9414a0d3bd2b14004d07eed8b6b6fda1",
+          "dependencies": [
+            "WAWebABPropsExpoKeyUtils",
+            "WAWebDebounce",
+            "WAWebNetworkStatus",
+            "WAWebWefrGroupClientExposureWamEvent",
+            "justknobx"
+          ],
+          "citations": ["modules/WAWebGroupABPropsGlobals.js:1-50"]
+        },
+        {
+          "module": "WAWebModelUtils",
+          "variant": "primary",
+          "printedSourceSha256": "f4a9d0ea6955e4a22c49b17a4aacc9d5c7c1033eb6430fceca79e334fcacfc48",
+          "dependencies": [
+            "WAMemoizeCache",
+            "WATypeUtils",
+            "err",
+            "isEmptyObject",
+            "isPlainObject",
+            "nullthrows",
+            "omit"
+          ],
+          "citations": ["modules/WAWebModelUtils.js:1-270"]
+        },
+        {
+          "module": "WAWebNetworkGetResponseIfOnline",
+          "variant": "primary",
+          "printedSourceSha256": "7aa3cff0e25d7d17f28a6cad23ff08e897b1030d9bc46936bc552a75004a091d",
+          "dependencies": ["WAWebNullFunc", "WAWebXHR"],
+          "citations": ["modules/WAWebNetworkGetResponseIfOnline.js:1-9"]
+        },
+        {
+          "module": "WAWebNetworkStatus",
+          "variant": "primary",
+          "printedSourceSha256": "e6da9156ac7afc279c90d544a63dfbe6507120eaf183bfc1fe9ca20a0dc2a5fe",
+          "dependencies": [
+            "Promise",
+            "WALogger",
+            "WAMemoizeConcurrent",
+            "WAWebBaseModel",
+            "WAWebBrowserInfo",
+            "WAWebBuildConstants",
+            "WAWebNetworkGetResponseIfOnline",
+            "WAWebNetworkStatusStateManager",
+            "asyncToGeneratorRuntime",
+            "gkx"
+          ],
+          "citations": ["modules/WAWebNetworkStatus.js:1-63"]
+        },
+        {
+          "module": "WAWebNetworkStatusStateManager",
+          "variant": "primary",
+          "printedSourceSha256": "cd3d800829d9b943994d8e2318cabf0dfcebeeac46f701c7804764e0dd1f0341",
+          "dependencies": ["WAGenericStateManager"],
+          "citations": ["modules/WAWebNetworkStatusStateManager.js:1-4"]
+        },
+        {
+          "module": "WAWebNoop",
+          "variant": "primary",
+          "printedSourceSha256": "ab968979179836e6bfe0f43839c0231d0268e67ee9cf857b2ca268c244266f65",
+          "dependencies": [],
+          "citations": ["modules/WAWebNoop.js:1-5"]
+        },
+        {
+          "module": "WAWebNullFunc",
+          "variant": "primary",
+          "printedSourceSha256": "2c71475ac28f0a8b0cee13511cc19c8e2cb8a7dd3b0fe8cbcf4363b2fb2da1f7",
+          "dependencies": [],
+          "citations": ["modules/WAWebNullFunc.js:1-7"]
+        },
+        {
+          "module": "WAWebProxyStateFactory",
+          "variant": "primary",
+          "printedSourceSha256": "21cf61b21007d233b53500219fdc261077b140acb5fef0bc494aaf735da004cc",
+          "dependencies": ["WACustomError", "WALogger", "gkx"],
+          "citations": ["modules/WAWebProxyStateFactory.js:1-62"]
+        },
+        {
+          "module": "WAWebPwaDocumentMetadataUtils",
+          "variant": "primary",
+          "printedSourceSha256": "3ac5670906176cc027e977a20926242f266de521f0626559f36d775aade9280a",
+          "dependencies": ["WAWebNoop", "WAWebRuntimeEnvironmentUtils"],
+          "citations": ["modules/WAWebPwaDocumentMetadataUtils.js:1-30"]
+        },
+        {
+          "module": "WAWebRuntimeEnvironmentUtils",
+          "variant": "primary",
+          "printedSourceSha256": "862d22464ad1d37e28d8ece29572a296e7b6853ca6ecdd6de6e6e2bdc6283b5a",
+          "dependencies": [],
+          "citations": ["modules/WAWebRuntimeEnvironmentUtils.js:1-9"]
+        },
+        {
+          "module": "WAWebUA",
+          "variant": "primary",
+          "printedSourceSha256": "b1a76e0e4141239a0dc2f5e62cf67de685e776f781fdbd86972f145b47dc4e22",
+          "dependencies": ["gkx", "ua-parser-js"],
+          "citations": ["modules/WAWebUA.js:1-67"]
+        },
+        {
+          "module": "WAWebURLUtils",
+          "variant": "primary",
+          "printedSourceSha256": "def72ab44235e4a61843ec0124fb3e78580e810562bb159dc3a48ebea93b4f0e",
+          "dependencies": [
+            "WABase64",
+            "WABinary",
+            "WACryptoHmac",
+            "WALogger",
+            "WAMemoizeCache",
+            "WATypeUtils",
+            "WAWebCreateFile",
+            "WAWebDataUrlToBlob",
+            "WAWebRuntimeEnvironmentUtils",
+            "WAWebURLValidSchemes"
+          ],
+          "citations": ["modules/WAWebURLUtils.js:1-116"]
+        },
+        {
+          "module": "WAWebURLValidSchemes",
+          "variant": "primary",
+          "printedSourceSha256": "8d41589791cb7cac55d6ec5508ce165801f4d45de1613f2b89259d8cf022b545",
+          "dependencies": [],
+          "citations": ["modules/WAWebURLValidSchemes.js:1-13"]
+        },
+        {
+          "module": "WAWebUiIdleEventBus",
+          "variant": "primary",
+          "printedSourceSha256": "f1dca19cfed068d57ea2eb3e78b8f48b63c462d8cbcc253bfd1560ec1f687974",
+          "dependencies": [
+            "WALogger",
+            "WAWebDebounce",
+            "WAWebEventEmitter",
+            "WAWebNoop",
+            "invariant"
+          ],
+          "citations": ["modules/WAWebUiIdleEventBus.js:1-43"]
+        },
+        {
+          "module": "WAWebWamCodegenGlobalMetrics",
+          "variant": "primary",
+          "printedSourceSha256": "9b9fd39ec8ffead6f89c9e8f813c7a807d4aef70e2f4406b905ae250316fb196",
+          "dependencies": ["WAWebWamCodegenUtils", "nullthrows"],
+          "citations": ["modules/WAWebWamCodegenGlobalMetrics.js:1-49"]
+        },
+        {
+          "module": "WAWebWamCodegenUtils",
+          "variant": "primary",
+          "printedSourceSha256": "5edfa39c14a48484357ce6075c9593339b3a10c27dd706b4ecf80cfbad4925a2",
+          "dependencies": [
+            "WAUpperFirst",
+            "WAWebWamCodegenGlobalMetrics",
+            "WAWebWamCodegenWamEvent",
+            "WAWebWamInitQueue",
+            "WAWebWamRuntimeProvider",
+            "WAWebWamTypeHash",
+            "err",
+            "gkx",
+            "justknobx"
+          ],
+          "citations": ["modules/WAWebWamCodegenUtils.js:1-108"]
+        },
+        {
+          "module": "WAWebWamCodegenWamEvent",
+          "variant": "primary",
+          "printedSourceSha256": "c214715eb1b6d0f04210a5ab5c7096056cd6201a33f1a6757db268682ce6776e",
+          "dependencies": [
+            "Promise",
+            "WACamelCase",
+            "WALogger",
+            "WAWebWamCodegenUtils",
+            "WAWebWamDroppedEventWamEvent",
+            "WAWebWamInitQueue",
+            "WAWebWamRuntimeProvider",
+            "WAWebWamTypeHash"
+          ],
+          "citations": ["modules/WAWebWamCodegenWamEvent.js:1-175"]
+        },
+        {
+          "module": "WAWebWamDroppedEventWamEvent",
+          "variant": "primary",
+          "printedSourceSha256": "818b07fb2f9455d649885020ae8f69d080276449b6e5b62b4c08bf547fdf2fb1",
+          "dependencies": ["WAWebWamCodegenUtils"],
+          "citations": ["modules/WAWebWamDroppedEventWamEvent.js:1-17"]
+        },
+        {
+          "module": "WAWebWamInitQueue",
+          "variant": "primary",
+          "printedSourceSha256": "c42cd0dc270bb3537a2a178a2e53b13699678a9730275230966cd66fabfa879a",
+          "dependencies": ["WAWebWamRuntimeProvider"],
+          "citations": ["modules/WAWebWamInitQueue.js:1-23"]
+        },
+        {
+          "module": "WAWebWamRuntimeProvider",
+          "variant": "primary",
+          "printedSourceSha256": "ba99d86d2f1c3ebeb957da0ebe060bb518c45554d79420dfed65cac5b312fb43",
+          "dependencies": ["WALogger", "WAWebWamInitQueue"],
+          "citations": ["modules/WAWebWamRuntimeProvider.js:1-14"]
+        },
+        {
+          "module": "WAWebWamTypeHash",
+          "variant": "primary",
+          "printedSourceSha256": "9036ccf2e3b32a90aacd9ef7d687c08fe3f9a55433483f7ea7a6c9371b388521",
+          "dependencies": ["WALogger", "err"],
+          "citations": ["modules/WAWebWamTypeHash.js:1-58"]
+        },
+        {
+          "module": "WAWebWefrGroupClientExposureWamEvent",
+          "variant": "primary",
+          "printedSourceSha256": "f67c9338602ea9e458e32c109533812aea2ed5b2c2a14e7bc18854de60087df3",
+          "dependencies": ["WAWebWamCodegenUtils"],
+          "citations": ["modules/WAWebWefrGroupClientExposureWamEvent.js:1-18"]
+        },
+        {
+          "module": "WAWebWindowsQueryParams",
+          "variant": "primary",
+          "printedSourceSha256": "36a3624ea0a3501789b26e16f6f4176faf321dca44597f05a58a4c3a79f41abf",
+          "dependencies": [],
+          "citations": ["modules/WAWebWindowsQueryParams.js:1-15"]
+        },
+        {
+          "module": "WAWebXHR",
+          "variant": "primary",
+          "printedSourceSha256": "1825b3415a2b911b06c11038a5735822f8ca62bc7e60dad6d4e38b2831647e4c",
+          "dependencies": [
+            "Promise",
+            "WAAbortError",
+            "WALogger",
+            "WAPromiseRaceAbort",
+            "WAWebNoop",
+            "WAWebURLUtils"
+          ],
+          "citations": ["modules/WAWebXHR.js:1-50"]
+        },
+        {
+          "module": "asyncToGeneratorRuntime",
+          "variant": "primary",
+          "printedSourceSha256": "147052b2a1cdc6d21087a611043d0974d5babedeeee624185babb023bbcf72f3",
+          "dependencies": ["Promise"],
+          "citations": ["modules/asyncToGeneratorRuntime.js:1-29"]
+        },
+        {
+          "module": "emptyFunction",
+          "variant": "primary",
+          "printedSourceSha256": "efc2fa885be346ba40045503e3a0588374c842f36261ce8138988d63608ecb48",
+          "dependencies": [],
+          "citations": ["modules/emptyFunction.js:1-16"]
+        },
+        {
+          "module": "err",
+          "variant": "primary",
+          "printedSourceSha256": "a26a1f88fe2c09505c0ec8e43d1a43c2299b6126ea7ea305c567bf7634fbeea0",
+          "dependencies": ["fb-error"],
+          "citations": ["modules/err.js:1-4"]
+        },
+        {
+          "module": "fb-error",
+          "variant": "primary",
+          "printedSourceSha256": "545144d2d2c50524d5bcfc421916cf76760743cb5b034dcb7a4d7066981f714e",
+          "dependencies": ["performanceNow", "removeFromArray"],
+          "citations": ["modules/fb-error.js:1-698"]
+        },
+        {
+          "module": "fb-error-lite",
+          "variant": "primary",
+          "printedSourceSha256": "70182c28f267319e6122d9da5fa9d01bc3c60775130d33429a71874503924b64",
+          "dependencies": [],
+          "citations": ["modules/fb-error-lite.js:1-25"]
+        },
+        {
+          "module": "gkx",
+          "variant": "primary",
+          "printedSourceSha256": "e84fc9d0a08a52702897502d1eb33202bd0d97b9633277aa18df81d9cb902cf6",
+          "dependencies": ["BanzaiLazyQueue", "ExecutionEnvironment", "emptyFunction", "invariant"],
+          "citations": ["modules/gkx.js:1-35"]
+        },
+        {
+          "module": "invariant",
+          "variant": "primary",
+          "printedSourceSha256": "6b377021188adf8be5add1781bb1a5b3a7da5d0021df951267b1ae8d331f705f",
+          "dependencies": ["Env", "fb-error-lite", "sprintf"],
+          "citations": ["modules/invariant.js:1-42"]
+        },
+        {
+          "module": "isEmptyObject",
+          "variant": "primary",
+          "printedSourceSha256": "4e2b01fab45c2a49d9b4b6280af0de70ebb40a93c745bbe0740ca71722129af8",
+          "dependencies": [],
+          "citations": ["modules/isEmptyObject.js:1-8"]
+        },
+        {
+          "module": "isPlainObject",
+          "variant": "primary",
+          "printedSourceSha256": "402df75f4e9802c65120f1947d7770c1a517bd96bcda3aeb2d3ad43be3bc3ca0",
+          "dependencies": [],
+          "citations": ["modules/isPlainObject.js:1-7"]
+        },
+        {
+          "module": "justknobx",
+          "variant": "primary",
+          "printedSourceSha256": "f42afc172240cd5ff466368ab522c6b917cdf148a6527126ecf1052ed718ec9e",
+          "dependencies": ["invariant"],
+          "citations": ["modules/justknobx.js:1-19"]
+        },
+        {
+          "module": "nullthrows",
+          "variant": "primary",
+          "printedSourceSha256": "8f9ee47b9edbd38314e5f785b651c3fef622f457813889a4495c3b79ea3c241c",
+          "dependencies": [],
+          "citations": ["modules/nullthrows.js:1-8"]
+        },
+        {
+          "module": "omit",
+          "variant": "primary",
+          "printedSourceSha256": "2d1d1966914440233f7561081a652d6632d099546eed25f0391fdd7f70bb7f4a",
+          "dependencies": [],
+          "citations": ["modules/omit.js:1-9"]
+        },
+        {
+          "module": "performance",
+          "variant": "primary",
+          "printedSourceSha256": "9bee7ad7d1941af3432757b1ce55c980030f812f0a5fb00916e906b8a0b6ced9",
+          "dependencies": [],
+          "citations": ["modules/performance.js:1-5"]
+        },
+        {
+          "module": "performanceNow",
+          "variant": "primary",
+          "printedSourceSha256": "415e5327e020372f7789e27dc42266a9cb3d6bbc2d8c47d0b751b93517a0475f",
+          "dependencies": ["performance"],
+          "citations": ["modules/performanceNow.js:1-15"]
+        },
+        {
+          "module": "removeFromArray",
+          "variant": "primary",
+          "printedSourceSha256": "c8e194de9e9463716c2f383406ae8269ddff1a9fe5fbc1a7559abcd2aaa666bb",
+          "dependencies": [],
+          "citations": ["modules/removeFromArray.js:1-8"]
+        },
+        {
+          "module": "sprintf",
+          "variant": "primary",
+          "printedSourceSha256": "7860c49011bd89ed50d0db8ed061d00ec9a2ba42b75f298a10c3d6ef98888361",
+          "dependencies": [],
+          "citations": ["modules/sprintf.js:1-11"]
+        },
+        {
+          "module": "ua-parser-js",
+          "variant": "primary",
+          "printedSourceSha256": "4e3a05dfc64a400d54b8e89e11b5dcae2071e4119c9170cc91bb31bb054058cb",
+          "dependencies": ["ua-parser-js-0.7.39"],
+          "citations": ["modules/ua-parser-js.js:1-3"]
+        },
+        {
+          "module": "ua-parser-js-0.7.39",
+          "variant": "primary",
+          "printedSourceSha256": "bc484be8b30d6a05d683d953ce91cc74eddff962dae051b2f42d3e376bca1bcf",
+          "dependencies": [],
+          "citations": ["modules/ua-parser-js-0.7.39.js:1-1054"]
+        }
+      ],
+      "analyzer": {
+        "version": 3,
+        "sourceSha256": "06c35199d0b06c9441486d96cb06b540628d64c562b7c1bbd9f2b5f28c6a3096"
+      },
+      "inventoryDigest": "5a0189db5e753367cea972920c4f722c3097e438727d52a728b0650ac4b49a3e",
+      "gates": [
+        {
+          "kind": "gkx",
+          "key": "10314",
+          "valueType": "boolean",
+          "reads": [
+            {
+              "module": "WAWebEnvironment",
+              "variant": "primary",
+              "line": 2,
+              "column": 39,
+              "method": "gkx",
+              "timing": "module-initialization",
+              "expression": "r(\"gkx\")(\"10314\")"
+            }
+          ]
+        },
+        {
+          "kind": "gkx",
+          "key": "16539",
+          "valueType": "boolean",
+          "reads": [
+            {
+              "module": "WAWebGroupABProps",
+              "variant": "primary",
+              "line": 12,
+              "column": 24,
+              "method": "gkx",
+              "timing": "function-body",
+              "expression": "r(\"gkx\")(\"16539\")"
+            },
+            {
+              "module": "WAWebGroupABPropsCache",
+              "variant": "primary",
+              "line": 36,
+              "column": 33,
+              "method": "gkx",
+              "timing": "function-body",
+              "expression": "r(\"gkx\")(\"16539\")"
+            }
+          ]
+        },
+        {
+          "kind": "gkx",
+          "key": "26256",
+          "valueType": "boolean",
+          "reads": [
+            {
+              "module": "WAWebNetworkStatus",
+              "variant": "primary",
+              "line": 34,
+              "column": 125,
+              "method": "gkx",
+              "timing": "function-body",
+              "expression": "r(\"gkx\")(\"26256\")"
+            },
+            {
+              "module": "WAWebNetworkStatus",
+              "variant": "primary",
+              "line": 59,
+              "column": 9,
+              "method": "gkx",
+              "timing": "function-body",
+              "expression": "r(\"gkx\")(\"26256\")"
+            }
+          ]
+        },
+        {
+          "kind": "gkx",
+          "key": "26258",
+          "valueType": "boolean",
+          "reads": [
+            {
+              "module": "WAWebBaseModel",
+              "variant": "primary",
+              "line": 46,
+              "column": 4,
+              "method": "gkx",
+              "timing": "function-body",
+              "expression": "r(\"gkx\")(\"26258\")"
+            },
+            {
+              "module": "WAWebBuildConstants",
+              "variant": "primary",
+              "line": 9,
+              "column": 12,
+              "method": "gkx",
+              "timing": "module-initialization",
+              "expression": "r(\"gkx\")(\"26258\")"
+            },
+            {
+              "module": "WAWebBuildConstants",
+              "variant": "primary",
+              "line": 36,
+              "column": 1,
+              "method": "gkx",
+              "timing": "module-initialization",
+              "expression": "r(\"gkx\")(\"26258\")"
+            },
+            {
+              "module": "WAWebWamCodegenUtils",
+              "variant": "primary",
+              "line": 69,
+              "column": 36,
+              "method": "gkx",
+              "timing": "function-body",
+              "expression": "r(\"gkx\")(\"26258\")"
+            },
+            {
+              "module": "WAWebProxyStateFactory",
+              "variant": "primary",
+              "line": 31,
+              "column": 13,
+              "method": "gkx",
+              "timing": "function-body",
+              "expression": "r(\"gkx\")(\"26258\")"
+            },
+            {
+              "module": "WAWebUA",
+              "variant": "primary",
+              "line": 51,
+              "column": 29,
+              "method": "gkx",
+              "timing": "function-body",
+              "expression": "r(\"gkx\")(\"26258\")"
+            },
+            {
+              "module": "WAWebEnvironment",
+              "variant": "primary",
+              "line": 7,
+              "column": 9,
+              "method": "gkx",
+              "timing": "function-body",
+              "expression": "r(\"gkx\")(\"26258\")"
+            }
+          ]
+        },
+        {
+          "kind": "gkx",
+          "key": "26259",
+          "valueType": "boolean",
+          "reads": [
+            {
+              "module": "WAWebBuildConstants",
+              "variant": "primary",
+              "line": 9,
+              "column": 33,
+              "method": "gkx",
+              "timing": "module-initialization",
+              "expression": "r(\"gkx\")(\"26259\")"
+            },
+            {
+              "module": "WAWebBuildConstants",
+              "variant": "primary",
+              "line": 36,
+              "column": 23,
+              "method": "gkx",
+              "timing": "module-initialization",
+              "expression": "r(\"gkx\")(\"26259\")"
+            },
+            {
+              "module": "WAWebWamCodegenUtils",
+              "variant": "primary",
+              "line": 69,
+              "column": 3,
+              "method": "gkx",
+              "timing": "function-body",
+              "expression": "r(\"gkx\")(\"26259\")"
+            },
+            {
+              "module": "WAWebEnvironment",
+              "variant": "primary",
+              "line": 7,
+              "column": 38,
+              "method": "gkx",
+              "timing": "function-body",
+              "expression": "r(\"gkx\")(\"26259\")"
+            }
+          ]
+        },
+        {
+          "kind": "gkx",
+          "key": "4112",
+          "valueType": "boolean",
+          "reads": [
+            {
+              "module": "WAWebEnvironment",
+              "variant": "primary",
+              "line": 2,
+              "column": 9,
+              "method": "gkx",
+              "timing": "module-initialization",
+              "expression": "r(\"gkx\")(\"4112\")"
+            }
+          ]
+        },
+        {
+          "kind": "knobs",
+          "key": "1600",
+          "valueType": "unknown",
+          "reads": [
+            {
+              "module": "WAWebWamCodegenUtils",
+              "variant": "primary",
+              "line": 25,
+              "column": 87,
+              "method": "_",
+              "timing": "module-initialization",
+              "expression": "r(\"justknobx\")._(\"1600\")"
+            }
+          ]
+        },
+        {
+          "kind": "knobs",
+          "key": "1964",
+          "valueType": "unknown",
+          "reads": [
+            {
+              "module": "WAWebGroupABPropsGlobals",
+              "variant": "primary",
+              "line": 17,
+              "column": 2,
+              "method": "_",
+              "timing": "function-body",
+              "expression": "r(\"justknobx\")._(\"1964\")"
+            }
+          ]
+        },
+        {
+          "kind": "knobs",
+          "key": "5257",
+          "valueType": "unknown",
+          "reads": [
+            {
+              "module": "WAWebBuildConstants",
+              "variant": "primary",
+              "line": 31,
+              "column": 7,
+              "method": "_",
+              "timing": "function-body",
+              "expression": "r(\"justknobx\")._(\"5257\")"
+            }
+          ]
+        }
+      ],
+      "unresolved": [
+        {
+          "code": "missing-module",
+          "module": "cr:5292"
+        },
+        {
+          "code": "missing-module",
+          "module": "cr:6640"
+        },
+        {
+          "code": "missing-module",
+          "module": "SiteData"
+        },
+        {
+          "code": "unrecognized-gate-provider",
+          "module": "WAWebGroupABPropsGlobals",
+          "line": 12,
+          "column": 11
+        },
+        {
+          "code": "unrecognized-gate-provider",
+          "module": "WAWebGroupABPropsCache",
+          "line": 23,
+          "column": 117
+        },
+        {
+          "code": "unrecognized-gate-provider",
+          "module": "WAWebGroupABPropsGlobals",
+          "line": 25,
+          "column": 12
+        },
+        {
+          "code": "unrecognized-gate-provider",
+          "module": "WAWebGroupABPropsCache",
+          "line": 47,
+          "column": 12
+        },
+        {
+          "code": "unrecognized-gate-provider",
+          "module": "WAWebGroupABPropsCache",
+          "line": 22,
+          "column": 13
+        },
+        {
+          "code": "unrecognized-gate-provider",
+          "module": "WAWebGroupABPropsCache",
+          "line": 58,
+          "column": 24
+        },
+        {
+          "code": "unrecognized-gate-provider",
+          "module": "WAWebGroupABPropsCache",
+          "line": 48,
+          "column": 33
+        },
+        {
+          "code": "unrecognized-gate-provider",
+          "module": "WAWebGroupABPropsCache",
+          "line": 23,
+          "column": 34
+        },
+        {
+          "code": "unrecognized-gate-provider",
+          "module": "WAWebGroupABProps",
+          "line": 11,
+          "column": 57
+        },
+        {
+          "code": "unrecognized-gate-provider",
+          "module": "WAWebGroupABPropsCache",
+          "line": 51,
+          "column": 7
+        }
+      ],
+      "staticCoverage": {
+        "complete": false,
+        "scope": "module-closure-superset",
+        "semanticProof": false,
+        "resolverCoverage": false,
+        "modules": 83,
+        "sourceBytes": 170311,
+        "workBudget": {
+          "limit": 2000000,
+          "consumed": 459007,
+          "exhausted": false
+        },
+        "limitations": [
+          "Only supported gate APIs and static key expressions are inventoried.",
+          "Logical work units bound selected AST traversal and resolution, not parser internals or elapsed time; parsing remains source-byte bounded.",
+          "Declared fixture-provider boundaries exclude their original resolver implementations and dependencies.",
+          "All functions in each dependency module are scanned; exact export and caller reachability is not proven.",
+          "Runtime-discovered gates and externally selected code require separate observations."
+        ]
+      }
+    },
+    {
+      "revision": "1051908825",
+      "modules": [
+        {
+          "module": "$InternalEnum",
+          "variant": "primary",
+          "printedSourceSha256": "2ceb4779145d3f716cdabff27facf6fec30f45f844896ccd78300320a44a69a9",
+          "dependencies": [],
+          "citations": ["modules/$InternalEnum.js:1-51"]
+        },
+        {
+          "module": "BanzaiLazyQueue",
+          "variant": "primary",
+          "printedSourceSha256": "c4b206703179790d810f00c914c5ff13123e8a5d479a1fc017e2d8fb06c62d49",
+          "dependencies": ["SimpleHook"],
+          "citations": ["modules/BanzaiLazyQueue.js:1-17"]
+        },
+        {
+          "module": "Env",
+          "variant": "primary",
+          "printedSourceSha256": "ad5c3d19c3db7a10d569dceb202b62801ac1014c42a99cf21d3249a124319082",
+          "dependencies": [],
+          "citations": ["modules/Env.js:1-22"]
+        },
+        {
+          "module": "ExecutionEnvironment",
+          "variant": "primary",
+          "printedSourceSha256": "4f49de6e0ddb5be88f962a8196f5a2370427b931db218b019e4a2bd020b1891e",
+          "dependencies": [],
+          "citations": ["modules/ExecutionEnvironment.js:1-14"]
+        },
+        {
+          "module": "FBLogger",
+          "variant": "primary",
+          "printedSourceSha256": "5b78358a73a6900d013f27628afaffe9b58fdb92dc37233690ec50441114c7c2",
+          "dependencies": ["fb-error"],
+          "citations": ["modules/FBLogger.js:1-4"]
+        },
+        {
+          "module": "Promise",
+          "variant": "primary",
+          "printedSourceSha256": "c94f5132251416675e842ee8bbe98476648325ff897dab0a230b39875e1f3c2a",
+          "dependencies": ["cr:6640"],
+          "citations": ["modules/Promise.js:1-42"]
+        },
+        {
+          "module": "SimpleHook",
+          "variant": "primary",
+          "printedSourceSha256": "fd56db80143da1644f5f104549955a5a4fc38e3bafb9ae56cc3f2e4e33885eca",
+          "dependencies": [],
+          "citations": ["modules/SimpleHook.js:1-43"]
+        },
+        {
+          "module": "WAAbortError",
+          "variant": "primary",
+          "printedSourceSha256": "b5cf83506ce31b3ccf8a0beccffdf7989723ea46dac67008dbda4e87120aaa3d",
+          "dependencies": ["WACustomError"],
+          "citations": ["modules/WAAbortError.js:1-17"]
+        },
+        {
+          "module": "WABase64",
+          "variant": "primary",
+          "printedSourceSha256": "249860e69ae3618cc03cc3d55b7effc9754cb713c319610149c001880e05154e",
+          "dependencies": ["WALogger", "err"],
+          "citations": ["modules/WABase64.js:1-80"]
+        },
+        {
+          "module": "WABinary",
+          "variant": "primary",
+          "printedSourceSha256": "03edbd33455894b148adb38944ff3c6a27b3102631d3c00bf1cdeea5480884d4",
+          "dependencies": ["WAHex", "err"],
+          "citations": ["modules/WABinary.js:1-360"]
+        },
+        {
+          "module": "WACamelCase",
+          "variant": "primary",
+          "printedSourceSha256": "8d9b21dfa6b6bf9f98d325aa95bf9caa461ecddf70a7b8a55b1201e83b603dad",
+          "dependencies": [],
+          "citations": ["modules/WACamelCase.js:1-12"]
+        },
+        {
+          "module": "WACryptoDependencies",
+          "variant": "primary",
+          "printedSourceSha256": "7c9ee7d20b1017ee8993d85c1a4add7b1fa8684344c210fbec3388d72aea6baa",
+          "dependencies": [],
+          "citations": ["modules/WACryptoDependencies.js:1-11"]
+        },
+        {
+          "module": "WACryptoHmac",
+          "variant": "primary",
+          "printedSourceSha256": "60b32583c1a636251a5914db4198e7a7cde56f3a7b6eb4eb40213292b37ee287",
+          "dependencies": ["WACryptoDependencies", "WATypedArraysCast"],
+          "citations": ["modules/WACryptoHmac.js:1-52"]
+        },
+        {
+          "module": "WACustomError",
+          "variant": "primary",
+          "printedSourceSha256": "5d1bdf0db1fc7934930362079c89db68a32e685cc1fa69bf80b922c5bfd883fa",
+          "dependencies": ["fb-error"],
+          "citations": ["modules/WACustomError.js:1-37"]
+        },
+        {
+          "module": "WAGenericStateManager",
+          "variant": "primary",
+          "printedSourceSha256": "6a870ed2b536ec9f4b044cf08a500771d08c939e404c31bdcdfa909f16597943",
+          "dependencies": ["Promise", "WAPubSub"],
+          "citations": ["modules/WAGenericStateManager.js:1-24"]
+        },
+        {
+          "module": "WAHex",
+          "variant": "primary",
+          "printedSourceSha256": "3d28ad9eb342f6715bec66c8c38fd57a14497e07101f5f9b67fc3c9838e72ffe",
+          "dependencies": ["err"],
+          "citations": ["modules/WAHex.js:1-119"]
+        },
+        {
+          "module": "WALogger",
+          "variant": "primary",
+          "printedSourceSha256": "0406e777eb10eef04870576148db402f9aa20fe709545e0701a314d5b8583837",
+          "dependencies": ["$InternalEnum", "WATagsLogger"],
+          "citations": ["modules/WALogger.js:1-27"]
+        },
+        {
+          "module": "WALoggerUtils",
+          "variant": "primary",
+          "printedSourceSha256": "e1baf5e4850088801148e9a6a46e6720e52efba4aca6f4a139f585fd162f364b",
+          "dependencies": ["WAHex"],
+          "citations": ["modules/WALoggerUtils.js:1-35"]
+        },
+        {
+          "module": "WAMemoizeCache",
+          "variant": "primary",
+          "printedSourceSha256": "99f780ded9a4069dcc506d1b6e84da8971b647a66845abbcba3480f9636b5256",
+          "dependencies": [],
+          "citations": ["modules/WAMemoizeCache.js:1-22"]
+        },
+        {
+          "module": "WAMemoizeConcurrent",
+          "variant": "primary",
+          "printedSourceSha256": "9809feee74d23e8e75d0858ddaedf2fd412096182dd0c2f655723a7542c0f45a",
+          "dependencies": ["Promise", "WAAbortError", "WAPromiseRaceAbort", "WASignalAggregator"],
+          "citations": ["modules/WAMemoizeConcurrent.js:1-29"]
+        },
+        {
+          "module": "WAPromiseRaceAbort",
+          "variant": "primary",
+          "printedSourceSha256": "9018e5965930bd9cf3d87f30c9be27d6a794d798989c1e2654d23a104068b4cf",
+          "dependencies": ["Promise", "WAAbortError"],
+          "citations": ["modules/WAPromiseRaceAbort.js:1-19"]
+        },
+        {
+          "module": "WAPubSub",
+          "variant": "primary",
+          "printedSourceSha256": "e347a6f045355307f55cb07f6457247fe32e662e954f2a8970db7b4c8dcb91eb",
+          "dependencies": ["err"],
+          "citations": ["modules/WAPubSub.js:1-44"]
+        },
+        {
+          "module": "WAResolvable",
+          "variant": "primary",
+          "printedSourceSha256": "ec4c38142d06da51d05ff33d00fe8c031008f09efde8d962fe883715079d5376",
+          "dependencies": ["Promise"],
+          "citations": ["modules/WAResolvable.js:1-20"]
+        },
+        {
+          "module": "WASignalAggregator",
+          "variant": "primary",
+          "printedSourceSha256": "a0ddfe83a5d80a7b051d273368c66e1307687926332602b266bb759c7d02d637",
+          "dependencies": ["err"],
+          "citations": ["modules/WASignalAggregator.js:1-41"]
+        },
+        {
+          "module": "WATagsLogger",
+          "variant": "primary",
+          "printedSourceSha256": "c6cb8a0516b1ec1b5a373d50cd3d75f952707f12547d2f46820d9d352bb26ad7",
+          "dependencies": ["FBLogger", "Promise", "WALoggerUtils", "asyncToGeneratorRuntime"],
+          "citations": ["modules/WATagsLogger.js:1-189"]
+        },
+        {
+          "module": "WATypeUtils",
+          "variant": "primary",
+          "printedSourceSha256": "692d60676bfcba61805b5c319fc172976c527ccb5cda2d3822a67b24da5f8e25",
+          "dependencies": [],
+          "citations": ["modules/WATypeUtils.js:1-16"]
+        },
+        {
+          "module": "WATypedArraysCast",
+          "variant": "primary",
+          "printedSourceSha256": "5f37f9fcdce34e6ed635e7d8de803c98a8558384811c57a62eef0b5faf5ae07a",
+          "dependencies": ["WABase64"],
+          "citations": ["modules/WATypedArraysCast.js:1-7"]
+        },
+        {
+          "module": "WAUpperFirst",
+          "variant": "primary",
+          "printedSourceSha256": "d29705feaff8679438284528eaca852ceb4948244237daa0350abec70b704c01",
+          "dependencies": [],
+          "citations": ["modules/WAUpperFirst.js:1-7"]
+        },
+        {
+          "module": "WAWebABPropsExpoKeyUtils",
+          "variant": "primary",
+          "printedSourceSha256": "cd2563a9b135430dcb697195297a9f88b080451793d3a67b97cb8f0ac1ef4546",
+          "dependencies": [],
+          "citations": ["modules/WAWebABPropsExpoKeyUtils.js:1-6"]
+        },
+        {
+          "module": "WAWebBaseMirror",
+          "variant": "primary",
+          "printedSourceSha256": "f66f1eebc6fbd23f11b2bb75f1ab14c78dc44cbbaa4e8afb113c6a97db9da739",
+          "dependencies": [],
+          "citations": ["modules/WAWebBaseMirror.js:1-65"]
+        },
+        {
+          "module": "WAWebBaseModel",
+          "variant": "primary",
+          "printedSourceSha256": "309cb8c9a8aa7f3db445955c61030c5ae49861b29c8b48db2888bfe6b6734187",
+          "dependencies": [
+            "WALogger",
+            "WAWebBaseMirror",
+            "WAWebEventEmitter",
+            "WAWebModelUtils",
+            "WAWebNetworkStatus",
+            "WAWebProxyStateFactory",
+            "WAWebUiIdleEventBus",
+            "cr:5292",
+            "err",
+            "nullthrows"
+          ],
+          "citations": ["modules/WAWebBaseModel.js:1-187"]
+        },
+        {
+          "module": "WAWebBrowserInfo",
+          "variant": "primary",
+          "printedSourceSha256": "8a53aa5d0f8eac49e65de4186278fe9fcf0c5b1ce360c685d43721241d894eef",
+          "dependencies": ["WAWebUA"],
+          "citations": ["modules/WAWebBrowserInfo.js:1-25"]
+        },
+        {
+          "module": "WAWebBuildConstants",
+          "variant": "primary",
+          "printedSourceSha256": "2ab0b643515571399eb5a5e2bdff507cd21849a79d3bd122db9c701cce8b6823",
+          "dependencies": [
+            "SiteData",
+            "WALogger",
+            "WAWebEnvironment",
+            "WAWebWindowsQueryParams",
+            "gkx",
+            "justknobx"
+          ],
+          "citations": ["modules/WAWebBuildConstants.js:1-39"]
+        },
+        {
+          "module": "WAWebCreateFile",
+          "variant": "primary",
+          "printedSourceSha256": "c107fd15a2eed6bbe708bb47cb984e7a4e163cd0bf26b5ef04d4a284c1110ba7",
+          "dependencies": [],
+          "citations": ["modules/WAWebCreateFile.js:1-7"]
+        },
+        {
+          "module": "WAWebDataUrlToBlob",
+          "variant": "primary",
+          "printedSourceSha256": "4b7dbecdec00ccfbe5b0a4282f62cb2aca4a3ed3b6a867815ae8a0207092c29f",
+          "dependencies": ["err"],
+          "citations": ["modules/WAWebDataUrlToBlob.js:1-12"]
+        },
+        {
+          "module": "WAWebDebounce",
+          "variant": "primary",
+          "printedSourceSha256": "30955ad99678ddf4a6de95db01d80a3f4f02c9dbd318e22bf57b17df1c391282",
+          "dependencies": [],
+          "citations": ["modules/WAWebDebounce.js:1-37"]
+        },
+        {
+          "module": "WAWebEnvironment",
+          "variant": "primary",
+          "printedSourceSha256": "61f690b57e6049ea5c8e0fffa7270bcf48de8cdc1a2d6032521f37575d004913",
+          "dependencies": ["WAWebPwaDocumentMetadataUtils", "gkx"],
+          "citations": ["modules/WAWebEnvironment.js:1-21"]
+        },
+        {
+          "module": "WAWebEventEmitter",
+          "variant": "primary",
+          "printedSourceSha256": "9370586a77757e57510ce01292c7374d7bb9fa0b62a9477bf4b1861679ba2f74",
+          "dependencies": ["err", "isEmptyObject"],
+          "citations": ["modules/WAWebEventEmitter.js:1-146"]
+        },
+        {
+          "module": "WAWebGroupABProps",
+          "variant": "primary",
+          "printedSourceSha256": "2c5c88d64d9644e52562bbce2c65983f71d9cb4d93e0bb60ea5ac6c051c5c4b5",
+          "dependencies": ["WALogger", "WAWebGroupABPropsCache", "WAWebGroupABPropsConfigs", "gkx"],
+          "citations": ["modules/WAWebGroupABProps.js:1-17"]
+        },
+        {
+          "module": "WAWebGroupABPropsCache",
+          "variant": "primary",
+          "printedSourceSha256": "457d5c52934e9a02d6caa12c7beb15e8a82ca6a64a497788e13bcf26c29ad1a7",
+          "dependencies": [
+            "WALogger",
+            "WAResolvable",
+            "WAWebGroupABPropsConfigs",
+            "WAWebGroupABPropsGlobals",
+            "gkx"
+          ],
+          "citations": ["modules/WAWebGroupABPropsCache.js:1-61"]
+        },
+        {
+          "module": "WAWebGroupABPropsConfigs",
+          "variant": "primary",
+          "printedSourceSha256": "4690802af7f48eff0671c0647559a9eb06e126dba383d3230a973967489666f0",
+          "dependencies": [],
+          "citations": ["modules/WAWebGroupABPropsConfigs.js:1-120"]
+        },
+        {
+          "module": "WAWebGroupABPropsGlobals",
+          "variant": "primary",
+          "printedSourceSha256": "985f8afee36bbad4be83ba84a4543e3b9414a0d3bd2b14004d07eed8b6b6fda1",
+          "dependencies": [
+            "WAWebABPropsExpoKeyUtils",
+            "WAWebDebounce",
+            "WAWebNetworkStatus",
+            "WAWebWefrGroupClientExposureWamEvent",
+            "justknobx"
+          ],
+          "citations": ["modules/WAWebGroupABPropsGlobals.js:1-50"]
+        },
+        {
+          "module": "WAWebModelUtils",
+          "variant": "primary",
+          "printedSourceSha256": "f4a9d0ea6955e4a22c49b17a4aacc9d5c7c1033eb6430fceca79e334fcacfc48",
+          "dependencies": [
+            "WAMemoizeCache",
+            "WATypeUtils",
+            "err",
+            "isEmptyObject",
+            "isPlainObject",
+            "nullthrows",
+            "omit"
+          ],
+          "citations": ["modules/WAWebModelUtils.js:1-270"]
+        },
+        {
+          "module": "WAWebNetworkGetResponseIfOnline",
+          "variant": "primary",
+          "printedSourceSha256": "7aa3cff0e25d7d17f28a6cad23ff08e897b1030d9bc46936bc552a75004a091d",
+          "dependencies": ["WAWebNullFunc", "WAWebXHR"],
+          "citations": ["modules/WAWebNetworkGetResponseIfOnline.js:1-9"]
+        },
+        {
+          "module": "WAWebNetworkStatus",
+          "variant": "primary",
+          "printedSourceSha256": "e6da9156ac7afc279c90d544a63dfbe6507120eaf183bfc1fe9ca20a0dc2a5fe",
+          "dependencies": [
+            "Promise",
+            "WALogger",
+            "WAMemoizeConcurrent",
+            "WAWebBaseModel",
+            "WAWebBrowserInfo",
+            "WAWebBuildConstants",
+            "WAWebNetworkGetResponseIfOnline",
+            "WAWebNetworkStatusStateManager",
+            "asyncToGeneratorRuntime",
+            "gkx"
+          ],
+          "citations": ["modules/WAWebNetworkStatus.js:1-63"]
+        },
+        {
+          "module": "WAWebNetworkStatusStateManager",
+          "variant": "primary",
+          "printedSourceSha256": "cd3d800829d9b943994d8e2318cabf0dfcebeeac46f701c7804764e0dd1f0341",
+          "dependencies": ["WAGenericStateManager"],
+          "citations": ["modules/WAWebNetworkStatusStateManager.js:1-4"]
+        },
+        {
+          "module": "WAWebNoop",
+          "variant": "primary",
+          "printedSourceSha256": "ab968979179836e6bfe0f43839c0231d0268e67ee9cf857b2ca268c244266f65",
+          "dependencies": [],
+          "citations": ["modules/WAWebNoop.js:1-5"]
+        },
+        {
+          "module": "WAWebNullFunc",
+          "variant": "primary",
+          "printedSourceSha256": "2c71475ac28f0a8b0cee13511cc19c8e2cb8a7dd3b0fe8cbcf4363b2fb2da1f7",
+          "dependencies": [],
+          "citations": ["modules/WAWebNullFunc.js:1-7"]
+        },
+        {
+          "module": "WAWebProxyStateFactory",
+          "variant": "primary",
+          "printedSourceSha256": "21cf61b21007d233b53500219fdc261077b140acb5fef0bc494aaf735da004cc",
+          "dependencies": ["WACustomError", "WALogger", "gkx"],
+          "citations": ["modules/WAWebProxyStateFactory.js:1-62"]
+        },
+        {
+          "module": "WAWebPwaDocumentMetadataUtils",
+          "variant": "primary",
+          "printedSourceSha256": "3ac5670906176cc027e977a20926242f266de521f0626559f36d775aade9280a",
+          "dependencies": ["WAWebNoop", "WAWebRuntimeEnvironmentUtils"],
+          "citations": ["modules/WAWebPwaDocumentMetadataUtils.js:1-30"]
+        },
+        {
+          "module": "WAWebRuntimeEnvironmentUtils",
+          "variant": "primary",
+          "printedSourceSha256": "862d22464ad1d37e28d8ece29572a296e7b6853ca6ecdd6de6e6e2bdc6283b5a",
+          "dependencies": [],
+          "citations": ["modules/WAWebRuntimeEnvironmentUtils.js:1-9"]
+        },
+        {
+          "module": "WAWebUA",
+          "variant": "primary",
+          "printedSourceSha256": "b1a76e0e4141239a0dc2f5e62cf67de685e776f781fdbd86972f145b47dc4e22",
+          "dependencies": ["gkx", "ua-parser-js"],
+          "citations": ["modules/WAWebUA.js:1-67"]
+        },
+        {
+          "module": "WAWebURLUtils",
+          "variant": "primary",
+          "printedSourceSha256": "def72ab44235e4a61843ec0124fb3e78580e810562bb159dc3a48ebea93b4f0e",
+          "dependencies": [
+            "WABase64",
+            "WABinary",
+            "WACryptoHmac",
+            "WALogger",
+            "WAMemoizeCache",
+            "WATypeUtils",
+            "WAWebCreateFile",
+            "WAWebDataUrlToBlob",
+            "WAWebRuntimeEnvironmentUtils",
+            "WAWebURLValidSchemes"
+          ],
+          "citations": ["modules/WAWebURLUtils.js:1-116"]
+        },
+        {
+          "module": "WAWebURLValidSchemes",
+          "variant": "primary",
+          "printedSourceSha256": "8d41589791cb7cac55d6ec5508ce165801f4d45de1613f2b89259d8cf022b545",
+          "dependencies": [],
+          "citations": ["modules/WAWebURLValidSchemes.js:1-13"]
+        },
+        {
+          "module": "WAWebUiIdleEventBus",
+          "variant": "primary",
+          "printedSourceSha256": "f1dca19cfed068d57ea2eb3e78b8f48b63c462d8cbcc253bfd1560ec1f687974",
+          "dependencies": [
+            "WALogger",
+            "WAWebDebounce",
+            "WAWebEventEmitter",
+            "WAWebNoop",
+            "invariant"
+          ],
+          "citations": ["modules/WAWebUiIdleEventBus.js:1-43"]
+        },
+        {
+          "module": "WAWebWamCodegenGlobalMetrics",
+          "variant": "primary",
+          "printedSourceSha256": "9b9fd39ec8ffead6f89c9e8f813c7a807d4aef70e2f4406b905ae250316fb196",
+          "dependencies": ["WAWebWamCodegenUtils", "nullthrows"],
+          "citations": ["modules/WAWebWamCodegenGlobalMetrics.js:1-49"]
+        },
+        {
+          "module": "WAWebWamCodegenUtils",
+          "variant": "primary",
+          "printedSourceSha256": "5edfa39c14a48484357ce6075c9593339b3a10c27dd706b4ecf80cfbad4925a2",
+          "dependencies": [
+            "WAUpperFirst",
+            "WAWebWamCodegenGlobalMetrics",
+            "WAWebWamCodegenWamEvent",
+            "WAWebWamInitQueue",
+            "WAWebWamRuntimeProvider",
+            "WAWebWamTypeHash",
+            "err",
+            "gkx",
+            "justknobx"
+          ],
+          "citations": ["modules/WAWebWamCodegenUtils.js:1-108"]
+        },
+        {
+          "module": "WAWebWamCodegenWamEvent",
+          "variant": "primary",
+          "printedSourceSha256": "c214715eb1b6d0f04210a5ab5c7096056cd6201a33f1a6757db268682ce6776e",
+          "dependencies": [
+            "Promise",
+            "WACamelCase",
+            "WALogger",
+            "WAWebWamCodegenUtils",
+            "WAWebWamDroppedEventWamEvent",
+            "WAWebWamInitQueue",
+            "WAWebWamRuntimeProvider",
+            "WAWebWamTypeHash"
+          ],
+          "citations": ["modules/WAWebWamCodegenWamEvent.js:1-175"]
+        },
+        {
+          "module": "WAWebWamDroppedEventWamEvent",
+          "variant": "primary",
+          "printedSourceSha256": "818b07fb2f9455d649885020ae8f69d080276449b6e5b62b4c08bf547fdf2fb1",
+          "dependencies": ["WAWebWamCodegenUtils"],
+          "citations": ["modules/WAWebWamDroppedEventWamEvent.js:1-17"]
+        },
+        {
+          "module": "WAWebWamInitQueue",
+          "variant": "primary",
+          "printedSourceSha256": "c42cd0dc270bb3537a2a178a2e53b13699678a9730275230966cd66fabfa879a",
+          "dependencies": ["WAWebWamRuntimeProvider"],
+          "citations": ["modules/WAWebWamInitQueue.js:1-23"]
+        },
+        {
+          "module": "WAWebWamRuntimeProvider",
+          "variant": "primary",
+          "printedSourceSha256": "ba99d86d2f1c3ebeb957da0ebe060bb518c45554d79420dfed65cac5b312fb43",
+          "dependencies": ["WALogger", "WAWebWamInitQueue"],
+          "citations": ["modules/WAWebWamRuntimeProvider.js:1-14"]
+        },
+        {
+          "module": "WAWebWamTypeHash",
+          "variant": "primary",
+          "printedSourceSha256": "9036ccf2e3b32a90aacd9ef7d687c08fe3f9a55433483f7ea7a6c9371b388521",
+          "dependencies": ["WALogger", "err"],
+          "citations": ["modules/WAWebWamTypeHash.js:1-58"]
+        },
+        {
+          "module": "WAWebWefrGroupClientExposureWamEvent",
+          "variant": "primary",
+          "printedSourceSha256": "f67c9338602ea9e458e32c109533812aea2ed5b2c2a14e7bc18854de60087df3",
+          "dependencies": ["WAWebWamCodegenUtils"],
+          "citations": ["modules/WAWebWefrGroupClientExposureWamEvent.js:1-18"]
+        },
+        {
+          "module": "WAWebWindowsQueryParams",
+          "variant": "primary",
+          "printedSourceSha256": "36a3624ea0a3501789b26e16f6f4176faf321dca44597f05a58a4c3a79f41abf",
+          "dependencies": [],
+          "citations": ["modules/WAWebWindowsQueryParams.js:1-15"]
+        },
+        {
+          "module": "WAWebXHR",
+          "variant": "primary",
+          "printedSourceSha256": "1825b3415a2b911b06c11038a5735822f8ca62bc7e60dad6d4e38b2831647e4c",
+          "dependencies": [
+            "Promise",
+            "WAAbortError",
+            "WALogger",
+            "WAPromiseRaceAbort",
+            "WAWebNoop",
+            "WAWebURLUtils"
+          ],
+          "citations": ["modules/WAWebXHR.js:1-50"]
+        },
+        {
+          "module": "asyncToGeneratorRuntime",
+          "variant": "primary",
+          "printedSourceSha256": "147052b2a1cdc6d21087a611043d0974d5babedeeee624185babb023bbcf72f3",
+          "dependencies": ["Promise"],
+          "citations": ["modules/asyncToGeneratorRuntime.js:1-29"]
+        },
+        {
+          "module": "emptyFunction",
+          "variant": "primary",
+          "printedSourceSha256": "efc2fa885be346ba40045503e3a0588374c842f36261ce8138988d63608ecb48",
+          "dependencies": [],
+          "citations": ["modules/emptyFunction.js:1-16"]
+        },
+        {
+          "module": "err",
+          "variant": "primary",
+          "printedSourceSha256": "a26a1f88fe2c09505c0ec8e43d1a43c2299b6126ea7ea305c567bf7634fbeea0",
+          "dependencies": ["fb-error"],
+          "citations": ["modules/err.js:1-4"]
+        },
+        {
+          "module": "fb-error",
+          "variant": "primary",
+          "printedSourceSha256": "545144d2d2c50524d5bcfc421916cf76760743cb5b034dcb7a4d7066981f714e",
+          "dependencies": ["performanceNow", "removeFromArray"],
+          "citations": ["modules/fb-error.js:1-698"]
+        },
+        {
+          "module": "fb-error-lite",
+          "variant": "primary",
+          "printedSourceSha256": "70182c28f267319e6122d9da5fa9d01bc3c60775130d33429a71874503924b64",
+          "dependencies": [],
+          "citations": ["modules/fb-error-lite.js:1-25"]
+        },
+        {
+          "module": "gkx",
+          "variant": "primary",
+          "printedSourceSha256": "e84fc9d0a08a52702897502d1eb33202bd0d97b9633277aa18df81d9cb902cf6",
+          "dependencies": ["BanzaiLazyQueue", "ExecutionEnvironment", "emptyFunction", "invariant"],
+          "citations": ["modules/gkx.js:1-35"]
+        },
+        {
+          "module": "invariant",
+          "variant": "primary",
+          "printedSourceSha256": "6b377021188adf8be5add1781bb1a5b3a7da5d0021df951267b1ae8d331f705f",
+          "dependencies": ["Env", "fb-error-lite", "sprintf"],
+          "citations": ["modules/invariant.js:1-42"]
+        },
+        {
+          "module": "isEmptyObject",
+          "variant": "primary",
+          "printedSourceSha256": "4e2b01fab45c2a49d9b4b6280af0de70ebb40a93c745bbe0740ca71722129af8",
+          "dependencies": [],
+          "citations": ["modules/isEmptyObject.js:1-8"]
+        },
+        {
+          "module": "isPlainObject",
+          "variant": "primary",
+          "printedSourceSha256": "402df75f4e9802c65120f1947d7770c1a517bd96bcda3aeb2d3ad43be3bc3ca0",
+          "dependencies": [],
+          "citations": ["modules/isPlainObject.js:1-7"]
+        },
+        {
+          "module": "justknobx",
+          "variant": "primary",
+          "printedSourceSha256": "f42afc172240cd5ff466368ab522c6b917cdf148a6527126ecf1052ed718ec9e",
+          "dependencies": ["invariant"],
+          "citations": ["modules/justknobx.js:1-19"]
+        },
+        {
+          "module": "nullthrows",
+          "variant": "primary",
+          "printedSourceSha256": "8f9ee47b9edbd38314e5f785b651c3fef622f457813889a4495c3b79ea3c241c",
+          "dependencies": [],
+          "citations": ["modules/nullthrows.js:1-8"]
+        },
+        {
+          "module": "omit",
+          "variant": "primary",
+          "printedSourceSha256": "2d1d1966914440233f7561081a652d6632d099546eed25f0391fdd7f70bb7f4a",
+          "dependencies": [],
+          "citations": ["modules/omit.js:1-9"]
+        },
+        {
+          "module": "performance",
+          "variant": "primary",
+          "printedSourceSha256": "9bee7ad7d1941af3432757b1ce55c980030f812f0a5fb00916e906b8a0b6ced9",
+          "dependencies": [],
+          "citations": ["modules/performance.js:1-5"]
+        },
+        {
+          "module": "performanceNow",
+          "variant": "primary",
+          "printedSourceSha256": "415e5327e020372f7789e27dc42266a9cb3d6bbc2d8c47d0b751b93517a0475f",
+          "dependencies": ["performance"],
+          "citations": ["modules/performanceNow.js:1-15"]
+        },
+        {
+          "module": "removeFromArray",
+          "variant": "primary",
+          "printedSourceSha256": "c8e194de9e9463716c2f383406ae8269ddff1a9fe5fbc1a7559abcd2aaa666bb",
+          "dependencies": [],
+          "citations": ["modules/removeFromArray.js:1-8"]
+        },
+        {
+          "module": "sprintf",
+          "variant": "primary",
+          "printedSourceSha256": "7860c49011bd89ed50d0db8ed061d00ec9a2ba42b75f298a10c3d6ef98888361",
+          "dependencies": [],
+          "citations": ["modules/sprintf.js:1-11"]
+        },
+        {
+          "module": "ua-parser-js",
+          "variant": "primary",
+          "printedSourceSha256": "4e3a05dfc64a400d54b8e89e11b5dcae2071e4119c9170cc91bb31bb054058cb",
+          "dependencies": ["ua-parser-js-0.7.39"],
+          "citations": ["modules/ua-parser-js.js:1-3"]
+        },
+        {
+          "module": "ua-parser-js-0.7.39",
+          "variant": "primary",
+          "printedSourceSha256": "bc484be8b30d6a05d683d953ce91cc74eddff962dae051b2f42d3e376bca1bcf",
+          "dependencies": [],
+          "citations": ["modules/ua-parser-js-0.7.39.js:1-1054"]
+        }
+      ],
+      "analyzer": {
+        "version": 3,
+        "sourceSha256": "06c35199d0b06c9441486d96cb06b540628d64c562b7c1bbd9f2b5f28c6a3096"
+      },
+      "inventoryDigest": "38e408cc2ead9a9892c4eda117959695e190170e2dc2d0b5ee37cd9f77272f67",
+      "gates": [
+        {
+          "kind": "gkx",
+          "key": "10314",
+          "valueType": "boolean",
+          "reads": [
+            {
+              "module": "WAWebEnvironment",
+              "variant": "primary",
+              "line": 2,
+              "column": 39,
+              "method": "gkx",
+              "timing": "module-initialization",
+              "expression": "r(\"gkx\")(\"10314\")"
+            }
+          ]
+        },
+        {
+          "kind": "gkx",
+          "key": "16539",
+          "valueType": "boolean",
+          "reads": [
+            {
+              "module": "WAWebGroupABProps",
+              "variant": "primary",
+              "line": 12,
+              "column": 24,
+              "method": "gkx",
+              "timing": "function-body",
+              "expression": "r(\"gkx\")(\"16539\")"
+            },
+            {
+              "module": "WAWebGroupABPropsCache",
+              "variant": "primary",
+              "line": 36,
+              "column": 33,
+              "method": "gkx",
+              "timing": "function-body",
+              "expression": "r(\"gkx\")(\"16539\")"
+            }
+          ]
+        },
+        {
+          "kind": "gkx",
+          "key": "26256",
+          "valueType": "boolean",
+          "reads": [
+            {
+              "module": "WAWebNetworkStatus",
+              "variant": "primary",
+              "line": 34,
+              "column": 125,
+              "method": "gkx",
+              "timing": "function-body",
+              "expression": "r(\"gkx\")(\"26256\")"
+            },
+            {
+              "module": "WAWebNetworkStatus",
+              "variant": "primary",
+              "line": 59,
+              "column": 9,
+              "method": "gkx",
+              "timing": "function-body",
+              "expression": "r(\"gkx\")(\"26256\")"
+            }
+          ]
+        },
+        {
+          "kind": "gkx",
+          "key": "26258",
+          "valueType": "boolean",
+          "reads": [
+            {
+              "module": "WAWebBuildConstants",
+              "variant": "primary",
+              "line": 9,
+              "column": 12,
+              "method": "gkx",
+              "timing": "module-initialization",
+              "expression": "r(\"gkx\")(\"26258\")"
+            },
+            {
+              "module": "WAWebBuildConstants",
+              "variant": "primary",
+              "line": 36,
+              "column": 1,
+              "method": "gkx",
+              "timing": "module-initialization",
+              "expression": "r(\"gkx\")(\"26258\")"
+            },
+            {
+              "module": "WAWebWamCodegenUtils",
+              "variant": "primary",
+              "line": 69,
+              "column": 36,
+              "method": "gkx",
+              "timing": "function-body",
+              "expression": "r(\"gkx\")(\"26258\")"
+            },
+            {
+              "module": "WAWebProxyStateFactory",
+              "variant": "primary",
+              "line": 31,
+              "column": 13,
+              "method": "gkx",
+              "timing": "function-body",
+              "expression": "r(\"gkx\")(\"26258\")"
+            },
+            {
+              "module": "WAWebUA",
+              "variant": "primary",
+              "line": 51,
+              "column": 29,
+              "method": "gkx",
+              "timing": "function-body",
+              "expression": "r(\"gkx\")(\"26258\")"
+            },
+            {
+              "module": "WAWebEnvironment",
+              "variant": "primary",
+              "line": 7,
+              "column": 9,
+              "method": "gkx",
+              "timing": "function-body",
+              "expression": "r(\"gkx\")(\"26258\")"
+            }
+          ]
+        },
+        {
+          "kind": "gkx",
+          "key": "26259",
+          "valueType": "boolean",
+          "reads": [
+            {
+              "module": "WAWebBuildConstants",
+              "variant": "primary",
+              "line": 9,
+              "column": 33,
+              "method": "gkx",
+              "timing": "module-initialization",
+              "expression": "r(\"gkx\")(\"26259\")"
+            },
+            {
+              "module": "WAWebBuildConstants",
+              "variant": "primary",
+              "line": 36,
+              "column": 23,
+              "method": "gkx",
+              "timing": "module-initialization",
+              "expression": "r(\"gkx\")(\"26259\")"
+            },
+            {
+              "module": "WAWebWamCodegenUtils",
+              "variant": "primary",
+              "line": 69,
+              "column": 3,
+              "method": "gkx",
+              "timing": "function-body",
+              "expression": "r(\"gkx\")(\"26259\")"
+            },
+            {
+              "module": "WAWebEnvironment",
+              "variant": "primary",
+              "line": 7,
+              "column": 38,
+              "method": "gkx",
+              "timing": "function-body",
+              "expression": "r(\"gkx\")(\"26259\")"
+            }
+          ]
+        },
+        {
+          "kind": "gkx",
+          "key": "4112",
+          "valueType": "boolean",
+          "reads": [
+            {
+              "module": "WAWebEnvironment",
+              "variant": "primary",
+              "line": 2,
+              "column": 9,
+              "method": "gkx",
+              "timing": "module-initialization",
+              "expression": "r(\"gkx\")(\"4112\")"
+            }
+          ]
+        },
+        {
+          "kind": "knobs",
+          "key": "1600",
+          "valueType": "unknown",
+          "reads": [
+            {
+              "module": "WAWebWamCodegenUtils",
+              "variant": "primary",
+              "line": 25,
+              "column": 87,
+              "method": "_",
+              "timing": "module-initialization",
+              "expression": "r(\"justknobx\")._(\"1600\")"
+            }
+          ]
+        },
+        {
+          "kind": "knobs",
+          "key": "1964",
+          "valueType": "unknown",
+          "reads": [
+            {
+              "module": "WAWebGroupABPropsGlobals",
+              "variant": "primary",
+              "line": 17,
+              "column": 2,
+              "method": "_",
+              "timing": "function-body",
+              "expression": "r(\"justknobx\")._(\"1964\")"
+            }
+          ]
+        },
+        {
+          "kind": "knobs",
+          "key": "5257",
+          "valueType": "unknown",
+          "reads": [
+            {
+              "module": "WAWebBuildConstants",
+              "variant": "primary",
+              "line": 31,
+              "column": 7,
+              "method": "_",
+              "timing": "function-body",
+              "expression": "r(\"justknobx\")._(\"5257\")"
+            }
+          ]
+        }
+      ],
+      "unresolved": [
+        {
+          "code": "missing-module",
+          "module": "cr:5292"
+        },
+        {
+          "code": "missing-module",
+          "module": "cr:6640"
+        },
+        {
+          "code": "missing-module",
+          "module": "SiteData"
+        },
+        {
+          "code": "unrecognized-gate-provider",
+          "module": "WAWebGroupABPropsGlobals",
+          "line": 12,
+          "column": 11
+        },
+        {
+          "code": "unrecognized-gate-provider",
+          "module": "WAWebGroupABPropsCache",
+          "line": 23,
+          "column": 117
+        },
+        {
+          "code": "unrecognized-gate-provider",
+          "module": "WAWebGroupABPropsGlobals",
+          "line": 25,
+          "column": 12
+        },
+        {
+          "code": "unrecognized-gate-provider",
+          "module": "WAWebGroupABPropsCache",
+          "line": 47,
+          "column": 12
+        },
+        {
+          "code": "unrecognized-gate-provider",
+          "module": "WAWebGroupABPropsCache",
+          "line": 22,
+          "column": 13
+        },
+        {
+          "code": "unrecognized-gate-provider",
+          "module": "WAWebGroupABPropsCache",
+          "line": 58,
+          "column": 24
+        },
+        {
+          "code": "unrecognized-gate-provider",
+          "module": "WAWebGroupABPropsCache",
+          "line": 48,
+          "column": 33
+        },
+        {
+          "code": "unrecognized-gate-provider",
+          "module": "WAWebGroupABPropsCache",
+          "line": 23,
+          "column": 34
+        },
+        {
+          "code": "unrecognized-gate-provider",
+          "module": "WAWebGroupABProps",
+          "line": 11,
+          "column": 57
+        },
+        {
+          "code": "unrecognized-gate-provider",
+          "module": "WAWebGroupABPropsCache",
+          "line": 51,
+          "column": 7
+        }
+      ],
+      "staticCoverage": {
+        "complete": false,
+        "scope": "module-closure-superset",
+        "semanticProof": false,
+        "resolverCoverage": false,
+        "modules": 83,
+        "sourceBytes": 170455,
+        "workBudget": {
+          "limit": 2000000,
+          "consumed": 459424,
+          "exhausted": false
+        },
+        "limitations": [
+          "Only supported gate APIs and static key expressions are inventoried.",
+          "Logical work units bound selected AST traversal and resolution, not parser internals or elapsed time; parsing remains source-byte bounded.",
+          "Declared fixture-provider boundaries exclude their original resolver implementations and dependencies.",
+          "All functions in each dependency module are scanned; exact export and caller reachability is not proven.",
+          "Runtime-discovered gates and externally selected code require separate observations."
+        ]
+      }
+    }
+  ],
+  "exclusions": [
+    "Both full declared source graphs have86nodes/83present modules and retain missing SiteData,cr5292,cr6640. All83module source/dependency pins are retained regardless of called-export reachability. Default2million logical-work AST analysis completes; no analysis limit was raised or unknown gate/domain removed.",
+    "The analyzer retains six source-typed boolean GKX keys and three unknown knob domains plus unresolved group-provider reads and missing providers. All64boolean fixture contexts run one named bounded state-transition model at bothpins, with otherfive keys assigned even if unread. Originalproviders, unknownknobs and unresolvedgroupreads still block fullconfiguration coverage; this is not an exhaustive fullcontext matrix.",
+    "cr6640:null intentionally chooses the original Promise fallback. Missing SiteData/cr5292 are explicit throwing function boundaries; their original implementations and original bundle bootstrap remain unproven. No worker-environment fixture is needed for these selected scenarios.",
+    "Explicit realm-native Babel extends/taggedTemplateLiteralLoose compatibility helpers are fixtures, not a claim of original bootstrap equivalence. Original logger modules run under the muted worker console; warning paths do not establish external logging delivery.",
+    "hasAccessed:true and null exposure keys avoid generating/scheduling exposure telemetry. Actual groupExposureKeys clearing is exercised, but first-access recording, debounced pulse delivery, WAM/network/offline/provider integrations are unexercised.",
+    "Readiness is observed through actual public reader default-versus-record results and actual retained partial state, not a mocked ready flag. Pending readiness, asynchronous scheduling and concurrent storage/loading are not covered.",
+    "Group records are synthetic raw cache inputs. False,zero,empty-string,null,undefined and malformed-batch results characterize source behavior, not config parsing/storage validation, group authorization or server assignment.",
+    "Returned snapshot arrays are retained and their includes/at/pop methods observe actual original record identity. No host objects, callbacks, arbitrary code, function handles or raw Map/Set snapshots are injected.",
+    "Cross-group histories and cache lifecycles are unbounded. Six generated histories and literal failure/clear/reinit scenarios do not establish all interleavings or account/device behavior.",
+    "Alternative variants, production containers, isolated authored-TS scheduling, provider services, user sessions and named-library parity remain unexercised. Diagnostic process execution reports isolated:false."
+  ]
+}

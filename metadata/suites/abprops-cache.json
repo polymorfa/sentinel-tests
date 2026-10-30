@@ -1,16 +1,16 @@
 {
   "schemaVersion": 1,
   "id": "abprops-cache",
-  "version": 1,
-  "title": "Original ABProps cache readiness, replacements, failed updates and resets",
+  "version": 2,
+  "title": "Original ABProps cache readiness, live Map/record views and resets",
   "file": "tests/abprops-cache.test.ts",
   "helper": "support/abprops-cache-cases.ts",
   "capability": "wa-internal:abprops-cache",
   "roots": ["WAWebABPropsCache", "WAWebABPropsUpdateFromStorage"],
-  "oracle": "Source-pinned original cache Map mutations and readiness resolver. Ordered synthetic bulk insert/replacement, nontransactional partial failures, empty loads retaining prior records, numeric/string key distinction, null/false/zero presence, local override selection, clear/reinitialize and resolved waits. Source-established config web_image_max_edge is code3042 and default1600 at both selected revisions. No cache or peek resolver is replaced.",
+  "oracle": "Source-pinned original cache Map mutations and readiness resolver. Ordered synthetic bulk insert/replacement, nontransactional partial failures, empty loads retaining prior records, numeric/string key distinction, null/false/zero presence, local override selection, clear/reinitialize and resolved waits. Source-established config web_image_max_edge is code3042 and default1600 at both selected revisions. No cache or peek resolver is replaced. Source-exported live Map is retained only through actual has/get/delete/clear or strict identity projections. Original partial failed bulk writes are visible through the Map before readiness; successful empty retry admits them to peek. Native delete/clear change values without resetting readiness, while actual cache clear resets readiness and preserves the Map object. Actual Map.get record objects are retained; fresh record arrays share strict record identity and replacements detach old records which actual bulk can later restore by reference. No Map.set or opaque Map snapshot supplies assertions.",
   "trials": {
-    "cases": 18,
-    "probesPerRevision": 788,
+    "cases": 26,
+    "probesPerRevision": 1234,
     "selectedGkxKey": "16539",
     "selectedGkxAssignments": [false, true],
     "generatedRestartRoundsPerAssignment": 64,
@@ -25,7 +25,17 @@
     },
     "fullInventoryBooleanExecution": "budget-blocked; selected contexts only",
     "unboundedOrUnknownDescriptorsPerRevision": 27,
-    "domainEvidence": "gkx accessor gives boolean assignments; original knob._ return domain unknown. ABProp string domains are unbounded; computed keys and unsupported accessors remain unresolved."
+    "domainEvidence": "gkx accessor gives boolean assignments; original knob._ return domain unknown. ABProp string domains are unbounded; computed keys and unsupported accessors remain unresolved.",
+    "liveViewCases": 8,
+    "liveViewProbesPerRevision": 446,
+    "liveViewGeneratedPagesPerAssignment": 2,
+    "liveViewGeneratedCyclesPerPage": 5,
+    "maxLiveViewProbesPerCase": 81,
+    "maxLiveViewHandlesPerCase": 6,
+    "liveMapSetExecuted": false,
+    "opaqueMapSnapshotAssertions": false,
+    "referenceScope": "Same-source-realm actual exported Map/records and returned arrays; no host objects, property selectors, arbitrary callbacks or mutation scripts",
+    "liveViewDomain": "Two selected gkx16539 contexts and20 generated cycles characterize supported views; full original gate products, unknown domains and other mutation histories remain blocked/unqualified"
   },
   "observations": [
     {
@@ -13870,7 +13880,7 @@
     "Missing archived provider imports use throwing fixtures if invoked; cr6640:null intentionally selects the original Promise global fallback",
     "Original storage acquisition/transactions, getABPropConfigs persistence, user preference beta selection and failed database operations are not exercised by direct cache updates",
     "Pending wait barriers, concurrent updates, timers/first-access exposure delivery, backend worker bridge, WAM delivery and bug-report Blob serialization are not exercised",
-    "Snapshot results observe call-time data only; live Map/record reference identity and later mutation through external references are not asserted",
+    "Retained live Map identity, record reuse/replacement, native delete/clear effects and fresh-array strict record membership are covered. Arbitrary record-property mutation, nested reference identity and Map.set/non-data Map-return handling remain unexercised.",
     "The actual Babel helper producer has been recovered privately but is not admitted or executed by this suite. Selected realm-native extends/taggedTemplateLiteralLoose remain explicit compatibility fixtures; full bootstrap is unproven",
     "Alternate source variants, containers, production scheduling, accounts, network and named library implementation parity remain unexercised"
   ],
