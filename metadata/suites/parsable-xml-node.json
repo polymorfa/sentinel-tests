@@ -1,0 +1,437 @@
+{
+  "schemaVersion": 1,
+  "id": "parsable-xml-node",
+  "version": 1,
+  "title": "Original parsable XML node data and cached-child state",
+  "file": "tests/parsable-xml-node.test.ts",
+  "helper": "support/parsable-xml-node-cases.ts",
+  "capability": "wa-internal:parsable-xml-node",
+  "roots": ["WAParsableXmlNode"],
+  "oracle": "Independent literal node/attribute/content records, explicit decimal-prefix/range expectations and BigInt big-endian byte arithmetic supply expected values. Real constructor-created child wrappers and their returned arrays provide natural retained-reference/membership observations. Original source XmlParsingFailure reasons and nonstring attribute errors supply selected failure expectations; no source output is used as its own golden or helper implementation.",
+  "trials": {
+    "cases": 30,
+    "probesPerRevision": 432,
+    "portablePlanTests": 1,
+    "maxProbesPerCase": 38,
+    "maxSerializedCaseBytes": 5584,
+    "probeLimit": 64,
+    "serializedCaseByteLimit": 262144,
+    "execution": "Configured fresh-process diagnostics passed 31 tests: 30 cases and 30 unchanged comparisons retained 60 content-addressed records containing 90 single-revision executions and1296 probe executions across both source pins. These local observations are partial source implementation evidence, with isolated:false; no clean committed-suite primary receipts or old-family requalification are claimed here.",
+    "recognizedGateAssignmentCardinality": 1,
+    "recognizedGateAssignmentScope": "The complete supported-static eight-module closure recognizes zero gates; an empty-gate context is the sole modeled assignment, not semantic/environment/input or complete XML validation proof.",
+    "configurationExhaustive": false,
+    "inputDomainExhaustive": false,
+    "families": {
+      "attributeStrings": 52,
+      "emptyAttributesAssertionsAndMutation": 15,
+      "nonstringAttributeRecovery": 30,
+      "decimalPrefixIntegers": 25,
+      "invalidIntegerRecovery": 14,
+      "inclusiveLowerExclusiveUpper": 32,
+      "plainEnumRecordsAndValues": 13,
+      "contentPresence": 22,
+      "binaryContentState": 152,
+      "contentIntegersAndEnum": 14,
+      "cachedChildrenUnsafeState": 28,
+      "generatedChildCaches": 35
+    },
+    "attributeScope": "Selected empty/Unicode/combining/emoji/markup-like and1025-character raw strings; hasAttr uses own-property membership and missing/nonstring reads differ. No XML escaping/namespace/entity/text parser or all-string-domain claim.",
+    "integerScope": "Selected parseInt(text,10) decimal-prefix behavior, malformed strings and inclusive lower/exclusive upper checks; values such as17tail,5.9,1e3,0x10 characterize prefix parsing rather than strict integer grammar. No general safe-integer, precision, all bound/coercion or numeric-domain proof.",
+    "enumScope": "Plain JSON mapping records and array/set enum values only, including selected0/false/null/fallbackfalse/empty returns. No enum callback/function input, inherited property traversal or reflective selector.",
+    "contentScope": "Nullish/falsy/raw content presence and public unsafeSetNodeContent histories are characterized. contentString/contentBytes are not general type validators; selected false/0/empty raw values retain their source behavior.",
+    "binaryContent": {
+      "lengths": [1, 2, 4, 6],
+      "samplesPerLength": 12,
+      "vectors": 48,
+      "operationsPerVector": ["unsafeSetNodeContent", "contentBytes", "contentUint"],
+      "scope": "Actual typed bytes with independently computed big-endian integer values within the selected safe range; one length-error/recovery pair per size. No arbitrary byte-width/precision/ownership or content-type completeness claim."
+    },
+    "cachedChildren": {
+      "generatedCounts": [0, 1, 2, 7, 16, 31],
+      "initialization": "Constructor eagerly wraps initial array content in actual ParsableXmlNode child instances; getChildren returns that cached array.",
+      "transitions": "Mutating an actual child through its public method changes its content. Replacing raw node content does not rebuild cached wrappers; clearing cached children exposes raw content, restoring the actual retained child array restores original child identities. Empty[] replacement is a genuine empty collection, not fake child wrappers.",
+      "identityScope": "Seven source-return retains, nine identity projections and seven actual array.includes projections across the planned cases. First child selection, stale cache and restoration use genuine source instances/arrays. No input retention, private-field access, mutation/ownership proof beyond explicit public methods or fabricated parser objects.",
+      "duplicateTagDiscriminator": "The selected duplicate-a child fixture has idfirst/idsecond values; child(a) followed by the real returned child attrString(id) expects literal first. Tag equality/repeat identity/membership alone are not used as proof of first-vs-later duplicate selection."
+    },
+    "errorScope": "WAXmlParsingFailure exports a real plain class carrying parser/reason and a source toString formatter; it is not an Error subclass and needs no Babel helper. Expected name Error is the worker fallback projection label, with the literal XmlParsingFailure formatter message; nonstring decodeAsString errors use the real err dependency. No fake error class or missing-capability TypeError is accepted as an application failure.",
+    "plannedErrors": 47,
+    "sourceClosure": {
+      "primaryModulesPerRevision": 8,
+      "printedSourceBytesPerRevision": 35154,
+      "staticWorkUnits": 185074,
+      "defaultLogicalWorkLimit": 2000000,
+      "missingOriginalModules": [],
+      "variants": []
+    },
+    "runtimeScope": "Focused observations bind runtimeSource201922bde0fa261c2b0117856c1c0a003e90c21f56f053d5437e6075e90c3237 and worker02af79cc54aa2da613c84e48128557c1111635507fa4b1acb0e42024888c0406. This intentional worker snapshot change differs from prior runtime87c9 evidence; other18 producers remained unchanged. Old families have not been reexecuted by this focused run.",
+    "fixtures": "Case.construct uses the actual exported ParsableXmlNode and synthetic already-parsed node data. No stubs, clock/gate/bootstrap/Babel fixtures, callback/function input, reflection, private-property control or per-suite source wrapper is selected.",
+    "caseRows": [
+      {
+        "caseId": "parsable-xml-node-attribute-strings-0-v1",
+        "probes": 26,
+        "serializedCaseBytes": 2438
+      },
+      {
+        "caseId": "parsable-xml-node-attribute-strings-1-v1",
+        "probes": 26,
+        "serializedCaseBytes": 5584
+      },
+      {
+        "caseId": "parsable-xml-node-empty-attributes-and-assertions-v1",
+        "probes": 15,
+        "serializedCaseBytes": 1735
+      },
+      {
+        "caseId": "parsable-xml-node-attribute-nonstring-null-v1",
+        "probes": 5,
+        "serializedCaseBytes": 805
+      },
+      {
+        "caseId": "parsable-xml-node-attribute-nonstring-undefined-v1",
+        "probes": 5,
+        "serializedCaseBytes": 843
+      },
+      {
+        "caseId": "parsable-xml-node-attribute-nonstring-number-v1",
+        "probes": 5,
+        "serializedCaseBytes": 798
+      },
+      {
+        "caseId": "parsable-xml-node-attribute-nonstring-bool-v1",
+        "probes": 5,
+        "serializedCaseBytes": 810
+      },
+      {
+        "caseId": "parsable-xml-node-attribute-nonstring-array-v1",
+        "probes": 5,
+        "serializedCaseBytes": 796
+      },
+      {
+        "caseId": "parsable-xml-node-attribute-nonstring-record-v1",
+        "probes": 5,
+        "serializedCaseBytes": 827
+      },
+      {
+        "caseId": "parsable-xml-node-decimal-prefix-integers-v1",
+        "probes": 25,
+        "serializedCaseBytes": 2180
+      },
+      {
+        "caseId": "parsable-xml-node-invalid-integer-recovery-v1",
+        "probes": 14,
+        "serializedCaseBytes": 2072
+      },
+      {
+        "caseId": "parsable-xml-node-inclusive-lower-exclusive-upper-v1",
+        "probes": 32,
+        "serializedCaseBytes": 3298
+      },
+      {
+        "caseId": "parsable-xml-node-enum-record-and-values-v1",
+        "probes": 13,
+        "serializedCaseBytes": 1660
+      },
+      {
+        "caseId": "parsable-xml-node-content-presence-null-v1",
+        "probes": 6,
+        "serializedCaseBytes": 754
+      },
+      {
+        "caseId": "parsable-xml-node-content-presence-empty-v1",
+        "probes": 4,
+        "serializedCaseBytes": 499
+      },
+      {
+        "caseId": "parsable-xml-node-content-presence-false-v1",
+        "probes": 4,
+        "serializedCaseBytes": 505
+      },
+      {
+        "caseId": "parsable-xml-node-content-presence-0-v1",
+        "probes": 4,
+        "serializedCaseBytes": 493
+      },
+      {
+        "caseId": "parsable-xml-node-content-presence-text-v1",
+        "probes": 4,
+        "serializedCaseBytes": 505
+      },
+      {
+        "caseId": "parsable-xml-node-binary-content-1-v1",
+        "probes": 38,
+        "serializedCaseBytes": 3966
+      },
+      {
+        "caseId": "parsable-xml-node-binary-content-2-v1",
+        "probes": 38,
+        "serializedCaseBytes": 4082
+      },
+      {
+        "caseId": "parsable-xml-node-binary-content-4-v1",
+        "probes": 38,
+        "serializedCaseBytes": 4320
+      },
+      {
+        "caseId": "parsable-xml-node-binary-content-6-v1",
+        "probes": 38,
+        "serializedCaseBytes": 4556
+      },
+      {
+        "caseId": "parsable-xml-node-content-integers-and-enum-v1",
+        "probes": 14,
+        "serializedCaseBytes": 1773
+      },
+      {
+        "caseId": "parsable-xml-node-cached-children-and-unsafe-state-v1",
+        "probes": 28,
+        "serializedCaseBytes": 3666
+      },
+      {
+        "caseId": "parsable-xml-node-generated-child-cache-0-v1",
+        "probes": 5,
+        "serializedCaseBytes": 620
+      },
+      {
+        "caseId": "parsable-xml-node-generated-child-cache-1-v1",
+        "probes": 6,
+        "serializedCaseBytes": 858
+      },
+      {
+        "caseId": "parsable-xml-node-generated-child-cache-2-v1",
+        "probes": 6,
+        "serializedCaseBytes": 908
+      },
+      {
+        "caseId": "parsable-xml-node-generated-child-cache-7-v1",
+        "probes": 6,
+        "serializedCaseBytes": 1156
+      },
+      {
+        "caseId": "parsable-xml-node-generated-child-cache-16-v1",
+        "probes": 6,
+        "serializedCaseBytes": 1614
+      },
+      {
+        "caseId": "parsable-xml-node-generated-child-cache-31-v1",
+        "probes": 6,
+        "serializedCaseBytes": 2384
+      }
+    ],
+    "plannedErrorKinds": {
+      "plainXmlParsingFailure": 35,
+      "realErrNonstringAttribute": 12
+    },
+    "executionHistory": {
+      "focusedDiagnostic": {
+        "testsPassed": 31,
+        "testsFailed": 0,
+        "cases": 30,
+        "comparisonsUnchanged": 30,
+        "contentAddressedRecords": 60,
+        "singleRevisionExecutions": 90,
+        "probeExecutions": 1296,
+        "completeSupportedStaticInventories": 90,
+        "plainXmlParsingFailureExecutions": 105,
+        "realErrExecutions": 36,
+        "retentionProbeExecutions": 21,
+        "identityProbeExecutions": 27,
+        "arrayMembershipProbeExecutions": 21,
+        "firstDuplicateIdDiscriminatorExecutions": 3,
+        "runtimeSource": "201922bde0fa261c2b0117856c1c0a003e90c21f56f053d5437e6075e90c3237",
+        "isolated": false,
+        "freshRealmPerExecution": true,
+        "all24FrozenFilesUnchanged": true,
+        "oldFamiliesReexecuted": false,
+        "cleanCommittedPrimaryReceipts": false,
+        "semanticOrProtocolAcceptance": false
+      }
+    }
+  },
+  "observations": [
+    {
+      "revision": "1051710191",
+      "modules": [
+        {
+          "module": "err",
+          "variant": "primary",
+          "printedSourceSha256": "a26a1f88fe2c09505c0ec8e43d1a43c2299b6126ea7ea305c567bf7634fbeea0",
+          "dependencies": ["fb-error"],
+          "citations": ["modules/err.js:1-4"]
+        },
+        {
+          "module": "fb-error",
+          "variant": "primary",
+          "printedSourceSha256": "545144d2d2c50524d5bcfc421916cf76760743cb5b034dcb7a4d7066981f714e",
+          "dependencies": ["performanceNow", "removeFromArray"],
+          "citations": ["modules/fb-error.js:1-698"]
+        },
+        {
+          "module": "performance",
+          "variant": "primary",
+          "printedSourceSha256": "9bee7ad7d1941af3432757b1ce55c980030f812f0a5fb00916e906b8a0b6ced9",
+          "dependencies": [],
+          "citations": ["modules/performance.js:1-5"]
+        },
+        {
+          "module": "performanceNow",
+          "variant": "primary",
+          "printedSourceSha256": "415e5327e020372f7789e27dc42266a9cb3d6bbc2d8c47d0b751b93517a0475f",
+          "dependencies": ["performance"],
+          "citations": ["modules/performanceNow.js:1-15"]
+        },
+        {
+          "module": "removeFromArray",
+          "variant": "primary",
+          "printedSourceSha256": "c8e194de9e9463716c2f383406ae8269ddff1a9fe5fbc1a7559abcd2aaa666bb",
+          "dependencies": [],
+          "citations": ["modules/removeFromArray.js:1-8"]
+        },
+        {
+          "module": "WAHasProperty",
+          "variant": "primary",
+          "printedSourceSha256": "cf0558a470139e372976955e35563f61a6c158418a4a061dfd9bc8f487cbd1aa",
+          "dependencies": [],
+          "citations": ["modules/WAHasProperty.js:1-7"]
+        },
+        {
+          "module": "WAParsableXmlNode",
+          "variant": "primary",
+          "printedSourceSha256": "709a1e5a5110e4e9ad0bef8cd53fc7c7435de714709d6ef1e47d28c2b984a364",
+          "dependencies": ["WAHasProperty", "WAXmlParsingFailure", "err"],
+          "citations": ["modules/WAParsableXmlNode.js:1-158"]
+        },
+        {
+          "module": "WAXmlParsingFailure",
+          "variant": "primary",
+          "printedSourceSha256": "ac05b78a33461a3e9b7bb396e896e4052afe593b558443dbec82483c1a3d02e7",
+          "dependencies": [],
+          "citations": ["modules/WAXmlParsingFailure.js:1-13"]
+        }
+      ],
+      "analyzer": {
+        "version": 5,
+        "sourceSha256": "227dc637e157fb8708c4f58e3c7fd821d78fdff3fc3ad7ec48ff6b5818e54f82"
+      },
+      "inventoryDigest": "6a5ed4bcd18dd1d5ca3e6a509625ae7fb2a4d740e6a19014ea67ccc349b25ec5",
+      "gates": [],
+      "unresolved": [],
+      "staticCoverage": {
+        "complete": true,
+        "scope": "module-closure-superset",
+        "semanticProof": false,
+        "resolverCoverage": false,
+        "modules": 8,
+        "sourceBytes": 35154,
+        "workBudget": {
+          "limit": 2000000,
+          "consumed": 185074,
+          "exhausted": false
+        },
+        "limitations": [
+          "Only supported gate APIs and static key expressions are inventoried.",
+          "Logical work units bound selected AST traversal and resolution, not parser internals or elapsed time; parsing remains source-byte bounded.",
+          "Declared fixture-provider boundaries exclude their original resolver implementations and dependencies.",
+          "All functions in each dependency module are scanned; exact export and caller reachability is not proven.",
+          "Runtime-discovered gates and externally selected code require separate observations."
+        ]
+      }
+    },
+    {
+      "revision": "1051908825",
+      "modules": [
+        {
+          "module": "err",
+          "variant": "primary",
+          "printedSourceSha256": "a26a1f88fe2c09505c0ec8e43d1a43c2299b6126ea7ea305c567bf7634fbeea0",
+          "dependencies": ["fb-error"],
+          "citations": ["modules/err.js:1-4"]
+        },
+        {
+          "module": "fb-error",
+          "variant": "primary",
+          "printedSourceSha256": "545144d2d2c50524d5bcfc421916cf76760743cb5b034dcb7a4d7066981f714e",
+          "dependencies": ["performanceNow", "removeFromArray"],
+          "citations": ["modules/fb-error.js:1-698"]
+        },
+        {
+          "module": "performance",
+          "variant": "primary",
+          "printedSourceSha256": "9bee7ad7d1941af3432757b1ce55c980030f812f0a5fb00916e906b8a0b6ced9",
+          "dependencies": [],
+          "citations": ["modules/performance.js:1-5"]
+        },
+        {
+          "module": "performanceNow",
+          "variant": "primary",
+          "printedSourceSha256": "415e5327e020372f7789e27dc42266a9cb3d6bbc2d8c47d0b751b93517a0475f",
+          "dependencies": ["performance"],
+          "citations": ["modules/performanceNow.js:1-15"]
+        },
+        {
+          "module": "removeFromArray",
+          "variant": "primary",
+          "printedSourceSha256": "c8e194de9e9463716c2f383406ae8269ddff1a9fe5fbc1a7559abcd2aaa666bb",
+          "dependencies": [],
+          "citations": ["modules/removeFromArray.js:1-8"]
+        },
+        {
+          "module": "WAHasProperty",
+          "variant": "primary",
+          "printedSourceSha256": "cf0558a470139e372976955e35563f61a6c158418a4a061dfd9bc8f487cbd1aa",
+          "dependencies": [],
+          "citations": ["modules/WAHasProperty.js:1-7"]
+        },
+        {
+          "module": "WAParsableXmlNode",
+          "variant": "primary",
+          "printedSourceSha256": "709a1e5a5110e4e9ad0bef8cd53fc7c7435de714709d6ef1e47d28c2b984a364",
+          "dependencies": ["WAHasProperty", "WAXmlParsingFailure", "err"],
+          "citations": ["modules/WAParsableXmlNode.js:1-158"]
+        },
+        {
+          "module": "WAXmlParsingFailure",
+          "variant": "primary",
+          "printedSourceSha256": "ac05b78a33461a3e9b7bb396e896e4052afe593b558443dbec82483c1a3d02e7",
+          "dependencies": [],
+          "citations": ["modules/WAXmlParsingFailure.js:1-13"]
+        }
+      ],
+      "analyzer": {
+        "version": 5,
+        "sourceSha256": "227dc637e157fb8708c4f58e3c7fd821d78fdff3fc3ad7ec48ff6b5818e54f82"
+      },
+      "inventoryDigest": "6a5ed4bcd18dd1d5ca3e6a509625ae7fb2a4d740e6a19014ea67ccc349b25ec5",
+      "gates": [],
+      "unresolved": [],
+      "staticCoverage": {
+        "complete": true,
+        "scope": "module-closure-superset",
+        "semanticProof": false,
+        "resolverCoverage": false,
+        "modules": 8,
+        "sourceBytes": 35154,
+        "workBudget": {
+          "limit": 2000000,
+          "consumed": 185074,
+          "exhausted": false
+        },
+        "limitations": [
+          "Only supported gate APIs and static key expressions are inventoried.",
+          "Logical work units bound selected AST traversal and resolution, not parser internals or elapsed time; parsing remains source-byte bounded.",
+          "Declared fixture-provider boundaries exclude their original resolver implementations and dependencies.",
+          "All functions in each dependency module are scanned; exact export and caller reachability is not proven.",
+          "Runtime-discovered gates and externally selected code require separate observations."
+        ]
+      }
+    }
+  ],
+  "exclusions": [
+    "Focused fresh-process source observations are partial implementation evidence. They do not establish complete input/history/configuration domains, isolated container execution or production scheduling.",
+    "This API wraps already-parsed node records; no XML text/stream/token/namespace/entity/escaping validation, serialization, stanza/protocol or caller/media/account/network acceptance.",
+    "Keys/strings/records/children/integers/ranges/enum/content/history domains are unbounded. Selected generated inputs and zero recognized gates do not establish complete semantics, configuration or schema validation.",
+    "Callback-based forEach/map methods and function-valued enum inputs are unexercised. No source function retention, private fields, constructor/prototype/meta selectors or fake child/parser/error objects.",
+    "Public unsafe setters deliberately permit raw content and cached-child divergence. These observations do not establish persistent storage/restarts, deep ownership, independent backing stores, arbitrary mutation isolation or universal aliasing.",
+    "Whole-source err/fb-error/helper/global branches and complete original bootstrap remain unproven; no Babel or provider substitute is added.",
+    "No container isolation, browser/native/crypto/provider authority, security/compliance, named-library adapter, release or production authored-suite scheduling acceptance."
+  ]
+}
