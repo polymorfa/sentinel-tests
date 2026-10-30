@@ -81,3 +81,5 @@ Boolean knob fixture hints also do not close original assignment domains. Review
 The [SmallQueue suite](docs/small-queue-state.md) executes FIFO, peek/removal and real object lifetimes, native array/typed-view list insertion, malformed-list recovery and bounded generated histories. The 2,048-item case observes five prefix values and counts only.
 
 Gate planning requires explicit reviewed finite domains for every provider kind. Genuine Boolean definition/parser facts remain useful evidence for scoped models; method/type hints alone do not close initialized provider or raw server domains.
+
+The [marker exposure suite](docs/marker-exposure-state.md) observes the original resolver's exposure Set through its real local queue, including flush lifetimes and malformed direct-call failure/retry. Selected null targets are synthetic inputs; argument replacement, canonical binding data and delivery remain unproven.

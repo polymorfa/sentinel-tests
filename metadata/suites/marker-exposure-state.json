@@ -1,0 +1,1064 @@
+{
+  "schemaVersion": 1,
+  "id": "marker-exposure-state",
+  "version": 1,
+  "title": "Original transport marker exposure deduplication and queue state",
+  "file": "tests/marker-exposure-state.test.ts",
+  "helper": "support/marker-exposure-state-cases.ts",
+  "capability": "wa-internal:marker-exposure-state",
+  "roots": ["replaceTransportMarkers", "BanzaiLazyQueue"],
+  "oracle": "Source-reviewed local queue tuples and module-lifetime exposure deduplication. Fixed literals cover truthiness, identifier types, DFS traversal, errors before/after prior exposure commits, retry and fresh cases. Three bounded generated histories use an independent external Set and ordered event list. Marker calls return undefined; only actual BanzaiLazyQueue.flushQueue results observe exposure state.",
+  "trials": {
+    "cases": 13,
+    "portablePlanTests": 1,
+    "probesPerRevision": 133,
+    "maxProbesPerCase": 27,
+    "maxSerializedCaseBytes": 6116,
+    "generatedHistories": 3,
+    "selectedEmptyGateFixtureContexts": 1,
+    "totalGateAssignmentCardinality": null,
+    "configurationExhaustive": false,
+    "inputDomainExhaustive": false,
+    "execution": "Focused actual archived-source diagnostic passed 14 tests: 13 cases and 133 probes per revision, with 13 unchanged comparisons across 1051710191 and 1051908825. A private observer captured 26 complete content-addressed records before assertions, covering 39 single-revision executions and 399 probe executions, including nine expected native TypeErrors. All 24 frozen producer/planner/suite/observer files matched before and after execution. Runtime source 87c9bd140246ef9c064145491a3517376c6c15ccea1da44ac9a98826741dcc64, explicit process diagnostic isolated:false. These observations do not establish canonical binding data, payload mutation, queue dispatch failure, container or production scheduling acceptance.",
+    "dataScope": "Synthetic __rc target/identifier records exercise local exposure bookkeeping; selected null targets and one actual SimpleHook non-null target do not establish original server bindings, transport delivery or accepted dynamic target domains.",
+    "returnScope": "Marker calls return typed undefined; arbitrary argument mutation is unobserved. Actual qualified queue flushes return source-owned event arrays. No argument/property retention, result projection, native/meta method or helper seam.",
+    "lifetimeScope": "Plans expect per-case fresh worker/module state, with repeated calls sharing the real exposure Set and queue inside that case; persisted restarts and cross-worker identity are outside scope.",
+    "domains": "Marker shapes, target names, exposure identifiers, traversal contexts, histories and dynamic immutable method choices are unknown/unbounded. Truthiness does not establish Boolean input types. Zero recognized gates in this incomplete source closure proves no complete finite configuration product.",
+    "fixtures": "context.gates is empty; no provider stubs, gate value fixtures, bootstrap assets, Babel helpers, callbacks, host objects/functions, construction, pending, clock updates or retained references are selected.",
+    "sourceClosure": {
+      "presentPrimaryModulesPerRevision": 48,
+      "knownNamesPerRevision": 49,
+      "printedSourceBytesPerRevision": 143859,
+      "missingOriginalModules": ["cr:6640"],
+      "discoveryPasses": 2,
+      "declaredAndLiteralEdgesPerRevision": 69,
+      "alternateScope": "The indexed promiseDone alternate is retained privately as unselected provenance; only primary sources are admitted.",
+      "bootstrapScope": "Whole downstream source graphs retain Babel extends/inheritsLoose, DOM/performance and original loader/browser boundaries. These sources are not omitted when selected exposure paths avoid invoking them. No complete original bootstrap or Promise provider binding is established."
+    }
+  },
+  "observations": [
+    {
+      "revision": "1051710191",
+      "modules": [
+        {
+          "module": "$InternalEnum",
+          "variant": "primary",
+          "printedSourceSha256": "2ceb4779145d3f716cdabff27facf6fec30f45f844896ccd78300320a44a69a9",
+          "dependencies": [],
+          "citations": ["modules/$InternalEnum.js:1-51"]
+        },
+        {
+          "module": "Arbiter",
+          "variant": "primary",
+          "printedSourceSha256": "57e13d7a53c13adec6cb67700c3773b78bc767a662bd4763ab9d85e589ba677f",
+          "dependencies": [
+            "ArbiterToken",
+            "CallbackDependencyManager",
+            "ErrorGuard",
+            "EventEmitter",
+            "EventEmitterWithHolding",
+            "EventHolder",
+            "invariant"
+          ],
+          "citations": ["modules/Arbiter.js:1-130"]
+        },
+        {
+          "module": "ArbiterToken",
+          "variant": "primary",
+          "printedSourceSha256": "fdac8838e16eb7bafd8e76745892d94a3ea24307f2b948d2260c92f4f1383843",
+          "dependencies": ["invariant"],
+          "citations": ["modules/ArbiterToken.js:1-16"]
+        },
+        {
+          "module": "asyncToGeneratorRuntime",
+          "variant": "primary",
+          "printedSourceSha256": "147052b2a1cdc6d21087a611043d0974d5babedeeee624185babb023bbcf72f3",
+          "dependencies": ["Promise"],
+          "citations": ["modules/asyncToGeneratorRuntime.js:1-29"]
+        },
+        {
+          "module": "BanzaiLazyQueue",
+          "variant": "primary",
+          "printedSourceSha256": "c4b206703179790d810f00c914c5ff13123e8a5d479a1fc017e2d8fb06c62d49",
+          "dependencies": ["SimpleHook"],
+          "citations": ["modules/BanzaiLazyQueue.js:1-17"]
+        },
+        {
+          "module": "BaseEventEmitter",
+          "variant": "primary",
+          "printedSourceSha256": "70a0fe7235267eca3a7a75acc5916106e19d66a96ef7c752ff01b97fbdd3e574",
+          "dependencies": [
+            "EmitterSubscription",
+            "ErrorGuard",
+            "EventSubscriptionVendor",
+            "FBLogger",
+            "emptyFunction"
+          ],
+          "citations": ["modules/BaseEventEmitter.js:1-54"]
+        },
+        {
+          "module": "BootloaderEvents",
+          "variant": "primary",
+          "printedSourceSha256": "3f4c14af587ba090d44ef18810661e646a1205fccd77ac8be00eeebc7b362dc1",
+          "dependencies": ["Arbiter", "objectValues"],
+          "citations": ["modules/BootloaderEvents.js:1-108"]
+        },
+        {
+          "module": "CallbackDependencyManager",
+          "variant": "primary",
+          "printedSourceSha256": "d0f984751e20de95bbb261cc63a1e7970cee5f0eae65c9d9497935e74bbb1891",
+          "dependencies": ["ErrorGuard"],
+          "citations": ["modules/CallbackDependencyManager.js:1-50"]
+        },
+        {
+          "module": "EmitterSubscription",
+          "variant": "primary",
+          "printedSourceSha256": "94018d2fe3a7a05c522941837ef29b1f520ae06abc1cc3c43f4547c23dd9a116",
+          "dependencies": ["EventSubscription"],
+          "citations": ["modules/EmitterSubscription.js:1-11"]
+        },
+        {
+          "module": "emptyFunction",
+          "variant": "primary",
+          "printedSourceSha256": "efc2fa885be346ba40045503e3a0588374c842f36261ce8138988d63608ecb48",
+          "dependencies": [],
+          "citations": ["modules/emptyFunction.js:1-16"]
+        },
+        {
+          "module": "Env",
+          "variant": "primary",
+          "printedSourceSha256": "ad5c3d19c3db7a10d569dceb202b62801ac1014c42a99cf21d3249a124319082",
+          "dependencies": [],
+          "citations": ["modules/Env.js:1-22"]
+        },
+        {
+          "module": "err",
+          "variant": "primary",
+          "printedSourceSha256": "a26a1f88fe2c09505c0ec8e43d1a43c2299b6126ea7ea305c567bf7634fbeea0",
+          "dependencies": ["fb-error"],
+          "citations": ["modules/err.js:1-4"]
+        },
+        {
+          "module": "ErrorGuard",
+          "variant": "primary",
+          "printedSourceSha256": "c816590d0968fba2fc3709b36e99e4832e0db788cb62524ebf66843c8427d0f8",
+          "dependencies": ["fb-error"],
+          "citations": ["modules/ErrorGuard.js:1-4"]
+        },
+        {
+          "module": "ErrorMetadata",
+          "variant": "primary",
+          "printedSourceSha256": "7e84deb3c0b26cc3d5a7908121318d8f015ec35b76c58dd42e7897ae19df63e4",
+          "dependencies": ["fb-error"],
+          "citations": ["modules/ErrorMetadata.js:1-12"]
+        },
+        {
+          "module": "ErrorPubSub",
+          "variant": "primary",
+          "printedSourceSha256": "172db48aac02188fa2b736969f09210867f921e6af2ac06407a2472cf53f611c",
+          "dependencies": ["fb-error"],
+          "citations": ["modules/ErrorPubSub.js:1-4"]
+        },
+        {
+          "module": "EventEmitter",
+          "variant": "primary",
+          "printedSourceSha256": "ac9c39496a56504427c2ee65ef83b6fa8538e4f165d36e8506dda1f13e0b5183",
+          "dependencies": ["BaseEventEmitter"],
+          "citations": ["modules/EventEmitter.js:1-9"]
+        },
+        {
+          "module": "EventEmitterWithHolding",
+          "variant": "primary",
+          "printedSourceSha256": "ba087185e595029f252c17c6bb7aaea8621119bf584c0882ae363d9788a4e84b",
+          "dependencies": [],
+          "citations": ["modules/EventEmitterWithHolding.js:1-37"]
+        },
+        {
+          "module": "EventHolder",
+          "variant": "primary",
+          "printedSourceSha256": "4a601308e38c485fb0d7a691643f426bde2525b0a09053c68aa8b292a19151b1",
+          "dependencies": ["invariant"],
+          "citations": ["modules/EventHolder.js:1-32"]
+        },
+        {
+          "module": "EventSubscription",
+          "variant": "primary",
+          "printedSourceSha256": "03f2ee719e2177d880bdd5b2543f542dac251f482a8589fffecc087e0e8a85b7",
+          "dependencies": [],
+          "citations": ["modules/EventSubscription.js:1-10"]
+        },
+        {
+          "module": "EventSubscriptionVendor",
+          "variant": "primary",
+          "printedSourceSha256": "8eef867650b570c0f2a7435791a5c369ccde954ed952fc9a4ae70629287978c5",
+          "dependencies": ["invariant"],
+          "citations": ["modules/EventSubscriptionVendor.js:1-22"]
+        },
+        {
+          "module": "fb-error",
+          "variant": "primary",
+          "printedSourceSha256": "545144d2d2c50524d5bcfc421916cf76760743cb5b034dcb7a4d7066981f714e",
+          "dependencies": ["performanceNow", "removeFromArray"],
+          "citations": ["modules/fb-error.js:1-698"]
+        },
+        {
+          "module": "fb-error-lite",
+          "variant": "primary",
+          "printedSourceSha256": "70182c28f267319e6122d9da5fa9d01bc3c60775130d33429a71874503924b64",
+          "dependencies": [],
+          "citations": ["modules/fb-error-lite.js:1-25"]
+        },
+        {
+          "module": "FBLogger",
+          "variant": "primary",
+          "printedSourceSha256": "5b78358a73a6900d013f27628afaffe9b58fdb92dc37233690ec50441114c7c2",
+          "dependencies": ["fb-error"],
+          "citations": ["modules/FBLogger.js:1-4"]
+        },
+        {
+          "module": "ge",
+          "variant": "primary",
+          "printedSourceSha256": "89ec0aaaac1c005a91232c5946d0bf740f544dfc2ffb58a5df5c60dab47d2056",
+          "dependencies": [],
+          "citations": ["modules/ge.js:1-17"]
+        },
+        {
+          "module": "getErrorSafe",
+          "variant": "primary",
+          "printedSourceSha256": "e2e7bf104b2e70a7cf8b17c8861754af744d215a24d547fc29058f64f0db882b",
+          "dependencies": ["fb-error"],
+          "citations": ["modules/getErrorSafe.js:1-4"]
+        },
+        {
+          "module": "ifRequireable",
+          "variant": "primary",
+          "printedSourceSha256": "ca8f08add793e8313c01b8bb5da34045ab54a98d348a037be910f16ba28070e8",
+          "dependencies": ["ifRequired"],
+          "citations": ["modules/ifRequireable.js:1-6"]
+        },
+        {
+          "module": "ifRequired",
+          "variant": "primary",
+          "printedSourceSha256": "a25e59f511a8f45856ed84e7c897efd148592c2b562c1769a0866f553e41f821",
+          "dependencies": [],
+          "citations": ["modules/ifRequired.js:1-10"]
+        },
+        {
+          "module": "immutable",
+          "variant": "primary",
+          "printedSourceSha256": "712fc3d968017fd6ab6a1a86b60a92bb2933a1c92b54c45336bcf0002907ffb2",
+          "dependencies": ["immutable-3.7.3"],
+          "citations": ["modules/immutable.js:1-3"]
+        },
+        {
+          "module": "immutable-3.7.3",
+          "variant": "primary",
+          "printedSourceSha256": "425ba9eb912df7e5a92c5488e2265651e870da4c71a3799bf80eeb78f3e45ef6",
+          "dependencies": [],
+          "citations": ["modules/immutable-3.7.3.js:1-2302"]
+        },
+        {
+          "module": "invariant",
+          "variant": "primary",
+          "printedSourceSha256": "6b377021188adf8be5add1781bb1a5b3a7da5d0021df951267b1ae8d331f705f",
+          "dependencies": ["Env", "fb-error-lite", "sprintf"],
+          "citations": ["modules/invariant.js:1-42"]
+        },
+        {
+          "module": "JSResourceEvents",
+          "variant": "primary",
+          "printedSourceSha256": "a4bdb83927e2c3bd8073216321418b4de5ecd4b206433c4c25c93d645359ff15",
+          "dependencies": ["performanceAbsoluteNow"],
+          "citations": ["modules/JSResourceEvents.js:1-44"]
+        },
+        {
+          "module": "JSResourceReferenceImpl",
+          "variant": "primary",
+          "printedSourceSha256": "29e9bfb4fdd1cc00120b3afe838c4b6dad2bf00e741a86e57805985fd86a5cfe",
+          "dependencies": [
+            "BootloaderEvents",
+            "ErrorMetadata",
+            "JSResourceEvents",
+            "Promise",
+            "PromiseAnnotate",
+            "err",
+            "ifRequireable",
+            "ifRequired"
+          ],
+          "citations": ["modules/JSResourceReferenceImpl.js:1-85"]
+        },
+        {
+          "module": "memoize",
+          "variant": "primary",
+          "printedSourceSha256": "65275717f79efd50fee0db674d38ec2f90f0d528b6a53e186a84ae60bcce8c2e",
+          "dependencies": ["invariant"],
+          "citations": ["modules/memoize.js:1-9"]
+        },
+        {
+          "module": "objectValues",
+          "variant": "primary",
+          "printedSourceSha256": "5e99667099a821d1e0f4f897bbdc0da72b4ef9bf5d0f5f4fdd6ab65627506b4d",
+          "dependencies": [],
+          "citations": ["modules/objectValues.js:1-7"]
+        },
+        {
+          "module": "performance",
+          "variant": "primary",
+          "printedSourceSha256": "9bee7ad7d1941af3432757b1ce55c980030f812f0a5fb00916e906b8a0b6ced9",
+          "dependencies": [],
+          "citations": ["modules/performance.js:1-5"]
+        },
+        {
+          "module": "performanceAbsoluteNow",
+          "variant": "primary",
+          "printedSourceSha256": "fbcb82700ff0e5cc31b20f866dca40a0faaa64b57b5cf7f79e171f8c5fa8e45f",
+          "dependencies": ["performance", "performanceAbsoluteNowOnAdjust"],
+          "citations": ["modules/performanceAbsoluteNow.js:1-50"]
+        },
+        {
+          "module": "performanceAbsoluteNowOnAdjust",
+          "variant": "primary",
+          "printedSourceSha256": "387210ac8e67ec0afb88cd04163da1ee7c27b689f5ab4c673d0a4d03827ab8b0",
+          "dependencies": ["SimpleHook"],
+          "citations": ["modules/performanceAbsoluteNowOnAdjust.js:1-5"]
+        },
+        {
+          "module": "performanceNow",
+          "variant": "primary",
+          "printedSourceSha256": "415e5327e020372f7789e27dc42266a9cb3d6bbc2d8c47d0b751b93517a0475f",
+          "dependencies": ["performance"],
+          "citations": ["modules/performanceNow.js:1-15"]
+        },
+        {
+          "module": "Promise",
+          "variant": "primary",
+          "printedSourceSha256": "c94f5132251416675e842ee8bbe98476648325ff897dab0a230b39875e1f3c2a",
+          "dependencies": ["cr:6640"],
+          "citations": ["modules/Promise.js:1-42"]
+        },
+        {
+          "module": "PromiseAnnotate",
+          "variant": "primary",
+          "printedSourceSha256": "4c9e98ef8fabc4b6014eb49fb1ad7875ffb18b368e04325b69ab9f46a883e833",
+          "dependencies": [],
+          "citations": ["modules/PromiseAnnotate.js:1-11"]
+        },
+        {
+          "module": "promiseDone",
+          "variant": "primary",
+          "printedSourceSha256": "3f8b0a79dd5c76784f296bd59d64fb8d95311be0480e57b57fd673d10be404a3",
+          "dependencies": [
+            "ErrorPubSub",
+            "PromiseAnnotate",
+            "asyncToGeneratorRuntime",
+            "getErrorSafe"
+          ],
+          "citations": ["modules/promiseDone.js:1-34"]
+        },
+        {
+          "module": "removeFromArray",
+          "variant": "primary",
+          "printedSourceSha256": "c8e194de9e9463716c2f383406ae8269ddff1a9fe5fbc1a7559abcd2aaa666bb",
+          "dependencies": [],
+          "citations": ["modules/removeFromArray.js:1-8"]
+        },
+        {
+          "module": "replaceTransportMarkers",
+          "variant": "primary",
+          "printedSourceSha256": "ac1194e81edea90db152116df67adc5ba090488062b0d8cc4fc76f0ade18bbdf",
+          "dependencies": [
+            "BanzaiLazyQueue",
+            "JSResourceReferenceImpl",
+            "RequireDeferredReference",
+            "ge",
+            "immutable",
+            "memoize"
+          ],
+          "citations": ["modules/replaceTransportMarkers.js:1-29"]
+        },
+        {
+          "module": "RequireDeferredFactoryEvent",
+          "variant": "primary",
+          "printedSourceSha256": "3d7eca57e8146cea208d5aacdd8313f3a9bafa2bccd752989ad42cbe231b4afe",
+          "dependencies": ["$InternalEnum"],
+          "citations": ["modules/RequireDeferredFactoryEvent.js:1-7"]
+        },
+        {
+          "module": "RequireDeferredReference",
+          "variant": "primary",
+          "printedSourceSha256": "c917ddf6423623f8741eaf32f6417c7ac62e2584f55810ff9a495714b0022475",
+          "dependencies": [
+            "CallbackDependencyManager",
+            "Promise",
+            "RequireDeferredFactoryEvent",
+            "ifRequireable",
+            "ifRequired",
+            "performanceNow",
+            "promiseDone",
+            "requireWeak"
+          ],
+          "citations": ["modules/RequireDeferredReference.js:1-94"]
+        },
+        {
+          "module": "requireWeak",
+          "variant": "primary",
+          "printedSourceSha256": "44a5d065cad69a28667e897492a0e3896e5a66902266b8a7e32fc803efbb2017",
+          "dependencies": [],
+          "citations": ["modules/requireWeak.js:1-7"]
+        },
+        {
+          "module": "SimpleHook",
+          "variant": "primary",
+          "printedSourceSha256": "fd56db80143da1644f5f104549955a5a4fc38e3bafb9ae56cc3f2e4e33885eca",
+          "dependencies": [],
+          "citations": ["modules/SimpleHook.js:1-43"]
+        },
+        {
+          "module": "sprintf",
+          "variant": "primary",
+          "printedSourceSha256": "7860c49011bd89ed50d0db8ed061d00ec9a2ba42b75f298a10c3d6ef98888361",
+          "dependencies": [],
+          "citations": ["modules/sprintf.js:1-11"]
+        }
+      ],
+      "analyzer": {
+        "version": 5,
+        "sourceSha256": "227dc637e157fb8708c4f58e3c7fd821d78fdff3fc3ad7ec48ff6b5818e54f82"
+      },
+      "inventoryDigest": "3a83807516c283e2f34af0106e8674c6491bf643fbf2e2b3c3cee6216d3bc41a",
+      "gates": [],
+      "unresolved": [
+        {
+          "code": "ambiguous-loader-alias",
+          "module": "requireWeak",
+          "line": 4,
+          "column": 21
+        },
+        {
+          "code": "ambiguous-loader-alias",
+          "module": "ifRequired",
+          "line": 4,
+          "column": 25
+        },
+        {
+          "code": "dynamic-import",
+          "module": "replaceTransportMarkers",
+          "line": 10,
+          "column": 110
+        },
+        {
+          "code": "dynamic-import",
+          "module": "requireWeak",
+          "line": 4,
+          "column": 21
+        },
+        {
+          "code": "dynamic-import",
+          "module": "ifRequired",
+          "line": 4,
+          "column": 25
+        },
+        {
+          "code": "dynamic-import",
+          "module": "RequireDeferredReference",
+          "line": 84,
+          "column": 6
+        },
+        {
+          "code": "dynamic-import",
+          "module": "replaceTransportMarkers",
+          "line": 13,
+          "column": 61
+        },
+        {
+          "code": "dynamic-import",
+          "module": "replaceTransportMarkers",
+          "line": 10,
+          "column": 80
+        },
+        {
+          "code": "gate-reference-escape",
+          "module": "requireWeak",
+          "line": 4,
+          "column": 21
+        },
+        {
+          "code": "gate-reference-escape",
+          "module": "ifRequired",
+          "line": 4,
+          "column": 25
+        },
+        {
+          "code": "loader-reference-escape",
+          "module": "ifRequired",
+          "line": 4,
+          "column": 11
+        },
+        {
+          "code": "loader-reference-escape",
+          "module": "requireWeak",
+          "line": 4,
+          "column": 3
+        },
+        {
+          "code": "loader-reference-escape",
+          "module": "ifRequired",
+          "line": 4,
+          "column": 7
+        },
+        {
+          "code": "loader-reference-escape",
+          "module": "requireWeak",
+          "line": 4,
+          "column": 7
+        },
+        {
+          "code": "missing-module",
+          "module": "cr:6640"
+        },
+        {
+          "code": "unsupported-loader-indirection",
+          "module": "replaceTransportMarkers",
+          "line": 10,
+          "column": 80
+        }
+      ],
+      "staticCoverage": {
+        "complete": false,
+        "scope": "module-closure-superset",
+        "semanticProof": false,
+        "resolverCoverage": false,
+        "modules": 48,
+        "sourceBytes": 143859,
+        "workBudget": {
+          "limit": 2000000,
+          "consumed": 801415,
+          "exhausted": false
+        },
+        "limitations": [
+          "Only supported gate APIs and static key expressions are inventoried.",
+          "Logical work units bound selected AST traversal and resolution, not parser internals or elapsed time; parsing remains source-byte bounded.",
+          "Declared fixture-provider boundaries exclude their original resolver implementations and dependencies.",
+          "All functions in each dependency module are scanned; exact export and caller reachability is not proven.",
+          "Runtime-discovered gates and externally selected code require separate observations."
+        ]
+      }
+    },
+    {
+      "revision": "1051908825",
+      "modules": [
+        {
+          "module": "$InternalEnum",
+          "variant": "primary",
+          "printedSourceSha256": "2ceb4779145d3f716cdabff27facf6fec30f45f844896ccd78300320a44a69a9",
+          "dependencies": [],
+          "citations": ["modules/$InternalEnum.js:1-51"]
+        },
+        {
+          "module": "Arbiter",
+          "variant": "primary",
+          "printedSourceSha256": "57e13d7a53c13adec6cb67700c3773b78bc767a662bd4763ab9d85e589ba677f",
+          "dependencies": [
+            "ArbiterToken",
+            "CallbackDependencyManager",
+            "ErrorGuard",
+            "EventEmitter",
+            "EventEmitterWithHolding",
+            "EventHolder",
+            "invariant"
+          ],
+          "citations": ["modules/Arbiter.js:1-130"]
+        },
+        {
+          "module": "ArbiterToken",
+          "variant": "primary",
+          "printedSourceSha256": "fdac8838e16eb7bafd8e76745892d94a3ea24307f2b948d2260c92f4f1383843",
+          "dependencies": ["invariant"],
+          "citations": ["modules/ArbiterToken.js:1-16"]
+        },
+        {
+          "module": "asyncToGeneratorRuntime",
+          "variant": "primary",
+          "printedSourceSha256": "147052b2a1cdc6d21087a611043d0974d5babedeeee624185babb023bbcf72f3",
+          "dependencies": ["Promise"],
+          "citations": ["modules/asyncToGeneratorRuntime.js:1-29"]
+        },
+        {
+          "module": "BanzaiLazyQueue",
+          "variant": "primary",
+          "printedSourceSha256": "c4b206703179790d810f00c914c5ff13123e8a5d479a1fc017e2d8fb06c62d49",
+          "dependencies": ["SimpleHook"],
+          "citations": ["modules/BanzaiLazyQueue.js:1-17"]
+        },
+        {
+          "module": "BaseEventEmitter",
+          "variant": "primary",
+          "printedSourceSha256": "70a0fe7235267eca3a7a75acc5916106e19d66a96ef7c752ff01b97fbdd3e574",
+          "dependencies": [
+            "EmitterSubscription",
+            "ErrorGuard",
+            "EventSubscriptionVendor",
+            "FBLogger",
+            "emptyFunction"
+          ],
+          "citations": ["modules/BaseEventEmitter.js:1-54"]
+        },
+        {
+          "module": "BootloaderEvents",
+          "variant": "primary",
+          "printedSourceSha256": "3f4c14af587ba090d44ef18810661e646a1205fccd77ac8be00eeebc7b362dc1",
+          "dependencies": ["Arbiter", "objectValues"],
+          "citations": ["modules/BootloaderEvents.js:1-108"]
+        },
+        {
+          "module": "CallbackDependencyManager",
+          "variant": "primary",
+          "printedSourceSha256": "d0f984751e20de95bbb261cc63a1e7970cee5f0eae65c9d9497935e74bbb1891",
+          "dependencies": ["ErrorGuard"],
+          "citations": ["modules/CallbackDependencyManager.js:1-50"]
+        },
+        {
+          "module": "EmitterSubscription",
+          "variant": "primary",
+          "printedSourceSha256": "94018d2fe3a7a05c522941837ef29b1f520ae06abc1cc3c43f4547c23dd9a116",
+          "dependencies": ["EventSubscription"],
+          "citations": ["modules/EmitterSubscription.js:1-11"]
+        },
+        {
+          "module": "emptyFunction",
+          "variant": "primary",
+          "printedSourceSha256": "efc2fa885be346ba40045503e3a0588374c842f36261ce8138988d63608ecb48",
+          "dependencies": [],
+          "citations": ["modules/emptyFunction.js:1-16"]
+        },
+        {
+          "module": "Env",
+          "variant": "primary",
+          "printedSourceSha256": "ad5c3d19c3db7a10d569dceb202b62801ac1014c42a99cf21d3249a124319082",
+          "dependencies": [],
+          "citations": ["modules/Env.js:1-22"]
+        },
+        {
+          "module": "err",
+          "variant": "primary",
+          "printedSourceSha256": "a26a1f88fe2c09505c0ec8e43d1a43c2299b6126ea7ea305c567bf7634fbeea0",
+          "dependencies": ["fb-error"],
+          "citations": ["modules/err.js:1-4"]
+        },
+        {
+          "module": "ErrorGuard",
+          "variant": "primary",
+          "printedSourceSha256": "c816590d0968fba2fc3709b36e99e4832e0db788cb62524ebf66843c8427d0f8",
+          "dependencies": ["fb-error"],
+          "citations": ["modules/ErrorGuard.js:1-4"]
+        },
+        {
+          "module": "ErrorMetadata",
+          "variant": "primary",
+          "printedSourceSha256": "7e84deb3c0b26cc3d5a7908121318d8f015ec35b76c58dd42e7897ae19df63e4",
+          "dependencies": ["fb-error"],
+          "citations": ["modules/ErrorMetadata.js:1-12"]
+        },
+        {
+          "module": "ErrorPubSub",
+          "variant": "primary",
+          "printedSourceSha256": "172db48aac02188fa2b736969f09210867f921e6af2ac06407a2472cf53f611c",
+          "dependencies": ["fb-error"],
+          "citations": ["modules/ErrorPubSub.js:1-4"]
+        },
+        {
+          "module": "EventEmitter",
+          "variant": "primary",
+          "printedSourceSha256": "ac9c39496a56504427c2ee65ef83b6fa8538e4f165d36e8506dda1f13e0b5183",
+          "dependencies": ["BaseEventEmitter"],
+          "citations": ["modules/EventEmitter.js:1-9"]
+        },
+        {
+          "module": "EventEmitterWithHolding",
+          "variant": "primary",
+          "printedSourceSha256": "ba087185e595029f252c17c6bb7aaea8621119bf584c0882ae363d9788a4e84b",
+          "dependencies": [],
+          "citations": ["modules/EventEmitterWithHolding.js:1-37"]
+        },
+        {
+          "module": "EventHolder",
+          "variant": "primary",
+          "printedSourceSha256": "4a601308e38c485fb0d7a691643f426bde2525b0a09053c68aa8b292a19151b1",
+          "dependencies": ["invariant"],
+          "citations": ["modules/EventHolder.js:1-32"]
+        },
+        {
+          "module": "EventSubscription",
+          "variant": "primary",
+          "printedSourceSha256": "03f2ee719e2177d880bdd5b2543f542dac251f482a8589fffecc087e0e8a85b7",
+          "dependencies": [],
+          "citations": ["modules/EventSubscription.js:1-10"]
+        },
+        {
+          "module": "EventSubscriptionVendor",
+          "variant": "primary",
+          "printedSourceSha256": "8eef867650b570c0f2a7435791a5c369ccde954ed952fc9a4ae70629287978c5",
+          "dependencies": ["invariant"],
+          "citations": ["modules/EventSubscriptionVendor.js:1-22"]
+        },
+        {
+          "module": "fb-error",
+          "variant": "primary",
+          "printedSourceSha256": "545144d2d2c50524d5bcfc421916cf76760743cb5b034dcb7a4d7066981f714e",
+          "dependencies": ["performanceNow", "removeFromArray"],
+          "citations": ["modules/fb-error.js:1-698"]
+        },
+        {
+          "module": "fb-error-lite",
+          "variant": "primary",
+          "printedSourceSha256": "70182c28f267319e6122d9da5fa9d01bc3c60775130d33429a71874503924b64",
+          "dependencies": [],
+          "citations": ["modules/fb-error-lite.js:1-25"]
+        },
+        {
+          "module": "FBLogger",
+          "variant": "primary",
+          "printedSourceSha256": "5b78358a73a6900d013f27628afaffe9b58fdb92dc37233690ec50441114c7c2",
+          "dependencies": ["fb-error"],
+          "citations": ["modules/FBLogger.js:1-4"]
+        },
+        {
+          "module": "ge",
+          "variant": "primary",
+          "printedSourceSha256": "89ec0aaaac1c005a91232c5946d0bf740f544dfc2ffb58a5df5c60dab47d2056",
+          "dependencies": [],
+          "citations": ["modules/ge.js:1-17"]
+        },
+        {
+          "module": "getErrorSafe",
+          "variant": "primary",
+          "printedSourceSha256": "e2e7bf104b2e70a7cf8b17c8861754af744d215a24d547fc29058f64f0db882b",
+          "dependencies": ["fb-error"],
+          "citations": ["modules/getErrorSafe.js:1-4"]
+        },
+        {
+          "module": "ifRequireable",
+          "variant": "primary",
+          "printedSourceSha256": "ca8f08add793e8313c01b8bb5da34045ab54a98d348a037be910f16ba28070e8",
+          "dependencies": ["ifRequired"],
+          "citations": ["modules/ifRequireable.js:1-6"]
+        },
+        {
+          "module": "ifRequired",
+          "variant": "primary",
+          "printedSourceSha256": "a25e59f511a8f45856ed84e7c897efd148592c2b562c1769a0866f553e41f821",
+          "dependencies": [],
+          "citations": ["modules/ifRequired.js:1-10"]
+        },
+        {
+          "module": "immutable",
+          "variant": "primary",
+          "printedSourceSha256": "712fc3d968017fd6ab6a1a86b60a92bb2933a1c92b54c45336bcf0002907ffb2",
+          "dependencies": ["immutable-3.7.3"],
+          "citations": ["modules/immutable.js:1-3"]
+        },
+        {
+          "module": "immutable-3.7.3",
+          "variant": "primary",
+          "printedSourceSha256": "425ba9eb912df7e5a92c5488e2265651e870da4c71a3799bf80eeb78f3e45ef6",
+          "dependencies": [],
+          "citations": ["modules/immutable-3.7.3.js:1-2302"]
+        },
+        {
+          "module": "invariant",
+          "variant": "primary",
+          "printedSourceSha256": "6b377021188adf8be5add1781bb1a5b3a7da5d0021df951267b1ae8d331f705f",
+          "dependencies": ["Env", "fb-error-lite", "sprintf"],
+          "citations": ["modules/invariant.js:1-42"]
+        },
+        {
+          "module": "JSResourceEvents",
+          "variant": "primary",
+          "printedSourceSha256": "a4bdb83927e2c3bd8073216321418b4de5ecd4b206433c4c25c93d645359ff15",
+          "dependencies": ["performanceAbsoluteNow"],
+          "citations": ["modules/JSResourceEvents.js:1-44"]
+        },
+        {
+          "module": "JSResourceReferenceImpl",
+          "variant": "primary",
+          "printedSourceSha256": "29e9bfb4fdd1cc00120b3afe838c4b6dad2bf00e741a86e57805985fd86a5cfe",
+          "dependencies": [
+            "BootloaderEvents",
+            "ErrorMetadata",
+            "JSResourceEvents",
+            "Promise",
+            "PromiseAnnotate",
+            "err",
+            "ifRequireable",
+            "ifRequired"
+          ],
+          "citations": ["modules/JSResourceReferenceImpl.js:1-85"]
+        },
+        {
+          "module": "memoize",
+          "variant": "primary",
+          "printedSourceSha256": "65275717f79efd50fee0db674d38ec2f90f0d528b6a53e186a84ae60bcce8c2e",
+          "dependencies": ["invariant"],
+          "citations": ["modules/memoize.js:1-9"]
+        },
+        {
+          "module": "objectValues",
+          "variant": "primary",
+          "printedSourceSha256": "5e99667099a821d1e0f4f897bbdc0da72b4ef9bf5d0f5f4fdd6ab65627506b4d",
+          "dependencies": [],
+          "citations": ["modules/objectValues.js:1-7"]
+        },
+        {
+          "module": "performance",
+          "variant": "primary",
+          "printedSourceSha256": "9bee7ad7d1941af3432757b1ce55c980030f812f0a5fb00916e906b8a0b6ced9",
+          "dependencies": [],
+          "citations": ["modules/performance.js:1-5"]
+        },
+        {
+          "module": "performanceAbsoluteNow",
+          "variant": "primary",
+          "printedSourceSha256": "fbcb82700ff0e5cc31b20f866dca40a0faaa64b57b5cf7f79e171f8c5fa8e45f",
+          "dependencies": ["performance", "performanceAbsoluteNowOnAdjust"],
+          "citations": ["modules/performanceAbsoluteNow.js:1-50"]
+        },
+        {
+          "module": "performanceAbsoluteNowOnAdjust",
+          "variant": "primary",
+          "printedSourceSha256": "387210ac8e67ec0afb88cd04163da1ee7c27b689f5ab4c673d0a4d03827ab8b0",
+          "dependencies": ["SimpleHook"],
+          "citations": ["modules/performanceAbsoluteNowOnAdjust.js:1-5"]
+        },
+        {
+          "module": "performanceNow",
+          "variant": "primary",
+          "printedSourceSha256": "415e5327e020372f7789e27dc42266a9cb3d6bbc2d8c47d0b751b93517a0475f",
+          "dependencies": ["performance"],
+          "citations": ["modules/performanceNow.js:1-15"]
+        },
+        {
+          "module": "Promise",
+          "variant": "primary",
+          "printedSourceSha256": "c94f5132251416675e842ee8bbe98476648325ff897dab0a230b39875e1f3c2a",
+          "dependencies": ["cr:6640"],
+          "citations": ["modules/Promise.js:1-42"]
+        },
+        {
+          "module": "PromiseAnnotate",
+          "variant": "primary",
+          "printedSourceSha256": "4c9e98ef8fabc4b6014eb49fb1ad7875ffb18b368e04325b69ab9f46a883e833",
+          "dependencies": [],
+          "citations": ["modules/PromiseAnnotate.js:1-11"]
+        },
+        {
+          "module": "promiseDone",
+          "variant": "primary",
+          "printedSourceSha256": "3f8b0a79dd5c76784f296bd59d64fb8d95311be0480e57b57fd673d10be404a3",
+          "dependencies": [
+            "ErrorPubSub",
+            "PromiseAnnotate",
+            "asyncToGeneratorRuntime",
+            "getErrorSafe"
+          ],
+          "citations": ["modules/promiseDone.js:1-34"]
+        },
+        {
+          "module": "removeFromArray",
+          "variant": "primary",
+          "printedSourceSha256": "c8e194de9e9463716c2f383406ae8269ddff1a9fe5fbc1a7559abcd2aaa666bb",
+          "dependencies": [],
+          "citations": ["modules/removeFromArray.js:1-8"]
+        },
+        {
+          "module": "replaceTransportMarkers",
+          "variant": "primary",
+          "printedSourceSha256": "ac1194e81edea90db152116df67adc5ba090488062b0d8cc4fc76f0ade18bbdf",
+          "dependencies": [
+            "BanzaiLazyQueue",
+            "JSResourceReferenceImpl",
+            "RequireDeferredReference",
+            "ge",
+            "immutable",
+            "memoize"
+          ],
+          "citations": ["modules/replaceTransportMarkers.js:1-29"]
+        },
+        {
+          "module": "RequireDeferredFactoryEvent",
+          "variant": "primary",
+          "printedSourceSha256": "3d7eca57e8146cea208d5aacdd8313f3a9bafa2bccd752989ad42cbe231b4afe",
+          "dependencies": ["$InternalEnum"],
+          "citations": ["modules/RequireDeferredFactoryEvent.js:1-7"]
+        },
+        {
+          "module": "RequireDeferredReference",
+          "variant": "primary",
+          "printedSourceSha256": "c917ddf6423623f8741eaf32f6417c7ac62e2584f55810ff9a495714b0022475",
+          "dependencies": [
+            "CallbackDependencyManager",
+            "Promise",
+            "RequireDeferredFactoryEvent",
+            "ifRequireable",
+            "ifRequired",
+            "performanceNow",
+            "promiseDone",
+            "requireWeak"
+          ],
+          "citations": ["modules/RequireDeferredReference.js:1-94"]
+        },
+        {
+          "module": "requireWeak",
+          "variant": "primary",
+          "printedSourceSha256": "44a5d065cad69a28667e897492a0e3896e5a66902266b8a7e32fc803efbb2017",
+          "dependencies": [],
+          "citations": ["modules/requireWeak.js:1-7"]
+        },
+        {
+          "module": "SimpleHook",
+          "variant": "primary",
+          "printedSourceSha256": "fd56db80143da1644f5f104549955a5a4fc38e3bafb9ae56cc3f2e4e33885eca",
+          "dependencies": [],
+          "citations": ["modules/SimpleHook.js:1-43"]
+        },
+        {
+          "module": "sprintf",
+          "variant": "primary",
+          "printedSourceSha256": "7860c49011bd89ed50d0db8ed061d00ec9a2ba42b75f298a10c3d6ef98888361",
+          "dependencies": [],
+          "citations": ["modules/sprintf.js:1-11"]
+        }
+      ],
+      "analyzer": {
+        "version": 5,
+        "sourceSha256": "227dc637e157fb8708c4f58e3c7fd821d78fdff3fc3ad7ec48ff6b5818e54f82"
+      },
+      "inventoryDigest": "3a83807516c283e2f34af0106e8674c6491bf643fbf2e2b3c3cee6216d3bc41a",
+      "gates": [],
+      "unresolved": [
+        {
+          "code": "ambiguous-loader-alias",
+          "module": "requireWeak",
+          "line": 4,
+          "column": 21
+        },
+        {
+          "code": "ambiguous-loader-alias",
+          "module": "ifRequired",
+          "line": 4,
+          "column": 25
+        },
+        {
+          "code": "dynamic-import",
+          "module": "replaceTransportMarkers",
+          "line": 10,
+          "column": 110
+        },
+        {
+          "code": "dynamic-import",
+          "module": "requireWeak",
+          "line": 4,
+          "column": 21
+        },
+        {
+          "code": "dynamic-import",
+          "module": "ifRequired",
+          "line": 4,
+          "column": 25
+        },
+        {
+          "code": "dynamic-import",
+          "module": "RequireDeferredReference",
+          "line": 84,
+          "column": 6
+        },
+        {
+          "code": "dynamic-import",
+          "module": "replaceTransportMarkers",
+          "line": 13,
+          "column": 61
+        },
+        {
+          "code": "dynamic-import",
+          "module": "replaceTransportMarkers",
+          "line": 10,
+          "column": 80
+        },
+        {
+          "code": "gate-reference-escape",
+          "module": "requireWeak",
+          "line": 4,
+          "column": 21
+        },
+        {
+          "code": "gate-reference-escape",
+          "module": "ifRequired",
+          "line": 4,
+          "column": 25
+        },
+        {
+          "code": "loader-reference-escape",
+          "module": "ifRequired",
+          "line": 4,
+          "column": 11
+        },
+        {
+          "code": "loader-reference-escape",
+          "module": "requireWeak",
+          "line": 4,
+          "column": 3
+        },
+        {
+          "code": "loader-reference-escape",
+          "module": "ifRequired",
+          "line": 4,
+          "column": 7
+        },
+        {
+          "code": "loader-reference-escape",
+          "module": "requireWeak",
+          "line": 4,
+          "column": 7
+        },
+        {
+          "code": "missing-module",
+          "module": "cr:6640"
+        },
+        {
+          "code": "unsupported-loader-indirection",
+          "module": "replaceTransportMarkers",
+          "line": 10,
+          "column": 80
+        }
+      ],
+      "staticCoverage": {
+        "complete": false,
+        "scope": "module-closure-superset",
+        "semanticProof": false,
+        "resolverCoverage": false,
+        "modules": 48,
+        "sourceBytes": 143859,
+        "workBudget": {
+          "limit": 2000000,
+          "consumed": 801415,
+          "exhausted": false
+        },
+        "limitations": [
+          "Only supported gate APIs and static key expressions are inventoried.",
+          "Logical work units bound selected AST traversal and resolution, not parser internals or elapsed time; parsing remains source-byte bounded.",
+          "Declared fixture-provider boundaries exclude their original resolver implementations and dependencies.",
+          "All functions in each dependency module are scanned; exact export and caller reachability is not proven.",
+          "Runtime-discovered gates and externally selected code require separate observations."
+        ]
+      }
+    }
+  ],
+  "exclusions": [
+    "Pending actual execution: planned local state observations are not implemented acceptance until real configured-worker receipts are retained and reviewed.",
+    "The complete supported static closure is incomplete: all 16 dynamic-loader/alias/escape/missing-provider diagnostics remain. Default AST work limits are unchanged; unknown domains cannot produce an exhaustive assignment claim.",
+    "Original cr:6640 is missing and its binding remains unknown; no null Promise fallback or guessed provider alias is supplied. This family cannot establish original cr:5292/cr:6640 resolution.",
+    "The three source-literal .call targets and their descendants are pinned even though selected cases do not invoke resource/DOM/immutable paths. Dynamic __m/__rc/deferred targets and lazy .bind behavior remain unresolved.",
+    "No callbacks, queue listeners, valid callback delivery, once wrappers, reentrancy, external telemetry send/acknowledgment or backend logging acceptance.",
+    "No mutation observation of caller containers, returned module-export identity, full marker replacement/Map/Set/immutable/DOM/resource semantics, arbitrary unknown modules or malformed marker domains.",
+    "Original Babel/global/Env/browser/bootstrap, account/native/crypto/storage/provider authority, container isolation, registered service/library adapter and production authored-suite scheduling remain unexercised."
+  ]
+}
