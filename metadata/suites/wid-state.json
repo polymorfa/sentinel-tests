@@ -1,0 +1,2619 @@
+{
+  "schemaVersion": 1,
+  "id": "wid-state",
+  "version": 1,
+  "title": "Original Wid factory representation and PN/LID self-user memoizer state",
+  "file": "tests/wid-state.test.ts",
+  "helper": "support/wid-state-cases.ts",
+  "capability": "wa-internal:wid-state",
+  "roots": ["WAWebWidFactory", "WAWebWid", "WAWebWidStore", "WAWebUserPrefsMeUser", "WAWebGlobals"],
+  "oracle": "Original WAWebGlobals.setGlobals receives synthetic JSON self state; original UserPrefsMeUser, memoizeWithClear, WidFactory, Wid, validator and WidStore remain actual source. Fixed literal PN/LID/group/broadcast/newsletter/bot/hosted/call representations and independently generated decimal user/device strings. Memoizers retain prior PN/LID across globals replacement, clear independently, cache null LID, and do not cache thrown PN acquisition. Actual Wid methods are invoked on returned real factory instances. Log redaction assignments change and restore within one source runtime with actual gate read assertions.",
+  "trials": {
+    "cases": 32,
+    "probesPerRevision": 1584,
+    "selectedGkxAssignments": {
+      "16539": [false, true],
+      "26256": [false, true],
+      "26258": [false, true]
+    },
+    "selectedContexts": 8,
+    "configurationExhaustive": false,
+    "fullInventoryBooleanCardinality": {
+      "1051710191": 1024,
+      "1051908825": 1024
+    },
+    "fullInventoryBooleanExecution": "budget-blocked; chosen eight contexts only",
+    "domainEvidence": "Wid-only closure has3boolean gkx keys(product8) plus4unbounded ABProp strings. Full actual UserPrefsMeUser/Globals closure adds providers/gates and unknown knob domains; all retained in observations. Eight selected contexts characterize supported branches without closing full dependency domains.",
+    "literalWidVectors": 12,
+    "generatedUserDeviceVectorsPerContext": 24,
+    "logGateTransitionDirections": 2,
+    "identityProof": false,
+    "selfDataProvenance": "Explicit synthetic JSON globals input, not an account/native/bootstrap/provider observation"
+  },
+  "observations": [
+    {
+      "revision": "1051710191",
+      "modules": [
+        {
+          "module": "$InternalEnum",
+          "variant": "primary",
+          "printedSourceSha256": "2ceb4779145d3f716cdabff27facf6fec30f45f844896ccd78300320a44a69a9",
+          "dependencies": [],
+          "citations": ["modules/$InternalEnum.js:1-51"]
+        },
+        {
+          "module": "asyncToGeneratorRuntime",
+          "variant": "primary",
+          "printedSourceSha256": "147052b2a1cdc6d21087a611043d0974d5babedeeee624185babb023bbcf72f3",
+          "dependencies": ["Promise"],
+          "citations": ["modules/asyncToGeneratorRuntime.js:1-29"]
+        },
+        {
+          "module": "BanzaiLazyQueue",
+          "variant": "primary",
+          "printedSourceSha256": "c4b206703179790d810f00c914c5ff13123e8a5d479a1fc017e2d8fb06c62d49",
+          "dependencies": ["SimpleHook"],
+          "citations": ["modules/BanzaiLazyQueue.js:1-17"]
+        },
+        {
+          "module": "BrowserCrashStaticConfig",
+          "variant": "primary",
+          "printedSourceSha256": "cbd5b9184e31371580fb9d90b5ed6a2ebc70294f57c098a73ddc30397a7a36dd",
+          "dependencies": [],
+          "citations": ["modules/BrowserCrashStaticConfig.js:1-17"]
+        },
+        {
+          "module": "dexie-3.2.2",
+          "variant": "primary",
+          "printedSourceSha256": "cbfa866f3403db8683d4aeb051090b249806947527c6ec850330453877ad3fe9",
+          "dependencies": ["Promise"],
+          "citations": ["modules/dexie-3.2.2.js:1-3674"]
+        },
+        {
+          "module": "emptyFunction",
+          "variant": "primary",
+          "printedSourceSha256": "efc2fa885be346ba40045503e3a0588374c842f36261ce8138988d63608ecb48",
+          "dependencies": [],
+          "citations": ["modules/emptyFunction.js:1-16"]
+        },
+        {
+          "module": "Env",
+          "variant": "primary",
+          "printedSourceSha256": "ad5c3d19c3db7a10d569dceb202b62801ac1014c42a99cf21d3249a124319082",
+          "dependencies": [],
+          "citations": ["modules/Env.js:1-22"]
+        },
+        {
+          "module": "err",
+          "variant": "primary",
+          "printedSourceSha256": "a26a1f88fe2c09505c0ec8e43d1a43c2299b6126ea7ea305c567bf7634fbeea0",
+          "dependencies": ["fb-error"],
+          "citations": ["modules/err.js:1-4"]
+        },
+        {
+          "module": "ExecutionEnvironment",
+          "variant": "primary",
+          "printedSourceSha256": "4f49de6e0ddb5be88f962a8196f5a2370427b931db218b019e4a2bd020b1891e",
+          "dependencies": [],
+          "citations": ["modules/ExecutionEnvironment.js:1-14"]
+        },
+        {
+          "module": "fb-error",
+          "variant": "primary",
+          "printedSourceSha256": "545144d2d2c50524d5bcfc421916cf76760743cb5b034dcb7a4d7066981f714e",
+          "dependencies": ["performanceNow", "removeFromArray"],
+          "citations": ["modules/fb-error.js:1-698"]
+        },
+        {
+          "module": "fb-error-lite",
+          "variant": "primary",
+          "printedSourceSha256": "70182c28f267319e6122d9da5fa9d01bc3c60775130d33429a71874503924b64",
+          "dependencies": [],
+          "citations": ["modules/fb-error-lite.js:1-25"]
+        },
+        {
+          "module": "FBLogger",
+          "variant": "primary",
+          "printedSourceSha256": "5b78358a73a6900d013f27628afaffe9b58fdb92dc37233690ec50441114c7c2",
+          "dependencies": ["fb-error"],
+          "citations": ["modules/FBLogger.js:1-4"]
+        },
+        {
+          "module": "getErrorSafe",
+          "variant": "primary",
+          "printedSourceSha256": "e2e7bf104b2e70a7cf8b17c8861754af744d215a24d547fc29058f64f0db882b",
+          "dependencies": ["fb-error"],
+          "citations": ["modules/getErrorSafe.js:1-4"]
+        },
+        {
+          "module": "gkx",
+          "variant": "primary",
+          "printedSourceSha256": "e84fc9d0a08a52702897502d1eb33202bd0d97b9633277aa18df81d9cb902cf6",
+          "dependencies": ["BanzaiLazyQueue", "ExecutionEnvironment", "emptyFunction", "invariant"],
+          "citations": ["modules/gkx.js:1-35"]
+        },
+        {
+          "module": "invariant",
+          "variant": "primary",
+          "printedSourceSha256": "6b377021188adf8be5add1781bb1a5b3a7da5d0021df951267b1ae8d331f705f",
+          "dependencies": ["Env", "fb-error-lite", "sprintf"],
+          "citations": ["modules/invariant.js:1-42"]
+        },
+        {
+          "module": "justknobx",
+          "variant": "primary",
+          "printedSourceSha256": "f42afc172240cd5ff466368ab522c6b917cdf148a6527126ecf1052ed718ec9e",
+          "dependencies": ["invariant"],
+          "citations": ["modules/justknobx.js:1-19"]
+        },
+        {
+          "module": "logForCrash",
+          "variant": "primary",
+          "printedSourceSha256": "d2e1cbb02bfe6f6886e61b05ab7321cc6d905d23f7b3aaafaada4539dacb0c4e",
+          "dependencies": [
+            "BrowserCrashStaticConfig",
+            "FBLogger",
+            "JSErrorLoggingConfig",
+            "Promise",
+            "getErrorSafe",
+            "gkx",
+            "justknobx",
+            "logForCrashUtils"
+          ],
+          "citations": ["modules/logForCrash.js:1-143"]
+        },
+        {
+          "module": "logForCrashUtils",
+          "variant": "primary",
+          "printedSourceSha256": "0af9d64639d07fd6b6396781255f38f3bcfdc3d8f4d3f0705f102701f9424ea4",
+          "dependencies": [],
+          "citations": ["modules/logForCrashUtils.js:1-5"]
+        },
+        {
+          "module": "nullthrows",
+          "variant": "primary",
+          "printedSourceSha256": "8f9ee47b9edbd38314e5f785b651c3fef622f457813889a4495c3b79ea3c241c",
+          "dependencies": [],
+          "citations": ["modules/nullthrows.js:1-8"]
+        },
+        {
+          "module": "performance",
+          "variant": "primary",
+          "printedSourceSha256": "9bee7ad7d1941af3432757b1ce55c980030f812f0a5fb00916e906b8a0b6ced9",
+          "dependencies": [],
+          "citations": ["modules/performance.js:1-5"]
+        },
+        {
+          "module": "performanceNow",
+          "variant": "primary",
+          "printedSourceSha256": "415e5327e020372f7789e27dc42266a9cb3d6bbc2d8c47d0b751b93517a0475f",
+          "dependencies": ["performance"],
+          "citations": ["modules/performanceNow.js:1-15"]
+        },
+        {
+          "module": "Promise",
+          "variant": "primary",
+          "printedSourceSha256": "c94f5132251416675e842ee8bbe98476648325ff897dab0a230b39875e1f3c2a",
+          "dependencies": ["cr:6640"],
+          "citations": ["modules/Promise.js:1-42"]
+        },
+        {
+          "module": "removeFromArray",
+          "variant": "primary",
+          "printedSourceSha256": "c8e194de9e9463716c2f383406ae8269ddff1a9fe5fbc1a7559abcd2aaa666bb",
+          "dependencies": [],
+          "citations": ["modules/removeFromArray.js:1-8"]
+        },
+        {
+          "module": "SimpleHook",
+          "variant": "primary",
+          "printedSourceSha256": "fd56db80143da1644f5f104549955a5a4fc38e3bafb9ae56cc3f2e4e33885eca",
+          "dependencies": [],
+          "citations": ["modules/SimpleHook.js:1-43"]
+        },
+        {
+          "module": "sprintf",
+          "variant": "primary",
+          "printedSourceSha256": "7860c49011bd89ed50d0db8ed061d00ec9a2ba42b75f298a10c3d6ef98888361",
+          "dependencies": [],
+          "citations": ["modules/sprintf.js:1-11"]
+        },
+        {
+          "module": "ua-parser-js",
+          "variant": "primary",
+          "printedSourceSha256": "4e3a05dfc64a400d54b8e89e11b5dcae2071e4119c9170cc91bb31bb054058cb",
+          "dependencies": ["ua-parser-js-0.7.39"],
+          "citations": ["modules/ua-parser-js.js:1-3"]
+        },
+        {
+          "module": "ua-parser-js-0.7.39",
+          "variant": "primary",
+          "printedSourceSha256": "bc484be8b30d6a05d683d953ce91cc74eddff962dae051b2f42d3e376bca1bcf",
+          "dependencies": [],
+          "citations": ["modules/ua-parser-js-0.7.39.js:1-1054"]
+        },
+        {
+          "module": "WAAssertUnreachable",
+          "variant": "primary",
+          "printedSourceSha256": "0a3f98d4cb30e6e90818323c41ed1ad2012bd64cc82c3fc09accea5299c2d400",
+          "dependencies": ["err"],
+          "citations": ["modules/WAAssertUnreachable.js:1-7"]
+        },
+        {
+          "module": "WABaseGlobals",
+          "variant": "primary",
+          "printedSourceSha256": "fe8655a2da424c6ceb6ef212c81414d068dd03703c37c8006f4b28e91d40e5d5",
+          "dependencies": ["err"],
+          "citations": ["modules/WABaseGlobals.js:1-26"]
+        },
+        {
+          "module": "WACamelCase",
+          "variant": "primary",
+          "printedSourceSha256": "8d9b21dfa6b6bf9f98d325aa95bf9caa461ecddf70a7b8a55b1201e83b603dad",
+          "dependencies": [],
+          "citations": ["modules/WACamelCase.js:1-12"]
+        },
+        {
+          "module": "WACustomError",
+          "variant": "primary",
+          "printedSourceSha256": "5d1bdf0db1fc7934930362079c89db68a32e685cc1fa69bf80b922c5bfd883fa",
+          "dependencies": ["fb-error"],
+          "citations": ["modules/WACustomError.js:1-37"]
+        },
+        {
+          "module": "WAFilteredCatch",
+          "variant": "primary",
+          "printedSourceSha256": "ab4eebb2a194d44b0f2703a549a6743c95886c19368a366566655116823d8dcc",
+          "dependencies": [],
+          "citations": ["modules/WAFilteredCatch.js:1-13"]
+        },
+        {
+          "module": "WAHex",
+          "variant": "primary",
+          "printedSourceSha256": "3d28ad9eb342f6715bec66c8c38fd57a14497e07101f5f9b67fc3c9838e72ffe",
+          "dependencies": ["err"],
+          "citations": ["modules/WAHex.js:1-119"]
+        },
+        {
+          "module": "WAJids",
+          "variant": "primary",
+          "printedSourceSha256": "42733fc49d99d76539f7b4873fa7cbe6f9994de25560f5b6eb24ae3e5532253c",
+          "dependencies": ["WAAssertUnreachable", "err"],
+          "citations": ["modules/WAJids.js:1-475"]
+        },
+        {
+          "module": "WALogger",
+          "variant": "primary",
+          "printedSourceSha256": "0406e777eb10eef04870576148db402f9aa20fe709545e0701a314d5b8583837",
+          "dependencies": ["$InternalEnum", "WATagsLogger"],
+          "citations": ["modules/WALogger.js:1-27"]
+        },
+        {
+          "module": "WALoggerUtils",
+          "variant": "primary",
+          "printedSourceSha256": "e1baf5e4850088801148e9a6a46e6720e52efba4aca6f4a139f585fd162f364b",
+          "dependencies": ["WAHex"],
+          "citations": ["modules/WALoggerUtils.js:1-35"]
+        },
+        {
+          "module": "WAPromiseTimeout",
+          "variant": "primary",
+          "printedSourceSha256": "f963b357e871eab53094070f264e1692b2567de1e4cd063df2df68fc3d6a0072",
+          "dependencies": ["Promise", "WACustomError"],
+          "citations": ["modules/WAPromiseTimeout.js:1-14"]
+        },
+        {
+          "module": "WAResultOrError",
+          "variant": "primary",
+          "printedSourceSha256": "84935d8a6543b61ff6912df5d41caa82e8a6c7c2ab2ba20e188549e9dc193fd4",
+          "dependencies": [],
+          "citations": ["modules/WAResultOrError.js:1-26"]
+        },
+        {
+          "module": "WAStorageEstimator",
+          "variant": "primary",
+          "printedSourceSha256": "4b7c1cc8a0e0536ae69ca3ae6b86d1faf3049055e233f9f8bb5fdf70589cf713",
+          "dependencies": ["Promise", "WAResultOrError"],
+          "citations": ["modules/WAStorageEstimator.js:1-15"]
+        },
+        {
+          "module": "WATagsLogger",
+          "variant": "primary",
+          "printedSourceSha256": "c6cb8a0516b1ec1b5a373d50cd3d75f952707f12547d2f46820d9d352bb26ad7",
+          "dependencies": ["FBLogger", "Promise", "WALoggerUtils", "asyncToGeneratorRuntime"],
+          "citations": ["modules/WATagsLogger.js:1-189"]
+        },
+        {
+          "module": "WATypeUtils",
+          "variant": "primary",
+          "printedSourceSha256": "692d60676bfcba61805b5c319fc172976c527ccb5cda2d3822a67b24da5f8e25",
+          "dependencies": [],
+          "citations": ["modules/WATypeUtils.js:1-16"]
+        },
+        {
+          "module": "WAUpperFirst",
+          "variant": "primary",
+          "printedSourceSha256": "d29705feaff8679438284528eaca852ceb4948244237daa0350abec70b704c01",
+          "dependencies": [],
+          "citations": ["modules/WAUpperFirst.js:1-7"]
+        },
+        {
+          "module": "WAWeb-dexie",
+          "variant": "primary",
+          "printedSourceSha256": "a7f96a32233c75e671e12b71900e648b547e790041e76373720a940a0185d489",
+          "dependencies": ["dexie-3.2.2"],
+          "citations": ["modules/WAWeb-dexie.js:1-3"]
+        },
+        {
+          "module": "WAWebABProps",
+          "variant": "primary",
+          "printedSourceSha256": "f352cc4dd83ca26e5ba1de2ff903abd1be97962e423383f1093cc7451214a738",
+          "dependencies": ["WALogger", "WAWebABPropsConfigs", "WAWebABPropsJestE2EReadLog", "gkx"],
+          "citations": ["modules/WAWebABProps.js:1-46"]
+        },
+        {
+          "module": "WAWebABPropsCAPISupportNumber",
+          "variant": "primary",
+          "printedSourceSha256": "446bf321e831a15b85963d6528d2d4f96131eac0285efd0c1a7e78f2410a1030",
+          "dependencies": ["WAWebABProps"],
+          "citations": ["modules/WAWebABPropsCAPISupportNumber.js:1-9"]
+        },
+        {
+          "module": "WAWebABPropsConfigs",
+          "variant": "primary",
+          "printedSourceSha256": "93eada7022daf39a9525ad9e8f1572a0e3f44daefcb15e3efd09f420ecfcf978",
+          "dependencies": [],
+          "citations": ["modules/WAWebABPropsConfigs.js:1-17220"]
+        },
+        {
+          "module": "WAWebABPropsJestE2EReadLog",
+          "variant": "primary",
+          "printedSourceSha256": "9c85a30b7252aa7b714007e680ff6d1ce9f75051c1993f1982fada4b74b88737",
+          "dependencies": ["gkx"],
+          "citations": ["modules/WAWebABPropsJestE2EReadLog.js:1-26"]
+        },
+        {
+          "module": "WAWebABPropsSupportGroup",
+          "variant": "primary",
+          "printedSourceSha256": "1b42c7e696642050f8c78d26e484b8ad285fe6d67e151f05d79a44cd7e42dfc7",
+          "dependencies": ["WAWebABProps"],
+          "citations": ["modules/WAWebABPropsSupportGroup.js:1-9"]
+        },
+        {
+          "module": "WAWebABPropsSupportLid",
+          "variant": "primary",
+          "printedSourceSha256": "6e1db73a851f43a18e5fd25ab4c02341350fb85eee52d41c168eb0caef454c83",
+          "dependencies": ["WALogger", "WAWebABProps"],
+          "citations": ["modules/WAWebABPropsSupportLid.js:1-58"]
+        },
+        {
+          "module": "WAWebAppTracker",
+          "variant": "primary",
+          "printedSourceSha256": "e34a1e43fd82a9c935ee8f4de36b0e94fe7088476596a85e8c764fca0306f4ba",
+          "dependencies": ["$InternalEnum", "WALogger", "WAWebLogForCrash", "getErrorSafe"],
+          "citations": ["modules/WAWebAppTracker.js:1-145"]
+        },
+        {
+          "module": "WAWebBeyondPhoneNumberGatingUtils",
+          "variant": "primary",
+          "printedSourceSha256": "f6d6d3a66fa22610b879c0cab4bacfa3c01c2e350fc41ff975c8b4999ca533e1",
+          "dependencies": ["WAWebABProps", "justknobx"],
+          "citations": ["modules/WAWebBeyondPhoneNumberGatingUtils.js:1-6"]
+        },
+        {
+          "module": "WAWebCanonicalWamFalcoBufferConstants",
+          "variant": "primary",
+          "printedSourceSha256": "33a0096305264797dce1ee99a514bab56e77a2fc19bfd33a1724be646f50ce3e",
+          "dependencies": [],
+          "citations": ["modules/WAWebCanonicalWamFalcoBufferConstants.js:1-4"]
+        },
+        {
+          "module": "WAWebClearFalcoBufferApi",
+          "variant": "primary",
+          "printedSourceSha256": "cd749647721cfb94c168c6bb5618b4a92a95c1061e78cdd83a97bcc767570767",
+          "dependencies": [
+            "WALogger",
+            "WAWebCanonicalWamFalcoBufferConstants",
+            "WAWebLocalStorage",
+            "WAWebStorageErrorHandlingUtils",
+            "asyncToGeneratorRuntime",
+            "getErrorSafe"
+          ],
+          "citations": ["modules/WAWebClearFalcoBufferApi.js:1-89"]
+        },
+        {
+          "module": "WAWebDexieObservability",
+          "variant": "primary",
+          "printedSourceSha256": "45ce609d24001be93c164df5d04e9b6088850c3916fcdc1986f069e28589b6c5",
+          "dependencies": ["gkx"],
+          "citations": ["modules/WAWebDexieObservability.js:1-15"]
+        },
+        {
+          "module": "WAWebEnvironment",
+          "variant": "primary",
+          "printedSourceSha256": "61f690b57e6049ea5c8e0fffa7270bcf48de8cdc1a2d6032521f37575d004913",
+          "dependencies": ["WAWebPwaDocumentMetadataUtils", "gkx"],
+          "citations": ["modules/WAWebEnvironment.js:1-21"]
+        },
+        {
+          "module": "WAWebGlobals",
+          "variant": "primary",
+          "printedSourceSha256": "502d03028deebbb5e8b472687d5f5c042fce2d0c155e1f479173dabf0a450030",
+          "dependencies": ["WABaseGlobals", "WAJids", "err"],
+          "citations": ["modules/WAWebGlobals.js:1-44"]
+        },
+        {
+          "module": "WAWebIndexedDBPurge",
+          "variant": "primary",
+          "printedSourceSha256": "511af822d23c00cdd2ea3cc984d9533ac0f55d99288bed05e369a06d574669f6",
+          "dependencies": [
+            "Promise",
+            "WALogger",
+            "WAPromiseTimeout",
+            "WAWeb-dexie",
+            "WAWebUA",
+            "asyncToGeneratorRuntime",
+            "cr:5411",
+            "gkx"
+          ],
+          "citations": ["modules/WAWebIndexedDBPurge.js:1-70"]
+        },
+        {
+          "module": "WAWebLocalStorage",
+          "variant": "primary",
+          "printedSourceSha256": "f1ee93080324cd99b471b34fcf77937a258fae99f7d9442eaf0fd447c3aa9bd5",
+          "dependencies": [],
+          "citations": ["modules/WAWebLocalStorage.js:1-8"]
+        },
+        {
+          "module": "WAWebLogForCrash",
+          "variant": "primary",
+          "printedSourceSha256": "8cc9cffb90057503480fbb106535f27c1a1b85e1ae34ab8a81ad400dc0a304ba",
+          "dependencies": ["cr:38444", "logForCrash"],
+          "citations": ["modules/WAWebLogForCrash.js:1-18"]
+        },
+        {
+          "module": "WAWebMemoizeWithClearUtils",
+          "variant": "primary",
+          "printedSourceSha256": "b994f0c38ecc64684e36cbcbc2edc298be67677495c2038c51cd701271471dc0",
+          "dependencies": [],
+          "citations": ["modules/WAWebMemoizeWithClearUtils.js:1-11"]
+        },
+        {
+          "module": "WAWebNoop",
+          "variant": "primary",
+          "printedSourceSha256": "ab968979179836e6bfe0f43839c0231d0268e67ee9cf857b2ca268c244266f65",
+          "dependencies": [],
+          "citations": ["modules/WAWebNoop.js:1-5"]
+        },
+        {
+          "module": "WAWebPermanentStorage",
+          "variant": "primary",
+          "printedSourceSha256": "8a8908818405b0fad74de819298872dd27f1d1c4ea8b877629cad18bfa1aa4a1",
+          "dependencies": [
+            "WALogger",
+            "WAWebLocalStorage",
+            "WAWebStorageErrorHandlingUtils",
+            "WAWebWAWCStorage",
+            "asyncToGeneratorRuntime"
+          ],
+          "citations": ["modules/WAWebPermanentStorage.js:1-70"]
+        },
+        {
+          "module": "WAWebPwaDocumentMetadataUtils",
+          "variant": "primary",
+          "printedSourceSha256": "3ac5670906176cc027e977a20926242f266de521f0626559f36d775aade9280a",
+          "dependencies": ["WAWebNoop", "WAWebRuntimeEnvironmentUtils"],
+          "citations": ["modules/WAWebPwaDocumentMetadataUtils.js:1-30"]
+        },
+        {
+          "module": "WAWebRuntimeEnvironmentUtils",
+          "variant": "primary",
+          "printedSourceSha256": "862d22464ad1d37e28d8ece29572a296e7b6853ca6ecdd6de6e6e2bdc6283b5a",
+          "dependencies": [],
+          "citations": ["modules/WAWebRuntimeEnvironmentUtils.js:1-9"]
+        },
+        {
+          "module": "WAWebStorageErrorHandlingUtils",
+          "variant": "primary",
+          "printedSourceSha256": "086562f0b48c6ee214e89ad4fca053c9440e20be28b3808896f448a606d2cad3",
+          "dependencies": [
+            "WALogger",
+            "WAStorageEstimator",
+            "WAWebAppTracker",
+            "WAWebClearFalcoBufferApi",
+            "WAWebEnvironment",
+            "WAWebLocalStorage",
+            "asyncToGeneratorRuntime"
+          ],
+          "citations": ["modules/WAWebStorageErrorHandlingUtils.js:1-108"]
+        },
+        {
+          "module": "WAWebUA",
+          "variant": "primary",
+          "printedSourceSha256": "b1a76e0e4141239a0dc2f5e62cf67de685e776f781fdbd86972f145b47dc4e22",
+          "dependencies": ["gkx", "ua-parser-js"],
+          "citations": ["modules/WAWebUA.js:1-67"]
+        },
+        {
+          "module": "WAWebUserPrefsBase",
+          "variant": "primary",
+          "printedSourceSha256": "1333c9ec22c0ee33e187e87d2a048d59f079561733ebc67c0a4966839a017a47",
+          "dependencies": [
+            "WALogger",
+            "WAWebPermanentStorage",
+            "WAWebUserPrefsKeys",
+            "WAWebWidJsonReviver",
+            "cr:34987",
+            "err"
+          ],
+          "citations": ["modules/WAWebUserPrefsBase.js:1-52"]
+        },
+        {
+          "module": "WAWebUserPrefsKeys",
+          "variant": "primary",
+          "printedSourceSha256": "68763110dfa42307e5f99303c3a7b3ce70ce5e6e94141c60fc209037a34993e3",
+          "dependencies": ["$InternalEnum", "WAWebUserPrefsLoginKeys"],
+          "citations": ["modules/WAWebUserPrefsKeys.js:1-355"]
+        },
+        {
+          "module": "WAWebUserPrefsLoginKeys",
+          "variant": "primary",
+          "printedSourceSha256": "3369f514144a70170299469a74a059230905ca0a53b18ce6f5bec68dab8b4753",
+          "dependencies": [],
+          "citations": ["modules/WAWebUserPrefsLoginKeys.js:1-5"]
+        },
+        {
+          "module": "WAWebUserPrefsMeUser",
+          "variant": "primary",
+          "printedSourceSha256": "539c73b8b314ff107ba07663851f57881a386f0c19343e09b3c9d79d4085e1b6",
+          "dependencies": [
+            "WABaseGlobals",
+            "WALogger",
+            "WAWebBeyondPhoneNumberGatingUtils",
+            "WAWebGlobals",
+            "WAWebMemoizeWithClearUtils",
+            "WAWebRuntimeEnvironmentUtils",
+            "WAWebUserPrefsBase",
+            "WAWebUserPrefsKeys",
+            "WAWebWid",
+            "WAWebWidFactory",
+            "WAWebWidToJid",
+            "err",
+            "gkx",
+            "nullthrows"
+          ],
+          "citations": ["modules/WAWebUserPrefsMeUser.js:1-144"]
+        },
+        {
+          "module": "WAWebWamCodegenGlobalMetrics",
+          "variant": "primary",
+          "printedSourceSha256": "9b9fd39ec8ffead6f89c9e8f813c7a807d4aef70e2f4406b905ae250316fb196",
+          "dependencies": ["WAWebWamCodegenUtils", "nullthrows"],
+          "citations": ["modules/WAWebWamCodegenGlobalMetrics.js:1-49"]
+        },
+        {
+          "module": "WAWebWamCodegenUtils",
+          "variant": "primary",
+          "printedSourceSha256": "5edfa39c14a48484357ce6075c9593339b3a10c27dd706b4ecf80cfbad4925a2",
+          "dependencies": [
+            "WAUpperFirst",
+            "WAWebWamCodegenGlobalMetrics",
+            "WAWebWamCodegenWamEvent",
+            "WAWebWamInitQueue",
+            "WAWebWamRuntimeProvider",
+            "WAWebWamTypeHash",
+            "err",
+            "gkx",
+            "justknobx"
+          ],
+          "citations": ["modules/WAWebWamCodegenUtils.js:1-108"]
+        },
+        {
+          "module": "WAWebWamCodegenWamEvent",
+          "variant": "primary",
+          "printedSourceSha256": "c214715eb1b6d0f04210a5ab5c7096056cd6201a33f1a6757db268682ce6776e",
+          "dependencies": [
+            "Promise",
+            "WACamelCase",
+            "WALogger",
+            "WAWebWamCodegenUtils",
+            "WAWebWamDroppedEventWamEvent",
+            "WAWebWamInitQueue",
+            "WAWebWamRuntimeProvider",
+            "WAWebWamTypeHash"
+          ],
+          "citations": ["modules/WAWebWamCodegenWamEvent.js:1-175"]
+        },
+        {
+          "module": "WAWebWamDroppedEventWamEvent",
+          "variant": "primary",
+          "printedSourceSha256": "818b07fb2f9455d649885020ae8f69d080276449b6e5b62b4c08bf547fdf2fb1",
+          "dependencies": ["WAWebWamCodegenUtils"],
+          "citations": ["modules/WAWebWamDroppedEventWamEvent.js:1-17"]
+        },
+        {
+          "module": "WAWebWamInitQueue",
+          "variant": "primary",
+          "printedSourceSha256": "c42cd0dc270bb3537a2a178a2e53b13699678a9730275230966cd66fabfa879a",
+          "dependencies": ["WAWebWamRuntimeProvider"],
+          "citations": ["modules/WAWebWamInitQueue.js:1-23"]
+        },
+        {
+          "module": "WAWebWamRuntimeProvider",
+          "variant": "primary",
+          "printedSourceSha256": "ba99d86d2f1c3ebeb957da0ebe060bb518c45554d79420dfed65cac5b312fb43",
+          "dependencies": ["WALogger", "WAWebWamInitQueue"],
+          "citations": ["modules/WAWebWamRuntimeProvider.js:1-14"]
+        },
+        {
+          "module": "WAWebWamTypeHash",
+          "variant": "primary",
+          "printedSourceSha256": "9036ccf2e3b32a90aacd9ef7d687c08fe3f9a55433483f7ea7a6c9371b388521",
+          "dependencies": ["WALogger", "err"],
+          "citations": ["modules/WAWebWamTypeHash.js:1-58"]
+        },
+        {
+          "module": "WAWebWAWCCommon",
+          "variant": "primary",
+          "printedSourceSha256": "49a01882e727212e211f297edcc0166768dc3b9879df5eb5aef4a97fb645bf52",
+          "dependencies": [],
+          "citations": ["modules/WAWebWAWCCommon.js:1-72"]
+        },
+        {
+          "module": "WAWebWAWCStorage",
+          "variant": "primary",
+          "printedSourceSha256": "881b4ab16327307a467355e28b4d5f852e5c4b60547534390a5b3883b10727ec",
+          "dependencies": [
+            "Promise",
+            "WACustomError",
+            "WAFilteredCatch",
+            "WALogger",
+            "WAPromiseTimeout",
+            "WAWeb-dexie",
+            "WAWebDexieObservability",
+            "WAWebIndexedDBPurge",
+            "WAWebRuntimeEnvironmentUtils",
+            "WAWebUA",
+            "WAWebWAWCCommon",
+            "WAWebWebcDbOpenWamEvent",
+            "err"
+          ],
+          "citations": ["modules/WAWebWAWCStorage.js:1-81"]
+        },
+        {
+          "module": "WAWebWebcDbOpenWamEvent",
+          "variant": "primary",
+          "printedSourceSha256": "f150b67c58afe0245620b4216eede1a378aaa78b21db9cfc78d47c49a7a0bb46",
+          "dependencies": ["WAWebWamCodegenUtils"],
+          "citations": ["modules/WAWebWebcDbOpenWamEvent.js:1-18"]
+        },
+        {
+          "module": "WAWebWid",
+          "variant": "primary",
+          "printedSourceSha256": "676e98ecc10aa69562d26627ddc9f2c3aaba3974671f170336640a97250209b3",
+          "dependencies": [
+            "WAJids",
+            "WALogger",
+            "WATypeUtils",
+            "WAWebABPropsCAPISupportNumber",
+            "WAWebABPropsSupportGroup",
+            "WAWebABPropsSupportLid",
+            "WAWebWidError",
+            "WAWebWidValidator",
+            "err",
+            "gkx"
+          ],
+          "citations": ["modules/WAWebWid.js:1-260"]
+        },
+        {
+          "module": "WAWebWidError",
+          "variant": "primary",
+          "printedSourceSha256": "ac2de878244766541e44689b1f11c3f42bcd7402cb07ec1a463822cfead1ec0e",
+          "dependencies": [],
+          "citations": ["modules/WAWebWidError.js:1-10"]
+        },
+        {
+          "module": "WAWebWidFactory",
+          "variant": "primary",
+          "printedSourceSha256": "2c18c290fa6029bd9ad7438a5e80415cf1489b14b05136f66f6d60000185cce0",
+          "dependencies": [
+            "WALogger",
+            "WATypeUtils",
+            "WAWebWid",
+            "WAWebWidError",
+            "WAWebWidStore",
+            "err",
+            "nullthrows"
+          ],
+          "citations": ["modules/WAWebWidFactory.js:1-102"]
+        },
+        {
+          "module": "WAWebWidJsonReviver",
+          "variant": "primary",
+          "printedSourceSha256": "adf7e92312876cc3d42f3552dbb929463276c9be022eab42cf2a737f4f859be0",
+          "dependencies": ["WALogger", "WAWebWid", "WAWebWidFactory", "gkx"],
+          "citations": ["modules/WAWebWidJsonReviver.js:1-94"]
+        },
+        {
+          "module": "WAWebWidStore",
+          "variant": "primary",
+          "printedSourceSha256": "a702aa2eb623de3d6e170839e1411f2d0051d9f55bc29073f6dc2385971a9f83",
+          "dependencies": [],
+          "citations": ["modules/WAWebWidStore.js:1-9"]
+        },
+        {
+          "module": "WAWebWidToJid",
+          "variant": "primary",
+          "printedSourceSha256": "94eb6cce540084487332de3f5483e6f7beaf20ae04f61803ede63abc5461c900",
+          "dependencies": ["WAJids", "WALogger", "err"],
+          "citations": ["modules/WAWebWidToJid.js:1-73"]
+        },
+        {
+          "module": "WAWebWidValidator",
+          "variant": "primary",
+          "printedSourceSha256": "b9df70e1a8a97cccc1db53a95f8f674d21afe341e85267897f5ec2b363a22b14",
+          "dependencies": ["$InternalEnum", "WALogger"],
+          "citations": ["modules/WAWebWidValidator.js:1-114"]
+        }
+      ],
+      "analyzer": {
+        "version": 2,
+        "sourceSha256": "c8a73442da5fcd7510ff5fac193602d19e447ab032505c4550237c0a66f90ea2"
+      },
+      "inventoryDigest": "11d3161af30d543e37270668e2c274f8e1d7511bc0a7c71f02cc827f8b5174c1",
+      "gates": [
+        {
+          "kind": "abprops",
+          "key": "in_app_support_capi_number_prefixes",
+          "valueType": "string",
+          "reads": [
+            {
+              "module": "WAWebABPropsCAPISupportNumber",
+              "variant": "primary",
+              "line": 3,
+              "column": 10,
+              "method": "getABPropConfigValue",
+              "timing": "function-body",
+              "expression": "o(\"WAWebABProps\").getABPropConfigValue(\"in_app_support_capi_number_prefixes\")"
+            }
+          ],
+          "config": {
+            "module": "WAWebABPropsConfigs",
+            "line": 7132,
+            "type": "string",
+            "default": "155178684",
+            "alternate": "155178684"
+          }
+        },
+        {
+          "kind": "abprops",
+          "key": "in_app_support_v2_number_prefixes",
+          "valueType": "string",
+          "reads": [
+            {
+              "module": "WAWebABPropsSupportGroup",
+              "variant": "primary",
+              "line": 3,
+              "column": 10,
+              "method": "getABPropConfigValue",
+              "timing": "function-body",
+              "expression": "o(\"WAWebABProps\").getABPropConfigValue(\"in_app_support_v2_number_prefixes\")"
+            }
+          ],
+          "config": {
+            "module": "WAWebABPropsConfigs",
+            "line": 7138,
+            "type": "string",
+            "default": "15517868",
+            "alternate": "15517868"
+          }
+        },
+        {
+          "kind": "abprops",
+          "key": "payment_support_lids",
+          "valueType": "string",
+          "reads": [
+            {
+              "module": "WAWebABPropsSupportLid",
+              "variant": "primary",
+              "line": 8,
+              "column": 10,
+              "method": "getABPropConfigValue",
+              "timing": "function-body",
+              "expression": "o(\"WAWebABProps\").getABPropConfigValue(\"payment_support_lids\")"
+            }
+          ],
+          "config": {
+            "module": "WAWebABPropsConfigs",
+            "line": 8770,
+            "type": "string",
+            "default": "116664750354676,128385682505839,46635358933114,26521959944357,200206125658243,179985503506636,187797998674170,228746200088715,117914552262794,10158134550607",
+            "alternate": "116664750354676,128385682505839,46635358933114,26521959944357,200206125658243,179985503506636,187797998674170,228746200088715,117914552262794,10158134550607"
+          }
+        },
+        {
+          "kind": "abprops",
+          "key": "remove_pn_dependencies",
+          "valueType": "boolean",
+          "reads": [
+            {
+              "module": "WAWebBeyondPhoneNumberGatingUtils",
+              "variant": "primary",
+              "line": 3,
+              "column": 9,
+              "method": "getABPropConfigValue",
+              "timing": "function-body",
+              "expression": "o(\"WAWebABProps\").getABPropConfigValue(\"remove_pn_dependencies\")"
+            }
+          ],
+          "config": {
+            "module": "WAWebABPropsConfigs",
+            "line": 9916,
+            "type": "bool",
+            "default": false,
+            "alternate": true
+          }
+        },
+        {
+          "kind": "abprops",
+          "key": "support_lids",
+          "valueType": "string",
+          "reads": [
+            {
+              "module": "WAWebABPropsSupportLid",
+              "variant": "primary",
+              "line": 4,
+              "column": 10,
+              "method": "getABPropConfigValue",
+              "timing": "function-body",
+              "expression": "o(\"WAWebABProps\").getABPropConfigValue(\"support_lids\")"
+            }
+          ],
+          "config": {
+            "module": "WAWebABPropsConfigs",
+            "line": 11344,
+            "type": "string",
+            "default": "4200746488034,30563255730192,70334669676777,19349129719984,66065505775654,133814269518032,243799792062487,7323238039569,269290422947912,261718412386336,4351103873168,12391299473616,92410801582180,277730033709185,36090878648473,79882365190287,94274800595104,117794058317863,115784047153172,179250745360524,7301780005088,166653589463190,94249030815912,198964645236955,198427807899653,23656948363422,255735573270728,106670109786240,130932396826763,18855208456329",
+            "alternate": "4200746488034,30563255730192,70334669676777,19349129719984,66065505775654,133814269518032,243799792062487,7323238039569,269290422947912,261718412386336,4351103873168,12391299473616,92410801582180,277730033709185,36090878648473,79882365190287,94274800595104,117794058317863,115784047153172,179250745360524,7301780005088,166653589463190,94249030815912,198964645236955,198427807899653,23656948363422,255735573270728,106670109786240,130932396826763,18855208456329"
+          }
+        },
+        {
+          "kind": "gkx",
+          "key": "10314",
+          "valueType": "boolean",
+          "reads": [
+            {
+              "module": "WAWebEnvironment",
+              "variant": "primary",
+              "line": 2,
+              "column": 39,
+              "method": "gkx",
+              "timing": "module-initialization",
+              "expression": "r(\"gkx\")(\"10314\")"
+            }
+          ]
+        },
+        {
+          "kind": "gkx",
+          "key": "16539",
+          "valueType": "boolean",
+          "reads": [
+            {
+              "module": "WAWebABProps",
+              "variant": "primary",
+              "line": 35,
+              "column": 24,
+              "method": "gkx",
+              "timing": "function-body",
+              "expression": "r(\"gkx\")(\"16539\")"
+            }
+          ]
+        },
+        {
+          "kind": "gkx",
+          "key": "207",
+          "valueType": "boolean",
+          "reads": [
+            {
+              "module": "logForCrash",
+              "variant": "primary",
+              "line": 33,
+              "column": 42,
+              "method": "gkx",
+              "timing": "function-body",
+              "expression": "r(\"gkx\")(\"207\")"
+            }
+          ]
+        },
+        {
+          "kind": "gkx",
+          "key": "26256",
+          "valueType": "boolean",
+          "reads": [
+            {
+              "module": "WAWebABPropsJestE2EReadLog",
+              "variant": "primary",
+              "line": 4,
+              "column": 9,
+              "method": "gkx",
+              "timing": "function-body",
+              "expression": "r(\"gkx\")(\"26256\")"
+            }
+          ]
+        },
+        {
+          "kind": "gkx",
+          "key": "26258",
+          "valueType": "boolean",
+          "reads": [
+            {
+              "module": "WAWebUserPrefsMeUser",
+              "variant": "primary",
+              "line": 94,
+              "column": 14,
+              "method": "gkx",
+              "timing": "function-body",
+              "expression": "r(\"gkx\")(\"26258\")"
+            },
+            {
+              "module": "WAWebWid",
+              "variant": "primary",
+              "line": 50,
+              "column": 8,
+              "method": "gkx",
+              "timing": "function-body",
+              "expression": "r(\"gkx\")(\"26258\")"
+            },
+            {
+              "module": "WAWebWidJsonReviver",
+              "variant": "primary",
+              "line": 81,
+              "column": 14,
+              "method": "gkx",
+              "timing": "function-body",
+              "expression": "r(\"gkx\")(\"26258\")"
+            },
+            {
+              "module": "WAWebEnvironment",
+              "variant": "primary",
+              "line": 7,
+              "column": 9,
+              "method": "gkx",
+              "timing": "function-body",
+              "expression": "r(\"gkx\")(\"26258\")"
+            },
+            {
+              "module": "WAWebIndexedDBPurge",
+              "variant": "primary",
+              "line": 42,
+              "column": 8,
+              "method": "gkx",
+              "timing": "function-body",
+              "expression": "r(\"gkx\")(\"26258\")"
+            },
+            {
+              "module": "WAWebIndexedDBPurge",
+              "variant": "primary",
+              "line": 55,
+              "column": 14,
+              "method": "gkx",
+              "timing": "function-body",
+              "expression": "r(\"gkx\")(\"26258\")"
+            },
+            {
+              "module": "WAWebUA",
+              "variant": "primary",
+              "line": 51,
+              "column": 29,
+              "method": "gkx",
+              "timing": "function-body",
+              "expression": "r(\"gkx\")(\"26258\")"
+            },
+            {
+              "module": "WAWebWamCodegenUtils",
+              "variant": "primary",
+              "line": 69,
+              "column": 36,
+              "method": "gkx",
+              "timing": "function-body",
+              "expression": "r(\"gkx\")(\"26258\")"
+            }
+          ]
+        },
+        {
+          "kind": "gkx",
+          "key": "26259",
+          "valueType": "boolean",
+          "reads": [
+            {
+              "module": "WAWebEnvironment",
+              "variant": "primary",
+              "line": 7,
+              "column": 38,
+              "method": "gkx",
+              "timing": "function-body",
+              "expression": "r(\"gkx\")(\"26259\")"
+            },
+            {
+              "module": "WAWebWamCodegenUtils",
+              "variant": "primary",
+              "line": 69,
+              "column": 3,
+              "method": "gkx",
+              "timing": "function-body",
+              "expression": "r(\"gkx\")(\"26259\")"
+            }
+          ]
+        },
+        {
+          "kind": "gkx",
+          "key": "27164",
+          "valueType": "boolean",
+          "reads": [
+            {
+              "module": "WAWebDexieObservability",
+              "variant": "primary",
+              "line": 4,
+              "column": 6,
+              "method": "gkx",
+              "timing": "function-body",
+              "expression": "r(\"gkx\")(\"27164\")"
+            }
+          ]
+        },
+        {
+          "kind": "gkx",
+          "key": "3981",
+          "valueType": "boolean",
+          "reads": [
+            {
+              "module": "logForCrash",
+              "variant": "primary",
+              "line": 90,
+              "column": 70,
+              "method": "gkx",
+              "timing": "module-initialization",
+              "expression": "r(\"gkx\")(\"3981\")"
+            }
+          ]
+        },
+        {
+          "kind": "gkx",
+          "key": "4112",
+          "valueType": "boolean",
+          "reads": [
+            {
+              "module": "WAWebEnvironment",
+              "variant": "primary",
+              "line": 2,
+              "column": 9,
+              "method": "gkx",
+              "timing": "module-initialization",
+              "expression": "r(\"gkx\")(\"4112\")"
+            }
+          ]
+        },
+        {
+          "kind": "knobs",
+          "key": "1500",
+          "valueType": "unknown",
+          "reads": [
+            {
+              "module": "WAWebBeyondPhoneNumberGatingUtils",
+              "variant": "primary",
+              "line": 3,
+              "column": 77,
+              "method": "_",
+              "timing": "function-body",
+              "expression": "r(\"justknobx\")._(\"1500\")"
+            }
+          ]
+        },
+        {
+          "kind": "knobs",
+          "key": "1600",
+          "valueType": "unknown",
+          "reads": [
+            {
+              "module": "WAWebWamCodegenUtils",
+              "variant": "primary",
+              "line": 25,
+              "column": 87,
+              "method": "_",
+              "timing": "module-initialization",
+              "expression": "r(\"justknobx\")._(\"1600\")"
+            }
+          ]
+        },
+        {
+          "kind": "knobs",
+          "key": "195",
+          "valueType": "unknown",
+          "reads": [
+            {
+              "module": "logForCrash",
+              "variant": "primary",
+              "line": 33,
+              "column": 14,
+              "method": "_",
+              "timing": "function-body",
+              "expression": "r(\"justknobx\")._(\"195\")"
+            }
+          ]
+        }
+      ],
+      "unresolved": [
+        {
+          "code": "dynamic-gate-key",
+          "module": "WAWebABPropsSupportLid",
+          "line": 30,
+          "column": 10
+        },
+        {
+          "code": "dynamic-gate-key",
+          "module": "WAWebABPropsSupportLid",
+          "line": 36,
+          "column": 10
+        },
+        {
+          "code": "missing-module",
+          "module": "cr:34987"
+        },
+        {
+          "code": "missing-module",
+          "module": "cr:38444"
+        },
+        {
+          "code": "missing-module",
+          "module": "cr:5411"
+        },
+        {
+          "code": "missing-module",
+          "module": "cr:6640"
+        },
+        {
+          "code": "missing-module",
+          "module": "JSErrorLoggingConfig"
+        },
+        {
+          "code": "unrecognized-gate-provider",
+          "module": "WAWebWid",
+          "line": 156,
+          "column": 103
+        },
+        {
+          "code": "unrecognized-gate-provider",
+          "module": "WAWebWid",
+          "line": 158,
+          "column": 107
+        },
+        {
+          "code": "unrecognized-gate-provider",
+          "module": "WAWebWid",
+          "line": 225,
+          "column": 11
+        },
+        {
+          "code": "unrecognized-gate-provider",
+          "module": "WAWebWid",
+          "line": 235,
+          "column": 11
+        },
+        {
+          "code": "unrecognized-gate-provider",
+          "module": "WAWebWid",
+          "line": 156,
+          "column": 166
+        },
+        {
+          "code": "unrecognized-gate-provider",
+          "module": "WAWebWid",
+          "line": 158,
+          "column": 174
+        },
+        {
+          "code": "unrecognized-gate-provider",
+          "module": "WAWebABProps",
+          "line": 43,
+          "column": 2
+        },
+        {
+          "code": "unrecognized-gate-provider",
+          "module": "WAWebWid",
+          "line": 156,
+          "column": 25
+        },
+        {
+          "code": "unrecognized-gate-provider",
+          "module": "WAWebWid",
+          "line": 158,
+          "column": 25
+        },
+        {
+          "code": "unrecognized-gate-provider",
+          "module": "WAWebWid",
+          "line": 223,
+          "column": 25
+        },
+        {
+          "code": "unrecognized-gate-provider",
+          "module": "WAWebWid",
+          "line": 233,
+          "column": 25
+        },
+        {
+          "code": "unrecognized-gate-provider",
+          "module": "WAWebWid",
+          "line": 162,
+          "column": 30
+        },
+        {
+          "code": "unrecognized-gate-provider",
+          "module": "WAWebWid",
+          "line": 220,
+          "column": 33
+        },
+        {
+          "code": "unrecognized-gate-provider",
+          "module": "WAWebWid",
+          "line": 230,
+          "column": 33
+        },
+        {
+          "code": "unrecognized-gate-provider",
+          "module": "WAWebWid",
+          "line": 226,
+          "column": 49
+        },
+        {
+          "code": "unrecognized-gate-provider",
+          "module": "WAWebWid",
+          "line": 236,
+          "column": 49
+        },
+        {
+          "code": "unrecognized-gate-provider",
+          "module": "WAWebABProps",
+          "line": 43,
+          "column": 72
+        },
+        {
+          "code": "unrecognized-gate-provider",
+          "module": "WAWebUserPrefsMeUser",
+          "line": 54,
+          "column": 9
+        },
+        {
+          "code": "unrecognized-gate-provider",
+          "module": "WAWebUserPrefsMeUser",
+          "line": 57,
+          "column": 9
+        },
+        {
+          "code": "unrecognized-gate-provider",
+          "module": "WAWebUserPrefsMeUser",
+          "line": 60,
+          "column": 9
+        }
+      ],
+      "staticCoverage": {
+        "complete": false,
+        "scope": "module-closure-superset",
+        "semanticProof": false,
+        "resolverCoverage": false,
+        "modules": 87,
+        "sourceBytes": 559632,
+        "limitations": [
+          "Only supported gate APIs and static key expressions are inventoried.",
+          "Declared fixture-provider boundaries exclude their original resolver implementations and dependencies.",
+          "All functions in each dependency module are scanned; exact export and caller reachability is not proven.",
+          "Runtime-discovered gates and externally selected code require separate observations."
+        ]
+      }
+    },
+    {
+      "revision": "1051908825",
+      "modules": [
+        {
+          "module": "$InternalEnum",
+          "variant": "primary",
+          "printedSourceSha256": "2ceb4779145d3f716cdabff27facf6fec30f45f844896ccd78300320a44a69a9",
+          "dependencies": [],
+          "citations": ["modules/$InternalEnum.js:1-51"]
+        },
+        {
+          "module": "asyncToGeneratorRuntime",
+          "variant": "primary",
+          "printedSourceSha256": "147052b2a1cdc6d21087a611043d0974d5babedeeee624185babb023bbcf72f3",
+          "dependencies": ["Promise"],
+          "citations": ["modules/asyncToGeneratorRuntime.js:1-29"]
+        },
+        {
+          "module": "BanzaiLazyQueue",
+          "variant": "primary",
+          "printedSourceSha256": "c4b206703179790d810f00c914c5ff13123e8a5d479a1fc017e2d8fb06c62d49",
+          "dependencies": ["SimpleHook"],
+          "citations": ["modules/BanzaiLazyQueue.js:1-17"]
+        },
+        {
+          "module": "BrowserCrashStaticConfig",
+          "variant": "primary",
+          "printedSourceSha256": "cbd5b9184e31371580fb9d90b5ed6a2ebc70294f57c098a73ddc30397a7a36dd",
+          "dependencies": [],
+          "citations": ["modules/BrowserCrashStaticConfig.js:1-17"]
+        },
+        {
+          "module": "dexie-3.2.2",
+          "variant": "primary",
+          "printedSourceSha256": "cbfa866f3403db8683d4aeb051090b249806947527c6ec850330453877ad3fe9",
+          "dependencies": ["Promise"],
+          "citations": ["modules/dexie-3.2.2.js:1-3674"]
+        },
+        {
+          "module": "emptyFunction",
+          "variant": "primary",
+          "printedSourceSha256": "efc2fa885be346ba40045503e3a0588374c842f36261ce8138988d63608ecb48",
+          "dependencies": [],
+          "citations": ["modules/emptyFunction.js:1-16"]
+        },
+        {
+          "module": "Env",
+          "variant": "primary",
+          "printedSourceSha256": "ad5c3d19c3db7a10d569dceb202b62801ac1014c42a99cf21d3249a124319082",
+          "dependencies": [],
+          "citations": ["modules/Env.js:1-22"]
+        },
+        {
+          "module": "err",
+          "variant": "primary",
+          "printedSourceSha256": "a26a1f88fe2c09505c0ec8e43d1a43c2299b6126ea7ea305c567bf7634fbeea0",
+          "dependencies": ["fb-error"],
+          "citations": ["modules/err.js:1-4"]
+        },
+        {
+          "module": "ExecutionEnvironment",
+          "variant": "primary",
+          "printedSourceSha256": "4f49de6e0ddb5be88f962a8196f5a2370427b931db218b019e4a2bd020b1891e",
+          "dependencies": [],
+          "citations": ["modules/ExecutionEnvironment.js:1-14"]
+        },
+        {
+          "module": "fb-error",
+          "variant": "primary",
+          "printedSourceSha256": "545144d2d2c50524d5bcfc421916cf76760743cb5b034dcb7a4d7066981f714e",
+          "dependencies": ["performanceNow", "removeFromArray"],
+          "citations": ["modules/fb-error.js:1-698"]
+        },
+        {
+          "module": "fb-error-lite",
+          "variant": "primary",
+          "printedSourceSha256": "70182c28f267319e6122d9da5fa9d01bc3c60775130d33429a71874503924b64",
+          "dependencies": [],
+          "citations": ["modules/fb-error-lite.js:1-25"]
+        },
+        {
+          "module": "FBLogger",
+          "variant": "primary",
+          "printedSourceSha256": "5b78358a73a6900d013f27628afaffe9b58fdb92dc37233690ec50441114c7c2",
+          "dependencies": ["fb-error"],
+          "citations": ["modules/FBLogger.js:1-4"]
+        },
+        {
+          "module": "getErrorSafe",
+          "variant": "primary",
+          "printedSourceSha256": "e2e7bf104b2e70a7cf8b17c8861754af744d215a24d547fc29058f64f0db882b",
+          "dependencies": ["fb-error"],
+          "citations": ["modules/getErrorSafe.js:1-4"]
+        },
+        {
+          "module": "gkx",
+          "variant": "primary",
+          "printedSourceSha256": "e84fc9d0a08a52702897502d1eb33202bd0d97b9633277aa18df81d9cb902cf6",
+          "dependencies": ["BanzaiLazyQueue", "ExecutionEnvironment", "emptyFunction", "invariant"],
+          "citations": ["modules/gkx.js:1-35"]
+        },
+        {
+          "module": "invariant",
+          "variant": "primary",
+          "printedSourceSha256": "6b377021188adf8be5add1781bb1a5b3a7da5d0021df951267b1ae8d331f705f",
+          "dependencies": ["Env", "fb-error-lite", "sprintf"],
+          "citations": ["modules/invariant.js:1-42"]
+        },
+        {
+          "module": "justknobx",
+          "variant": "primary",
+          "printedSourceSha256": "f42afc172240cd5ff466368ab522c6b917cdf148a6527126ecf1052ed718ec9e",
+          "dependencies": ["invariant"],
+          "citations": ["modules/justknobx.js:1-19"]
+        },
+        {
+          "module": "logForCrash",
+          "variant": "primary",
+          "printedSourceSha256": "d2e1cbb02bfe6f6886e61b05ab7321cc6d905d23f7b3aaafaada4539dacb0c4e",
+          "dependencies": [
+            "BrowserCrashStaticConfig",
+            "FBLogger",
+            "JSErrorLoggingConfig",
+            "Promise",
+            "getErrorSafe",
+            "gkx",
+            "justknobx",
+            "logForCrashUtils"
+          ],
+          "citations": ["modules/logForCrash.js:1-143"]
+        },
+        {
+          "module": "logForCrashUtils",
+          "variant": "primary",
+          "printedSourceSha256": "0af9d64639d07fd6b6396781255f38f3bcfdc3d8f4d3f0705f102701f9424ea4",
+          "dependencies": [],
+          "citations": ["modules/logForCrashUtils.js:1-5"]
+        },
+        {
+          "module": "nullthrows",
+          "variant": "primary",
+          "printedSourceSha256": "8f9ee47b9edbd38314e5f785b651c3fef622f457813889a4495c3b79ea3c241c",
+          "dependencies": [],
+          "citations": ["modules/nullthrows.js:1-8"]
+        },
+        {
+          "module": "performance",
+          "variant": "primary",
+          "printedSourceSha256": "9bee7ad7d1941af3432757b1ce55c980030f812f0a5fb00916e906b8a0b6ced9",
+          "dependencies": [],
+          "citations": ["modules/performance.js:1-5"]
+        },
+        {
+          "module": "performanceNow",
+          "variant": "primary",
+          "printedSourceSha256": "415e5327e020372f7789e27dc42266a9cb3d6bbc2d8c47d0b751b93517a0475f",
+          "dependencies": ["performance"],
+          "citations": ["modules/performanceNow.js:1-15"]
+        },
+        {
+          "module": "Promise",
+          "variant": "primary",
+          "printedSourceSha256": "c94f5132251416675e842ee8bbe98476648325ff897dab0a230b39875e1f3c2a",
+          "dependencies": ["cr:6640"],
+          "citations": ["modules/Promise.js:1-42"]
+        },
+        {
+          "module": "removeFromArray",
+          "variant": "primary",
+          "printedSourceSha256": "c8e194de9e9463716c2f383406ae8269ddff1a9fe5fbc1a7559abcd2aaa666bb",
+          "dependencies": [],
+          "citations": ["modules/removeFromArray.js:1-8"]
+        },
+        {
+          "module": "SimpleHook",
+          "variant": "primary",
+          "printedSourceSha256": "fd56db80143da1644f5f104549955a5a4fc38e3bafb9ae56cc3f2e4e33885eca",
+          "dependencies": [],
+          "citations": ["modules/SimpleHook.js:1-43"]
+        },
+        {
+          "module": "sprintf",
+          "variant": "primary",
+          "printedSourceSha256": "7860c49011bd89ed50d0db8ed061d00ec9a2ba42b75f298a10c3d6ef98888361",
+          "dependencies": [],
+          "citations": ["modules/sprintf.js:1-11"]
+        },
+        {
+          "module": "ua-parser-js",
+          "variant": "primary",
+          "printedSourceSha256": "4e3a05dfc64a400d54b8e89e11b5dcae2071e4119c9170cc91bb31bb054058cb",
+          "dependencies": ["ua-parser-js-0.7.39"],
+          "citations": ["modules/ua-parser-js.js:1-3"]
+        },
+        {
+          "module": "ua-parser-js-0.7.39",
+          "variant": "primary",
+          "printedSourceSha256": "bc484be8b30d6a05d683d953ce91cc74eddff962dae051b2f42d3e376bca1bcf",
+          "dependencies": [],
+          "citations": ["modules/ua-parser-js-0.7.39.js:1-1054"]
+        },
+        {
+          "module": "WAAssertUnreachable",
+          "variant": "primary",
+          "printedSourceSha256": "0a3f98d4cb30e6e90818323c41ed1ad2012bd64cc82c3fc09accea5299c2d400",
+          "dependencies": ["err"],
+          "citations": ["modules/WAAssertUnreachable.js:1-7"]
+        },
+        {
+          "module": "WABaseGlobals",
+          "variant": "primary",
+          "printedSourceSha256": "fe8655a2da424c6ceb6ef212c81414d068dd03703c37c8006f4b28e91d40e5d5",
+          "dependencies": ["err"],
+          "citations": ["modules/WABaseGlobals.js:1-26"]
+        },
+        {
+          "module": "WACamelCase",
+          "variant": "primary",
+          "printedSourceSha256": "8d9b21dfa6b6bf9f98d325aa95bf9caa461ecddf70a7b8a55b1201e83b603dad",
+          "dependencies": [],
+          "citations": ["modules/WACamelCase.js:1-12"]
+        },
+        {
+          "module": "WACustomError",
+          "variant": "primary",
+          "printedSourceSha256": "5d1bdf0db1fc7934930362079c89db68a32e685cc1fa69bf80b922c5bfd883fa",
+          "dependencies": ["fb-error"],
+          "citations": ["modules/WACustomError.js:1-37"]
+        },
+        {
+          "module": "WAFilteredCatch",
+          "variant": "primary",
+          "printedSourceSha256": "ab4eebb2a194d44b0f2703a549a6743c95886c19368a366566655116823d8dcc",
+          "dependencies": [],
+          "citations": ["modules/WAFilteredCatch.js:1-13"]
+        },
+        {
+          "module": "WAHex",
+          "variant": "primary",
+          "printedSourceSha256": "3d28ad9eb342f6715bec66c8c38fd57a14497e07101f5f9b67fc3c9838e72ffe",
+          "dependencies": ["err"],
+          "citations": ["modules/WAHex.js:1-119"]
+        },
+        {
+          "module": "WAJids",
+          "variant": "primary",
+          "printedSourceSha256": "42733fc49d99d76539f7b4873fa7cbe6f9994de25560f5b6eb24ae3e5532253c",
+          "dependencies": ["WAAssertUnreachable", "err"],
+          "citations": ["modules/WAJids.js:1-475"]
+        },
+        {
+          "module": "WALogger",
+          "variant": "primary",
+          "printedSourceSha256": "0406e777eb10eef04870576148db402f9aa20fe709545e0701a314d5b8583837",
+          "dependencies": ["$InternalEnum", "WATagsLogger"],
+          "citations": ["modules/WALogger.js:1-27"]
+        },
+        {
+          "module": "WALoggerUtils",
+          "variant": "primary",
+          "printedSourceSha256": "e1baf5e4850088801148e9a6a46e6720e52efba4aca6f4a139f585fd162f364b",
+          "dependencies": ["WAHex"],
+          "citations": ["modules/WALoggerUtils.js:1-35"]
+        },
+        {
+          "module": "WAPromiseTimeout",
+          "variant": "primary",
+          "printedSourceSha256": "fe64900b550e1381ac763a81c827628f21c42ac7884e102ed3f92744d366bf3a",
+          "dependencies": ["Promise", "WACustomError"],
+          "citations": ["modules/WAPromiseTimeout.js:1-14"]
+        },
+        {
+          "module": "WAResultOrError",
+          "variant": "primary",
+          "printedSourceSha256": "84935d8a6543b61ff6912df5d41caa82e8a6c7c2ab2ba20e188549e9dc193fd4",
+          "dependencies": [],
+          "citations": ["modules/WAResultOrError.js:1-26"]
+        },
+        {
+          "module": "WAStorageEstimator",
+          "variant": "primary",
+          "printedSourceSha256": "4b7c1cc8a0e0536ae69ca3ae6b86d1faf3049055e233f9f8bb5fdf70589cf713",
+          "dependencies": ["Promise", "WAResultOrError"],
+          "citations": ["modules/WAStorageEstimator.js:1-15"]
+        },
+        {
+          "module": "WATagsLogger",
+          "variant": "primary",
+          "printedSourceSha256": "c6cb8a0516b1ec1b5a373d50cd3d75f952707f12547d2f46820d9d352bb26ad7",
+          "dependencies": ["FBLogger", "Promise", "WALoggerUtils", "asyncToGeneratorRuntime"],
+          "citations": ["modules/WATagsLogger.js:1-189"]
+        },
+        {
+          "module": "WATypeUtils",
+          "variant": "primary",
+          "printedSourceSha256": "692d60676bfcba61805b5c319fc172976c527ccb5cda2d3822a67b24da5f8e25",
+          "dependencies": [],
+          "citations": ["modules/WATypeUtils.js:1-16"]
+        },
+        {
+          "module": "WAUpperFirst",
+          "variant": "primary",
+          "printedSourceSha256": "d29705feaff8679438284528eaca852ceb4948244237daa0350abec70b704c01",
+          "dependencies": [],
+          "citations": ["modules/WAUpperFirst.js:1-7"]
+        },
+        {
+          "module": "WAWeb-dexie",
+          "variant": "primary",
+          "printedSourceSha256": "a7f96a32233c75e671e12b71900e648b547e790041e76373720a940a0185d489",
+          "dependencies": ["dexie-3.2.2"],
+          "citations": ["modules/WAWeb-dexie.js:1-3"]
+        },
+        {
+          "module": "WAWebABProps",
+          "variant": "primary",
+          "printedSourceSha256": "f352cc4dd83ca26e5ba1de2ff903abd1be97962e423383f1093cc7451214a738",
+          "dependencies": ["WALogger", "WAWebABPropsConfigs", "WAWebABPropsJestE2EReadLog", "gkx"],
+          "citations": ["modules/WAWebABProps.js:1-46"]
+        },
+        {
+          "module": "WAWebABPropsCAPISupportNumber",
+          "variant": "primary",
+          "printedSourceSha256": "446bf321e831a15b85963d6528d2d4f96131eac0285efd0c1a7e78f2410a1030",
+          "dependencies": ["WAWebABProps"],
+          "citations": ["modules/WAWebABPropsCAPISupportNumber.js:1-9"]
+        },
+        {
+          "module": "WAWebABPropsConfigs",
+          "variant": "primary",
+          "printedSourceSha256": "e694b3c9b4a4e43b44c3aef264afa386d8165d3c9bbf0a7095cc7551d9410d46",
+          "dependencies": [],
+          "citations": ["modules/WAWebABPropsConfigs.js:1-17292"]
+        },
+        {
+          "module": "WAWebABPropsJestE2EReadLog",
+          "variant": "primary",
+          "printedSourceSha256": "9c85a30b7252aa7b714007e680ff6d1ce9f75051c1993f1982fada4b74b88737",
+          "dependencies": ["gkx"],
+          "citations": ["modules/WAWebABPropsJestE2EReadLog.js:1-26"]
+        },
+        {
+          "module": "WAWebABPropsSupportGroup",
+          "variant": "primary",
+          "printedSourceSha256": "1b42c7e696642050f8c78d26e484b8ad285fe6d67e151f05d79a44cd7e42dfc7",
+          "dependencies": ["WAWebABProps"],
+          "citations": ["modules/WAWebABPropsSupportGroup.js:1-9"]
+        },
+        {
+          "module": "WAWebABPropsSupportLid",
+          "variant": "primary",
+          "printedSourceSha256": "6e1db73a851f43a18e5fd25ab4c02341350fb85eee52d41c168eb0caef454c83",
+          "dependencies": ["WALogger", "WAWebABProps"],
+          "citations": ["modules/WAWebABPropsSupportLid.js:1-58"]
+        },
+        {
+          "module": "WAWebAppTracker",
+          "variant": "primary",
+          "printedSourceSha256": "e34a1e43fd82a9c935ee8f4de36b0e94fe7088476596a85e8c764fca0306f4ba",
+          "dependencies": ["$InternalEnum", "WALogger", "WAWebLogForCrash", "getErrorSafe"],
+          "citations": ["modules/WAWebAppTracker.js:1-145"]
+        },
+        {
+          "module": "WAWebBeyondPhoneNumberGatingUtils",
+          "variant": "primary",
+          "printedSourceSha256": "f6d6d3a66fa22610b879c0cab4bacfa3c01c2e350fc41ff975c8b4999ca533e1",
+          "dependencies": ["WAWebABProps", "justknobx"],
+          "citations": ["modules/WAWebBeyondPhoneNumberGatingUtils.js:1-6"]
+        },
+        {
+          "module": "WAWebCanonicalWamFalcoBufferConstants",
+          "variant": "primary",
+          "printedSourceSha256": "33a0096305264797dce1ee99a514bab56e77a2fc19bfd33a1724be646f50ce3e",
+          "dependencies": [],
+          "citations": ["modules/WAWebCanonicalWamFalcoBufferConstants.js:1-4"]
+        },
+        {
+          "module": "WAWebClearFalcoBufferApi",
+          "variant": "primary",
+          "printedSourceSha256": "cd749647721cfb94c168c6bb5618b4a92a95c1061e78cdd83a97bcc767570767",
+          "dependencies": [
+            "WALogger",
+            "WAWebCanonicalWamFalcoBufferConstants",
+            "WAWebLocalStorage",
+            "WAWebStorageErrorHandlingUtils",
+            "asyncToGeneratorRuntime",
+            "getErrorSafe"
+          ],
+          "citations": ["modules/WAWebClearFalcoBufferApi.js:1-89"]
+        },
+        {
+          "module": "WAWebDexieObservability",
+          "variant": "primary",
+          "printedSourceSha256": "45ce609d24001be93c164df5d04e9b6088850c3916fcdc1986f069e28589b6c5",
+          "dependencies": ["gkx"],
+          "citations": ["modules/WAWebDexieObservability.js:1-15"]
+        },
+        {
+          "module": "WAWebEnvironment",
+          "variant": "primary",
+          "printedSourceSha256": "61f690b57e6049ea5c8e0fffa7270bcf48de8cdc1a2d6032521f37575d004913",
+          "dependencies": ["WAWebPwaDocumentMetadataUtils", "gkx"],
+          "citations": ["modules/WAWebEnvironment.js:1-21"]
+        },
+        {
+          "module": "WAWebGlobals",
+          "variant": "primary",
+          "printedSourceSha256": "502d03028deebbb5e8b472687d5f5c042fce2d0c155e1f479173dabf0a450030",
+          "dependencies": ["WABaseGlobals", "WAJids", "err"],
+          "citations": ["modules/WAWebGlobals.js:1-44"]
+        },
+        {
+          "module": "WAWebIndexedDB",
+          "variant": "primary",
+          "printedSourceSha256": "8da294470ba0b7314e77d20da342337666dc0fd409cde0c13f9e2f71d503e1eb",
+          "dependencies": [],
+          "citations": ["modules/WAWebIndexedDB.js:1-8"]
+        },
+        {
+          "module": "WAWebIndexedDBPurge",
+          "variant": "primary",
+          "printedSourceSha256": "26c2a78f30e74faf0c86e5f60b02924c276ee97ba7fa004a630ffa9db1b1c31c",
+          "dependencies": [
+            "Promise",
+            "WALogger",
+            "WAPromiseTimeout",
+            "WAWeb-dexie",
+            "WAWebIndexedDB",
+            "WAWebUA",
+            "asyncToGeneratorRuntime",
+            "gkx"
+          ],
+          "citations": ["modules/WAWebIndexedDBPurge.js:1-73"]
+        },
+        {
+          "module": "WAWebLocalStorage",
+          "variant": "primary",
+          "printedSourceSha256": "f1ee93080324cd99b471b34fcf77937a258fae99f7d9442eaf0fd447c3aa9bd5",
+          "dependencies": [],
+          "citations": ["modules/WAWebLocalStorage.js:1-8"]
+        },
+        {
+          "module": "WAWebLogForCrash",
+          "variant": "primary",
+          "printedSourceSha256": "8cc9cffb90057503480fbb106535f27c1a1b85e1ae34ab8a81ad400dc0a304ba",
+          "dependencies": ["cr:38444", "logForCrash"],
+          "citations": ["modules/WAWebLogForCrash.js:1-18"]
+        },
+        {
+          "module": "WAWebMemoizeWithClearUtils",
+          "variant": "primary",
+          "printedSourceSha256": "b994f0c38ecc64684e36cbcbc2edc298be67677495c2038c51cd701271471dc0",
+          "dependencies": [],
+          "citations": ["modules/WAWebMemoizeWithClearUtils.js:1-11"]
+        },
+        {
+          "module": "WAWebNoop",
+          "variant": "primary",
+          "printedSourceSha256": "ab968979179836e6bfe0f43839c0231d0268e67ee9cf857b2ca268c244266f65",
+          "dependencies": [],
+          "citations": ["modules/WAWebNoop.js:1-5"]
+        },
+        {
+          "module": "WAWebPermanentStorage",
+          "variant": "primary",
+          "printedSourceSha256": "8a8908818405b0fad74de819298872dd27f1d1c4ea8b877629cad18bfa1aa4a1",
+          "dependencies": [
+            "WALogger",
+            "WAWebLocalStorage",
+            "WAWebStorageErrorHandlingUtils",
+            "WAWebWAWCStorage",
+            "asyncToGeneratorRuntime"
+          ],
+          "citations": ["modules/WAWebPermanentStorage.js:1-70"]
+        },
+        {
+          "module": "WAWebPwaDocumentMetadataUtils",
+          "variant": "primary",
+          "printedSourceSha256": "3ac5670906176cc027e977a20926242f266de521f0626559f36d775aade9280a",
+          "dependencies": ["WAWebNoop", "WAWebRuntimeEnvironmentUtils"],
+          "citations": ["modules/WAWebPwaDocumentMetadataUtils.js:1-30"]
+        },
+        {
+          "module": "WAWebRuntimeEnvironmentUtils",
+          "variant": "primary",
+          "printedSourceSha256": "862d22464ad1d37e28d8ece29572a296e7b6853ca6ecdd6de6e6e2bdc6283b5a",
+          "dependencies": [],
+          "citations": ["modules/WAWebRuntimeEnvironmentUtils.js:1-9"]
+        },
+        {
+          "module": "WAWebStorageErrorHandlingUtils",
+          "variant": "primary",
+          "printedSourceSha256": "086562f0b48c6ee214e89ad4fca053c9440e20be28b3808896f448a606d2cad3",
+          "dependencies": [
+            "WALogger",
+            "WAStorageEstimator",
+            "WAWebAppTracker",
+            "WAWebClearFalcoBufferApi",
+            "WAWebEnvironment",
+            "WAWebLocalStorage",
+            "asyncToGeneratorRuntime"
+          ],
+          "citations": ["modules/WAWebStorageErrorHandlingUtils.js:1-108"]
+        },
+        {
+          "module": "WAWebTabMutexKey",
+          "variant": "primary",
+          "printedSourceSha256": "b7a9f7cb9916a78c85db9a6022972310d8c9121a73f9eb922f5beb55a6d4987e",
+          "dependencies": [],
+          "citations": ["modules/WAWebTabMutexKey.js:1-4"]
+        },
+        {
+          "module": "WAWebUA",
+          "variant": "primary",
+          "printedSourceSha256": "b1a76e0e4141239a0dc2f5e62cf67de685e776f781fdbd86972f145b47dc4e22",
+          "dependencies": ["gkx", "ua-parser-js"],
+          "citations": ["modules/WAWebUA.js:1-67"]
+        },
+        {
+          "module": "WAWebUserPrefsBase",
+          "variant": "primary",
+          "printedSourceSha256": "1333c9ec22c0ee33e187e87d2a048d59f079561733ebc67c0a4966839a017a47",
+          "dependencies": [
+            "WALogger",
+            "WAWebPermanentStorage",
+            "WAWebUserPrefsKeys",
+            "WAWebWidJsonReviver",
+            "cr:34987",
+            "err"
+          ],
+          "citations": ["modules/WAWebUserPrefsBase.js:1-52"]
+        },
+        {
+          "module": "WAWebUserPrefsKeys",
+          "variant": "primary",
+          "printedSourceSha256": "71444db4b592a60de2625ca836c6704be716860bf1bcac6998d8f8575364dafe",
+          "dependencies": ["$InternalEnum", "WAWebTabMutexKey", "WAWebUserPrefsLoginKeys"],
+          "citations": ["modules/WAWebUserPrefsKeys.js:1-357"]
+        },
+        {
+          "module": "WAWebUserPrefsLoginKeys",
+          "variant": "primary",
+          "printedSourceSha256": "3369f514144a70170299469a74a059230905ca0a53b18ce6f5bec68dab8b4753",
+          "dependencies": [],
+          "citations": ["modules/WAWebUserPrefsLoginKeys.js:1-5"]
+        },
+        {
+          "module": "WAWebUserPrefsMeUser",
+          "variant": "primary",
+          "printedSourceSha256": "539c73b8b314ff107ba07663851f57881a386f0c19343e09b3c9d79d4085e1b6",
+          "dependencies": [
+            "WABaseGlobals",
+            "WALogger",
+            "WAWebBeyondPhoneNumberGatingUtils",
+            "WAWebGlobals",
+            "WAWebMemoizeWithClearUtils",
+            "WAWebRuntimeEnvironmentUtils",
+            "WAWebUserPrefsBase",
+            "WAWebUserPrefsKeys",
+            "WAWebWid",
+            "WAWebWidFactory",
+            "WAWebWidToJid",
+            "err",
+            "gkx",
+            "nullthrows"
+          ],
+          "citations": ["modules/WAWebUserPrefsMeUser.js:1-144"]
+        },
+        {
+          "module": "WAWebWamCodegenGlobalMetrics",
+          "variant": "primary",
+          "printedSourceSha256": "9b9fd39ec8ffead6f89c9e8f813c7a807d4aef70e2f4406b905ae250316fb196",
+          "dependencies": ["WAWebWamCodegenUtils", "nullthrows"],
+          "citations": ["modules/WAWebWamCodegenGlobalMetrics.js:1-49"]
+        },
+        {
+          "module": "WAWebWamCodegenUtils",
+          "variant": "primary",
+          "printedSourceSha256": "5edfa39c14a48484357ce6075c9593339b3a10c27dd706b4ecf80cfbad4925a2",
+          "dependencies": [
+            "WAUpperFirst",
+            "WAWebWamCodegenGlobalMetrics",
+            "WAWebWamCodegenWamEvent",
+            "WAWebWamInitQueue",
+            "WAWebWamRuntimeProvider",
+            "WAWebWamTypeHash",
+            "err",
+            "gkx",
+            "justknobx"
+          ],
+          "citations": ["modules/WAWebWamCodegenUtils.js:1-108"]
+        },
+        {
+          "module": "WAWebWamCodegenWamEvent",
+          "variant": "primary",
+          "printedSourceSha256": "c214715eb1b6d0f04210a5ab5c7096056cd6201a33f1a6757db268682ce6776e",
+          "dependencies": [
+            "Promise",
+            "WACamelCase",
+            "WALogger",
+            "WAWebWamCodegenUtils",
+            "WAWebWamDroppedEventWamEvent",
+            "WAWebWamInitQueue",
+            "WAWebWamRuntimeProvider",
+            "WAWebWamTypeHash"
+          ],
+          "citations": ["modules/WAWebWamCodegenWamEvent.js:1-175"]
+        },
+        {
+          "module": "WAWebWamDroppedEventWamEvent",
+          "variant": "primary",
+          "printedSourceSha256": "818b07fb2f9455d649885020ae8f69d080276449b6e5b62b4c08bf547fdf2fb1",
+          "dependencies": ["WAWebWamCodegenUtils"],
+          "citations": ["modules/WAWebWamDroppedEventWamEvent.js:1-17"]
+        },
+        {
+          "module": "WAWebWamInitQueue",
+          "variant": "primary",
+          "printedSourceSha256": "c42cd0dc270bb3537a2a178a2e53b13699678a9730275230966cd66fabfa879a",
+          "dependencies": ["WAWebWamRuntimeProvider"],
+          "citations": ["modules/WAWebWamInitQueue.js:1-23"]
+        },
+        {
+          "module": "WAWebWamRuntimeProvider",
+          "variant": "primary",
+          "printedSourceSha256": "ba99d86d2f1c3ebeb957da0ebe060bb518c45554d79420dfed65cac5b312fb43",
+          "dependencies": ["WALogger", "WAWebWamInitQueue"],
+          "citations": ["modules/WAWebWamRuntimeProvider.js:1-14"]
+        },
+        {
+          "module": "WAWebWamTypeHash",
+          "variant": "primary",
+          "printedSourceSha256": "9036ccf2e3b32a90aacd9ef7d687c08fe3f9a55433483f7ea7a6c9371b388521",
+          "dependencies": ["WALogger", "err"],
+          "citations": ["modules/WAWebWamTypeHash.js:1-58"]
+        },
+        {
+          "module": "WAWebWAWCCommon",
+          "variant": "primary",
+          "printedSourceSha256": "49a01882e727212e211f297edcc0166768dc3b9879df5eb5aef4a97fb645bf52",
+          "dependencies": [],
+          "citations": ["modules/WAWebWAWCCommon.js:1-72"]
+        },
+        {
+          "module": "WAWebWAWCStorage",
+          "variant": "primary",
+          "printedSourceSha256": "881b4ab16327307a467355e28b4d5f852e5c4b60547534390a5b3883b10727ec",
+          "dependencies": [
+            "Promise",
+            "WACustomError",
+            "WAFilteredCatch",
+            "WALogger",
+            "WAPromiseTimeout",
+            "WAWeb-dexie",
+            "WAWebDexieObservability",
+            "WAWebIndexedDBPurge",
+            "WAWebRuntimeEnvironmentUtils",
+            "WAWebUA",
+            "WAWebWAWCCommon",
+            "WAWebWebcDbOpenWamEvent",
+            "err"
+          ],
+          "citations": ["modules/WAWebWAWCStorage.js:1-81"]
+        },
+        {
+          "module": "WAWebWebcDbOpenWamEvent",
+          "variant": "primary",
+          "printedSourceSha256": "f150b67c58afe0245620b4216eede1a378aaa78b21db9cfc78d47c49a7a0bb46",
+          "dependencies": ["WAWebWamCodegenUtils"],
+          "citations": ["modules/WAWebWebcDbOpenWamEvent.js:1-18"]
+        },
+        {
+          "module": "WAWebWid",
+          "variant": "primary",
+          "printedSourceSha256": "676e98ecc10aa69562d26627ddc9f2c3aaba3974671f170336640a97250209b3",
+          "dependencies": [
+            "WAJids",
+            "WALogger",
+            "WATypeUtils",
+            "WAWebABPropsCAPISupportNumber",
+            "WAWebABPropsSupportGroup",
+            "WAWebABPropsSupportLid",
+            "WAWebWidError",
+            "WAWebWidValidator",
+            "err",
+            "gkx"
+          ],
+          "citations": ["modules/WAWebWid.js:1-260"]
+        },
+        {
+          "module": "WAWebWidError",
+          "variant": "primary",
+          "printedSourceSha256": "ac2de878244766541e44689b1f11c3f42bcd7402cb07ec1a463822cfead1ec0e",
+          "dependencies": [],
+          "citations": ["modules/WAWebWidError.js:1-10"]
+        },
+        {
+          "module": "WAWebWidFactory",
+          "variant": "primary",
+          "printedSourceSha256": "2c18c290fa6029bd9ad7438a5e80415cf1489b14b05136f66f6d60000185cce0",
+          "dependencies": [
+            "WALogger",
+            "WATypeUtils",
+            "WAWebWid",
+            "WAWebWidError",
+            "WAWebWidStore",
+            "err",
+            "nullthrows"
+          ],
+          "citations": ["modules/WAWebWidFactory.js:1-102"]
+        },
+        {
+          "module": "WAWebWidJsonReviver",
+          "variant": "primary",
+          "printedSourceSha256": "adf7e92312876cc3d42f3552dbb929463276c9be022eab42cf2a737f4f859be0",
+          "dependencies": ["WALogger", "WAWebWid", "WAWebWidFactory", "gkx"],
+          "citations": ["modules/WAWebWidJsonReviver.js:1-94"]
+        },
+        {
+          "module": "WAWebWidStore",
+          "variant": "primary",
+          "printedSourceSha256": "a702aa2eb623de3d6e170839e1411f2d0051d9f55bc29073f6dc2385971a9f83",
+          "dependencies": [],
+          "citations": ["modules/WAWebWidStore.js:1-9"]
+        },
+        {
+          "module": "WAWebWidToJid",
+          "variant": "primary",
+          "printedSourceSha256": "94eb6cce540084487332de3f5483e6f7beaf20ae04f61803ede63abc5461c900",
+          "dependencies": ["WAJids", "WALogger", "err"],
+          "citations": ["modules/WAWebWidToJid.js:1-73"]
+        },
+        {
+          "module": "WAWebWidValidator",
+          "variant": "primary",
+          "printedSourceSha256": "b9df70e1a8a97cccc1db53a95f8f674d21afe341e85267897f5ec2b363a22b14",
+          "dependencies": ["$InternalEnum", "WALogger"],
+          "citations": ["modules/WAWebWidValidator.js:1-114"]
+        }
+      ],
+      "analyzer": {
+        "version": 2,
+        "sourceSha256": "c8a73442da5fcd7510ff5fac193602d19e447ab032505c4550237c0a66f90ea2"
+      },
+      "inventoryDigest": "160a065b72e5ab253873476139b458f43f224fc30d825ec0cc6011803611afa6",
+      "gates": [
+        {
+          "kind": "abprops",
+          "key": "in_app_support_capi_number_prefixes",
+          "valueType": "string",
+          "reads": [
+            {
+              "module": "WAWebABPropsCAPISupportNumber",
+              "variant": "primary",
+              "line": 3,
+              "column": 10,
+              "method": "getABPropConfigValue",
+              "timing": "function-body",
+              "expression": "o(\"WAWebABProps\").getABPropConfigValue(\"in_app_support_capi_number_prefixes\")"
+            }
+          ],
+          "config": {
+            "module": "WAWebABPropsConfigs",
+            "line": 7162,
+            "type": "string",
+            "default": "155178684",
+            "alternate": "155178684"
+          }
+        },
+        {
+          "kind": "abprops",
+          "key": "in_app_support_v2_number_prefixes",
+          "valueType": "string",
+          "reads": [
+            {
+              "module": "WAWebABPropsSupportGroup",
+              "variant": "primary",
+              "line": 3,
+              "column": 10,
+              "method": "getABPropConfigValue",
+              "timing": "function-body",
+              "expression": "o(\"WAWebABProps\").getABPropConfigValue(\"in_app_support_v2_number_prefixes\")"
+            }
+          ],
+          "config": {
+            "module": "WAWebABPropsConfigs",
+            "line": 7168,
+            "type": "string",
+            "default": "15517868",
+            "alternate": "15517868"
+          }
+        },
+        {
+          "kind": "abprops",
+          "key": "payment_support_lids",
+          "valueType": "string",
+          "reads": [
+            {
+              "module": "WAWebABPropsSupportLid",
+              "variant": "primary",
+              "line": 8,
+              "column": 10,
+              "method": "getABPropConfigValue",
+              "timing": "function-body",
+              "expression": "o(\"WAWebABProps\").getABPropConfigValue(\"payment_support_lids\")"
+            }
+          ],
+          "config": {
+            "module": "WAWebABPropsConfigs",
+            "line": 8806,
+            "type": "string",
+            "default": "116664750354676,128385682505839,46635358933114,26521959944357,200206125658243,179985503506636,187797998674170,228746200088715,117914552262794,10158134550607",
+            "alternate": "116664750354676,128385682505839,46635358933114,26521959944357,200206125658243,179985503506636,187797998674170,228746200088715,117914552262794,10158134550607"
+          }
+        },
+        {
+          "kind": "abprops",
+          "key": "remove_pn_dependencies",
+          "valueType": "boolean",
+          "reads": [
+            {
+              "module": "WAWebBeyondPhoneNumberGatingUtils",
+              "variant": "primary",
+              "line": 3,
+              "column": 9,
+              "method": "getABPropConfigValue",
+              "timing": "function-body",
+              "expression": "o(\"WAWebABProps\").getABPropConfigValue(\"remove_pn_dependencies\")"
+            }
+          ],
+          "config": {
+            "module": "WAWebABPropsConfigs",
+            "line": 9952,
+            "type": "bool",
+            "default": false,
+            "alternate": true
+          }
+        },
+        {
+          "kind": "abprops",
+          "key": "support_lids",
+          "valueType": "string",
+          "reads": [
+            {
+              "module": "WAWebABPropsSupportLid",
+              "variant": "primary",
+              "line": 4,
+              "column": 10,
+              "method": "getABPropConfigValue",
+              "timing": "function-body",
+              "expression": "o(\"WAWebABProps\").getABPropConfigValue(\"support_lids\")"
+            }
+          ],
+          "config": {
+            "module": "WAWebABPropsConfigs",
+            "line": 11386,
+            "type": "string",
+            "default": "4200746488034,30563255730192,70334669676777,19349129719984,66065505775654,133814269518032,243799792062487,7323238039569,269290422947912,261718412386336,4351103873168,12391299473616,92410801582180,277730033709185,36090878648473,79882365190287,94274800595104,117794058317863,115784047153172,179250745360524,7301780005088,166653589463190,94249030815912,198964645236955,198427807899653,23656948363422,255735573270728,106670109786240,130932396826763,18855208456329",
+            "alternate": "4200746488034,30563255730192,70334669676777,19349129719984,66065505775654,133814269518032,243799792062487,7323238039569,269290422947912,261718412386336,4351103873168,12391299473616,92410801582180,277730033709185,36090878648473,79882365190287,94274800595104,117794058317863,115784047153172,179250745360524,7301780005088,166653589463190,94249030815912,198964645236955,198427807899653,23656948363422,255735573270728,106670109786240,130932396826763,18855208456329"
+          }
+        },
+        {
+          "kind": "gkx",
+          "key": "10314",
+          "valueType": "boolean",
+          "reads": [
+            {
+              "module": "WAWebEnvironment",
+              "variant": "primary",
+              "line": 2,
+              "column": 39,
+              "method": "gkx",
+              "timing": "module-initialization",
+              "expression": "r(\"gkx\")(\"10314\")"
+            }
+          ]
+        },
+        {
+          "kind": "gkx",
+          "key": "16539",
+          "valueType": "boolean",
+          "reads": [
+            {
+              "module": "WAWebABProps",
+              "variant": "primary",
+              "line": 35,
+              "column": 24,
+              "method": "gkx",
+              "timing": "function-body",
+              "expression": "r(\"gkx\")(\"16539\")"
+            }
+          ]
+        },
+        {
+          "kind": "gkx",
+          "key": "207",
+          "valueType": "boolean",
+          "reads": [
+            {
+              "module": "logForCrash",
+              "variant": "primary",
+              "line": 33,
+              "column": 42,
+              "method": "gkx",
+              "timing": "function-body",
+              "expression": "r(\"gkx\")(\"207\")"
+            }
+          ]
+        },
+        {
+          "kind": "gkx",
+          "key": "26256",
+          "valueType": "boolean",
+          "reads": [
+            {
+              "module": "WAWebABPropsJestE2EReadLog",
+              "variant": "primary",
+              "line": 4,
+              "column": 9,
+              "method": "gkx",
+              "timing": "function-body",
+              "expression": "r(\"gkx\")(\"26256\")"
+            }
+          ]
+        },
+        {
+          "kind": "gkx",
+          "key": "26258",
+          "valueType": "boolean",
+          "reads": [
+            {
+              "module": "WAWebUserPrefsMeUser",
+              "variant": "primary",
+              "line": 94,
+              "column": 14,
+              "method": "gkx",
+              "timing": "function-body",
+              "expression": "r(\"gkx\")(\"26258\")"
+            },
+            {
+              "module": "WAWebWid",
+              "variant": "primary",
+              "line": 50,
+              "column": 8,
+              "method": "gkx",
+              "timing": "function-body",
+              "expression": "r(\"gkx\")(\"26258\")"
+            },
+            {
+              "module": "WAWebWidJsonReviver",
+              "variant": "primary",
+              "line": 81,
+              "column": 14,
+              "method": "gkx",
+              "timing": "function-body",
+              "expression": "r(\"gkx\")(\"26258\")"
+            },
+            {
+              "module": "WAWebEnvironment",
+              "variant": "primary",
+              "line": 7,
+              "column": 9,
+              "method": "gkx",
+              "timing": "function-body",
+              "expression": "r(\"gkx\")(\"26258\")"
+            },
+            {
+              "module": "WAWebIndexedDBPurge",
+              "variant": "primary",
+              "line": 42,
+              "column": 8,
+              "method": "gkx",
+              "timing": "function-body",
+              "expression": "r(\"gkx\")(\"26258\")"
+            },
+            {
+              "module": "WAWebIndexedDBPurge",
+              "variant": "primary",
+              "line": 58,
+              "column": 14,
+              "method": "gkx",
+              "timing": "function-body",
+              "expression": "r(\"gkx\")(\"26258\")"
+            },
+            {
+              "module": "WAWebUA",
+              "variant": "primary",
+              "line": 51,
+              "column": 29,
+              "method": "gkx",
+              "timing": "function-body",
+              "expression": "r(\"gkx\")(\"26258\")"
+            },
+            {
+              "module": "WAWebWamCodegenUtils",
+              "variant": "primary",
+              "line": 69,
+              "column": 36,
+              "method": "gkx",
+              "timing": "function-body",
+              "expression": "r(\"gkx\")(\"26258\")"
+            }
+          ]
+        },
+        {
+          "kind": "gkx",
+          "key": "26259",
+          "valueType": "boolean",
+          "reads": [
+            {
+              "module": "WAWebEnvironment",
+              "variant": "primary",
+              "line": 7,
+              "column": 38,
+              "method": "gkx",
+              "timing": "function-body",
+              "expression": "r(\"gkx\")(\"26259\")"
+            },
+            {
+              "module": "WAWebWamCodegenUtils",
+              "variant": "primary",
+              "line": 69,
+              "column": 3,
+              "method": "gkx",
+              "timing": "function-body",
+              "expression": "r(\"gkx\")(\"26259\")"
+            }
+          ]
+        },
+        {
+          "kind": "gkx",
+          "key": "27164",
+          "valueType": "boolean",
+          "reads": [
+            {
+              "module": "WAWebDexieObservability",
+              "variant": "primary",
+              "line": 4,
+              "column": 6,
+              "method": "gkx",
+              "timing": "function-body",
+              "expression": "r(\"gkx\")(\"27164\")"
+            }
+          ]
+        },
+        {
+          "kind": "gkx",
+          "key": "3981",
+          "valueType": "boolean",
+          "reads": [
+            {
+              "module": "logForCrash",
+              "variant": "primary",
+              "line": 90,
+              "column": 70,
+              "method": "gkx",
+              "timing": "module-initialization",
+              "expression": "r(\"gkx\")(\"3981\")"
+            }
+          ]
+        },
+        {
+          "kind": "gkx",
+          "key": "4112",
+          "valueType": "boolean",
+          "reads": [
+            {
+              "module": "WAWebEnvironment",
+              "variant": "primary",
+              "line": 2,
+              "column": 9,
+              "method": "gkx",
+              "timing": "module-initialization",
+              "expression": "r(\"gkx\")(\"4112\")"
+            }
+          ]
+        },
+        {
+          "kind": "knobs",
+          "key": "1500",
+          "valueType": "unknown",
+          "reads": [
+            {
+              "module": "WAWebBeyondPhoneNumberGatingUtils",
+              "variant": "primary",
+              "line": 3,
+              "column": 77,
+              "method": "_",
+              "timing": "function-body",
+              "expression": "r(\"justknobx\")._(\"1500\")"
+            }
+          ]
+        },
+        {
+          "kind": "knobs",
+          "key": "1600",
+          "valueType": "unknown",
+          "reads": [
+            {
+              "module": "WAWebWamCodegenUtils",
+              "variant": "primary",
+              "line": 25,
+              "column": 87,
+              "method": "_",
+              "timing": "module-initialization",
+              "expression": "r(\"justknobx\")._(\"1600\")"
+            }
+          ]
+        },
+        {
+          "kind": "knobs",
+          "key": "195",
+          "valueType": "unknown",
+          "reads": [
+            {
+              "module": "logForCrash",
+              "variant": "primary",
+              "line": 33,
+              "column": 14,
+              "method": "_",
+              "timing": "function-body",
+              "expression": "r(\"justknobx\")._(\"195\")"
+            }
+          ]
+        }
+      ],
+      "unresolved": [
+        {
+          "code": "dynamic-gate-key",
+          "module": "WAWebABPropsSupportLid",
+          "line": 30,
+          "column": 10
+        },
+        {
+          "code": "dynamic-gate-key",
+          "module": "WAWebABPropsSupportLid",
+          "line": 36,
+          "column": 10
+        },
+        {
+          "code": "missing-module",
+          "module": "cr:34987"
+        },
+        {
+          "code": "missing-module",
+          "module": "cr:38444"
+        },
+        {
+          "code": "missing-module",
+          "module": "cr:6640"
+        },
+        {
+          "code": "missing-module",
+          "module": "JSErrorLoggingConfig"
+        },
+        {
+          "code": "unrecognized-gate-provider",
+          "module": "WAWebWid",
+          "line": 156,
+          "column": 103
+        },
+        {
+          "code": "unrecognized-gate-provider",
+          "module": "WAWebWid",
+          "line": 158,
+          "column": 107
+        },
+        {
+          "code": "unrecognized-gate-provider",
+          "module": "WAWebWid",
+          "line": 225,
+          "column": 11
+        },
+        {
+          "code": "unrecognized-gate-provider",
+          "module": "WAWebWid",
+          "line": 235,
+          "column": 11
+        },
+        {
+          "code": "unrecognized-gate-provider",
+          "module": "WAWebWid",
+          "line": 156,
+          "column": 166
+        },
+        {
+          "code": "unrecognized-gate-provider",
+          "module": "WAWebWid",
+          "line": 158,
+          "column": 174
+        },
+        {
+          "code": "unrecognized-gate-provider",
+          "module": "WAWebABProps",
+          "line": 43,
+          "column": 2
+        },
+        {
+          "code": "unrecognized-gate-provider",
+          "module": "WAWebWid",
+          "line": 156,
+          "column": 25
+        },
+        {
+          "code": "unrecognized-gate-provider",
+          "module": "WAWebWid",
+          "line": 158,
+          "column": 25
+        },
+        {
+          "code": "unrecognized-gate-provider",
+          "module": "WAWebWid",
+          "line": 223,
+          "column": 25
+        },
+        {
+          "code": "unrecognized-gate-provider",
+          "module": "WAWebWid",
+          "line": 233,
+          "column": 25
+        },
+        {
+          "code": "unrecognized-gate-provider",
+          "module": "WAWebWid",
+          "line": 162,
+          "column": 30
+        },
+        {
+          "code": "unrecognized-gate-provider",
+          "module": "WAWebWid",
+          "line": 220,
+          "column": 33
+        },
+        {
+          "code": "unrecognized-gate-provider",
+          "module": "WAWebWid",
+          "line": 230,
+          "column": 33
+        },
+        {
+          "code": "unrecognized-gate-provider",
+          "module": "WAWebWid",
+          "line": 226,
+          "column": 49
+        },
+        {
+          "code": "unrecognized-gate-provider",
+          "module": "WAWebWid",
+          "line": 236,
+          "column": 49
+        },
+        {
+          "code": "unrecognized-gate-provider",
+          "module": "WAWebABProps",
+          "line": 43,
+          "column": 72
+        },
+        {
+          "code": "unrecognized-gate-provider",
+          "module": "WAWebUserPrefsMeUser",
+          "line": 54,
+          "column": 9
+        },
+        {
+          "code": "unrecognized-gate-provider",
+          "module": "WAWebUserPrefsMeUser",
+          "line": 57,
+          "column": 9
+        },
+        {
+          "code": "unrecognized-gate-provider",
+          "module": "WAWebUserPrefsMeUser",
+          "line": 60,
+          "column": 9
+        }
+      ],
+      "staticCoverage": {
+        "complete": false,
+        "scope": "module-closure-superset",
+        "semanticProof": false,
+        "resolverCoverage": false,
+        "modules": 89,
+        "sourceBytes": 560785,
+        "limitations": [
+          "Only supported gate APIs and static key expressions are inventoried.",
+          "Declared fixture-provider boundaries exclude their original resolver implementations and dependencies.",
+          "All functions in each dependency module are scanned; exact export and caller reachability is not proven.",
+          "Runtime-discovered gates and externally selected code require separate observations."
+        ]
+      }
+    }
+  ],
+  "exclusions": [
+    "Exact full transitive source closure includes main-thread storage and user-preference branches despite explicit worker environment fixture; module-level gate superset retains all source reads and missing/dynamic providers",
+    "Full finite boolean product is budget-blocked and string/knob/dynamic domains are unresolved. Eight selected gkx contexts are not full configuration coverage",
+    "Worker environment isWorker:true is explicit fixture; actual environment detection/main-thread preference storage, native account restoration and provider/session acquisition remain unexercised",
+    "Missing provider imports use throwing fixtures if invoked; cr6640:null chooses original Promise realm-global fallback. No Wid, cache, self-user memoizer, globals or validator implementation is replaced",
+    "Only selected realm-native extends/taggedTemplateLiteralLoose compatibility helpers are provided; original bundle bootstrap is not established. InvalidWidError paths require missing wrapNativeSuper/inheritsLoose helpers and remain unsupported rather than mocked",
+    "Actual methods on valid created Wids execute; JSON Widlike input is tested only through the factory API that explicitly accepts it, and plain-object equals false is a negative instanceof guard. Positive equals/ordering/account comparison between two actual instances needs realm-owned reference arguments",
+    "WidStore.delete is real, but normalized snapshots cannot prove cache hits/object identity or old-reference lifetime; memoizer stale/fresh serialized values are the supported cache observations",
+    "Generated values/user/device strings and temporal sequences are bounded characterization of unbounded input and schedule domains",
+    "PN/LID support-list resolvers, contact/account PN-LID mapping, network-authorized identity and native device/address changes are not covered",
+    "MsgKey, Signal/Noise crypto, new-id randomness, containers, production scheduling, alternate module variants and named-library implementation parity remain unexercised"
+  ]
+}
