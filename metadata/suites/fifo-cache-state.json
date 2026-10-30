@@ -46,10 +46,10 @@
         }
       ],
       "analyzer": {
-        "version": 4,
-        "sourceSha256": "73c5e31e59ff601a01114ab03a0dc183d81389987e3af5832c53d9ac8bd8c06b"
+        "version": 5,
+        "sourceSha256": "227dc637e157fb8708c4f58e3c7fd821d78fdff3fc3ad7ec48ff6b5818e54f82"
       },
-      "inventoryDigest": "f04a41ff58443e010e4834741a9c432f37f5b75bf86188c454692df524e46704",
+      "inventoryDigest": "7fbe43275daff73df6451d3260faf8ddc2d9efe2de495461eb950ebf87237f1f",
       "gates": [],
       "unresolved": [],
       "staticCoverage": {
@@ -61,7 +61,7 @@
         "sourceBytes": 1256,
         "workBudget": {
           "limit": 2000000,
-          "consumed": 4739,
+          "consumed": 5667,
           "exhausted": false
         },
         "limitations": [
@@ -92,10 +92,10 @@
         }
       ],
       "analyzer": {
-        "version": 4,
-        "sourceSha256": "73c5e31e59ff601a01114ab03a0dc183d81389987e3af5832c53d9ac8bd8c06b"
+        "version": 5,
+        "sourceSha256": "227dc637e157fb8708c4f58e3c7fd821d78fdff3fc3ad7ec48ff6b5818e54f82"
       },
-      "inventoryDigest": "f04a41ff58443e010e4834741a9c432f37f5b75bf86188c454692df524e46704",
+      "inventoryDigest": "7fbe43275daff73df6451d3260faf8ddc2d9efe2de495461eb950ebf87237f1f",
       "gates": [],
       "unresolved": [],
       "staticCoverage": {
@@ -107,7 +107,7 @@
         "sourceBytes": 1256,
         "workBudget": {
           "limit": 2000000,
-          "consumed": 4739,
+          "consumed": 5667,
           "exhausted": false
         },
         "limitations": [
@@ -127,5 +127,16 @@
     "Zero/negative capacity behavior has a nullish dequeued-key guard; no universal occupancy bound is claimed. Coercion, key/value and history domains remain unbounded.",
     "Each case creates a fresh actual instance; no clear/reset/TTL, persisted restart, delivery, provider, original caller, browser/native/network/account or named-library acceptance.",
     "Locally observed diagnostic process execution is not container isolation or production TypeScript scheduling proof."
-  ]
+  ],
+  "inventoryRefresh": {
+    "analyzerVersion": 5,
+    "analyzerSourceSha256": "227dc637e157fb8708c4f58e3c7fd821d78fdff3fc3ad7ec48ff6b5818e54f82",
+    "defaultLogicalWorkLimit": 2000000,
+    "kind": "static-source-analysis-only",
+    "behaviorReexecuted": false,
+    "executionProvenance": "Existing execution observations retain their exact original receipt context. This inventory refresh creates no runtime evidence and changes no case plan or source input.",
+    "cardinalityScope": "Incomplete or unresolved inventories establish no total assignment cardinality. Prior finite products remain scoped modeled subsets; unknown domains and budget blocks remain unresolved.",
+    "bootstrapScope": "Previously selected source-exact bootstrap assets are included as AST roots. No provider, bootstrap admission or fixture boundary is added.",
+    "historicalScope": "Prior full inventories remain at public commit dcef50ac06a25c1cf76b3dc6012e21dbba3e2fb6. New budget-truncated analysis does not erase those facts or establish a complete current matrix."
+  }
 }

@@ -143,10 +143,10 @@
   },
   "staticInventory": {
     "analyzer": {
-      "version": 4,
-      "sourceSha256": "73c5e31e59ff601a01114ab03a0dc183d81389987e3af5832c53d9ac8bd8c06b"
+      "version": 5,
+      "sourceSha256": "227dc637e157fb8708c4f58e3c7fd821d78fdff3fc3ad7ec48ff6b5818e54f82"
     },
-    "digest": "9b3babc46e6199386545e3b31956326718fbbf55c038ed002dd707292ca82395",
+    "digest": "953e1e614e87b3f930764dc4256e5f6c5b0168edd54b969fbd167e0f4510c3da",
     "gates": [],
     "unresolved": [],
     "coverage": {
@@ -158,7 +158,7 @@
       "sourceBytes": 5341,
       "workBudget": {
         "limit": 2000000,
-        "consumed": 12539,
+        "consumed": 14983,
         "exhausted": false
       },
       "limitations": [
@@ -255,5 +255,16 @@
     "Only one exact library commit is observed; no compare result or cross-revision preservation evidence is supplied. Prior private prototype execution is not the new public Subject execution.",
     "All16 runtime functions and all4 domain enum members have selected cases. String/numeric/coercion/server/device/input domains are unbounded characterization, not exhaustive protocol or JID validity.",
     "No package barrel/socket/provider/authentication/crypto/account/network/native/browser/container/scheduling/full-package/full-library compliance or WA-protocol acceptance. No customer sessions or upstream effects."
-  ]
+  ],
+  "inventoryRefresh": {
+    "analyzerVersion": 5,
+    "analyzerSourceSha256": "227dc637e157fb8708c4f58e3c7fd821d78fdff3fc3ad7ec48ff6b5818e54f82",
+    "defaultLogicalWorkLimit": 2000000,
+    "kind": "static-source-analysis-only",
+    "behaviorReexecuted": false,
+    "executionProvenance": "Existing execution observations retain their exact original receipt context. This inventory refresh creates no runtime evidence and changes no case plan or source input.",
+    "cardinalityScope": "Incomplete or unresolved inventories establish no total assignment cardinality. Prior finite products remain scoped modeled subsets; unknown domains and budget blocks remain unresolved.",
+    "bootstrapScope": "Previously selected source-exact bootstrap assets are included as AST roots. No provider, bootstrap admission or fixture boundary is added.",
+    "historicalScope": "Prior full inventories remain at public commit dcef50ac06a25c1cf76b3dc6012e21dbba3e2fb6. New budget-truncated analysis does not erase those facts or establish a complete current matrix."
+  }
 }

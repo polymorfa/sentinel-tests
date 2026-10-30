@@ -25,6 +25,13 @@ Tests are TypeScript programs. They can add native library tests, unit mocks, in
 
 Executable suites cover generated binary and hexadecimal inputs, byte packing/cursors, custom Base32, WAM encoding, ABProps parsing, exposure keys, padding/key representation, stateful retry backoff, address/media parsing and actual protobuf encoding/decoding. Their reviewed oracles, exact source observations, gate inventories and exclusions live under `metadata/suites/`. `bun run validate` checks these records as well as the historical fixtures; validation does not execute WhatsApp.
 
+Current inventories use analyzer version 5, including reviewed literal loader
+`.call` forms and explicit gaps for bound, dynamic, escaped or mutated loaders.
+The default logical work limit remains 2,000,000. Inventory refreshes preserve case
+plans and original source inputs; they create no execution evidence. Historical
+results keep their original runtime and analyzer identities. Unknown gate domains,
+budget-blocked graphs and original provider/bootstrap gaps remain unresolved.
+
 The [original enumeration suite](docs/fb-enumerate.md) additionally requires an explicitly configured private source cache. Its cases select a known producer hash; the reviewed adapter admits and executes the original fragment before its actual consumers. Public metadata stores source identities and coverage limits, never vendor source bytes. Missing cache configuration visibly skips that capability.
 
 The [group storage-input suite](docs/group-abprops-storage-input.md) tests the original row transformer and cache staging with synthetic storage-shaped inputs. It does not query storage or establish persistence or transaction behavior.

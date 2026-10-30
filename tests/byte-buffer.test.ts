@@ -44,7 +44,7 @@ test('byte buffer plans pin bounded independent byte oracles and complete suppor
   for (const observation of metadata.observations) {
     assert.equal(observation.modules.length, 6);
     assert.equal(observation.staticCoverage.complete, true);
-    assert.equal(observation.staticCoverage.workBudget.consumed, 141144);
+    assert.equal(observation.staticCoverage.workBudget.consumed, 174642);
     assert.equal(observation.staticCoverage.workBudget.exhausted, false);
     assert.deepEqual(observation.gates, []);
     assert.deepEqual(observation.unresolved, []);

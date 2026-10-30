@@ -12,10 +12,10 @@
       "revision": "1051710191",
       "variant": "primary",
       "analyzer": {
-        "version": 4,
-        "sourceSha256": "73c5e31e59ff601a01114ab03a0dc183d81389987e3af5832c53d9ac8bd8c06b"
+        "version": 5,
+        "sourceSha256": "227dc637e157fb8708c4f58e3c7fd821d78fdff3fc3ad7ec48ff6b5818e54f82"
       },
-      "inventoryDigest": "3bf9100c306402201c8d7ba2a57df96a8c191604030de001b7aa2e02816ce7bb",
+      "inventoryDigest": "0c0efbb11a579a5d2397018be4bccc9fbbefc64ea1c60cf84dec7637b2bd576a",
       "modules": [
         {
           "module": "err",
@@ -92,7 +92,7 @@
         "sourceBytes": 49075,
         "workBudget": {
           "limit": 2000000,
-          "consumed": 229168,
+          "consumed": 280659,
           "exhausted": false
         },
         "limitations": [
@@ -108,10 +108,10 @@
       "revision": "1051908825",
       "variant": "primary",
       "analyzer": {
-        "version": 4,
-        "sourceSha256": "73c5e31e59ff601a01114ab03a0dc183d81389987e3af5832c53d9ac8bd8c06b"
+        "version": 5,
+        "sourceSha256": "227dc637e157fb8708c4f58e3c7fd821d78fdff3fc3ad7ec48ff6b5818e54f82"
       },
-      "inventoryDigest": "3bf9100c306402201c8d7ba2a57df96a8c191604030de001b7aa2e02816ce7bb",
+      "inventoryDigest": "0c0efbb11a579a5d2397018be4bccc9fbbefc64ea1c60cf84dec7637b2bd576a",
       "modules": [
         {
           "module": "err",
@@ -188,7 +188,7 @@
         "sourceBytes": 49075,
         "workBudget": {
           "limit": 2000000,
-          "consumed": 229168,
+          "consumed": 280659,
           "exhausted": false
         },
         "limitations": [
@@ -263,13 +263,26 @@
     "configurationExhaustive": false
   },
   "inventoryRefresh": {
-    "analyzerVersion": 4,
-    "analyzerSourceSha256": "73c5e31e59ff601a01114ab03a0dc183d81389987e3af5832c53d9ac8bd8c06b",
+    "analyzerVersion": 5,
+    "analyzerSourceSha256": "227dc637e157fb8708c4f58e3c7fd821d78fdff3fc3ad7ec48ff6b5818e54f82",
     "defaultLogicalWorkLimit": 2000000,
     "kind": "static-source-analysis-only",
     "behaviorReexecuted": false,
-    "executionProvenance": "Existing execution/assignment observations retain their original receipt context; this metadata refresh does not create new runtime evidence.",
-    "cardinalityScope": "Incomplete/unresolved current inventories have no established total assignment cardinality. Existing finite products describe source-known subsets retained from prior observations, not exhaustive current matrices.",
-    "bootstrapScope": "No bootstrap source providers were added to these existing suites. Known bootstrap reads and unresolved global aliases/accesses remain explicit diagnostics; source-exact producer execution requires separate admitted scenarios."
-  }
+    "executionProvenance": "Existing execution observations retain their exact original receipt context. This inventory refresh creates no runtime evidence and changes no case plan or source input.",
+    "cardinalityScope": "Incomplete or unresolved inventories establish no total assignment cardinality. Prior finite products remain scoped modeled subsets; unknown domains and budget blocks remain unresolved.",
+    "bootstrapScope": "Previously selected source-exact bootstrap assets are included as AST roots. No provider, bootstrap admission or fixture boundary is added.",
+    "historicalScope": "Prior full inventories remain at public commit dcef50ac06a25c1cf76b3dc6012e21dbba3e2fb6. New budget-truncated analysis does not erase those facts or establish a complete current matrix."
+  },
+  "historicalInventoryRefresh": [
+    {
+      "analyzerVersion": 4,
+      "analyzerSourceSha256": "73c5e31e59ff601a01114ab03a0dc183d81389987e3af5832c53d9ac8bd8c06b",
+      "defaultLogicalWorkLimit": 2000000,
+      "kind": "static-source-analysis-only",
+      "behaviorReexecuted": false,
+      "executionProvenance": "Existing execution/assignment observations retain their original receipt context; this metadata refresh does not create new runtime evidence.",
+      "cardinalityScope": "Incomplete/unresolved current inventories have no established total assignment cardinality. Existing finite products describe source-known subsets retained from prior observations, not exhaustive current matrices.",
+      "bootstrapScope": "No bootstrap source providers were added to these existing suites. Known bootstrap reads and unresolved global aliases/accesses remain explicit diagnostics; source-exact producer execution requires separate admitted scenarios."
+    }
+  ]
 }

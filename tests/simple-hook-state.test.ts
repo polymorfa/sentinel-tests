@@ -66,7 +66,7 @@ test('SimpleHook plans preserve data-only public methods and source return lifet
   for (const observation of metadata.observations) {
     assert.equal(observation.modules.length, 1);
     assert.equal(observation.staticCoverage.complete, true);
-    assert.equal(observation.staticCoverage.workBudget.consumed, 4767);
+    assert.equal(observation.staticCoverage.workBudget.consumed, 5783);
     assert.deepEqual(observation.gates, []);
     assert.deepEqual(observation.unresolved, []);
   }

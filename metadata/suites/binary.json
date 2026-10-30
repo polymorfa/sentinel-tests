@@ -85,8 +85,8 @@
         }
       ],
       "analyzer": {
-        "version": 4,
-        "sourceSha256": "73c5e31e59ff601a01114ab03a0dc183d81389987e3af5832c53d9ac8bd8c06b"
+        "version": 5,
+        "sourceSha256": "227dc637e157fb8708c4f58e3c7fd821d78fdff3fc3ad7ec48ff6b5818e54f82"
       },
       "gates": [],
       "unresolved": [],
@@ -99,7 +99,7 @@
         "sourceBytes": 46096,
         "workBudget": {
           "limit": 2000000,
-          "consumed": 214630,
+          "consumed": 263159,
           "exhausted": false
         },
         "limitations": [
@@ -113,8 +113,8 @@
       "base32Inventory": {
         "schemaVersion": 1,
         "analyzer": {
-          "version": 4,
-          "sourceSha256": "73c5e31e59ff601a01114ab03a0dc183d81389987e3af5832c53d9ac8bd8c06b"
+          "version": 5,
+          "sourceSha256": "227dc637e157fb8708c4f58e3c7fd821d78fdff3fc3ad7ec48ff6b5818e54f82"
         },
         "roots": ["WAWebAltDeviceLinkingBase32Encode"],
         "boundaries": [],
@@ -137,7 +137,7 @@
           "sourceBytes": 425,
           "workBudget": {
             "limit": 2000000,
-            "consumed": 1895,
+            "consumed": 2278,
             "exhausted": false
           },
           "limitations": [
@@ -148,7 +148,7 @@
             "Runtime-discovered gates and externally selected code require separate observations."
           ]
         },
-        "digest": "e0b8aa45a0c285b76f644f4382e42bd539980a8c855644b6b9d6314749310748"
+        "digest": "28fc17bf399fffb2e339451633fe89e8692a08892c04a8d39804aa4e0a19d1e5"
       },
       "assignmentCoverage": {
         "base32": {
@@ -164,7 +164,7 @@
           "reason": "Current analyzer completes the supported selected module closure with no gate reads; fb-error Function.prototype.apply.call is recognized as an intrinsic invocation. Existing execution is historical, and this static-only refresh does not establish new exhaustive assignment/caller/variant coverage."
         }
       },
-      "inventoryDigest": "8e6218da1b0e996ca66afae3afa291a90a8610fb076f1538baddd5e181f0f775"
+      "inventoryDigest": "4c4bda438625eab2069506f2c59eb41fbba5518ba4a9432d4232462aaf9d9e8b"
     },
     {
       "revision": "1051908825",
@@ -232,8 +232,8 @@
         }
       ],
       "analyzer": {
-        "version": 4,
-        "sourceSha256": "73c5e31e59ff601a01114ab03a0dc183d81389987e3af5832c53d9ac8bd8c06b"
+        "version": 5,
+        "sourceSha256": "227dc637e157fb8708c4f58e3c7fd821d78fdff3fc3ad7ec48ff6b5818e54f82"
       },
       "gates": [],
       "unresolved": [],
@@ -246,7 +246,7 @@
         "sourceBytes": 46096,
         "workBudget": {
           "limit": 2000000,
-          "consumed": 214630,
+          "consumed": 263159,
           "exhausted": false
         },
         "limitations": [
@@ -260,8 +260,8 @@
       "base32Inventory": {
         "schemaVersion": 1,
         "analyzer": {
-          "version": 4,
-          "sourceSha256": "73c5e31e59ff601a01114ab03a0dc183d81389987e3af5832c53d9ac8bd8c06b"
+          "version": 5,
+          "sourceSha256": "227dc637e157fb8708c4f58e3c7fd821d78fdff3fc3ad7ec48ff6b5818e54f82"
         },
         "roots": ["WAWebAltDeviceLinkingBase32Encode"],
         "boundaries": [],
@@ -284,7 +284,7 @@
           "sourceBytes": 425,
           "workBudget": {
             "limit": 2000000,
-            "consumed": 1895,
+            "consumed": 2278,
             "exhausted": false
           },
           "limitations": [
@@ -295,7 +295,7 @@
             "Runtime-discovered gates and externally selected code require separate observations."
           ]
         },
-        "digest": "e0b8aa45a0c285b76f644f4382e42bd539980a8c855644b6b9d6314749310748"
+        "digest": "28fc17bf399fffb2e339451633fe89e8692a08892c04a8d39804aa4e0a19d1e5"
       },
       "assignmentCoverage": {
         "base32": {
@@ -311,7 +311,7 @@
           "reason": "Current analyzer completes the supported selected module closure with no gate reads; fb-error Function.prototype.apply.call is recognized as an intrinsic invocation. Existing execution is historical, and this static-only refresh does not establish new exhaustive assignment/caller/variant coverage."
         }
       },
-      "inventoryDigest": "8e6218da1b0e996ca66afae3afa291a90a8610fb076f1538baddd5e181f0f775"
+      "inventoryDigest": "4c4bda438625eab2069506f2c59eb41fbba5518ba4a9432d4232462aaf9d9e8b"
     }
   ],
   "runtime": {
@@ -327,13 +327,26 @@
     "No WhatsApp account, credentials, Signal sessions, browser lifecycle, native library parity, provider/server acceptance or release availability is exercised."
   ],
   "inventoryRefresh": {
-    "analyzerVersion": 4,
-    "analyzerSourceSha256": "73c5e31e59ff601a01114ab03a0dc183d81389987e3af5832c53d9ac8bd8c06b",
+    "analyzerVersion": 5,
+    "analyzerSourceSha256": "227dc637e157fb8708c4f58e3c7fd821d78fdff3fc3ad7ec48ff6b5818e54f82",
     "defaultLogicalWorkLimit": 2000000,
     "kind": "static-source-analysis-only",
     "behaviorReexecuted": false,
-    "executionProvenance": "Existing execution/assignment observations retain their original receipt context; this metadata refresh does not create new runtime evidence.",
-    "cardinalityScope": "Incomplete/unresolved current inventories have no established total assignment cardinality. Existing finite products describe source-known subsets retained from prior observations, not exhaustive current matrices.",
-    "bootstrapScope": "No bootstrap source providers were added to these existing suites. Known bootstrap reads and unresolved global aliases/accesses remain explicit diagnostics; source-exact producer execution requires separate admitted scenarios."
-  }
+    "executionProvenance": "Existing execution observations retain their exact original receipt context. This inventory refresh creates no runtime evidence and changes no case plan or source input.",
+    "cardinalityScope": "Incomplete or unresolved inventories establish no total assignment cardinality. Prior finite products remain scoped modeled subsets; unknown domains and budget blocks remain unresolved.",
+    "bootstrapScope": "Previously selected source-exact bootstrap assets are included as AST roots. No provider, bootstrap admission or fixture boundary is added.",
+    "historicalScope": "Prior full inventories remain at public commit dcef50ac06a25c1cf76b3dc6012e21dbba3e2fb6. New budget-truncated analysis does not erase those facts or establish a complete current matrix."
+  },
+  "historicalInventoryRefresh": [
+    {
+      "analyzerVersion": 4,
+      "analyzerSourceSha256": "73c5e31e59ff601a01114ab03a0dc183d81389987e3af5832c53d9ac8bd8c06b",
+      "defaultLogicalWorkLimit": 2000000,
+      "kind": "static-source-analysis-only",
+      "behaviorReexecuted": false,
+      "executionProvenance": "Existing execution/assignment observations retain their original receipt context; this metadata refresh does not create new runtime evidence.",
+      "cardinalityScope": "Incomplete/unresolved current inventories have no established total assignment cardinality. Existing finite products describe source-known subsets retained from prior observations, not exhaustive current matrices.",
+      "bootstrapScope": "No bootstrap source providers were added to these existing suites. Known bootstrap reads and unresolved global aliases/accesses remain explicit diagnostics; source-exact producer execution requires separate admitted scenarios."
+    }
+  ]
 }

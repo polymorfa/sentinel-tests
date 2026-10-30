@@ -4075,10 +4075,10 @@
         }
       ],
       "analyzer": {
-        "version": 4,
-        "sourceSha256": "73c5e31e59ff601a01114ab03a0dc183d81389987e3af5832c53d9ac8bd8c06b"
+        "version": 5,
+        "sourceSha256": "227dc637e157fb8708c4f58e3c7fd821d78fdff3fc3ad7ec48ff6b5818e54f82"
       },
-      "inventoryDigest": "f160c33770ff12f8b491036f616ffa01bdf859c2e5e70a0b2e8fa74f8b026260",
+      "inventoryDigest": "1e60fcb4e050aa996e90dfda8fb42147727b34b54c036cdc9323504f5f7c0b41",
       "gates": [
         {
           "kind": "abprops",
@@ -4423,33 +4423,6 @@
               "variant": "primary",
               "line": 4,
               "column": 9,
-              "method": "gkx",
-              "timing": "function-body",
-              "expression": "r(\"gkx\")(\"26258\")"
-            },
-            {
-              "module": "WAWebUserPrefsMeUser",
-              "variant": "primary",
-              "line": 94,
-              "column": 14,
-              "method": "gkx",
-              "timing": "function-body",
-              "expression": "r(\"gkx\")(\"26258\")"
-            },
-            {
-              "module": "WAWebProxyStateFactory",
-              "variant": "primary",
-              "line": 31,
-              "column": 13,
-              "method": "gkx",
-              "timing": "function-body",
-              "expression": "r(\"gkx\")(\"26258\")"
-            },
-            {
-              "module": "WAWebUA",
-              "variant": "primary",
-              "line": 51,
-              "column": 29,
               "method": "gkx",
               "timing": "function-body",
               "expression": "r(\"gkx\")(\"26258\")"
@@ -4841,8 +4814,8 @@
       "unresolved": [
         {
           "code": "work-budget",
-          "module": "dexie-3.2.2",
-          "sourceSha256": "cbfa866f3403db8683d4aeb051090b249806947527c6ec850330453877ad3fe9",
+          "module": "WAMd5",
+          "sourceSha256": "2d3f7dc87a67264b8288ac9968b3ae1f2805e0517199dd403d290c8350b8d04f",
           "required": "analysis-work",
           "budget": "2000000",
           "count": 2000000
@@ -4861,19 +4834,7 @@
         },
         {
           "code": "missing-module",
-          "module": "cr:5292"
-        },
-        {
-          "code": "missing-module",
           "module": "cr:6640"
-        },
-        {
-          "code": "missing-module",
-          "module": "CurrentUserInitialData"
-        },
-        {
-          "code": "missing-module",
-          "module": "SiteData"
         },
         {
           "code": "unrecognized-gate-provider",
@@ -5159,26 +5120,8 @@
         },
         {
           "code": "unrecognized-gate-provider",
-          "module": "WAWebUserPrefsMeUser",
-          "line": 54,
-          "column": 9
-        },
-        {
-          "code": "unrecognized-gate-provider",
-          "module": "WAWebUserPrefsMeUser",
-          "line": 57,
-          "column": 9
-        },
-        {
-          "code": "unrecognized-gate-provider",
           "module": "WAWebABPropsCache",
           "line": 59,
-          "column": 9
-        },
-        {
-          "code": "unrecognized-gate-provider",
-          "module": "WAWebUserPrefsMeUser",
-          "line": 60,
           "column": 9
         },
         {
@@ -5217,8 +5160,8 @@
         "scope": "module-closure-superset",
         "semanticProof": false,
         "resolverCoverage": false,
-        "modules": 240,
-        "sourceBytes": 816783,
+        "modules": 215,
+        "sourceBytes": 650574,
         "workBudget": {
           "limit": 2000000,
           "consumed": 2000000,
@@ -10993,10 +10936,10 @@
         }
       ],
       "analyzer": {
-        "version": 4,
-        "sourceSha256": "73c5e31e59ff601a01114ab03a0dc183d81389987e3af5832c53d9ac8bd8c06b"
+        "version": 5,
+        "sourceSha256": "227dc637e157fb8708c4f58e3c7fd821d78fdff3fc3ad7ec48ff6b5818e54f82"
       },
-      "inventoryDigest": "514d1cd87ec2fc12ab988cd6ffdd956163ba1018e6ffa424f14aef7d7c113527",
+      "inventoryDigest": "00c8c45bd92501211649ce9986fa0125ebd76d8d500cbd3f79906cef635a6a7a",
       "gates": [
         {
           "kind": "abprops",
@@ -11348,33 +11291,6 @@
               "variant": "primary",
               "line": 4,
               "column": 9,
-              "method": "gkx",
-              "timing": "function-body",
-              "expression": "r(\"gkx\")(\"26258\")"
-            },
-            {
-              "module": "WAWebUserPrefsMeUser",
-              "variant": "primary",
-              "line": 94,
-              "column": 14,
-              "method": "gkx",
-              "timing": "function-body",
-              "expression": "r(\"gkx\")(\"26258\")"
-            },
-            {
-              "module": "WAWebProxyStateFactory",
-              "variant": "primary",
-              "line": 31,
-              "column": 13,
-              "method": "gkx",
-              "timing": "function-body",
-              "expression": "r(\"gkx\")(\"26258\")"
-            },
-            {
-              "module": "WAWebUA",
-              "variant": "primary",
-              "line": 51,
-              "column": 29,
               "method": "gkx",
               "timing": "function-body",
               "expression": "r(\"gkx\")(\"26258\")"
@@ -11766,8 +11682,8 @@
       "unresolved": [
         {
           "code": "work-budget",
-          "module": "dexie-3.2.2",
-          "sourceSha256": "cbfa866f3403db8683d4aeb051090b249806947527c6ec850330453877ad3fe9",
+          "module": "WAMd5",
+          "sourceSha256": "2d3f7dc87a67264b8288ac9968b3ae1f2805e0517199dd403d290c8350b8d04f",
           "required": "analysis-work",
           "budget": "2000000",
           "count": 2000000
@@ -11786,19 +11702,7 @@
         },
         {
           "code": "missing-module",
-          "module": "cr:5292"
-        },
-        {
-          "code": "missing-module",
           "module": "cr:6640"
-        },
-        {
-          "code": "missing-module",
-          "module": "CurrentUserInitialData"
-        },
-        {
-          "code": "missing-module",
-          "module": "SiteData"
         },
         {
           "code": "unrecognized-gate-provider",
@@ -12090,24 +11994,6 @@
         },
         {
           "code": "unrecognized-gate-provider",
-          "module": "WAWebUserPrefsMeUser",
-          "line": 54,
-          "column": 9
-        },
-        {
-          "code": "unrecognized-gate-provider",
-          "module": "WAWebUserPrefsMeUser",
-          "line": 57,
-          "column": 9
-        },
-        {
-          "code": "unrecognized-gate-provider",
-          "module": "WAWebUserPrefsMeUser",
-          "line": 60,
-          "column": 9
-        },
-        {
-          "code": "unrecognized-gate-provider",
           "module": "WAWebABPropsCache",
           "line": 61,
           "column": 9
@@ -12148,8 +12034,8 @@
         "scope": "module-closure-superset",
         "semanticProof": false,
         "resolverCoverage": false,
-        "modules": 242,
-        "sourceBytes": 818407,
+        "modules": 217,
+        "sourceBytes": 652198,
         "workBudget": {
           "limit": 2000000,
           "consumed": 2000000,
@@ -13897,13 +13783,26 @@
     "Alternate source variants, containers, production scheduling, accounts, network and named library implementation parity remain unexercised"
   ],
   "inventoryRefresh": {
-    "analyzerVersion": 4,
-    "analyzerSourceSha256": "73c5e31e59ff601a01114ab03a0dc183d81389987e3af5832c53d9ac8bd8c06b",
+    "analyzerVersion": 5,
+    "analyzerSourceSha256": "227dc637e157fb8708c4f58e3c7fd821d78fdff3fc3ad7ec48ff6b5818e54f82",
     "defaultLogicalWorkLimit": 2000000,
     "kind": "static-source-analysis-only",
     "behaviorReexecuted": false,
-    "executionProvenance": "Existing execution/assignment observations retain their original receipt context; this metadata refresh does not create new runtime evidence.",
-    "cardinalityScope": "Incomplete/unresolved current inventories have no established total assignment cardinality. Existing finite products describe source-known subsets retained from prior observations, not exhaustive current matrices.",
-    "bootstrapScope": "No bootstrap source providers were added to these existing suites. Known bootstrap reads and unresolved global aliases/accesses remain explicit diagnostics; source-exact producer execution requires separate admitted scenarios."
-  }
+    "executionProvenance": "Existing execution observations retain their exact original receipt context. This inventory refresh creates no runtime evidence and changes no case plan or source input.",
+    "cardinalityScope": "Incomplete or unresolved inventories establish no total assignment cardinality. Prior finite products remain scoped modeled subsets; unknown domains and budget blocks remain unresolved.",
+    "bootstrapScope": "Previously selected source-exact bootstrap assets are included as AST roots. No provider, bootstrap admission or fixture boundary is added.",
+    "historicalScope": "Prior full inventories remain at public commit dcef50ac06a25c1cf76b3dc6012e21dbba3e2fb6. New budget-truncated analysis does not erase those facts or establish a complete current matrix."
+  },
+  "historicalInventoryRefresh": [
+    {
+      "analyzerVersion": 4,
+      "analyzerSourceSha256": "73c5e31e59ff601a01114ab03a0dc183d81389987e3af5832c53d9ac8bd8c06b",
+      "defaultLogicalWorkLimit": 2000000,
+      "kind": "static-source-analysis-only",
+      "behaviorReexecuted": false,
+      "executionProvenance": "Existing execution/assignment observations retain their original receipt context; this metadata refresh does not create new runtime evidence.",
+      "cardinalityScope": "Incomplete/unresolved current inventories have no established total assignment cardinality. Existing finite products describe source-known subsets retained from prior observations, not exhaustive current matrices.",
+      "bootstrapScope": "No bootstrap source providers were added to these existing suites. Known bootstrap reads and unresolved global aliases/accesses remain explicit diagnostics; source-exact producer execution requires separate admitted scenarios."
+    }
+  ]
 }

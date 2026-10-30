@@ -39,6 +39,13 @@
           "citations": ["modules/$InternalEnum.js:1"]
         },
         {
+          "module": "asyncToGeneratorRuntime",
+          "variant": "primary",
+          "printedSourceSha256": "147052b2a1cdc6d21087a611043d0974d5babedeeee624185babb023bbcf72f3",
+          "dependencies": ["Promise"],
+          "citations": ["modules/asyncToGeneratorRuntime.js:1"]
+        },
+        {
           "module": "BanzaiLazyQueue",
           "variant": "primary",
           "printedSourceSha256": "c4b206703179790d810f00c914c5ff13123e8a5d479a1fc017e2d8fb06c62d49",
@@ -53,11 +60,39 @@
           "citations": ["modules/BrowserCrashStaticConfig.js:1"]
         },
         {
+          "module": "compactMap",
+          "variant": "primary",
+          "printedSourceSha256": "aa300e544d92f12afdaf79680e72017777b9df31b4c854a8db4ce2b1a4b62b16",
+          "dependencies": [],
+          "citations": ["modules/compactMap.js:1"]
+        },
+        {
+          "module": "dexie-3.2.2",
+          "variant": "primary",
+          "printedSourceSha256": "cbfa866f3403db8683d4aeb051090b249806947527c6ec850330453877ad3fe9",
+          "dependencies": ["Promise"],
+          "citations": ["modules/dexie-3.2.2.js:1"]
+        },
+        {
+          "module": "emptyFunction",
+          "variant": "primary",
+          "printedSourceSha256": "efc2fa885be346ba40045503e3a0588374c842f36261ce8138988d63608ecb48",
+          "dependencies": [],
+          "citations": ["modules/emptyFunction.js:1"]
+        },
+        {
           "module": "Env",
           "variant": "primary",
           "printedSourceSha256": "ad5c3d19c3db7a10d569dceb202b62801ac1014c42a99cf21d3249a124319082",
           "dependencies": [],
           "citations": ["modules/Env.js:1"]
+        },
+        {
+          "module": "err",
+          "variant": "primary",
+          "printedSourceSha256": "a26a1f88fe2c09505c0ec8e43d1a43c2299b6126ea7ea305c567bf7634fbeea0",
+          "dependencies": ["fb-error"],
+          "citations": ["modules/err.js:1"]
         },
         {
           "module": "ExecutionEnvironment",
@@ -67,11 +102,118 @@
           "citations": ["modules/ExecutionEnvironment.js:1"]
         },
         {
+          "module": "fb-error",
+          "variant": "primary",
+          "printedSourceSha256": "545144d2d2c50524d5bcfc421916cf76760743cb5b034dcb7a4d7066981f714e",
+          "dependencies": ["performanceNow", "removeFromArray"],
+          "citations": ["modules/fb-error.js:1"]
+        },
+        {
+          "module": "fb-error-lite",
+          "variant": "primary",
+          "printedSourceSha256": "70182c28f267319e6122d9da5fa9d01bc3c60775130d33429a71874503924b64",
+          "dependencies": [],
+          "citations": ["modules/fb-error-lite.js:1"]
+        },
+        {
           "module": "FBLogger",
           "variant": "primary",
           "printedSourceSha256": "5b78358a73a6900d013f27628afaffe9b58fdb92dc37233690ec50441114c7c2",
           "dependencies": ["fb-error"],
           "citations": ["modules/FBLogger.js:1"]
+        },
+        {
+          "module": "getErrorSafe",
+          "variant": "primary",
+          "printedSourceSha256": "e2e7bf104b2e70a7cf8b17c8861754af744d215a24d547fc29058f64f0db882b",
+          "dependencies": ["fb-error"],
+          "citations": ["modules/getErrorSafe.js:1"]
+        },
+        {
+          "module": "gkx",
+          "variant": "primary",
+          "printedSourceSha256": "e84fc9d0a08a52702897502d1eb33202bd0d97b9633277aa18df81d9cb902cf6",
+          "dependencies": ["BanzaiLazyQueue", "ExecutionEnvironment", "emptyFunction", "invariant"],
+          "citations": ["modules/gkx.js:1"]
+        },
+        {
+          "module": "invariant",
+          "variant": "primary",
+          "printedSourceSha256": "6b377021188adf8be5add1781bb1a5b3a7da5d0021df951267b1ae8d331f705f",
+          "dependencies": ["Env", "fb-error-lite", "sprintf"],
+          "citations": ["modules/invariant.js:1"]
+        },
+        {
+          "module": "isEmptyObject",
+          "variant": "primary",
+          "printedSourceSha256": "4e2b01fab45c2a49d9b4b6280af0de70ebb40a93c745bbe0740ca71722129af8",
+          "dependencies": [],
+          "citations": ["modules/isEmptyObject.js:1"]
+        },
+        {
+          "module": "isPlainObject",
+          "variant": "primary",
+          "printedSourceSha256": "402df75f4e9802c65120f1947d7770c1a517bd96bcda3aeb2d3ad43be3bc3ca0",
+          "dependencies": [],
+          "citations": ["modules/isPlainObject.js:1"]
+        },
+        {
+          "module": "justknobx",
+          "variant": "primary",
+          "printedSourceSha256": "f42afc172240cd5ff466368ab522c6b917cdf148a6527126ecf1052ed718ec9e",
+          "dependencies": ["invariant"],
+          "citations": ["modules/justknobx.js:1"]
+        },
+        {
+          "module": "logForCrash",
+          "variant": "primary",
+          "printedSourceSha256": "d2e1cbb02bfe6f6886e61b05ab7321cc6d905d23f7b3aaafaada4539dacb0c4e",
+          "dependencies": [
+            "BrowserCrashStaticConfig",
+            "FBLogger",
+            "JSErrorLoggingConfig",
+            "Promise",
+            "getErrorSafe",
+            "gkx",
+            "justknobx",
+            "logForCrashUtils"
+          ],
+          "citations": ["modules/logForCrash.js:1"]
+        },
+        {
+          "module": "logForCrashUtils",
+          "variant": "primary",
+          "printedSourceSha256": "0af9d64639d07fd6b6396781255f38f3bcfdc3d8f4d3f0705f102701f9424ea4",
+          "dependencies": [],
+          "citations": ["modules/logForCrashUtils.js:1"]
+        },
+        {
+          "module": "nullthrows",
+          "variant": "primary",
+          "printedSourceSha256": "8f9ee47b9edbd38314e5f785b651c3fef622f457813889a4495c3b79ea3c241c",
+          "dependencies": [],
+          "citations": ["modules/nullthrows.js:1"]
+        },
+        {
+          "module": "omit",
+          "variant": "primary",
+          "printedSourceSha256": "2d1d1966914440233f7561081a652d6632d099546eed25f0391fdd7f70bb7f4a",
+          "dependencies": [],
+          "citations": ["modules/omit.js:1"]
+        },
+        {
+          "module": "performance",
+          "variant": "primary",
+          "printedSourceSha256": "9bee7ad7d1941af3432757b1ce55c980030f812f0a5fb00916e906b8a0b6ced9",
+          "dependencies": [],
+          "citations": ["modules/performance.js:1"]
+        },
+        {
+          "module": "performanceNow",
+          "variant": "primary",
+          "printedSourceSha256": "415e5327e020372f7789e27dc42266a9cb3d6bbc2d8c47d0b751b93517a0475f",
+          "dependencies": ["performance"],
+          "citations": ["modules/performanceNow.js:1"]
         },
         {
           "module": "Promise",
@@ -81,11 +223,46 @@
           "citations": ["modules/Promise.js:1"]
         },
         {
+          "module": "removeFromArray",
+          "variant": "primary",
+          "printedSourceSha256": "c8e194de9e9463716c2f383406ae8269ddff1a9fe5fbc1a7559abcd2aaa666bb",
+          "dependencies": [],
+          "citations": ["modules/removeFromArray.js:1"]
+        },
+        {
           "module": "SimpleHook",
           "variant": "primary",
           "printedSourceSha256": "fd56db80143da1644f5f104549955a5a4fc38e3bafb9ae56cc3f2e4e33885eca",
           "dependencies": [],
           "citations": ["modules/SimpleHook.js:1"]
+        },
+        {
+          "module": "sprintf",
+          "variant": "primary",
+          "printedSourceSha256": "7860c49011bd89ed50d0db8ed061d00ec9a2ba42b75f298a10c3d6ef98888361",
+          "dependencies": [],
+          "citations": ["modules/sprintf.js:1"]
+        },
+        {
+          "module": "sumBy",
+          "variant": "primary",
+          "printedSourceSha256": "cce4774d6f8020ac5b2e0735451e0f7853b18ddf793c6f29681ec9ea73b75923",
+          "dependencies": [],
+          "citations": ["modules/sumBy.js:1"]
+        },
+        {
+          "module": "ua-parser-js",
+          "variant": "primary",
+          "printedSourceSha256": "4e3a05dfc64a400d54b8e89e11b5dcae2071e4119c9170cc91bb31bb054058cb",
+          "dependencies": ["ua-parser-js-0.7.39"],
+          "citations": ["modules/ua-parser-js.js:1"]
+        },
+        {
+          "module": "ua-parser-js-0.7.39",
+          "variant": "primary",
+          "printedSourceSha256": "bc484be8b30d6a05d683d953ce91cc74eddff962dae051b2f42d3e376bca1bcf",
+          "dependencies": [],
+          "citations": ["modules/ua-parser-js-0.7.39.js:1"]
         },
         {
           "module": "WAAbortError",
@@ -263,18 +440,18 @@
           "citations": ["modules/WATimeUtils.js:1"]
         },
         {
-          "module": "WATypeUtils",
-          "variant": "primary",
-          "printedSourceSha256": "692d60676bfcba61805b5c319fc172976c527ccb5cda2d3822a67b24da5f8e25",
-          "dependencies": [],
-          "citations": ["modules/WATypeUtils.js:1"]
-        },
-        {
           "module": "WATypedArraysCast",
           "variant": "primary",
           "printedSourceSha256": "5f37f9fcdce34e6ed635e7d8de803c98a8558384811c57a62eef0b5faf5ae07a",
           "dependencies": ["WABase64"],
           "citations": ["modules/WATypedArraysCast.js:1"]
+        },
+        {
+          "module": "WATypeUtils",
+          "variant": "primary",
+          "printedSourceSha256": "692d60676bfcba61805b5c319fc172976c527ccb5cda2d3822a67b24da5f8e25",
+          "dependencies": [],
+          "citations": ["modules/WATypeUtils.js:1"]
         },
         {
           "module": "WAUpperFirst",
@@ -408,20 +585,6 @@
           "citations": ["modules/WAWebCreateFile.js:1"]
         },
         {
-          "module": "WAWebDBStats",
-          "variant": "primary",
-          "printedSourceSha256": "1b7a1d086ace8a67b53ffe0bfcdaedc2698bbba27a6ff119f6ce432a4e1aa945",
-          "dependencies": ["WAWebDBTableUsage", "gkx"],
-          "citations": ["modules/WAWebDBStats.js:1"]
-        },
-        {
-          "module": "WAWebDBTableUsage",
-          "variant": "primary",
-          "printedSourceSha256": "c23fc5551bd9faa431f87fc8ec78e98957f9dc120992d07dc2c6eb3125932b71",
-          "dependencies": ["WAWebDBStats", "WAWebWebDbTableUsageWamEvent"],
-          "citations": ["modules/WAWebDBTableUsage.js:1"]
-        },
-        {
           "module": "WAWebDataUrlToBlob",
           "variant": "primary",
           "printedSourceSha256": "4b7dbecdec00ccfbe5b0a4282f62cb2aca4a3ed3b6a867815ae8a0207092c29f",
@@ -457,6 +620,20 @@
           "printedSourceSha256": "53afb89e5530aa0bec1c6f78e37b1e76ee3fc16511a62bfa10ae79acd004c1b3",
           "dependencies": ["WACustomError"],
           "citations": ["modules/WAWebDbErrors.js:1"]
+        },
+        {
+          "module": "WAWebDBStats",
+          "variant": "primary",
+          "printedSourceSha256": "1b7a1d086ace8a67b53ffe0bfcdaedc2698bbba27a6ff119f6ce432a4e1aa945",
+          "dependencies": ["WAWebDBTableUsage", "gkx"],
+          "citations": ["modules/WAWebDBStats.js:1"]
+        },
+        {
+          "module": "WAWebDBTableUsage",
+          "variant": "primary",
+          "printedSourceSha256": "c23fc5551bd9faa431f87fc8ec78e98957f9dc120992d07dc2c6eb3125932b71",
+          "dependencies": ["WAWebDBStats", "WAWebWebDbTableUsageWamEvent"],
+          "citations": ["modules/WAWebDBTableUsage.js:1"]
         },
         {
           "module": "WAWebDebounce",
@@ -576,7 +753,6 @@
           "variant": "primary",
           "printedSourceSha256": "37d31b2fbbf12b8ee135bbaede3531df2a0f6eea49ce39b5f5c2d1d7a4805e90",
           "dependencies": [
-            "invariant",
             "Promise",
             "WALogger",
             "WAWeb-dexie",
@@ -590,6 +766,7 @@
             "WAWebStorageCmd",
             "asyncToGeneratorRuntime",
             "getErrorSafe",
+            "invariant",
             "nullthrows"
           ],
           "citations": ["modules/WAWebIdb.js:1"]
@@ -599,7 +776,6 @@
           "variant": "primary",
           "printedSourceSha256": "3869c664230f4014b5e8ef9402e4a97ded9c1d67fe242b3c4e0496da6929e505",
           "dependencies": [
-            "invariant",
             "WAWeb-dexie",
             "WAWebDbEncryptionKey",
             "WAWebDexieCastTypes",
@@ -607,7 +783,8 @@
             "WAWebStorageSchema",
             "asyncToGeneratorRuntime",
             "err",
-            "getErrorSafe"
+            "getErrorSafe",
+            "invariant"
           ],
           "citations": ["modules/WAWebIdbEncryption.js:1"]
         },
@@ -615,7 +792,7 @@
           "module": "WAWebIdbHelpers",
           "variant": "primary",
           "printedSourceSha256": "999f896b363fcbd500868501ed2d8b39ff5b96276393d52519ae4cb5f2277978",
-          "dependencies": ["invariant", "WALogger", "WAWebStorageSchema", "err", "gkx"],
+          "dependencies": ["WALogger", "WAWebStorageSchema", "err", "gkx", "invariant"],
           "citations": ["modules/WAWebIdbHelpers.js:1"]
         },
         {
@@ -673,13 +850,13 @@
           "variant": "primary",
           "printedSourceSha256": "a74467322a663a3772d02cb1a94fb9726aef1bf08a4a76927ea7f6e54e626d4e",
           "dependencies": [
-            "invariant",
             "Promise",
             "WAWeb-dexie",
             "WAWebDexieCastTypes",
             "WAWebIdb",
             "WAWebStorage",
-            "err"
+            "err",
+            "invariant"
           ],
           "citations": ["modules/WAWebModelStorageUtils.js:1"]
         },
@@ -862,49 +1039,49 @@
           "module": "WAWebStorageAddArrayIndex",
           "variant": "primary",
           "printedSourceSha256": "7cec702ff964689480b50221ea8d5adac899add5f686dd12015221d657ef537d",
-          "dependencies": ["invariant", "WAWebStorageMutation", "WAWebStorageSchema"],
+          "dependencies": ["WAWebStorageMutation", "WAWebStorageSchema", "invariant"],
           "citations": ["modules/WAWebStorageAddArrayIndex.js:1"]
         },
         {
           "module": "WAWebStorageAddColumn",
           "variant": "primary",
           "printedSourceSha256": "84499577cd79a9e37dce970c7e2f350e5b9364de7cfb6cb7a55f93ba1449d729",
-          "dependencies": ["invariant", "WAWebStorageMutation", "WAWebStorageSchema"],
+          "dependencies": ["WAWebStorageMutation", "WAWebStorageSchema", "invariant"],
           "citations": ["modules/WAWebStorageAddColumn.js:1"]
         },
         {
           "module": "WAWebStorageAddCompositeIndex",
           "variant": "primary",
           "printedSourceSha256": "18ec06a6d8ffd785d859b1bb71c075eaf00d1c9bf15cca3e65dc2aa264dd08f1",
-          "dependencies": ["invariant", "WAWebStorageMutation", "WAWebStorageSchema"],
+          "dependencies": ["WAWebStorageMutation", "WAWebStorageSchema", "invariant"],
           "citations": ["modules/WAWebStorageAddCompositeIndex.js:1"]
         },
         {
           "module": "WAWebStorageAddEncryptedColumn",
           "variant": "primary",
           "printedSourceSha256": "ed299fbdd55decd6ffe79b37d7f5981a98832e557d8e9000413e738024683aa2",
-          "dependencies": ["invariant", "WAWebStorageMutation", "WAWebStorageSchema"],
+          "dependencies": ["WAWebStorageMutation", "WAWebStorageSchema", "invariant"],
           "citations": ["modules/WAWebStorageAddEncryptedColumn.js:1"]
         },
         {
           "module": "WAWebStorageAddIndex",
           "variant": "primary",
           "printedSourceSha256": "71d961ea275c42090419bc4bfcec6dfee9dac8d1895d337ff07ce800df6920ba",
-          "dependencies": ["invariant", "WAWebStorageMutation", "WAWebStorageSchema"],
+          "dependencies": ["WAWebStorageMutation", "WAWebStorageSchema", "invariant"],
           "citations": ["modules/WAWebStorageAddIndex.js:1"]
         },
         {
           "module": "WAWebStorageAddUniqueIndex",
           "variant": "primary",
           "printedSourceSha256": "ff2e3c17cee05e8712838abd8db488d1f7252d18bc4361f8048cf1aac352c441",
-          "dependencies": ["invariant", "WAWebStorageMutation", "WAWebStorageSchema"],
+          "dependencies": ["WAWebStorageMutation", "WAWebStorageSchema", "invariant"],
           "citations": ["modules/WAWebStorageAddUniqueIndex.js:1"]
         },
         {
           "module": "WAWebStorageAutoIncrementingPrimaryKey",
           "variant": "primary",
           "printedSourceSha256": "ba03ec57ad2f218aa3d429f0a405ec19bfeb7b46d6bc3712987aa35969a8216b",
-          "dependencies": ["invariant", "WAWebStorageAbstractPrimaryKey", "WAWebStorageSchema"],
+          "dependencies": ["WAWebStorageAbstractPrimaryKey", "WAWebStorageSchema", "invariant"],
           "citations": ["modules/WAWebStorageAutoIncrementingPrimaryKey.js:1"]
         },
         {
@@ -918,7 +1095,7 @@
           "module": "WAWebStorageCompositePrimaryKey",
           "variant": "primary",
           "printedSourceSha256": "d35c0404625662c9a0b5bd6b6b9a0d76d6bb31edf92a40fc29a427a048ec2cc0",
-          "dependencies": ["invariant", "WAWebStorageAbstractPrimaryKey", "WAWebStorageSchema"],
+          "dependencies": ["WAWebStorageAbstractPrimaryKey", "WAWebStorageSchema", "invariant"],
           "citations": ["modules/WAWebStorageCompositePrimaryKey.js:1"]
         },
         {
@@ -993,35 +1170,35 @@
           "module": "WAWebStorageRemoveArrayIndex",
           "variant": "primary",
           "printedSourceSha256": "451584c82fda141977c06c2c9ede1b7b9846ab97c75be04d2f700400e22cd4d1",
-          "dependencies": ["invariant", "WAWebStorageMutation", "WAWebStorageSchema"],
+          "dependencies": ["WAWebStorageMutation", "WAWebStorageSchema", "invariant"],
           "citations": ["modules/WAWebStorageRemoveArrayIndex.js:1"]
         },
         {
           "module": "WAWebStorageRemoveColumn",
           "variant": "primary",
           "printedSourceSha256": "502e8bbb345e1d9c67576cae1f957b595150109eb10383d092b2341b9c53b6ea",
-          "dependencies": ["invariant", "WAWebStorageMutation", "WAWebStorageSchema"],
+          "dependencies": ["WAWebStorageMutation", "WAWebStorageSchema", "invariant"],
           "citations": ["modules/WAWebStorageRemoveColumn.js:1"]
         },
         {
           "module": "WAWebStorageRemoveCompositeIndex",
           "variant": "primary",
           "printedSourceSha256": "7d0d30b1c5bd407df42467f4399e485912e909bd78f7bc41451cacb4abff8fc5",
-          "dependencies": ["invariant", "WAWebStorageMutation", "WAWebStorageSchema"],
+          "dependencies": ["WAWebStorageMutation", "WAWebStorageSchema", "invariant"],
           "citations": ["modules/WAWebStorageRemoveCompositeIndex.js:1"]
         },
         {
           "module": "WAWebStorageRemoveIndex",
           "variant": "primary",
           "printedSourceSha256": "b45837529a35dee84280e396e8ed8f849ddb38a7e12436b181d0a61d84e06501",
-          "dependencies": ["invariant", "WAWebStorageMutation", "WAWebStorageSchema"],
+          "dependencies": ["WAWebStorageMutation", "WAWebStorageSchema", "invariant"],
           "citations": ["modules/WAWebStorageRemoveIndex.js:1"]
         },
         {
           "module": "WAWebStorageRemoveUniqueIndex",
           "variant": "primary",
           "printedSourceSha256": "7ea35a66af83d3333b137a05270fe49c34cb03099f2f8bd49bf09bcc4d6fd7a3",
-          "dependencies": ["invariant", "WAWebStorageMutation", "WAWebStorageSchema"],
+          "dependencies": ["WAWebStorageMutation", "WAWebStorageSchema", "invariant"],
           "citations": ["modules/WAWebStorageRemoveUniqueIndex.js:1"]
         },
         {
@@ -1035,14 +1212,14 @@
           "module": "WAWebStorageTableBuilder",
           "variant": "primary",
           "printedSourceSha256": "f8c8175967b9b7eb2ddc5a4b008339e5dcbe69d40660bc5bce0f0925dbb63964",
-          "dependencies": ["invariant", "WAWebStorageMutationUtils", "WAWebStorageSchema"],
+          "dependencies": ["WAWebStorageMutationUtils", "WAWebStorageSchema", "invariant"],
           "citations": ["modules/WAWebStorageTableBuilder.js:1"]
         },
         {
           "module": "WAWebStorageUserDefinedPrimaryKey",
           "variant": "primary",
           "printedSourceSha256": "13e68a2b9b00b7cec3d3cf4377f92eb71dddd45998316e9f2109e9f5fb055d67",
-          "dependencies": ["invariant", "WAWebStorageAbstractPrimaryKey", "WAWebStorageSchema"],
+          "dependencies": ["WAWebStorageAbstractPrimaryKey", "WAWebStorageSchema", "invariant"],
           "citations": ["modules/WAWebStorageUserDefinedPrimaryKey.js:1"]
         },
         {
@@ -1058,6 +1235,19 @@
           "printedSourceSha256": "b1a76e0e4141239a0dc2f5e62cf67de685e776f781fdbd86972f145b47dc4e22",
           "dependencies": ["gkx", "ua-parser-js"],
           "citations": ["modules/WAWebUA.js:1"]
+        },
+        {
+          "module": "WAWebUiIdleEventBus",
+          "variant": "primary",
+          "printedSourceSha256": "f1dca19cfed068d57ea2eb3e78b8f48b63c462d8cbcc253bfd1560ec1f687974",
+          "dependencies": [
+            "WALogger",
+            "WAWebDebounce",
+            "WAWebEventEmitter",
+            "WAWebNoop",
+            "invariant"
+          ],
+          "citations": ["modules/WAWebUiIdleEventBus.js:1"]
         },
         {
           "module": "WAWebURLUtils",
@@ -1083,19 +1273,6 @@
           "printedSourceSha256": "8d41589791cb7cac55d6ec5508ce165801f4d45de1613f2b89259d8cf022b545",
           "dependencies": [],
           "citations": ["modules/WAWebURLValidSchemes.js:1"]
-        },
-        {
-          "module": "WAWebUiIdleEventBus",
-          "variant": "primary",
-          "printedSourceSha256": "f1dca19cfed068d57ea2eb3e78b8f48b63c462d8cbcc253bfd1560ec1f687974",
-          "dependencies": [
-            "invariant",
-            "WALogger",
-            "WAWebDebounce",
-            "WAWebEventEmitter",
-            "WAWebNoop"
-          ],
-          "citations": ["modules/WAWebUiIdleEventBus.js:1"]
         },
         {
           "module": "WAWebWamCodegenGlobalMetrics",
@@ -1145,6 +1322,13 @@
           "citations": ["modules/WAWebWamDroppedEventWamEvent.js:1"]
         },
         {
+          "module": "WAWebWamEnumWebcScenarioType",
+          "variant": "primary",
+          "printedSourceSha256": "d8911e9e20ec962d2fcbd914757fd066d7de7978208f72511a6ecab3379ed9b7",
+          "dependencies": [],
+          "citations": ["modules/WAWebWamEnumWebcScenarioType.js:1"]
+        },
+        {
           "module": "WAWebWamEnumWebDbLoaderType",
           "variant": "primary",
           "printedSourceSha256": "81724b8db4d57b0c10ede6c3968c25023c0fe1f818ed7f82ffce9aa5138471ed",
@@ -1171,13 +1355,6 @@
           "printedSourceSha256": "44e8afb4f82d905f0997dcb7174de39e85642022dd5f5a16b56cbd65aa2b5742",
           "dependencies": [],
           "citations": ["modules/WAWebWamEnumWebTableLogReasonCode.js:1"]
-        },
-        {
-          "module": "WAWebWamEnumWebcScenarioType",
-          "variant": "primary",
-          "printedSourceSha256": "d8911e9e20ec962d2fcbd914757fd066d7de7978208f72511a6ecab3379ed9b7",
-          "dependencies": [],
-          "citations": ["modules/WAWebWamEnumWebcScenarioType.js:1"]
         },
         {
           "module": "WAWebWamInitQueue",
@@ -1249,190 +1426,13 @@
             "WAWebURLUtils"
           ],
           "citations": ["modules/WAWebXHR.js:1"]
-        },
-        {
-          "module": "asyncToGeneratorRuntime",
-          "variant": "primary",
-          "printedSourceSha256": "147052b2a1cdc6d21087a611043d0974d5babedeeee624185babb023bbcf72f3",
-          "dependencies": ["Promise"],
-          "citations": ["modules/asyncToGeneratorRuntime.js:1"]
-        },
-        {
-          "module": "compactMap",
-          "variant": "primary",
-          "printedSourceSha256": "aa300e544d92f12afdaf79680e72017777b9df31b4c854a8db4ce2b1a4b62b16",
-          "dependencies": [],
-          "citations": ["modules/compactMap.js:1"]
-        },
-        {
-          "module": "dexie-3.2.2",
-          "variant": "primary",
-          "printedSourceSha256": "cbfa866f3403db8683d4aeb051090b249806947527c6ec850330453877ad3fe9",
-          "dependencies": ["Promise"],
-          "citations": ["modules/dexie-3.2.2.js:1"]
-        },
-        {
-          "module": "emptyFunction",
-          "variant": "primary",
-          "printedSourceSha256": "efc2fa885be346ba40045503e3a0588374c842f36261ce8138988d63608ecb48",
-          "dependencies": [],
-          "citations": ["modules/emptyFunction.js:1"]
-        },
-        {
-          "module": "err",
-          "variant": "primary",
-          "printedSourceSha256": "a26a1f88fe2c09505c0ec8e43d1a43c2299b6126ea7ea305c567bf7634fbeea0",
-          "dependencies": ["fb-error"],
-          "citations": ["modules/err.js:1"]
-        },
-        {
-          "module": "fb-error",
-          "variant": "primary",
-          "printedSourceSha256": "545144d2d2c50524d5bcfc421916cf76760743cb5b034dcb7a4d7066981f714e",
-          "dependencies": ["performanceNow", "removeFromArray"],
-          "citations": ["modules/fb-error.js:1"]
-        },
-        {
-          "module": "fb-error-lite",
-          "variant": "primary",
-          "printedSourceSha256": "70182c28f267319e6122d9da5fa9d01bc3c60775130d33429a71874503924b64",
-          "dependencies": [],
-          "citations": ["modules/fb-error-lite.js:1"]
-        },
-        {
-          "module": "getErrorSafe",
-          "variant": "primary",
-          "printedSourceSha256": "e2e7bf104b2e70a7cf8b17c8861754af744d215a24d547fc29058f64f0db882b",
-          "dependencies": ["fb-error"],
-          "citations": ["modules/getErrorSafe.js:1"]
-        },
-        {
-          "module": "gkx",
-          "variant": "primary",
-          "printedSourceSha256": "e84fc9d0a08a52702897502d1eb33202bd0d97b9633277aa18df81d9cb902cf6",
-          "dependencies": ["invariant", "BanzaiLazyQueue", "ExecutionEnvironment", "emptyFunction"],
-          "citations": ["modules/gkx.js:1"]
-        },
-        {
-          "module": "invariant",
-          "variant": "primary",
-          "printedSourceSha256": "6b377021188adf8be5add1781bb1a5b3a7da5d0021df951267b1ae8d331f705f",
-          "dependencies": ["Env", "fb-error-lite", "sprintf"],
-          "citations": ["modules/invariant.js:1"]
-        },
-        {
-          "module": "isEmptyObject",
-          "variant": "primary",
-          "printedSourceSha256": "4e2b01fab45c2a49d9b4b6280af0de70ebb40a93c745bbe0740ca71722129af8",
-          "dependencies": [],
-          "citations": ["modules/isEmptyObject.js:1"]
-        },
-        {
-          "module": "isPlainObject",
-          "variant": "primary",
-          "printedSourceSha256": "402df75f4e9802c65120f1947d7770c1a517bd96bcda3aeb2d3ad43be3bc3ca0",
-          "dependencies": [],
-          "citations": ["modules/isPlainObject.js:1"]
-        },
-        {
-          "module": "justknobx",
-          "variant": "primary",
-          "printedSourceSha256": "f42afc172240cd5ff466368ab522c6b917cdf148a6527126ecf1052ed718ec9e",
-          "dependencies": ["invariant"],
-          "citations": ["modules/justknobx.js:1"]
-        },
-        {
-          "module": "logForCrash",
-          "variant": "primary",
-          "printedSourceSha256": "d2e1cbb02bfe6f6886e61b05ab7321cc6d905d23f7b3aaafaada4539dacb0c4e",
-          "dependencies": [
-            "BrowserCrashStaticConfig",
-            "FBLogger",
-            "JSErrorLoggingConfig",
-            "Promise",
-            "getErrorSafe",
-            "gkx",
-            "justknobx",
-            "logForCrashUtils"
-          ],
-          "citations": ["modules/logForCrash.js:1"]
-        },
-        {
-          "module": "logForCrashUtils",
-          "variant": "primary",
-          "printedSourceSha256": "0af9d64639d07fd6b6396781255f38f3bcfdc3d8f4d3f0705f102701f9424ea4",
-          "dependencies": [],
-          "citations": ["modules/logForCrashUtils.js:1"]
-        },
-        {
-          "module": "nullthrows",
-          "variant": "primary",
-          "printedSourceSha256": "8f9ee47b9edbd38314e5f785b651c3fef622f457813889a4495c3b79ea3c241c",
-          "dependencies": [],
-          "citations": ["modules/nullthrows.js:1"]
-        },
-        {
-          "module": "omit",
-          "variant": "primary",
-          "printedSourceSha256": "2d1d1966914440233f7561081a652d6632d099546eed25f0391fdd7f70bb7f4a",
-          "dependencies": [],
-          "citations": ["modules/omit.js:1"]
-        },
-        {
-          "module": "performance",
-          "variant": "primary",
-          "printedSourceSha256": "9bee7ad7d1941af3432757b1ce55c980030f812f0a5fb00916e906b8a0b6ced9",
-          "dependencies": [],
-          "citations": ["modules/performance.js:1"]
-        },
-        {
-          "module": "performanceNow",
-          "variant": "primary",
-          "printedSourceSha256": "415e5327e020372f7789e27dc42266a9cb3d6bbc2d8c47d0b751b93517a0475f",
-          "dependencies": ["performance"],
-          "citations": ["modules/performanceNow.js:1"]
-        },
-        {
-          "module": "removeFromArray",
-          "variant": "primary",
-          "printedSourceSha256": "c8e194de9e9463716c2f383406ae8269ddff1a9fe5fbc1a7559abcd2aaa666bb",
-          "dependencies": [],
-          "citations": ["modules/removeFromArray.js:1"]
-        },
-        {
-          "module": "sprintf",
-          "variant": "primary",
-          "printedSourceSha256": "7860c49011bd89ed50d0db8ed061d00ec9a2ba42b75f298a10c3d6ef98888361",
-          "dependencies": [],
-          "citations": ["modules/sprintf.js:1"]
-        },
-        {
-          "module": "sumBy",
-          "variant": "primary",
-          "printedSourceSha256": "cce4774d6f8020ac5b2e0735451e0f7853b18ddf793c6f29681ec9ea73b75923",
-          "dependencies": [],
-          "citations": ["modules/sumBy.js:1"]
-        },
-        {
-          "module": "ua-parser-js",
-          "variant": "primary",
-          "printedSourceSha256": "4e3a05dfc64a400d54b8e89e11b5dcae2071e4119c9170cc91bb31bb054058cb",
-          "dependencies": ["ua-parser-js-0.7.39"],
-          "citations": ["modules/ua-parser-js.js:1"]
-        },
-        {
-          "module": "ua-parser-js-0.7.39",
-          "variant": "primary",
-          "printedSourceSha256": "bc484be8b30d6a05d683d953ce91cc74eddff962dae051b2f42d3e376bca1bcf",
-          "dependencies": [],
-          "citations": ["modules/ua-parser-js-0.7.39.js:1"]
         }
       ],
       "analyzer": {
-        "version": 4,
-        "sourceSha256": "73c5e31e59ff601a01114ab03a0dc183d81389987e3af5832c53d9ac8bd8c06b"
+        "version": 5,
+        "sourceSha256": "227dc637e157fb8708c4f58e3c7fd821d78fdff3fc3ad7ec48ff6b5818e54f82"
       },
-      "inventoryDigest": "b001c7d94b9fc45da56b8838150e23d068e139f3aa8a4485e04dc382ad197f1a",
+      "inventoryDigest": "e3c6ded32fdec7e546d3b966c86386ec812017e80617ad4ff00eab54a315cd04",
       "gates": [
         {
           "kind": "gkx",
@@ -1472,67 +1472,6 @@
               "method": "gkx",
               "timing": "function-body",
               "expression": "r(\"gkx\")(\"16539\")"
-            },
-            {
-              "module": "WAWebDBStats",
-              "variant": "primary",
-              "line": 9,
-              "column": 3,
-              "method": "gkx",
-              "timing": "function-body",
-              "expression": "r(\"gkx\")(\"16539\")"
-            },
-            {
-              "module": "WAWebDBStats",
-              "variant": "primary",
-              "line": 25,
-              "column": 7,
-              "method": "gkx",
-              "timing": "function-body",
-              "expression": "r(\"gkx\")(\"16539\")"
-            },
-            {
-              "module": "WAWebDBStats",
-              "variant": "primary",
-              "line": 32,
-              "column": 7,
-              "method": "gkx",
-              "timing": "function-body",
-              "expression": "r(\"gkx\")(\"16539\")"
-            },
-            {
-              "module": "WAWebDBStats",
-              "variant": "primary",
-              "line": 37,
-              "column": 7,
-              "method": "gkx",
-              "timing": "function-body",
-              "expression": "r(\"gkx\")(\"16539\")"
-            },
-            {
-              "module": "WAWebDBStats",
-              "variant": "primary",
-              "line": 43,
-              "column": 3,
-              "method": "gkx",
-              "timing": "function-body",
-              "expression": "r(\"gkx\")(\"16539\")"
-            }
-          ]
-        },
-        {
-          "kind": "gkx",
-          "key": "207",
-          "valueType": "boolean",
-          "reads": [
-            {
-              "module": "logForCrash",
-              "variant": "primary",
-              "line": 33,
-              "column": 42,
-              "method": "gkx",
-              "timing": "function-body",
-              "expression": "r(\"gkx\")(\"207\")"
             }
           ]
         },
@@ -1755,22 +1694,6 @@
         },
         {
           "kind": "gkx",
-          "key": "3981",
-          "valueType": "boolean",
-          "reads": [
-            {
-              "module": "logForCrash",
-              "variant": "primary",
-              "line": 90,
-              "column": 70,
-              "method": "gkx",
-              "timing": "module-initialization",
-              "expression": "r(\"gkx\")(\"3981\")"
-            }
-          ]
-        },
-        {
-          "kind": "gkx",
           "key": "4112",
           "valueType": "boolean",
           "reads": [
@@ -1798,22 +1721,6 @@
               "method": "_",
               "timing": "module-initialization",
               "expression": "r(\"justknobx\")._(\"1600\")"
-            }
-          ]
-        },
-        {
-          "kind": "knobs",
-          "key": "195",
-          "valueType": "unknown",
-          "reads": [
-            {
-              "module": "logForCrash",
-              "variant": "primary",
-              "line": 33,
-              "column": 14,
-              "method": "_",
-              "timing": "function-body",
-              "expression": "r(\"justknobx\")._(\"195\")"
             }
           ]
         },
@@ -1868,8 +1775,12 @@
       ],
       "unresolved": [
         {
-          "code": "missing-module",
-          "module": "cr:38444"
+          "code": "work-budget",
+          "module": "WAWebDbEncryptionKey",
+          "sourceSha256": "98fae477c7429a7b713da5443d80a3150600d511a1714dda876ffd82b6579ee1",
+          "required": "analysis-work",
+          "budget": "2000000",
+          "count": 2000000
         },
         {
           "code": "missing-module",
@@ -1878,10 +1789,6 @@
         {
           "code": "missing-module",
           "module": "cr:6640"
-        },
-        {
-          "code": "missing-module",
-          "module": "JSErrorLoggingConfig"
         },
         {
           "code": "missing-module",
@@ -2025,12 +1932,12 @@
         "scope": "module-closure-superset",
         "semanticProof": false,
         "resolverCoverage": false,
-        "modules": 160,
-        "sourceBytes": 476793,
+        "modules": 120,
+        "sourceBytes": 393436,
         "workBudget": {
           "limit": 2000000,
-          "consumed": 1956432,
-          "exhausted": false
+          "consumed": 2000000,
+          "exhausted": true
         },
         "limitations": [
           "Only supported gate APIs and static key expressions are inventoried.",
@@ -2052,6 +1959,13 @@
           "citations": ["modules/$InternalEnum.js:1"]
         },
         {
+          "module": "asyncToGeneratorRuntime",
+          "variant": "primary",
+          "printedSourceSha256": "147052b2a1cdc6d21087a611043d0974d5babedeeee624185babb023bbcf72f3",
+          "dependencies": ["Promise"],
+          "citations": ["modules/asyncToGeneratorRuntime.js:1"]
+        },
+        {
           "module": "BanzaiLazyQueue",
           "variant": "primary",
           "printedSourceSha256": "c4b206703179790d810f00c914c5ff13123e8a5d479a1fc017e2d8fb06c62d49",
@@ -2066,11 +1980,39 @@
           "citations": ["modules/BrowserCrashStaticConfig.js:1"]
         },
         {
+          "module": "compactMap",
+          "variant": "primary",
+          "printedSourceSha256": "aa300e544d92f12afdaf79680e72017777b9df31b4c854a8db4ce2b1a4b62b16",
+          "dependencies": [],
+          "citations": ["modules/compactMap.js:1"]
+        },
+        {
+          "module": "dexie-3.2.2",
+          "variant": "primary",
+          "printedSourceSha256": "cbfa866f3403db8683d4aeb051090b249806947527c6ec850330453877ad3fe9",
+          "dependencies": ["Promise"],
+          "citations": ["modules/dexie-3.2.2.js:1"]
+        },
+        {
+          "module": "emptyFunction",
+          "variant": "primary",
+          "printedSourceSha256": "efc2fa885be346ba40045503e3a0588374c842f36261ce8138988d63608ecb48",
+          "dependencies": [],
+          "citations": ["modules/emptyFunction.js:1"]
+        },
+        {
           "module": "Env",
           "variant": "primary",
           "printedSourceSha256": "ad5c3d19c3db7a10d569dceb202b62801ac1014c42a99cf21d3249a124319082",
           "dependencies": [],
           "citations": ["modules/Env.js:1"]
+        },
+        {
+          "module": "err",
+          "variant": "primary",
+          "printedSourceSha256": "a26a1f88fe2c09505c0ec8e43d1a43c2299b6126ea7ea305c567bf7634fbeea0",
+          "dependencies": ["fb-error"],
+          "citations": ["modules/err.js:1"]
         },
         {
           "module": "ExecutionEnvironment",
@@ -2080,11 +2022,118 @@
           "citations": ["modules/ExecutionEnvironment.js:1"]
         },
         {
+          "module": "fb-error",
+          "variant": "primary",
+          "printedSourceSha256": "545144d2d2c50524d5bcfc421916cf76760743cb5b034dcb7a4d7066981f714e",
+          "dependencies": ["performanceNow", "removeFromArray"],
+          "citations": ["modules/fb-error.js:1"]
+        },
+        {
+          "module": "fb-error-lite",
+          "variant": "primary",
+          "printedSourceSha256": "70182c28f267319e6122d9da5fa9d01bc3c60775130d33429a71874503924b64",
+          "dependencies": [],
+          "citations": ["modules/fb-error-lite.js:1"]
+        },
+        {
           "module": "FBLogger",
           "variant": "primary",
           "printedSourceSha256": "5b78358a73a6900d013f27628afaffe9b58fdb92dc37233690ec50441114c7c2",
           "dependencies": ["fb-error"],
           "citations": ["modules/FBLogger.js:1"]
+        },
+        {
+          "module": "getErrorSafe",
+          "variant": "primary",
+          "printedSourceSha256": "e2e7bf104b2e70a7cf8b17c8861754af744d215a24d547fc29058f64f0db882b",
+          "dependencies": ["fb-error"],
+          "citations": ["modules/getErrorSafe.js:1"]
+        },
+        {
+          "module": "gkx",
+          "variant": "primary",
+          "printedSourceSha256": "e84fc9d0a08a52702897502d1eb33202bd0d97b9633277aa18df81d9cb902cf6",
+          "dependencies": ["BanzaiLazyQueue", "ExecutionEnvironment", "emptyFunction", "invariant"],
+          "citations": ["modules/gkx.js:1"]
+        },
+        {
+          "module": "invariant",
+          "variant": "primary",
+          "printedSourceSha256": "6b377021188adf8be5add1781bb1a5b3a7da5d0021df951267b1ae8d331f705f",
+          "dependencies": ["Env", "fb-error-lite", "sprintf"],
+          "citations": ["modules/invariant.js:1"]
+        },
+        {
+          "module": "isEmptyObject",
+          "variant": "primary",
+          "printedSourceSha256": "4e2b01fab45c2a49d9b4b6280af0de70ebb40a93c745bbe0740ca71722129af8",
+          "dependencies": [],
+          "citations": ["modules/isEmptyObject.js:1"]
+        },
+        {
+          "module": "isPlainObject",
+          "variant": "primary",
+          "printedSourceSha256": "402df75f4e9802c65120f1947d7770c1a517bd96bcda3aeb2d3ad43be3bc3ca0",
+          "dependencies": [],
+          "citations": ["modules/isPlainObject.js:1"]
+        },
+        {
+          "module": "justknobx",
+          "variant": "primary",
+          "printedSourceSha256": "f42afc172240cd5ff466368ab522c6b917cdf148a6527126ecf1052ed718ec9e",
+          "dependencies": ["invariant"],
+          "citations": ["modules/justknobx.js:1"]
+        },
+        {
+          "module": "logForCrash",
+          "variant": "primary",
+          "printedSourceSha256": "d2e1cbb02bfe6f6886e61b05ab7321cc6d905d23f7b3aaafaada4539dacb0c4e",
+          "dependencies": [
+            "BrowserCrashStaticConfig",
+            "FBLogger",
+            "JSErrorLoggingConfig",
+            "Promise",
+            "getErrorSafe",
+            "gkx",
+            "justknobx",
+            "logForCrashUtils"
+          ],
+          "citations": ["modules/logForCrash.js:1"]
+        },
+        {
+          "module": "logForCrashUtils",
+          "variant": "primary",
+          "printedSourceSha256": "0af9d64639d07fd6b6396781255f38f3bcfdc3d8f4d3f0705f102701f9424ea4",
+          "dependencies": [],
+          "citations": ["modules/logForCrashUtils.js:1"]
+        },
+        {
+          "module": "nullthrows",
+          "variant": "primary",
+          "printedSourceSha256": "8f9ee47b9edbd38314e5f785b651c3fef622f457813889a4495c3b79ea3c241c",
+          "dependencies": [],
+          "citations": ["modules/nullthrows.js:1"]
+        },
+        {
+          "module": "omit",
+          "variant": "primary",
+          "printedSourceSha256": "2d1d1966914440233f7561081a652d6632d099546eed25f0391fdd7f70bb7f4a",
+          "dependencies": [],
+          "citations": ["modules/omit.js:1"]
+        },
+        {
+          "module": "performance",
+          "variant": "primary",
+          "printedSourceSha256": "9bee7ad7d1941af3432757b1ce55c980030f812f0a5fb00916e906b8a0b6ced9",
+          "dependencies": [],
+          "citations": ["modules/performance.js:1"]
+        },
+        {
+          "module": "performanceNow",
+          "variant": "primary",
+          "printedSourceSha256": "415e5327e020372f7789e27dc42266a9cb3d6bbc2d8c47d0b751b93517a0475f",
+          "dependencies": ["performance"],
+          "citations": ["modules/performanceNow.js:1"]
         },
         {
           "module": "Promise",
@@ -2094,11 +2143,46 @@
           "citations": ["modules/Promise.js:1"]
         },
         {
+          "module": "removeFromArray",
+          "variant": "primary",
+          "printedSourceSha256": "c8e194de9e9463716c2f383406ae8269ddff1a9fe5fbc1a7559abcd2aaa666bb",
+          "dependencies": [],
+          "citations": ["modules/removeFromArray.js:1"]
+        },
+        {
           "module": "SimpleHook",
           "variant": "primary",
           "printedSourceSha256": "fd56db80143da1644f5f104549955a5a4fc38e3bafb9ae56cc3f2e4e33885eca",
           "dependencies": [],
           "citations": ["modules/SimpleHook.js:1"]
+        },
+        {
+          "module": "sprintf",
+          "variant": "primary",
+          "printedSourceSha256": "7860c49011bd89ed50d0db8ed061d00ec9a2ba42b75f298a10c3d6ef98888361",
+          "dependencies": [],
+          "citations": ["modules/sprintf.js:1"]
+        },
+        {
+          "module": "sumBy",
+          "variant": "primary",
+          "printedSourceSha256": "cce4774d6f8020ac5b2e0735451e0f7853b18ddf793c6f29681ec9ea73b75923",
+          "dependencies": [],
+          "citations": ["modules/sumBy.js:1"]
+        },
+        {
+          "module": "ua-parser-js",
+          "variant": "primary",
+          "printedSourceSha256": "4e3a05dfc64a400d54b8e89e11b5dcae2071e4119c9170cc91bb31bb054058cb",
+          "dependencies": ["ua-parser-js-0.7.39"],
+          "citations": ["modules/ua-parser-js.js:1"]
+        },
+        {
+          "module": "ua-parser-js-0.7.39",
+          "variant": "primary",
+          "printedSourceSha256": "bc484be8b30d6a05d683d953ce91cc74eddff962dae051b2f42d3e376bca1bcf",
+          "dependencies": [],
+          "citations": ["modules/ua-parser-js-0.7.39.js:1"]
         },
         {
           "module": "WAAbortError",
@@ -2276,18 +2360,18 @@
           "citations": ["modules/WATimeUtils.js:1"]
         },
         {
-          "module": "WATypeUtils",
-          "variant": "primary",
-          "printedSourceSha256": "692d60676bfcba61805b5c319fc172976c527ccb5cda2d3822a67b24da5f8e25",
-          "dependencies": [],
-          "citations": ["modules/WATypeUtils.js:1"]
-        },
-        {
           "module": "WATypedArraysCast",
           "variant": "primary",
           "printedSourceSha256": "5f37f9fcdce34e6ed635e7d8de803c98a8558384811c57a62eef0b5faf5ae07a",
           "dependencies": ["WABase64"],
           "citations": ["modules/WATypedArraysCast.js:1"]
+        },
+        {
+          "module": "WATypeUtils",
+          "variant": "primary",
+          "printedSourceSha256": "692d60676bfcba61805b5c319fc172976c527ccb5cda2d3822a67b24da5f8e25",
+          "dependencies": [],
+          "citations": ["modules/WATypeUtils.js:1"]
         },
         {
           "module": "WAUpperFirst",
@@ -2420,20 +2504,6 @@
           "citations": ["modules/WAWebCreateFile.js:1"]
         },
         {
-          "module": "WAWebDBStats",
-          "variant": "primary",
-          "printedSourceSha256": "1b7a1d086ace8a67b53ffe0bfcdaedc2698bbba27a6ff119f6ce432a4e1aa945",
-          "dependencies": ["WAWebDBTableUsage", "gkx"],
-          "citations": ["modules/WAWebDBStats.js:1"]
-        },
-        {
-          "module": "WAWebDBTableUsage",
-          "variant": "primary",
-          "printedSourceSha256": "c23fc5551bd9faa431f87fc8ec78e98957f9dc120992d07dc2c6eb3125932b71",
-          "dependencies": ["WAWebDBStats", "WAWebWebDbTableUsageWamEvent"],
-          "citations": ["modules/WAWebDBTableUsage.js:1"]
-        },
-        {
           "module": "WAWebDataUrlToBlob",
           "variant": "primary",
           "printedSourceSha256": "4b7dbecdec00ccfbe5b0a4282f62cb2aca4a3ed3b6a867815ae8a0207092c29f",
@@ -2469,6 +2539,20 @@
           "printedSourceSha256": "53afb89e5530aa0bec1c6f78e37b1e76ee3fc16511a62bfa10ae79acd004c1b3",
           "dependencies": ["WACustomError"],
           "citations": ["modules/WAWebDbErrors.js:1"]
+        },
+        {
+          "module": "WAWebDBStats",
+          "variant": "primary",
+          "printedSourceSha256": "1b7a1d086ace8a67b53ffe0bfcdaedc2698bbba27a6ff119f6ce432a4e1aa945",
+          "dependencies": ["WAWebDBTableUsage", "gkx"],
+          "citations": ["modules/WAWebDBStats.js:1"]
+        },
+        {
+          "module": "WAWebDBTableUsage",
+          "variant": "primary",
+          "printedSourceSha256": "c23fc5551bd9faa431f87fc8ec78e98957f9dc120992d07dc2c6eb3125932b71",
+          "dependencies": ["WAWebDBStats", "WAWebWebDbTableUsageWamEvent"],
+          "citations": ["modules/WAWebDBTableUsage.js:1"]
         },
         {
           "module": "WAWebDebounce",
@@ -2581,7 +2665,6 @@
           "variant": "primary",
           "printedSourceSha256": "37d31b2fbbf12b8ee135bbaede3531df2a0f6eea49ce39b5f5c2d1d7a4805e90",
           "dependencies": [
-            "invariant",
             "Promise",
             "WALogger",
             "WAWeb-dexie",
@@ -2595,6 +2678,7 @@
             "WAWebStorageCmd",
             "asyncToGeneratorRuntime",
             "getErrorSafe",
+            "invariant",
             "nullthrows"
           ],
           "citations": ["modules/WAWebIdb.js:1"]
@@ -2604,7 +2688,6 @@
           "variant": "primary",
           "printedSourceSha256": "3869c664230f4014b5e8ef9402e4a97ded9c1d67fe242b3c4e0496da6929e505",
           "dependencies": [
-            "invariant",
             "WAWeb-dexie",
             "WAWebDbEncryptionKey",
             "WAWebDexieCastTypes",
@@ -2612,7 +2695,8 @@
             "WAWebStorageSchema",
             "asyncToGeneratorRuntime",
             "err",
-            "getErrorSafe"
+            "getErrorSafe",
+            "invariant"
           ],
           "citations": ["modules/WAWebIdbEncryption.js:1"]
         },
@@ -2620,7 +2704,7 @@
           "module": "WAWebIdbHelpers",
           "variant": "primary",
           "printedSourceSha256": "999f896b363fcbd500868501ed2d8b39ff5b96276393d52519ae4cb5f2277978",
-          "dependencies": ["invariant", "WALogger", "WAWebStorageSchema", "err", "gkx"],
+          "dependencies": ["WALogger", "WAWebStorageSchema", "err", "gkx", "invariant"],
           "citations": ["modules/WAWebIdbHelpers.js:1"]
         },
         {
@@ -2678,13 +2762,13 @@
           "variant": "primary",
           "printedSourceSha256": "a74467322a663a3772d02cb1a94fb9726aef1bf08a4a76927ea7f6e54e626d4e",
           "dependencies": [
-            "invariant",
             "Promise",
             "WAWeb-dexie",
             "WAWebDexieCastTypes",
             "WAWebIdb",
             "WAWebStorage",
-            "err"
+            "err",
+            "invariant"
           ],
           "citations": ["modules/WAWebModelStorageUtils.js:1"]
         },
@@ -2864,49 +2948,49 @@
           "module": "WAWebStorageAddArrayIndex",
           "variant": "primary",
           "printedSourceSha256": "7cec702ff964689480b50221ea8d5adac899add5f686dd12015221d657ef537d",
-          "dependencies": ["invariant", "WAWebStorageMutation", "WAWebStorageSchema"],
+          "dependencies": ["WAWebStorageMutation", "WAWebStorageSchema", "invariant"],
           "citations": ["modules/WAWebStorageAddArrayIndex.js:1"]
         },
         {
           "module": "WAWebStorageAddColumn",
           "variant": "primary",
           "printedSourceSha256": "84499577cd79a9e37dce970c7e2f350e5b9364de7cfb6cb7a55f93ba1449d729",
-          "dependencies": ["invariant", "WAWebStorageMutation", "WAWebStorageSchema"],
+          "dependencies": ["WAWebStorageMutation", "WAWebStorageSchema", "invariant"],
           "citations": ["modules/WAWebStorageAddColumn.js:1"]
         },
         {
           "module": "WAWebStorageAddCompositeIndex",
           "variant": "primary",
           "printedSourceSha256": "18ec06a6d8ffd785d859b1bb71c075eaf00d1c9bf15cca3e65dc2aa264dd08f1",
-          "dependencies": ["invariant", "WAWebStorageMutation", "WAWebStorageSchema"],
+          "dependencies": ["WAWebStorageMutation", "WAWebStorageSchema", "invariant"],
           "citations": ["modules/WAWebStorageAddCompositeIndex.js:1"]
         },
         {
           "module": "WAWebStorageAddEncryptedColumn",
           "variant": "primary",
           "printedSourceSha256": "ed299fbdd55decd6ffe79b37d7f5981a98832e557d8e9000413e738024683aa2",
-          "dependencies": ["invariant", "WAWebStorageMutation", "WAWebStorageSchema"],
+          "dependencies": ["WAWebStorageMutation", "WAWebStorageSchema", "invariant"],
           "citations": ["modules/WAWebStorageAddEncryptedColumn.js:1"]
         },
         {
           "module": "WAWebStorageAddIndex",
           "variant": "primary",
           "printedSourceSha256": "71d961ea275c42090419bc4bfcec6dfee9dac8d1895d337ff07ce800df6920ba",
-          "dependencies": ["invariant", "WAWebStorageMutation", "WAWebStorageSchema"],
+          "dependencies": ["WAWebStorageMutation", "WAWebStorageSchema", "invariant"],
           "citations": ["modules/WAWebStorageAddIndex.js:1"]
         },
         {
           "module": "WAWebStorageAddUniqueIndex",
           "variant": "primary",
           "printedSourceSha256": "ff2e3c17cee05e8712838abd8db488d1f7252d18bc4361f8048cf1aac352c441",
-          "dependencies": ["invariant", "WAWebStorageMutation", "WAWebStorageSchema"],
+          "dependencies": ["WAWebStorageMutation", "WAWebStorageSchema", "invariant"],
           "citations": ["modules/WAWebStorageAddUniqueIndex.js:1"]
         },
         {
           "module": "WAWebStorageAutoIncrementingPrimaryKey",
           "variant": "primary",
           "printedSourceSha256": "ba03ec57ad2f218aa3d429f0a405ec19bfeb7b46d6bc3712987aa35969a8216b",
-          "dependencies": ["invariant", "WAWebStorageAbstractPrimaryKey", "WAWebStorageSchema"],
+          "dependencies": ["WAWebStorageAbstractPrimaryKey", "WAWebStorageSchema", "invariant"],
           "citations": ["modules/WAWebStorageAutoIncrementingPrimaryKey.js:1"]
         },
         {
@@ -2920,7 +3004,7 @@
           "module": "WAWebStorageCompositePrimaryKey",
           "variant": "primary",
           "printedSourceSha256": "d35c0404625662c9a0b5bd6b6b9a0d76d6bb31edf92a40fc29a427a048ec2cc0",
-          "dependencies": ["invariant", "WAWebStorageAbstractPrimaryKey", "WAWebStorageSchema"],
+          "dependencies": ["WAWebStorageAbstractPrimaryKey", "WAWebStorageSchema", "invariant"],
           "citations": ["modules/WAWebStorageCompositePrimaryKey.js:1"]
         },
         {
@@ -2995,35 +3079,35 @@
           "module": "WAWebStorageRemoveArrayIndex",
           "variant": "primary",
           "printedSourceSha256": "451584c82fda141977c06c2c9ede1b7b9846ab97c75be04d2f700400e22cd4d1",
-          "dependencies": ["invariant", "WAWebStorageMutation", "WAWebStorageSchema"],
+          "dependencies": ["WAWebStorageMutation", "WAWebStorageSchema", "invariant"],
           "citations": ["modules/WAWebStorageRemoveArrayIndex.js:1"]
         },
         {
           "module": "WAWebStorageRemoveColumn",
           "variant": "primary",
           "printedSourceSha256": "502e8bbb345e1d9c67576cae1f957b595150109eb10383d092b2341b9c53b6ea",
-          "dependencies": ["invariant", "WAWebStorageMutation", "WAWebStorageSchema"],
+          "dependencies": ["WAWebStorageMutation", "WAWebStorageSchema", "invariant"],
           "citations": ["modules/WAWebStorageRemoveColumn.js:1"]
         },
         {
           "module": "WAWebStorageRemoveCompositeIndex",
           "variant": "primary",
           "printedSourceSha256": "7d0d30b1c5bd407df42467f4399e485912e909bd78f7bc41451cacb4abff8fc5",
-          "dependencies": ["invariant", "WAWebStorageMutation", "WAWebStorageSchema"],
+          "dependencies": ["WAWebStorageMutation", "WAWebStorageSchema", "invariant"],
           "citations": ["modules/WAWebStorageRemoveCompositeIndex.js:1"]
         },
         {
           "module": "WAWebStorageRemoveIndex",
           "variant": "primary",
           "printedSourceSha256": "b45837529a35dee84280e396e8ed8f849ddb38a7e12436b181d0a61d84e06501",
-          "dependencies": ["invariant", "WAWebStorageMutation", "WAWebStorageSchema"],
+          "dependencies": ["WAWebStorageMutation", "WAWebStorageSchema", "invariant"],
           "citations": ["modules/WAWebStorageRemoveIndex.js:1"]
         },
         {
           "module": "WAWebStorageRemoveUniqueIndex",
           "variant": "primary",
           "printedSourceSha256": "7ea35a66af83d3333b137a05270fe49c34cb03099f2f8bd49bf09bcc4d6fd7a3",
-          "dependencies": ["invariant", "WAWebStorageMutation", "WAWebStorageSchema"],
+          "dependencies": ["WAWebStorageMutation", "WAWebStorageSchema", "invariant"],
           "citations": ["modules/WAWebStorageRemoveUniqueIndex.js:1"]
         },
         {
@@ -3037,14 +3121,14 @@
           "module": "WAWebStorageTableBuilder",
           "variant": "primary",
           "printedSourceSha256": "f8c8175967b9b7eb2ddc5a4b008339e5dcbe69d40660bc5bce0f0925dbb63964",
-          "dependencies": ["invariant", "WAWebStorageMutationUtils", "WAWebStorageSchema"],
+          "dependencies": ["WAWebStorageMutationUtils", "WAWebStorageSchema", "invariant"],
           "citations": ["modules/WAWebStorageTableBuilder.js:1"]
         },
         {
           "module": "WAWebStorageUserDefinedPrimaryKey",
           "variant": "primary",
           "printedSourceSha256": "13e68a2b9b00b7cec3d3cf4377f92eb71dddd45998316e9f2109e9f5fb055d67",
-          "dependencies": ["invariant", "WAWebStorageAbstractPrimaryKey", "WAWebStorageSchema"],
+          "dependencies": ["WAWebStorageAbstractPrimaryKey", "WAWebStorageSchema", "invariant"],
           "citations": ["modules/WAWebStorageUserDefinedPrimaryKey.js:1"]
         },
         {
@@ -3060,6 +3144,19 @@
           "printedSourceSha256": "b1a76e0e4141239a0dc2f5e62cf67de685e776f781fdbd86972f145b47dc4e22",
           "dependencies": ["gkx", "ua-parser-js"],
           "citations": ["modules/WAWebUA.js:1"]
+        },
+        {
+          "module": "WAWebUiIdleEventBus",
+          "variant": "primary",
+          "printedSourceSha256": "f1dca19cfed068d57ea2eb3e78b8f48b63c462d8cbcc253bfd1560ec1f687974",
+          "dependencies": [
+            "WALogger",
+            "WAWebDebounce",
+            "WAWebEventEmitter",
+            "WAWebNoop",
+            "invariant"
+          ],
+          "citations": ["modules/WAWebUiIdleEventBus.js:1"]
         },
         {
           "module": "WAWebURLUtils",
@@ -3085,19 +3182,6 @@
           "printedSourceSha256": "8d41589791cb7cac55d6ec5508ce165801f4d45de1613f2b89259d8cf022b545",
           "dependencies": [],
           "citations": ["modules/WAWebURLValidSchemes.js:1"]
-        },
-        {
-          "module": "WAWebUiIdleEventBus",
-          "variant": "primary",
-          "printedSourceSha256": "f1dca19cfed068d57ea2eb3e78b8f48b63c462d8cbcc253bfd1560ec1f687974",
-          "dependencies": [
-            "invariant",
-            "WALogger",
-            "WAWebDebounce",
-            "WAWebEventEmitter",
-            "WAWebNoop"
-          ],
-          "citations": ["modules/WAWebUiIdleEventBus.js:1"]
         },
         {
           "module": "WAWebWamCodegenGlobalMetrics",
@@ -3147,6 +3231,13 @@
           "citations": ["modules/WAWebWamDroppedEventWamEvent.js:1"]
         },
         {
+          "module": "WAWebWamEnumWebcScenarioType",
+          "variant": "primary",
+          "printedSourceSha256": "d8911e9e20ec962d2fcbd914757fd066d7de7978208f72511a6ecab3379ed9b7",
+          "dependencies": [],
+          "citations": ["modules/WAWebWamEnumWebcScenarioType.js:1"]
+        },
+        {
           "module": "WAWebWamEnumWebDbLoaderType",
           "variant": "primary",
           "printedSourceSha256": "81724b8db4d57b0c10ede6c3968c25023c0fe1f818ed7f82ffce9aa5138471ed",
@@ -3173,13 +3264,6 @@
           "printedSourceSha256": "44e8afb4f82d905f0997dcb7174de39e85642022dd5f5a16b56cbd65aa2b5742",
           "dependencies": [],
           "citations": ["modules/WAWebWamEnumWebTableLogReasonCode.js:1"]
-        },
-        {
-          "module": "WAWebWamEnumWebcScenarioType",
-          "variant": "primary",
-          "printedSourceSha256": "d8911e9e20ec962d2fcbd914757fd066d7de7978208f72511a6ecab3379ed9b7",
-          "dependencies": [],
-          "citations": ["modules/WAWebWamEnumWebcScenarioType.js:1"]
         },
         {
           "module": "WAWebWamInitQueue",
@@ -3251,190 +3335,13 @@
             "WAWebURLUtils"
           ],
           "citations": ["modules/WAWebXHR.js:1"]
-        },
-        {
-          "module": "asyncToGeneratorRuntime",
-          "variant": "primary",
-          "printedSourceSha256": "147052b2a1cdc6d21087a611043d0974d5babedeeee624185babb023bbcf72f3",
-          "dependencies": ["Promise"],
-          "citations": ["modules/asyncToGeneratorRuntime.js:1"]
-        },
-        {
-          "module": "compactMap",
-          "variant": "primary",
-          "printedSourceSha256": "aa300e544d92f12afdaf79680e72017777b9df31b4c854a8db4ce2b1a4b62b16",
-          "dependencies": [],
-          "citations": ["modules/compactMap.js:1"]
-        },
-        {
-          "module": "dexie-3.2.2",
-          "variant": "primary",
-          "printedSourceSha256": "cbfa866f3403db8683d4aeb051090b249806947527c6ec850330453877ad3fe9",
-          "dependencies": ["Promise"],
-          "citations": ["modules/dexie-3.2.2.js:1"]
-        },
-        {
-          "module": "emptyFunction",
-          "variant": "primary",
-          "printedSourceSha256": "efc2fa885be346ba40045503e3a0588374c842f36261ce8138988d63608ecb48",
-          "dependencies": [],
-          "citations": ["modules/emptyFunction.js:1"]
-        },
-        {
-          "module": "err",
-          "variant": "primary",
-          "printedSourceSha256": "a26a1f88fe2c09505c0ec8e43d1a43c2299b6126ea7ea305c567bf7634fbeea0",
-          "dependencies": ["fb-error"],
-          "citations": ["modules/err.js:1"]
-        },
-        {
-          "module": "fb-error",
-          "variant": "primary",
-          "printedSourceSha256": "545144d2d2c50524d5bcfc421916cf76760743cb5b034dcb7a4d7066981f714e",
-          "dependencies": ["performanceNow", "removeFromArray"],
-          "citations": ["modules/fb-error.js:1"]
-        },
-        {
-          "module": "fb-error-lite",
-          "variant": "primary",
-          "printedSourceSha256": "70182c28f267319e6122d9da5fa9d01bc3c60775130d33429a71874503924b64",
-          "dependencies": [],
-          "citations": ["modules/fb-error-lite.js:1"]
-        },
-        {
-          "module": "getErrorSafe",
-          "variant": "primary",
-          "printedSourceSha256": "e2e7bf104b2e70a7cf8b17c8861754af744d215a24d547fc29058f64f0db882b",
-          "dependencies": ["fb-error"],
-          "citations": ["modules/getErrorSafe.js:1"]
-        },
-        {
-          "module": "gkx",
-          "variant": "primary",
-          "printedSourceSha256": "e84fc9d0a08a52702897502d1eb33202bd0d97b9633277aa18df81d9cb902cf6",
-          "dependencies": ["invariant", "BanzaiLazyQueue", "ExecutionEnvironment", "emptyFunction"],
-          "citations": ["modules/gkx.js:1"]
-        },
-        {
-          "module": "invariant",
-          "variant": "primary",
-          "printedSourceSha256": "6b377021188adf8be5add1781bb1a5b3a7da5d0021df951267b1ae8d331f705f",
-          "dependencies": ["Env", "fb-error-lite", "sprintf"],
-          "citations": ["modules/invariant.js:1"]
-        },
-        {
-          "module": "isEmptyObject",
-          "variant": "primary",
-          "printedSourceSha256": "4e2b01fab45c2a49d9b4b6280af0de70ebb40a93c745bbe0740ca71722129af8",
-          "dependencies": [],
-          "citations": ["modules/isEmptyObject.js:1"]
-        },
-        {
-          "module": "isPlainObject",
-          "variant": "primary",
-          "printedSourceSha256": "402df75f4e9802c65120f1947d7770c1a517bd96bcda3aeb2d3ad43be3bc3ca0",
-          "dependencies": [],
-          "citations": ["modules/isPlainObject.js:1"]
-        },
-        {
-          "module": "justknobx",
-          "variant": "primary",
-          "printedSourceSha256": "f42afc172240cd5ff466368ab522c6b917cdf148a6527126ecf1052ed718ec9e",
-          "dependencies": ["invariant"],
-          "citations": ["modules/justknobx.js:1"]
-        },
-        {
-          "module": "logForCrash",
-          "variant": "primary",
-          "printedSourceSha256": "d2e1cbb02bfe6f6886e61b05ab7321cc6d905d23f7b3aaafaada4539dacb0c4e",
-          "dependencies": [
-            "BrowserCrashStaticConfig",
-            "FBLogger",
-            "JSErrorLoggingConfig",
-            "Promise",
-            "getErrorSafe",
-            "gkx",
-            "justknobx",
-            "logForCrashUtils"
-          ],
-          "citations": ["modules/logForCrash.js:1"]
-        },
-        {
-          "module": "logForCrashUtils",
-          "variant": "primary",
-          "printedSourceSha256": "0af9d64639d07fd6b6396781255f38f3bcfdc3d8f4d3f0705f102701f9424ea4",
-          "dependencies": [],
-          "citations": ["modules/logForCrashUtils.js:1"]
-        },
-        {
-          "module": "nullthrows",
-          "variant": "primary",
-          "printedSourceSha256": "8f9ee47b9edbd38314e5f785b651c3fef622f457813889a4495c3b79ea3c241c",
-          "dependencies": [],
-          "citations": ["modules/nullthrows.js:1"]
-        },
-        {
-          "module": "omit",
-          "variant": "primary",
-          "printedSourceSha256": "2d1d1966914440233f7561081a652d6632d099546eed25f0391fdd7f70bb7f4a",
-          "dependencies": [],
-          "citations": ["modules/omit.js:1"]
-        },
-        {
-          "module": "performance",
-          "variant": "primary",
-          "printedSourceSha256": "9bee7ad7d1941af3432757b1ce55c980030f812f0a5fb00916e906b8a0b6ced9",
-          "dependencies": [],
-          "citations": ["modules/performance.js:1"]
-        },
-        {
-          "module": "performanceNow",
-          "variant": "primary",
-          "printedSourceSha256": "415e5327e020372f7789e27dc42266a9cb3d6bbc2d8c47d0b751b93517a0475f",
-          "dependencies": ["performance"],
-          "citations": ["modules/performanceNow.js:1"]
-        },
-        {
-          "module": "removeFromArray",
-          "variant": "primary",
-          "printedSourceSha256": "c8e194de9e9463716c2f383406ae8269ddff1a9fe5fbc1a7559abcd2aaa666bb",
-          "dependencies": [],
-          "citations": ["modules/removeFromArray.js:1"]
-        },
-        {
-          "module": "sprintf",
-          "variant": "primary",
-          "printedSourceSha256": "7860c49011bd89ed50d0db8ed061d00ec9a2ba42b75f298a10c3d6ef98888361",
-          "dependencies": [],
-          "citations": ["modules/sprintf.js:1"]
-        },
-        {
-          "module": "sumBy",
-          "variant": "primary",
-          "printedSourceSha256": "cce4774d6f8020ac5b2e0735451e0f7853b18ddf793c6f29681ec9ea73b75923",
-          "dependencies": [],
-          "citations": ["modules/sumBy.js:1"]
-        },
-        {
-          "module": "ua-parser-js",
-          "variant": "primary",
-          "printedSourceSha256": "4e3a05dfc64a400d54b8e89e11b5dcae2071e4119c9170cc91bb31bb054058cb",
-          "dependencies": ["ua-parser-js-0.7.39"],
-          "citations": ["modules/ua-parser-js.js:1"]
-        },
-        {
-          "module": "ua-parser-js-0.7.39",
-          "variant": "primary",
-          "printedSourceSha256": "bc484be8b30d6a05d683d953ce91cc74eddff962dae051b2f42d3e376bca1bcf",
-          "dependencies": [],
-          "citations": ["modules/ua-parser-js-0.7.39.js:1"]
         }
       ],
       "analyzer": {
-        "version": 4,
-        "sourceSha256": "73c5e31e59ff601a01114ab03a0dc183d81389987e3af5832c53d9ac8bd8c06b"
+        "version": 5,
+        "sourceSha256": "227dc637e157fb8708c4f58e3c7fd821d78fdff3fc3ad7ec48ff6b5818e54f82"
       },
-      "inventoryDigest": "92e4d29dd332529a6910ef8bf0be280c334d8e31ac5b32e3e5cc46a9fab34fe6",
+      "inventoryDigest": "8c12a55a4bfdbcb384151e405d9966e41832b1c0527a40191bf691d7a7c03341",
       "gates": [
         {
           "kind": "gkx",
@@ -3474,67 +3381,6 @@
               "method": "gkx",
               "timing": "function-body",
               "expression": "r(\"gkx\")(\"16539\")"
-            },
-            {
-              "module": "WAWebDBStats",
-              "variant": "primary",
-              "line": 9,
-              "column": 3,
-              "method": "gkx",
-              "timing": "function-body",
-              "expression": "r(\"gkx\")(\"16539\")"
-            },
-            {
-              "module": "WAWebDBStats",
-              "variant": "primary",
-              "line": 25,
-              "column": 7,
-              "method": "gkx",
-              "timing": "function-body",
-              "expression": "r(\"gkx\")(\"16539\")"
-            },
-            {
-              "module": "WAWebDBStats",
-              "variant": "primary",
-              "line": 32,
-              "column": 7,
-              "method": "gkx",
-              "timing": "function-body",
-              "expression": "r(\"gkx\")(\"16539\")"
-            },
-            {
-              "module": "WAWebDBStats",
-              "variant": "primary",
-              "line": 37,
-              "column": 7,
-              "method": "gkx",
-              "timing": "function-body",
-              "expression": "r(\"gkx\")(\"16539\")"
-            },
-            {
-              "module": "WAWebDBStats",
-              "variant": "primary",
-              "line": 43,
-              "column": 3,
-              "method": "gkx",
-              "timing": "function-body",
-              "expression": "r(\"gkx\")(\"16539\")"
-            }
-          ]
-        },
-        {
-          "kind": "gkx",
-          "key": "207",
-          "valueType": "boolean",
-          "reads": [
-            {
-              "module": "logForCrash",
-              "variant": "primary",
-              "line": 33,
-              "column": 42,
-              "method": "gkx",
-              "timing": "function-body",
-              "expression": "r(\"gkx\")(\"207\")"
             }
           ]
         },
@@ -3739,22 +3585,6 @@
         },
         {
           "kind": "gkx",
-          "key": "3981",
-          "valueType": "boolean",
-          "reads": [
-            {
-              "module": "logForCrash",
-              "variant": "primary",
-              "line": 90,
-              "column": 70,
-              "method": "gkx",
-              "timing": "module-initialization",
-              "expression": "r(\"gkx\")(\"3981\")"
-            }
-          ]
-        },
-        {
-          "kind": "gkx",
           "key": "4112",
           "valueType": "boolean",
           "reads": [
@@ -3782,22 +3612,6 @@
               "method": "_",
               "timing": "module-initialization",
               "expression": "r(\"justknobx\")._(\"1600\")"
-            }
-          ]
-        },
-        {
-          "kind": "knobs",
-          "key": "195",
-          "valueType": "unknown",
-          "reads": [
-            {
-              "module": "logForCrash",
-              "variant": "primary",
-              "line": 33,
-              "column": 14,
-              "method": "_",
-              "timing": "function-body",
-              "expression": "r(\"justknobx\")._(\"195\")"
             }
           ]
         },
@@ -3852,8 +3666,12 @@
       ],
       "unresolved": [
         {
-          "code": "missing-module",
-          "module": "cr:38444"
+          "code": "work-budget",
+          "module": "WAWebDbEncryptionKey",
+          "sourceSha256": "98fae477c7429a7b713da5443d80a3150600d511a1714dda876ffd82b6579ee1",
+          "required": "analysis-work",
+          "budget": "2000000",
+          "count": 2000000
         },
         {
           "code": "missing-module",
@@ -3862,10 +3680,6 @@
         {
           "code": "missing-module",
           "module": "cr:6640"
-        },
-        {
-          "code": "missing-module",
-          "module": "JSErrorLoggingConfig"
         },
         {
           "code": "missing-module",
@@ -4009,12 +3823,12 @@
         "scope": "module-closure-superset",
         "semanticProof": false,
         "resolverCoverage": false,
-        "modules": 159,
-        "sourceBytes": 474506,
+        "modules": 120,
+        "sourceBytes": 392861,
         "workBudget": {
           "limit": 2000000,
-          "consumed": 1953387,
-          "exhausted": false
+          "consumed": 2000000,
+          "exhausted": true
         },
         "limitations": [
           "Only supported gate APIs and static key expressions are inventoried.",
@@ -4034,5 +3848,16 @@
     "Parser int/bool paths only; float parser source presence does not imply execution. Numeric/string/input and sequence domains are unbounded; generated literal cases are characterization.",
     "Direct-cache hidden-prefix setup intentionally invokes a separate actual cache failure before testing updater readiness; it is not storage acquisition or a transformer transaction claim.",
     "Container isolation, production scheduling, accounts/network and named-library implementation parity remain unexercised."
-  ]
+  ],
+  "inventoryRefresh": {
+    "analyzerVersion": 5,
+    "analyzerSourceSha256": "227dc637e157fb8708c4f58e3c7fd821d78fdff3fc3ad7ec48ff6b5818e54f82",
+    "defaultLogicalWorkLimit": 2000000,
+    "kind": "static-source-analysis-only",
+    "behaviorReexecuted": false,
+    "executionProvenance": "Existing execution observations retain their exact original receipt context. This inventory refresh creates no runtime evidence and changes no case plan or source input.",
+    "cardinalityScope": "Incomplete or unresolved inventories establish no total assignment cardinality. Prior finite products remain scoped modeled subsets; unknown domains and budget blocks remain unresolved.",
+    "bootstrapScope": "Previously selected source-exact bootstrap assets are included as AST roots. No provider, bootstrap admission or fixture boundary is added.",
+    "historicalScope": "Prior full inventories remain at public commit dcef50ac06a25c1cf76b3dc6012e21dbba3e2fb6. New budget-truncated analysis does not erase those facts or establish a complete current matrix."
+  }
 }

@@ -239,10 +239,10 @@
         }
       ],
       "analyzer": {
-        "version": 4,
-        "sourceSha256": "73c5e31e59ff601a01114ab03a0dc183d81389987e3af5832c53d9ac8bd8c06b"
+        "version": 5,
+        "sourceSha256": "227dc637e157fb8708c4f58e3c7fd821d78fdff3fc3ad7ec48ff6b5818e54f82"
       },
-      "inventoryDigest": "c232f4d23db443f2b067ee778771763d3d596f6e77f19c8f43316e07d9214ea2",
+      "inventoryDigest": "6ff34393e22e3e3e5f55cd90eaebe5996f46d34f071572c5efee2e3116eae338",
       "gates": [
         {
           "kind": "knobs",
@@ -276,7 +276,7 @@
         "sourceBytes": 82038,
         "workBudget": {
           "limit": 2000000,
-          "consumed": 378614,
+          "consumed": 460616,
           "exhausted": false
         },
         "limitations": [
@@ -501,10 +501,10 @@
         }
       ],
       "analyzer": {
-        "version": 4,
-        "sourceSha256": "73c5e31e59ff601a01114ab03a0dc183d81389987e3af5832c53d9ac8bd8c06b"
+        "version": 5,
+        "sourceSha256": "227dc637e157fb8708c4f58e3c7fd821d78fdff3fc3ad7ec48ff6b5818e54f82"
       },
-      "inventoryDigest": "c232f4d23db443f2b067ee778771763d3d596f6e77f19c8f43316e07d9214ea2",
+      "inventoryDigest": "6ff34393e22e3e3e5f55cd90eaebe5996f46d34f071572c5efee2e3116eae338",
       "gates": [
         {
           "kind": "knobs",
@@ -538,7 +538,7 @@
         "sourceBytes": 82038,
         "workBudget": {
           "limit": 2000000,
-          "consumed": 378614,
+          "consumed": 460616,
           "exhausted": false
         },
         "limitations": [
@@ -564,13 +564,26 @@
     "Recursion chains are bounded acyclic synthetic singular/repeated shapes through depth120; other schema graphs, unbounded depths and asynchronous configuration changes are not covered"
   ],
   "inventoryRefresh": {
-    "analyzerVersion": 4,
-    "analyzerSourceSha256": "73c5e31e59ff601a01114ab03a0dc183d81389987e3af5832c53d9ac8bd8c06b",
+    "analyzerVersion": 5,
+    "analyzerSourceSha256": "227dc637e157fb8708c4f58e3c7fd821d78fdff3fc3ad7ec48ff6b5818e54f82",
     "defaultLogicalWorkLimit": 2000000,
     "kind": "static-source-analysis-only",
     "behaviorReexecuted": false,
-    "executionProvenance": "Existing execution/assignment observations retain their original receipt context; this metadata refresh does not create new runtime evidence.",
-    "cardinalityScope": "Incomplete/unresolved current inventories have no established total assignment cardinality. Existing finite products describe source-known subsets retained from prior observations, not exhaustive current matrices.",
-    "bootstrapScope": "No bootstrap source providers were added to these existing suites. Known bootstrap reads and unresolved global aliases/accesses remain explicit diagnostics; source-exact producer execution requires separate admitted scenarios."
-  }
+    "executionProvenance": "Existing execution observations retain their exact original receipt context. This inventory refresh creates no runtime evidence and changes no case plan or source input.",
+    "cardinalityScope": "Incomplete or unresolved inventories establish no total assignment cardinality. Prior finite products remain scoped modeled subsets; unknown domains and budget blocks remain unresolved.",
+    "bootstrapScope": "Previously selected source-exact bootstrap assets are included as AST roots. No provider, bootstrap admission or fixture boundary is added.",
+    "historicalScope": "Prior full inventories remain at public commit dcef50ac06a25c1cf76b3dc6012e21dbba3e2fb6. New budget-truncated analysis does not erase those facts or establish a complete current matrix."
+  },
+  "historicalInventoryRefresh": [
+    {
+      "analyzerVersion": 4,
+      "analyzerSourceSha256": "73c5e31e59ff601a01114ab03a0dc183d81389987e3af5832c53d9ac8bd8c06b",
+      "defaultLogicalWorkLimit": 2000000,
+      "kind": "static-source-analysis-only",
+      "behaviorReexecuted": false,
+      "executionProvenance": "Existing execution/assignment observations retain their original receipt context; this metadata refresh does not create new runtime evidence.",
+      "cardinalityScope": "Incomplete/unresolved current inventories have no established total assignment cardinality. Existing finite products describe source-known subsets retained from prior observations, not exhaustive current matrices.",
+      "bootstrapScope": "No bootstrap source providers were added to these existing suites. Known bootstrap reads and unresolved global aliases/accesses remain explicit diagnostics; source-exact producer execution requires separate admitted scenarios."
+    }
+  ]
 }

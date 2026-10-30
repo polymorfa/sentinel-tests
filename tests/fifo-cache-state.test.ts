@@ -47,7 +47,7 @@ test('FIFO cache plans pin bounded original set/get histories and independent ex
     assert.equal(observation.modules.length, 2);
     assert.equal(observation.staticCoverage.complete, true);
     assert.equal(observation.staticCoverage.sourceBytes, 1256);
-    assert.equal(observation.staticCoverage.workBudget.consumed, 4739);
+    assert.equal(observation.staticCoverage.workBudget.consumed, 5667);
     assert.equal(observation.staticCoverage.workBudget.exhausted, false);
     assert.deepEqual(observation.gates, []);
     assert.deepEqual(observation.unresolved, []);

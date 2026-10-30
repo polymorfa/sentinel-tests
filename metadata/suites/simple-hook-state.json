@@ -38,10 +38,10 @@
         }
       ],
       "analyzer": {
-        "version": 4,
-        "sourceSha256": "73c5e31e59ff601a01114ab03a0dc183d81389987e3af5832c53d9ac8bd8c06b"
+        "version": 5,
+        "sourceSha256": "227dc637e157fb8708c4f58e3c7fd821d78fdff3fc3ad7ec48ff6b5818e54f82"
       },
-      "inventoryDigest": "647dd39177491ef5b8fb49100a61b02dacebd9fa01cecddb61647a4bb353ff9f",
+      "inventoryDigest": "288078c031c01c9abeb6ad2de2b2b4a0cf54aa8082e5f3c3a3bfef98aa81a116",
       "gates": [],
       "unresolved": [],
       "staticCoverage": {
@@ -53,7 +53,7 @@
         "sourceBytes": 1182,
         "workBudget": {
           "limit": 2000000,
-          "consumed": 4767,
+          "consumed": 5783,
           "exhausted": false
         },
         "limitations": [
@@ -77,10 +77,10 @@
         }
       ],
       "analyzer": {
-        "version": 4,
-        "sourceSha256": "73c5e31e59ff601a01114ab03a0dc183d81389987e3af5832c53d9ac8bd8c06b"
+        "version": 5,
+        "sourceSha256": "227dc637e157fb8708c4f58e3c7fd821d78fdff3fc3ad7ec48ff6b5818e54f82"
       },
-      "inventoryDigest": "647dd39177491ef5b8fb49100a61b02dacebd9fa01cecddb61647a4bb353ff9f",
+      "inventoryDigest": "288078c031c01c9abeb6ad2de2b2b4a0cf54aa8082e5f3c3a3bfef98aa81a116",
       "gates": [],
       "unresolved": [],
       "staticCoverage": {
@@ -92,7 +92,7 @@
         "sourceBytes": 1182,
         "workBudget": {
           "limit": 2000000,
-          "consumed": 4767,
+          "consumed": 5783,
           "exhausted": false
         },
         "limitations": [
@@ -113,5 +113,16 @@
     "No direct removeIf predicate test, private $2 access, internal property read/mutation, callback fixture, host object/function, async/pending or clock control.",
     "Keys/data/options/histories are unbounded. Zero gate descriptors is not semantic proof or exhaustive input/consumer coverage.",
     "No Banzai/qex integration, provider/account/browser/network/timer, container isolation, service adapter or production authored-suite scheduling proof."
-  ]
+  ],
+  "inventoryRefresh": {
+    "analyzerVersion": 5,
+    "analyzerSourceSha256": "227dc637e157fb8708c4f58e3c7fd821d78fdff3fc3ad7ec48ff6b5818e54f82",
+    "defaultLogicalWorkLimit": 2000000,
+    "kind": "static-source-analysis-only",
+    "behaviorReexecuted": false,
+    "executionProvenance": "Existing execution observations retain their exact original receipt context. This inventory refresh creates no runtime evidence and changes no case plan or source input.",
+    "cardinalityScope": "Incomplete or unresolved inventories establish no total assignment cardinality. Prior finite products remain scoped modeled subsets; unknown domains and budget blocks remain unresolved.",
+    "bootstrapScope": "Previously selected source-exact bootstrap assets are included as AST roots. No provider, bootstrap admission or fixture boundary is added.",
+    "historicalScope": "Prior full inventories remain at public commit dcef50ac06a25c1cf76b3dc6012e21dbba3e2fb6. New budget-truncated analysis does not erase those facts or establish a complete current matrix."
+  }
 }

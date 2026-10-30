@@ -37,20 +37,6 @@
       "revision": "1051710191",
       "modules": [
         {
-          "module": "Promise",
-          "variant": "primary",
-          "printedSourceSha256": "c94f5132251416675e842ee8bbe98476648325ff897dab0a230b39875e1f3c2a",
-          "dependencies": ["cr:6640"],
-          "citations": ["modules/Promise.js:1"]
-        },
-        {
-          "module": "WASemaphore",
-          "variant": "primary",
-          "printedSourceSha256": "20422925e5e57dc418c1e3b6cbcc272977949e7848851d005280d6714fb8b552",
-          "dependencies": ["Promise", "err"],
-          "citations": ["modules/WASemaphore.js:1"]
-        },
-        {
           "module": "err",
           "variant": "primary",
           "printedSourceSha256": "a26a1f88fe2c09505c0ec8e43d1a43c2299b6126ea7ea305c567bf7634fbeea0",
@@ -79,18 +65,32 @@
           "citations": ["modules/performanceNow.js:1"]
         },
         {
+          "module": "Promise",
+          "variant": "primary",
+          "printedSourceSha256": "c94f5132251416675e842ee8bbe98476648325ff897dab0a230b39875e1f3c2a",
+          "dependencies": ["cr:6640"],
+          "citations": ["modules/Promise.js:1"]
+        },
+        {
           "module": "removeFromArray",
           "variant": "primary",
           "printedSourceSha256": "c8e194de9e9463716c2f383406ae8269ddff1a9fe5fbc1a7559abcd2aaa666bb",
           "dependencies": [],
           "citations": ["modules/removeFromArray.js:1"]
+        },
+        {
+          "module": "WASemaphore",
+          "variant": "primary",
+          "printedSourceSha256": "20422925e5e57dc418c1e3b6cbcc272977949e7848851d005280d6714fb8b552",
+          "dependencies": ["Promise", "err"],
+          "citations": ["modules/WASemaphore.js:1"]
         }
       ],
       "analyzer": {
-        "version": 4,
-        "sourceSha256": "73c5e31e59ff601a01114ab03a0dc183d81389987e3af5832c53d9ac8bd8c06b"
+        "version": 5,
+        "sourceSha256": "227dc637e157fb8708c4f58e3c7fd821d78fdff3fc3ad7ec48ff6b5818e54f82"
       },
-      "inventoryDigest": "0d101f467d8a03c24ae7f9a2fdd914b333469dcfd95e2fe9186e9d7280dc84ca",
+      "inventoryDigest": "b6a5760a8e75aa77275c61ac04e626cbec6013dc2b0488c7717bf540194c146a",
       "gates": [],
       "unresolved": [
         {
@@ -107,7 +107,7 @@
         "sourceBytes": 30747,
         "workBudget": {
           "limit": 2000000,
-          "consumed": 135074,
+          "consumed": 167021,
           "exhausted": false
         },
         "limitations": [
@@ -123,20 +123,6 @@
       "revision": "1051908825",
       "modules": [
         {
-          "module": "Promise",
-          "variant": "primary",
-          "printedSourceSha256": "c94f5132251416675e842ee8bbe98476648325ff897dab0a230b39875e1f3c2a",
-          "dependencies": ["cr:6640"],
-          "citations": ["modules/Promise.js:1"]
-        },
-        {
-          "module": "WASemaphore",
-          "variant": "primary",
-          "printedSourceSha256": "20422925e5e57dc418c1e3b6cbcc272977949e7848851d005280d6714fb8b552",
-          "dependencies": ["Promise", "err"],
-          "citations": ["modules/WASemaphore.js:1"]
-        },
-        {
           "module": "err",
           "variant": "primary",
           "printedSourceSha256": "a26a1f88fe2c09505c0ec8e43d1a43c2299b6126ea7ea305c567bf7634fbeea0",
@@ -165,18 +151,32 @@
           "citations": ["modules/performanceNow.js:1"]
         },
         {
+          "module": "Promise",
+          "variant": "primary",
+          "printedSourceSha256": "c94f5132251416675e842ee8bbe98476648325ff897dab0a230b39875e1f3c2a",
+          "dependencies": ["cr:6640"],
+          "citations": ["modules/Promise.js:1"]
+        },
+        {
           "module": "removeFromArray",
           "variant": "primary",
           "printedSourceSha256": "c8e194de9e9463716c2f383406ae8269ddff1a9fe5fbc1a7559abcd2aaa666bb",
           "dependencies": [],
           "citations": ["modules/removeFromArray.js:1"]
+        },
+        {
+          "module": "WASemaphore",
+          "variant": "primary",
+          "printedSourceSha256": "20422925e5e57dc418c1e3b6cbcc272977949e7848851d005280d6714fb8b552",
+          "dependencies": ["Promise", "err"],
+          "citations": ["modules/WASemaphore.js:1"]
         }
       ],
       "analyzer": {
-        "version": 4,
-        "sourceSha256": "73c5e31e59ff601a01114ab03a0dc183d81389987e3af5832c53d9ac8bd8c06b"
+        "version": 5,
+        "sourceSha256": "227dc637e157fb8708c4f58e3c7fd821d78fdff3fc3ad7ec48ff6b5818e54f82"
       },
-      "inventoryDigest": "0d101f467d8a03c24ae7f9a2fdd914b333469dcfd95e2fe9186e9d7280dc84ca",
+      "inventoryDigest": "b6a5760a8e75aa77275c61ac04e626cbec6013dc2b0488c7717bf540194c146a",
       "gates": [],
       "unresolved": [
         {
@@ -193,7 +193,7 @@
         "sourceBytes": 30747,
         "workBudget": {
           "limit": 2000000,
-          "consumed": 135074,
+          "consumed": 167021,
           "exhausted": false
         },
         "limitations": [
@@ -214,5 +214,16 @@
     "Explicit cr:6640=null selects the real Promise module native realm fallback. The missing original conditional implementation, original provider domains/bootstrap and full configuration acceptance remain unknown.",
     "Capacity values are source-unvalidated/coercive. Fractional negative remaining counts are selected original behavior observations, not a positive-integer API guarantee. Arbitrary inputs, Infinity, signed-zero transport distinctions and operation histories are not exhaustive.",
     "No container production isolation, suite scheduling, browser/native/account/network/storage/crypto provider, calling/WASM or named-library implementation acceptance is established."
-  ]
+  ],
+  "inventoryRefresh": {
+    "analyzerVersion": 5,
+    "analyzerSourceSha256": "227dc637e157fb8708c4f58e3c7fd821d78fdff3fc3ad7ec48ff6b5818e54f82",
+    "defaultLogicalWorkLimit": 2000000,
+    "kind": "static-source-analysis-only",
+    "behaviorReexecuted": false,
+    "executionProvenance": "Existing execution observations retain their exact original receipt context. This inventory refresh creates no runtime evidence and changes no case plan or source input.",
+    "cardinalityScope": "Incomplete or unresolved inventories establish no total assignment cardinality. Prior finite products remain scoped modeled subsets; unknown domains and budget blocks remain unresolved.",
+    "bootstrapScope": "Previously selected source-exact bootstrap assets are included as AST roots. No provider, bootstrap admission or fixture boundary is added.",
+    "historicalScope": "Prior full inventories remain at public commit dcef50ac06a25c1cf76b3dc6012e21dbba3e2fb6. New budget-truncated analysis does not erase those facts or establish a complete current matrix."
+  }
 }

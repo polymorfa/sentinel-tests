@@ -45,7 +45,7 @@ test('history getter plans retain all eight known boolean inputs and source-only
   assert.deepEqual([...contexts.values()], Array(8).fill(6));
   for (const observation of metadata.observations) {
     assert.equal(observation.modules.length, 27);
-    assert.equal(observation.analyzer.version, 4);
+    assert.equal(observation.analyzer.version, 5);
     assert.equal(observation.staticCoverage.complete, false);
     assert.equal(observation.staticCoverage.workBudget.exhausted, false);
     assert.equal(observation.gates.length, 3);
