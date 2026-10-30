@@ -15,7 +15,7 @@ test('bundled primitive plans are deterministic, bounded and retain incomplete i
     cases.reduce((sum, item) => sum + item.probes.length, 0),
     metadata.trials.probesPerRevision,
   );
-  assert.equal(cases.length, 21);
+  assert.equal(cases.length, 45);
   assert.equal(
     createHash('sha256')
       .update(JSON.stringify(cases.slice(0, 14), null, 2) + '\n')
@@ -76,7 +76,7 @@ test('bundled primitive plans are deterministic, bounded and retain incomplete i
       .digest('hex'),
     'c10f43cf466dcbde9ef31106f204b8e92f2914d99c78f81143a30be93fcf1461',
   );
-  const signatureCases = cases.slice(18);
+  const signatureCases = cases.slice(18, 21);
   assert.deepEqual(
     signatureCases.map((item) => [item.id, item.probes.length]),
     [
@@ -140,6 +140,122 @@ test('bundled primitive plans are deterministic, bounded and retain incomplete i
     );
     assert.deepEqual(probe.expected, seedKat.expected);
   }
+  assert.equal(
+    createHash('sha256')
+      .update(JSON.stringify(cases.slice(0, 21), null, 2) + '\n')
+      .digest('hex'),
+    'd3805081e7e6ab9e4cccaf564c45071cc0e9bca3bcac9e28d56154c1487d7583',
+  );
+  const jointCases = cases.slice(21);
+  assert.equal(jointCases.length, 24);
+  assert.deepEqual(
+    jointCases.map((item) => item.probes.length),
+    [...Array<number>(23).fill(64), 58],
+  );
+  const originalProbe = (caseId: string, probeId: string) =>
+    cases
+      .slice(0, 21)
+      .find((item) => item.id === caseId)!
+      .probes.find((probe) => probe.id === probeId)!;
+  const rfcCase = 'bundled-nacl-x25519-rfc7748-v1',
+    boxCase = 'bundled-nacl-box-primary-agreement-v1';
+  const anchors = ['alice', 'bob'].map((label) => ({
+    label,
+    direction: label === 'alice' ? 'alice-to-bob' : 'bob-to-alice',
+    base: originalProbe(rfcCase, `${label}-public`),
+    shared: originalProbe(rfcCase, `${label}-shared`),
+    keypair: originalProbe(boxCase, `${label}-keypair`),
+  }));
+  const visible = (value: unknown) => {
+    const input = byteInput(value);
+    assert.equal(input.$type, 'Uint8Array');
+    if (input.byteOffset === undefined) {
+      assert.deepEqual(Object.keys(input).sort(), ['$type', 'value']);
+      assert.equal(input.value.length, 32);
+      return { bytes: input.value, offset: 0 };
+    }
+    assert.deepEqual(Object.keys(input).sort(), ['$type', 'byteLength', 'byteOffset', 'value']);
+    assert.ok([1, 7].includes(input.byteOffset));
+    assert.equal(input.byteLength, 32);
+    assert.equal(input.value.length, input.byteOffset + 34);
+    assert.deepEqual(
+      input.value.slice(0, input.byteOffset),
+      Array<number>(input.byteOffset).fill(238),
+    );
+    assert.deepEqual(input.value.slice(-2), [221, 220]);
+    return {
+      bytes: input.value.slice(input.byteOffset, input.byteOffset + 32),
+      offset: input.byteOffset,
+    };
+  };
+  const clamped = (input: number[]) =>
+    input.map((byte, index) =>
+      index === 0 ? byte & 248 : index === 31 ? (byte & 127) | 64 : byte,
+    );
+  const modelProbes = [
+    ...anchors.flatMap((anchor) => [anchor.base, anchor.keypair, anchor.shared]),
+    ...jointCases.flatMap((item) => item.probes),
+  ];
+  const actualCells = new Set<string>();
+  let baseCells = 0,
+    keypairCells = 0,
+    sharedCells = 0;
+  for (const probe of modelProbes) {
+    const api = probe.export;
+    assert.ok(['scalarMult.base', 'box.keyPair.fromSecretKey', 'scalarMult'].includes(api!));
+    const scalar = visible(probe.args[0]);
+    const anchor = anchors.find(
+      (candidate) =>
+        JSON.stringify(clamped(scalar.bytes)) ===
+        JSON.stringify(clamped(byteInput(candidate.base.args[0]).value)),
+    );
+    assert.ok(anchor, 'Every unselected scalar bit must retain the fixed RFC background');
+    const mask = (scalar.bytes[0]! & 7) | (((scalar.bytes[31]! >>> 6) & 3) << 3);
+    let peerBit: number | null = null,
+      peerOffset: number | null = null;
+    if (api === 'scalarMult') {
+      assert.equal(probe.args.length, 2);
+      const peer = visible(probe.args[1]);
+      const normalized = peer.bytes.map((byte, index) => (index === 31 ? byte & 127 : byte));
+      assert.deepEqual(normalized, byteInput(anchor.shared.args[1]).value);
+      peerBit = peer.bytes[31]! >>> 7;
+      peerOffset = peer.offset;
+      assert.deepEqual(probe.expected, anchor.shared.expected);
+      sharedCells++;
+    } else {
+      assert.equal(probe.args.length, 1);
+      if (api === 'scalarMult.base') {
+        assert.deepEqual(probe.expected, anchor.base.expected);
+        baseCells++;
+      } else {
+        assert.deepEqual(probe.expected, {
+          publicKey: anchor.base.expected,
+          secretKey: { $type: 'Uint8Array', value: scalar.bytes },
+        });
+        keypairCells++;
+      }
+    }
+    const cell = JSON.stringify([anchor.direction, api, mask, scalar.offset, peerBit, peerOffset]);
+    assert.ok(!actualCells.has(cell), `Duplicated selected model cell: ${cell}`);
+    actualCells.add(cell);
+  }
+  const expectedCells = new Set<string>();
+  for (const direction of ['alice-to-bob', 'bob-to-alice']) {
+    for (const api of ['scalarMult.base', 'box.keyPair.fromSecretKey'])
+      for (let mask = 0; mask < 32; mask++)
+        for (const offset of [0, 1, 7])
+          expectedCells.add(JSON.stringify([direction, api, mask, offset, null, null]));
+    for (let mask = 0; mask < 32; mask++)
+      for (const bit of [0, 1])
+        for (const so of [0, 1, 7])
+          for (const po of [0, 1, 7])
+            expectedCells.add(JSON.stringify([direction, 'scalarMult', mask, so, bit, po]));
+  }
+  assert.equal(modelProbes.length, 1536);
+  assert.equal(baseCells, 192);
+  assert.equal(keypairCells, 192);
+  assert.equal(sharedCells, 1152);
+  assert.deepEqual([...actualCells].sort(), [...expectedCells].sort());
   for (const item of cases) {
     validateProbeControls(item);
     assert.ok(item.probes.length <= 64);

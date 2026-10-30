@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "id": "bundled-nacl",
-  "version": 3,
+  "version": 4,
   "title": "Shipped TweetNaCl deterministic primitive vectors and bounded tamper cases",
   "file": "tests/bundled-nacl.test.ts",
   "helper": "support/bundled-nacl-cases.ts",
@@ -9,8 +9,8 @@
   "roots": ["tweetnacl"],
   "oracle": "Actual shipped tweetnacl\u2192tweetnacl-1.0.3 pure JavaScript cryptographic operations in the worker realm. Literal NIST SHA512, RFC7748 X25519, RFC8032 Ed25519 and pinned upstream libsodium NaCl box/secretbox vectors supply independent expected bytes. Generated SHA512 expectations use node:crypto createHash in the test host outside the worker; only expected typed JSON bytes enter the realm. Byte-tamper and wrong-size cases characterize selected verification/authentication rejection and argument guards. No host crypto provider/functions or custom crypto implementation is injected.",
   "trials": {
-    "cases": 21,
-    "probesPerRevision": 577,
+    "cases": 45,
+    "probesPerRevision": 2107,
     "portablePlanTests": 1,
     "maxProbesPerCase": 64,
     "generatedSha512Lengths": {
@@ -33,7 +33,8 @@
     "executionHistory": {
       "version1": "Historical retained executions covered the original 14 cases and 397 probes per revision. Those case identities, versions, inputs and assertions remain unchanged; this history does not execute or accept the four new cases.",
       "version2Extension": "Focused actual archived execution passed 19 tests for all 18 cases and 475 probes per revision, with 18 unchanged comparisons across1051710191 and1051908825. A private observer captured36 full content-addressed records before assertions, covering54 source executions and1425 probe executions. The four added cases contribute12 source executions and234 probes including repeats. All24 frozen files matched before/after; original14 full plans/397 probes remain exact. Runtime87c9bd140246ef9c064145491a3517376c6c15ccea1da44ac9a98826741dcc64; explicit process diagnostic isolated:false. All whole-source AST inventories remain default2m budget-exhausted; no provider/protocol/security/container/production acceptance.",
-      "version3Extension": "Focused actual archived execution passed22 tests for all21 cases/577probes per revision, with21 unchanged comparisons across1051710191 and1051908825. A private observer captured42 complete content-addressed records before assertions, covering63 source executions/1731probes. Three added cases contribute9 executions/306probes including repeats. All24 frozen files matched before/after and all original18plans/475probes remain exact. Runtime87c9bd140246ef9c064145491a3517376c6c15ccea1da44ac9a98826741dcc64, process diagnostic isolated:false. Independent host native Ed25519 KAT/oracles run outsideVM; JWK supplied publicx, so no independent seed-only derivation claim. Default2m AST exhaustion, private noncanonical-signature failures and original provider/security/protocol/container gaps remain unchanged."
+      "version3Extension": "Focused actual archived execution passed22 tests for all21 cases/577probes per revision, with21 unchanged comparisons across1051710191 and1051908825. A private observer captured42 complete content-addressed records before assertions, covering63 source executions/1731probes. Three added cases contribute9 executions/306probes including repeats. All24 frozen files matched before/after and all original18plans/475probes remain exact. Runtime87c9bd140246ef9c064145491a3517376c6c15ccea1da44ac9a98826741dcc64, process diagnostic isolated:false. Independent host native Ed25519 KAT/oracles run outsideVM; JWK supplied publicx, so no independent seed-only derivation claim. Default2m AST exhaustion, private noncanonical-signature failures and original provider/security/protocol/container gaps remain unchanged.",
+      "version4Extension": "Focused actual archived execution passed46 tests for all45 cases/2107probes per revision, with45 unchanged comparisons across1051710191 and1051908825. A private observer captured90 full content-addressed records before assertions, covering135 source executions and6321 probe executions. The24 added cases contribute72 source executions and4590 probes including repeats. All24 frozen files matched before/after; original21 full plans/577 probes and full CaseResults remain exact apart from execution start/finish timestamps. All1536 selected joint cells map to observed probes, reusing six exact old raw-view baselines plus1530 new probes;4608 selected-cell probe executions include repeats/reused baselines. Runtime87c9bd140246ef9c064145491a3517376c6c15ccea1da44ac9a98826741dcc64; explicit process diagnostic isolated:false. All135 whole-source inventories remain default2m budget-exhausted at1999990. This is selected finite-model primitive behavior, not complete key/input/configuration/provider/protocol/security/container/production acceptance."
     },
     "sha512Extension": {
       "cases": 4,
@@ -128,6 +129,210 @@
         "modules/tweetnacl-1.0.3.js:772-778"
       ],
       "scope": "Selected valid signatures/messages and visible inputs only. Existing whole-source pins and default 2000000-work AST exhaustion at1999990 remain unchanged; no zero-gate, full configuration, original provider, PRNG, protocol or security acceptance."
+    },
+    "x25519JointExtension": {
+      "cases": 24,
+      "newProbesPerRevision": 1530,
+      "selectedModelCells": 1536,
+      "exactExistingCellsReused": 6,
+      "probeLimit": 64,
+      "serializedCaseByteLimit": 262144,
+      "maxNewSerializedCaseBytes": 37635,
+      "newCasePartition": [
+        64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64,
+        58
+      ],
+      "newCases": [
+        {
+          "caseId": "bundled-nacl-x25519-joint-model-0-v1",
+          "probes": 64,
+          "serializedCaseBytes": 25803
+        },
+        {
+          "caseId": "bundled-nacl-x25519-joint-model-1-v1",
+          "probes": 64,
+          "serializedCaseBytes": 31915
+        },
+        {
+          "caseId": "bundled-nacl-x25519-joint-model-2-v1",
+          "probes": 64,
+          "serializedCaseBytes": 37310
+        },
+        {
+          "caseId": "bundled-nacl-x25519-joint-model-3-v1",
+          "probes": 64,
+          "serializedCaseBytes": 26030
+        },
+        {
+          "caseId": "bundled-nacl-x25519-joint-model-4-v1",
+          "probes": 64,
+          "serializedCaseBytes": 32385
+        },
+        {
+          "caseId": "bundled-nacl-x25519-joint-model-5-v1",
+          "probes": 64,
+          "serializedCaseBytes": 37635
+        },
+        {
+          "caseId": "bundled-nacl-x25519-joint-model-6-v1",
+          "probes": 64,
+          "serializedCaseBytes": 37373
+        },
+        {
+          "caseId": "bundled-nacl-x25519-joint-model-7-v1",
+          "probes": 64,
+          "serializedCaseBytes": 37463
+        },
+        {
+          "caseId": "bundled-nacl-x25519-joint-model-8-v1",
+          "probes": 64,
+          "serializedCaseBytes": 37453
+        },
+        {
+          "caseId": "bundled-nacl-x25519-joint-model-9-v1",
+          "probes": 64,
+          "serializedCaseBytes": 37481
+        },
+        {
+          "caseId": "bundled-nacl-x25519-joint-model-10-v1",
+          "probes": 64,
+          "serializedCaseBytes": 37356
+        },
+        {
+          "caseId": "bundled-nacl-x25519-joint-model-11-v1",
+          "probes": 64,
+          "serializedCaseBytes": 37392
+        },
+        {
+          "caseId": "bundled-nacl-x25519-joint-model-12-v1",
+          "probes": 64,
+          "serializedCaseBytes": 37421
+        },
+        {
+          "caseId": "bundled-nacl-x25519-joint-model-13-v1",
+          "probes": 64,
+          "serializedCaseBytes": 37394
+        },
+        {
+          "caseId": "bundled-nacl-x25519-joint-model-14-v1",
+          "probes": 64,
+          "serializedCaseBytes": 37413
+        },
+        {
+          "caseId": "bundled-nacl-x25519-joint-model-15-v1",
+          "probes": 64,
+          "serializedCaseBytes": 37139
+        },
+        {
+          "caseId": "bundled-nacl-x25519-joint-model-16-v1",
+          "probes": 64,
+          "serializedCaseBytes": 37131
+        },
+        {
+          "caseId": "bundled-nacl-x25519-joint-model-17-v1",
+          "probes": 64,
+          "serializedCaseBytes": 37227
+        },
+        {
+          "caseId": "bundled-nacl-x25519-joint-model-18-v1",
+          "probes": 64,
+          "serializedCaseBytes": 37262
+        },
+        {
+          "caseId": "bundled-nacl-x25519-joint-model-19-v1",
+          "probes": 64,
+          "serializedCaseBytes": 37128
+        },
+        {
+          "caseId": "bundled-nacl-x25519-joint-model-20-v1",
+          "probes": 64,
+          "serializedCaseBytes": 37171
+        },
+        {
+          "caseId": "bundled-nacl-x25519-joint-model-21-v1",
+          "probes": 64,
+          "serializedCaseBytes": 37195
+        },
+        {
+          "caseId": "bundled-nacl-x25519-joint-model-22-v1",
+          "probes": 64,
+          "serializedCaseBytes": 37171
+        },
+        {
+          "caseId": "bundled-nacl-x25519-joint-model-23-v1",
+          "probes": 58,
+          "serializedCaseBytes": 33939
+        }
+      ],
+      "existingBaselineMappings": [
+        {
+          "kind": "existing",
+          "caseId": "bundled-nacl-x25519-rfc7748-v1",
+          "probeId": "alice-public"
+        },
+        {
+          "kind": "existing",
+          "caseId": "bundled-nacl-box-primary-agreement-v1",
+          "probeId": "alice-keypair"
+        },
+        {
+          "kind": "existing",
+          "caseId": "bundled-nacl-x25519-rfc7748-v1",
+          "probeId": "bob-public"
+        },
+        {
+          "kind": "existing",
+          "caseId": "bundled-nacl-box-primary-agreement-v1",
+          "probeId": "bob-keypair"
+        },
+        {
+          "kind": "existing",
+          "caseId": "bundled-nacl-x25519-rfc7748-v1",
+          "probeId": "alice-shared"
+        },
+        {
+          "kind": "existing",
+          "caseId": "bundled-nacl-x25519-rfc7748-v1",
+          "probeId": "bob-shared"
+        }
+      ],
+      "jointModel": {
+        "fixedPublishedKeys": ["RFC7748 Alice", "RFC7748 Bob"],
+        "scalarAbsoluteBits": [0, 1, 2, 254, 255],
+        "scalarAssignmentsPerKey": 32,
+        "peerAbsoluteBits": [255],
+        "peerAssignments": 2,
+        "secretOffsets": [0, 1, 7],
+        "peerOffsets": [0, 1, 7],
+        "baseAndKeypair": {
+          "APIs": ["scalarMult.base", "box.keyPair.fromSecretKey"],
+          "keys": 2,
+          "scalarAssignments": 32,
+          "secretOffsets": 3,
+          "cells": 384
+        },
+        "shared": {
+          "API": "scalarMult",
+          "directions": ["Alice to Bob", "Bob to Alice"],
+          "scalarAssignments": 32,
+          "peerAssignments": 2,
+          "secretOffsets": 3,
+          "peerOffsets": 3,
+          "cells": 1152
+        },
+        "fixedBackground": "All unselected scalar/peer bits remain the corresponding published RFC literal. Offset0 retains the exact existing unpadded raw fixture shape; offsets1/7 use sentinel-backed 32-byte views.",
+        "mappingScope": "Every one of these1536 selected joint bit-by-offset cells was observed through its exact mapped probe at both pinned revisions, using six unchanged existing raw-view baselines and1530 new probes. Repeated baseline executions account for4608 selected-cell probe executions. This selected-model coverage does not close unbounded key/coordinate/offset/input/configuration domains."
+      },
+      "oracle": "Original source masks force scalar low three bits to0, scalar bit254 to1 and bit255 to0, and erase peer bit255. Under the fixed RFC backgrounds these selected assignments preserve the published public/shared outputs. fromSecretKey additionally expects each literal unmasked visible secret byte array returned as data. No new native X25519 oracle, provider, same-library round-trip expectation or scalar implementation is introduced.",
+      "modelCatalogSha256": "599feab72e984f57fdcc1704e9ee28b82cc20891592a5e9f0d4c7fb03d5c2afb",
+      "sourceCitations": [
+        "modules/tweetnacl-1.0.3.js:263-266",
+        "modules/tweetnacl-1.0.3.js:293-304",
+        "modules/tweetnacl-1.0.3.js:707-716",
+        "modules/tweetnacl-1.0.3.js:732-739"
+      ],
+      "boundaries": "No input-mutation/backing-isolation/key-identity or general noncanonical/low-order/all-zero/security policy claim. Source observations, two-module source inputs and default2m AST exhaustion at1999990 remain unchanged; all original configuration/domain/provider/protocol/bootstrap/production gaps persist.",
+      "execution": "Executed focused private-observer diagnostics:46 tests passed,45 unchanged comparisons,90 records,135 source executions and6321 probe executions. The24 new cases supply72 source executions/4590 probes. Full prior21-case results, all24 frozen files, two original source inputs and default2m exhausted inventories were preserved. No clean committed primary receipts, production scheduling or broader provider/security acceptance are established by this focused run."
     }
   },
   "primaryVectors": {
@@ -276,7 +481,8 @@
     "Fixed published keys/nonces are test inputs only. Bounded tamper/size vectors do not prove constant-time behavior, full canonical point/signature handling, cryptographic security or all malformed inputs.",
     "Pinned libsodium source supplies vector data only, not execution of libsodium or another named-library adapter. Container execution, production TypeScript suite scheduling, accounts/network and registered-library compliance remain unproven.",
     "Version 2 adds authored SHA-512 padding-neighbor, visible-view, type-error/retry and bounded larger-block inputs; historical version-1 execution is not acceptance of these additions. Input lengths/bytes/views/types remain unbounded; no streaming, full encoded-length range, canonical/security/constant-time, PRNG or original WA provider binding proof is added.",
-    "Version 3 adds authored valid-message Ed25519/sign/open and nonempty visible-view/fromSeed cases. Prior 18-case execution does not accept these additions. Valid-message results do not establish strict canonical scalar/point policy; malformed-signature/security/provider/PRNG/protocol and unbounded-input claims remain excluded."
+    "Version 3 adds authored valid-message Ed25519/sign/open and nonempty visible-view/fromSeed cases. Prior 18-case execution does not accept these additions. Valid-message results do not establish strict canonical scalar/point policy; malformed-signature/security/provider/PRNG/protocol and unbounded-input claims remain excluded.",
+    "Version 4 adds an authored finite joint X25519 model only: two fixed RFC backgrounds, five selected scalar bits, one selected peer bit and offsets0/1/7. Its1536 planned cells reuse six exact old baselines and add1530 probes without duplicate KAT counts. No complete key/coordinate/offset/input/configuration domain, original WA provider binding, malformed-point/security/constant-time/PRNG/protocol or production acceptance is added."
   ],
   "inventoryRefresh": {
     "analyzerVersion": 5,

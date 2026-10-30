@@ -514,5 +514,93 @@ export function bundledNaclCases(): BehaviorCase[] {
       ),
     );
   make('ed25519-visible-views', signatureViewProbes);
+  // Complete finite model of source-erased bits and selected visible offsets.
+  // Published RFC outputs are unchanged; fromSecretKey returns raw input bytes.
+  const jointDirections = [
+    {
+      name: 'alice-to-bob',
+      secret: alice,
+      public: apub,
+      peer: bpub,
+      baselineMask: 7,
+      label: 'alice',
+    },
+    { name: 'bob-to-alice', secret: bob, public: bpub, peer: apub, baselineMask: 29, label: 'bob' },
+  ];
+  const jointView = (value: Uint8Array, offset: number): JsonValue =>
+    offset === 0
+      ? encode(value)
+      : {
+          $type: 'Uint8Array',
+          value: [...Array<number>(offset).fill(238), ...value, 221, 220],
+          byteOffset: offset,
+          byteLength: 32,
+        };
+  const jointProbes: Probe[] = [];
+  let jointCells = 0,
+    existingJointCells = 0;
+  const jointCell = (
+    direction: (typeof jointDirections)[number],
+    api: string,
+    scalarMask: number,
+    secretOffset: number,
+    peerHighBit?: number,
+    peerOffset?: number,
+  ) => {
+    const ordinal = jointCells++;
+    const scalar = Buffer.from(direction.secret, 'hex');
+    scalar[0] = (scalar[0]! & 248) | (scalarMask & 7);
+    scalar[31] =
+      (scalar[31]! & 63) | (((scalarMask >>> 3) & 1) << 6) | (((scalarMask >>> 4) & 1) << 7);
+    const args = [jointView(scalar, secretOffset)];
+    let expected: JsonValue = bytes(direction.public);
+    if (api === 'box.keyPair.fromSecretKey')
+      expected = { publicKey: bytes(direction.public), secretKey: encode(scalar) };
+    if (api === 'scalarMult') {
+      const peer = Buffer.from(direction.peer, 'hex');
+      peer[31] = (peer[31]! & 127) | (peerHighBit! << 7);
+      args.push(jointView(peer, peerOffset!));
+      expected = bytes(shared);
+    }
+    const baseline =
+      scalarMask === direction.baselineMask &&
+      secretOffset === 0 &&
+      (api !== 'scalarMult' || (peerHighBit === 0 && peerOffset === 0));
+    if (baseline) {
+      const caseId =
+        api === 'box.keyPair.fromSecretKey'
+          ? 'bundled-nacl-box-primary-agreement-v1'
+          : 'bundled-nacl-x25519-rfc7748-v1';
+      const probeId =
+        direction.label +
+        (api === 'box.keyPair.fromSecretKey'
+          ? '-keypair'
+          : api === 'scalarMult'
+            ? '-shared'
+            : '-public');
+      const existing = cases
+        .find((item) => item.id === caseId)
+        ?.probes.find((probe) => probe.id === probeId);
+      if (!existing) throw new Error('Missing original X25519 model baseline');
+      const { id: _id, ...operation } = existing;
+      if (JSON.stringify(operation) !== JSON.stringify({ export: api, args, expected }))
+        throw new Error('Original X25519 model baseline is not exact');
+      existingJointCells++;
+    } else jointProbes.push(call(`joint-cell-${ordinal}`, api, args, expected));
+  };
+  for (const direction of jointDirections)
+    for (const api of ['scalarMult.base', 'box.keyPair.fromSecretKey'])
+      for (let mask = 0; mask < 32; mask++)
+        for (const offset of [0, 1, 7]) jointCell(direction, api, mask, offset);
+  for (const direction of jointDirections)
+    for (let mask = 0; mask < 32; mask++)
+      for (const peerBit of [0, 1])
+        for (const secretOffset of [0, 1, 7])
+          for (const peerOffset of [0, 1, 7])
+            jointCell(direction, 'scalarMult', mask, secretOffset, peerBit, peerOffset);
+  if (jointCells !== 1536 || existingJointCells !== 6 || jointProbes.length !== 1530)
+    throw new Error('Incomplete selected X25519 joint model');
+  for (let offset = 0; offset < jointProbes.length; offset += 64)
+    make(`x25519-joint-model-${offset / 64}`, jointProbes.slice(offset, offset + 64));
   return cases;
 }
