@@ -70,3 +70,7 @@ Selected GKX Boolean fixtures define modeled input products. Original GKX assign
 The [Comet cache suite](docs/comet-lru-state.md) characterizes positive-capacity `new create(...)`, clock-driven TTL boundaries, lazy expiry and read recency. The [insertion-occurrence cache suite](docs/fifo-cache-state.md) characterizes the original `LRUCache` constructor's FIFO eviction and duplicate-key lifetimes. Capacity, TTL, key and history domains remain unbounded.
 
 Boolean knob fixture hints also do not close original assignment domains. Reviewed explicit domains are required for planning; original typed-knob failures and raw unknown domains remain separate observations.
+
+The [SmallQueue suite](docs/small-queue-state.md) executes FIFO, peek/removal and real object lifetimes, native array/typed-view list insertion, malformed-list recovery and bounded generated histories. The 2,048-item case observes five prefix values and counts only.
+
+Gate planning requires explicit reviewed finite domains for every provider kind. Genuine Boolean definition/parser facts remain useful evidence for scoped models; method/type hints alone do not close initialized provider or raw server domains.

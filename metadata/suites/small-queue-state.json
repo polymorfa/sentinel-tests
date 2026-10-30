@@ -1,0 +1,131 @@
+{
+  "schemaVersion": 1,
+  "id": "small-queue-state",
+  "version": 1,
+  "title": "Original small queue FIFO, strict removal and input recovery",
+  "file": "tests/small-queue-state.test.ts",
+  "helper": "support/small-queue-state-cases.ts",
+  "capability": "wa-internal:small-queue-state",
+  "roots": ["SmallQueue"],
+  "oracle": "Literal FIFO/peek/length/first-strict-removal expectations, NaN indexOf characterization, real returned-object reference histories, source-derived malformed-list native errors before insertion with unchanged state and retry, typed view byte tables, and immutable external sequence-model expectations for generated state histories.",
+  "trials": {
+    "cases": 13,
+    "portablePlanTests": 1,
+    "probesPerRevision": 440,
+    "maxProbesPerCase": 81,
+    "maxRetainedObjectsPerCase": 2,
+    "maxSerializedCaseBytes": 34541,
+    "generatedHistories": 4,
+    "stepsPerGeneratedHistory": 24,
+    "largeInputItems": 2048,
+    "largeInputObservedPrefixItems": 5,
+    "selectedKnownGateAssignmentCardinality": 1,
+    "configurationExhaustive": false,
+    "inputDomainExhaustive": false,
+    "execution": "Executed partial original queue behavior against actual archived sources at 1051710191 and 1051908825 through the local core Subject: 13 cases, 440 probes per revision, unchanged comparisons; 14 tests passed. Complete results were retained privately before assertions. Explicit diagnostic process mode reports isolated:false; large-list coverage is five prefix values plus counts, with no full-tail, external-callback or mid-prefix-failure proof.",
+    "sourceScope": "Actual default-unwrapped SmallQueue constructor via $module and public methods only. Native source Array.forEach callback executes actual enqueue code; no supplied callback/helper/private array or provider.",
+    "identityScope": "Actual peek/dequeue returned objects are retained for strict reference remove, reenqueue and identity; fresh equal records do not match. No argument-retention or arbitrary property seam.",
+    "failureScope": "Selected lists without callable forEach throw native TypeError before first insertion; existing count/head and valid retries remain observable. No fabricated mid-prefix failure.",
+    "largeInputScope": "2048-item list assertions observe initial length, five-item literal prefix and remaining count/nonempty only; no full unobserved-tail equality claim.",
+    "domains": "Inputs, values, lengths and histories remain unbounded; finite generated/literal samples do not establish exhaustive domains, persistence, restart or security/copy ownership."
+  },
+  "observations": [
+    {
+      "revision": "1051710191",
+      "modules": [
+        {
+          "module": "SmallQueue",
+          "variant": "primary",
+          "printedSourceSha256": "31d6d95f73605437bd27cf1f9a1f3ed934fca66f3ef99e8d3b22111c15cda178",
+          "dependencies": [],
+          "citations": [
+            "modules/SmallQueue.js:4",
+            "modules/SmallQueue.js:8",
+            "modules/SmallQueue.js:10",
+            "modules/SmallQueue.js:15",
+            "modules/SmallQueue.js:23"
+          ]
+        }
+      ],
+      "analyzer": {
+        "version": 4,
+        "sourceSha256": "73c5e31e59ff601a01114ab03a0dc183d81389987e3af5832c53d9ac8bd8c06b"
+      },
+      "inventoryDigest": "f0160f29a78626145d976afedcb415bfd288ecf93ab05c3d6618dd03bee12028",
+      "gates": [],
+      "unresolved": [],
+      "staticCoverage": {
+        "complete": true,
+        "scope": "module-closure-superset",
+        "semanticProof": false,
+        "resolverCoverage": false,
+        "modules": 1,
+        "sourceBytes": 722,
+        "workBudget": {
+          "limit": 2000000,
+          "consumed": 2658,
+          "exhausted": false
+        },
+        "limitations": [
+          "Only supported gate APIs and static key expressions are inventoried.",
+          "Logical work units bound selected AST traversal and resolution, not parser internals or elapsed time; parsing remains source-byte bounded.",
+          "Declared fixture-provider boundaries exclude their original resolver implementations and dependencies.",
+          "All functions in each dependency module are scanned; exact export and caller reachability is not proven.",
+          "Runtime-discovered gates and externally selected code require separate observations."
+        ]
+      }
+    },
+    {
+      "revision": "1051908825",
+      "modules": [
+        {
+          "module": "SmallQueue",
+          "variant": "primary",
+          "printedSourceSha256": "31d6d95f73605437bd27cf1f9a1f3ed934fca66f3ef99e8d3b22111c15cda178",
+          "dependencies": [],
+          "citations": [
+            "modules/SmallQueue.js:4",
+            "modules/SmallQueue.js:8",
+            "modules/SmallQueue.js:10",
+            "modules/SmallQueue.js:15",
+            "modules/SmallQueue.js:23"
+          ]
+        }
+      ],
+      "analyzer": {
+        "version": 4,
+        "sourceSha256": "73c5e31e59ff601a01114ab03a0dc183d81389987e3af5832c53d9ac8bd8c06b"
+      },
+      "inventoryDigest": "f0160f29a78626145d976afedcb415bfd288ecf93ab05c3d6618dd03bee12028",
+      "gates": [],
+      "unresolved": [],
+      "staticCoverage": {
+        "complete": true,
+        "scope": "module-closure-superset",
+        "semanticProof": false,
+        "resolverCoverage": false,
+        "modules": 1,
+        "sourceBytes": 722,
+        "workBudget": {
+          "limit": 2000000,
+          "consumed": 2658,
+          "exhausted": false
+        },
+        "limitations": [
+          "Only supported gate APIs and static key expressions are inventoried.",
+          "Logical work units bound selected AST traversal and resolution, not parser internals or elapsed time; parsing remains source-byte bounded.",
+          "Declared fixture-provider boundaries exclude their original resolver implementations and dependencies.",
+          "All functions in each dependency module are scanned; exact export and caller reachability is not proven.",
+          "Runtime-discovered gates and externally selected code require separate observations."
+        ]
+      }
+    }
+  ],
+  "exclusions": [
+    "No supplied host/source callback fixture, fake queue, private array/meta/property or argument-retention helper.",
+    "No fabricated mid-prefix failure, callback-controlled list behavior or exhaustive unbounded input-domain claim.",
+    "No full unobserved large-list tail, alias/copy ownership/branding/security or prototype-manipulated key acceptance.",
+    "No persisted restart/reset, backend/model/provider/bootstrap integration or complete lifecycle claim.",
+    "No browser/native/network/storage/crypto provider, container/service scheduling or named-library acceptance."
+  ]
+}
