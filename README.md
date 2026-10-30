@@ -29,6 +29,8 @@ The [original enumeration suite](docs/fb-enumerate.md) additionally requires an 
 
 The [group storage-input suite](docs/group-abprops-storage-input.md) tests the original row transformer and cache staging with synthetic storage-shaped inputs. It does not query storage or establish persistence or transaction behavior.
 
+The [bundled NaCl suite](docs/bundled-nacl.md) runs fixed deterministic cryptographic primitive vectors in the source realm. WhatsApp provider binding and protocol use remain unproven, and the full AST inventory remains budget-blocked.
+
 The eight existing fixtures retain their IDs, versions and exact bytes after moving out of `tests/`. Historical observations and remaining gaps are recorded in [coverage.json](coverage.json). A passing assertion covers its exact inputs, source, configuration and runtime. It does not establish whole-client or library compliance, server acceptance or cryptographic security.
 
 Discovered using a monitor developed by @purpshell at polymorfa.com

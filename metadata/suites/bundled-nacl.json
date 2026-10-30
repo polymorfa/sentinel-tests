@@ -1,0 +1,179 @@
+{
+  "schemaVersion": 1,
+  "id": "bundled-nacl",
+  "version": 1,
+  "title": "Shipped TweetNaCl deterministic primitive vectors and bounded tamper cases",
+  "file": "tests/bundled-nacl.test.ts",
+  "helper": "support/bundled-nacl-cases.ts",
+  "capability": "wa-bundle:tweetnacl-deterministic",
+  "roots": ["tweetnacl"],
+  "oracle": "Actual shipped tweetnacl→tweetnacl-1.0.3 pure JavaScript cryptographic operations in the worker realm. Literal NIST SHA512, RFC7748 X25519, RFC8032 Ed25519 and pinned upstream libsodium NaCl box/secretbox vectors supply independent expected bytes. Generated SHA512 expectations use node:crypto createHash in the test host outside the worker; only expected typed JSON bytes enter the realm. Byte-tamper and wrong-size cases characterize selected verification/authentication rejection and argument guards. No host crypto provider/functions or custom crypto implementation is injected.",
+  "trials": {
+    "cases": 14,
+    "probesPerRevision": 397,
+    "portablePlanTests": 1,
+    "maxProbesPerCase": 64,
+    "generatedSha512Lengths": {
+      "common": [0, 1, 31, 32, 63, 64, 65, 127, 128, 129, 1024, 8193],
+      "zeroLargest": 65537,
+      "otherLargest": 32769,
+      "admissionBound": "Existing 256 KiB serialized-case limit preserved; initial 65,537-byte ff/sequence cases failed admission and are retained privately, not crypto failures"
+    },
+    "generatedSha512Profiles": ["zero", "ff", "sequence:(index*37+11)%256"],
+    "secretboxCipherByteTamper": 147,
+    "secretboxKeyByteTamper": 32,
+    "secretboxNonceByteTamper": 24,
+    "ed25519SignatureByteTamper": 64,
+    "ed25519PublicKeyByteTamper": 32,
+    "tamperProfile": "xor1 at every byte position of each named published vector; not exhaustive all bit patterns/keys/messages",
+    "configurationExhaustive": false,
+    "fullConfigurationCardinality": "unknown: default 2000000-work AST analysis exhausted at 1,999,986 while traversing implementation; no zero-gate/empty-product proof",
+    "inputDomain": "Bounded fixed keys/messages/vectors and generated SHA512 profiles only; byte/string/size/key/message domains unbounded"
+  },
+  "primaryVectors": {
+    "sha512": "https://csrc.nist.gov/CSRC/media/Projects/Cryptographic-Standards-and-Guidelines/documents/examples/SHA512.pdf",
+    "x25519": "https://www.rfc-editor.org/rfc/rfc7748.html#section-6.1",
+    "ed25519": "https://www.rfc-editor.org/rfc/rfc8032.html#section-7.1",
+    "libsodium": {
+      "commit": "f0166d33e3a67d5d9b90999d738ba926e8e7a59a",
+      "sources": {
+        "secretbox.c": {
+          "url": "https://raw.githubusercontent.com/jedisct1/libsodium/f0166d33e3a67d5d9b90999d738ba926e8e7a59a/test/default/secretbox.c",
+          "sha256": "0b68f23ffcb9454c4f427b9de75346ef8ff7164a7e6441093d6f297757f8390b"
+        },
+        "secretbox.exp": {
+          "url": "https://raw.githubusercontent.com/jedisct1/libsodium/f0166d33e3a67d5d9b90999d738ba926e8e7a59a/test/default/secretbox.exp",
+          "sha256": "aff23c0aa430ab59eeb19af114f5fdafe7479e674af4e431f1ffa55a0f79ef2d"
+        },
+        "box.c": {
+          "url": "https://raw.githubusercontent.com/jedisct1/libsodium/f0166d33e3a67d5d9b90999d738ba926e8e7a59a/test/default/box.c",
+          "sha256": "cac8b9622014e3a67d7fb2cc829ac3851e9386d407bc78efeea1d767fc976da8"
+        },
+        "box.exp": {
+          "url": "https://raw.githubusercontent.com/jedisct1/libsodium/f0166d33e3a67d5d9b90999d738ba926e8e7a59a/test/default/box.exp",
+          "sha256": "aff23c0aa430ab59eeb19af114f5fdafe7479e674af4e431f1ffa55a0f79ef2d"
+        }
+      },
+      "adaptation": "C low-level vectors prepend 32 zero message bytes; high-level message excludes them. Expected .exp output already prints ciphertext indices 16..162; first 147 bytes are highlevel tag+ciphertext, second copy is the in-place C run. box.c uses RFC7748 Alice secret/Bob public; box.exp matches secretbox.exp. box.before expected key matches independently published secretbox key; no libsodium execution claimed."
+    }
+  },
+  "observations": [
+    {
+      "revision": "1051710191",
+      "modules": [
+        {
+          "module": "tweetnacl",
+          "variant": "primary",
+          "printedSourceSha256": "dfa411fb3444056d603abc3016a0fcfaf17d97385b4a5988968813d8e8513564",
+          "dependencies": ["tweetnacl-1.0.3"],
+          "citations": ["modules/tweetnacl.js:1-4"]
+        },
+        {
+          "module": "tweetnacl-1.0.3",
+          "variant": "primary",
+          "printedSourceSha256": "7a481e15da5e9c4d0342cba8724550c90a0c9f9ebfa7699decc43ee32f9c2a8f",
+          "dependencies": [],
+          "citations": ["modules/tweetnacl-1.0.3.js:699-716", "modules/tweetnacl-1.0.3.js:739-802"]
+        }
+      ],
+      "analyzer": {
+        "version": 4,
+        "sourceSha256": "73c5e31e59ff601a01114ab03a0dc183d81389987e3af5832c53d9ac8bd8c06b"
+      },
+      "inventoryDigest": "82ef7593165bc8a50c17af380fb0056053ba1525ee93cb378ed545427ab0e889",
+      "gates": [],
+      "unresolved": [
+        {
+          "code": "work-budget",
+          "module": "tweetnacl-1.0.3",
+          "sourceSha256": "7a481e15da5e9c4d0342cba8724550c90a0c9f9ebfa7699decc43ee32f9c2a8f",
+          "required": "analysis-work",
+          "budget": "2000000",
+          "count": 1999986
+        }
+      ],
+      "staticCoverage": {
+        "complete": false,
+        "scope": "module-closure-superset",
+        "semanticProof": false,
+        "resolverCoverage": false,
+        "modules": 1,
+        "sourceBytes": 48055,
+        "workBudget": {
+          "limit": 2000000,
+          "consumed": 1999986,
+          "exhausted": true
+        },
+        "limitations": [
+          "Only supported gate APIs and static key expressions are inventoried.",
+          "Logical work units bound selected AST traversal and resolution, not parser internals or elapsed time; parsing remains source-byte bounded.",
+          "Declared fixture-provider boundaries exclude their original resolver implementations and dependencies.",
+          "All functions in each dependency module are scanned; exact export and caller reachability is not proven.",
+          "Runtime-discovered gates and externally selected code require separate observations."
+        ]
+      }
+    },
+    {
+      "revision": "1051908825",
+      "modules": [
+        {
+          "module": "tweetnacl",
+          "variant": "primary",
+          "printedSourceSha256": "dfa411fb3444056d603abc3016a0fcfaf17d97385b4a5988968813d8e8513564",
+          "dependencies": ["tweetnacl-1.0.3"],
+          "citations": ["modules/tweetnacl.js:1-4"]
+        },
+        {
+          "module": "tweetnacl-1.0.3",
+          "variant": "primary",
+          "printedSourceSha256": "7a481e15da5e9c4d0342cba8724550c90a0c9f9ebfa7699decc43ee32f9c2a8f",
+          "dependencies": [],
+          "citations": ["modules/tweetnacl-1.0.3.js:699-716", "modules/tweetnacl-1.0.3.js:739-802"]
+        }
+      ],
+      "analyzer": {
+        "version": 4,
+        "sourceSha256": "73c5e31e59ff601a01114ab03a0dc183d81389987e3af5832c53d9ac8bd8c06b"
+      },
+      "inventoryDigest": "82ef7593165bc8a50c17af380fb0056053ba1525ee93cb378ed545427ab0e889",
+      "gates": [],
+      "unresolved": [
+        {
+          "code": "work-budget",
+          "module": "tweetnacl-1.0.3",
+          "sourceSha256": "7a481e15da5e9c4d0342cba8724550c90a0c9f9ebfa7699decc43ee32f9c2a8f",
+          "required": "analysis-work",
+          "budget": "2000000",
+          "count": 1999986
+        }
+      ],
+      "staticCoverage": {
+        "complete": false,
+        "scope": "module-closure-superset",
+        "semanticProof": false,
+        "resolverCoverage": false,
+        "modules": 1,
+        "sourceBytes": 48055,
+        "workBudget": {
+          "limit": 2000000,
+          "consumed": 1999986,
+          "exhausted": true
+        },
+        "limitations": [
+          "Only supported gate APIs and static key expressions are inventoried.",
+          "Logical work units bound selected AST traversal and resolution, not parser internals or elapsed time; parsing remains source-byte bounded.",
+          "Declared fixture-provider boundaries exclude their original resolver implementations and dependencies.",
+          "All functions in each dependency module are scanned; exact export and caller reachability is not proven.",
+          "Runtime-discovered gates and externally selected code require separate observations."
+        ]
+      }
+    }
+  ],
+  "exclusions": [
+    "Only direct shipped bundled pure-JavaScript primitives execute; no cr8712 alias binding, WACryptoDependencies/self.crypto, WhatsApp crypto provider, WACryptoPrimitives, Signal/Noise/ratchet or protocol acceptance.",
+    "Original bundle/browser/bootstrap integration, entropy/PRNG/randomBytes/random key generation and no-PRNG exceptions are unexercised. No self/global alias, stub, callback, host crypto provider or guard weakening is supplied.",
+    "Full source pins include both modules; incomplete AST budget is preserved at default2m. Zero inventoried gates is not a complete gate inventory, empty finite assignment proof or total configuration cardinality.",
+    "Fixed published keys/nonces are test inputs only. Bounded tamper/size vectors do not prove constant-time behavior, full canonical point/signature handling, cryptographic security or all malformed inputs.",
+    "Pinned libsodium source supplies vector data only, not execution of libsodium or another named-library adapter. Container execution, production TypeScript suite scheduling, accounts/network and registered-library compliance remain unproven."
+  ]
+}
