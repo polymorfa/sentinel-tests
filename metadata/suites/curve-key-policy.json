@@ -1,0 +1,260 @@
+{
+  "schemaVersion": 1,
+  "id": "curve-key-policy",
+  "version": 1,
+  "title": "Original WA pure BigInt curve-key helper policy and point operations",
+  "file": "tests/curve-key-policy.test.ts",
+  "helper": "support/curve-key-policy-cases.ts",
+  "capability": "wa-internal:curve-key-policy",
+  "roots": [
+    "WACryptoCurveEd25519PointOps",
+    "WACryptoCurveKeyCanonicalCheck",
+    "WACryptoCurveTransformations"
+  ],
+  "oracle": "RFC7748 section 4.1 literal prime/order/basepoint coordinates and section 6.1 published Alice/Bob public keys plus independent BigInt field/radix arithmetic outside worker. Actual WA canonical/range/torsion helper converts Montgomery inputs to Edwards and runs real point scalar multiplication by subgroup order L. Literal low-order/undefined-map facts, equivalent projective coordinate math, and bounded modular/range/offset/length characterizations are expected without deriving answers from vendor output. No provider, cryptographic implementation, callback or function is mocked/injected.",
+  "trials": {
+    "cases": 10,
+    "portablePlanTests": 1,
+    "probesPerRevision": 137,
+    "maxProbesPerCase": 26,
+    "finiteGateAssignments": 1,
+    "gateAssignment": {},
+    "gateScope": "Complete supported static helper/dependency inventory only, not Signal caller configuration or semantic proof",
+    "configurationExhaustive": true,
+    "configurationScope": "one empty supported finite gate assignment across the selected helper closure only",
+    "inputDomainExhaustive": false,
+    "rangeOnlyLengths": [0, 1, 2, 31, 32, 33, 64, 256],
+    "modularKeyMultipliers": [0, 1, 2, 3],
+    "knownKeys": ["RFC7748 baseu9", "RFC7748 Alice public key", "RFC7748 Bob public key"],
+    "non32LengthScope": "Integer 9 in one byte or zero-extended to 33 bytes passes these helper predicates; empty input passes range only. These are helper characterizations, not protocol length rejection acceptance.",
+    "integerDomain": "Unbounded BigInt/byte/key/length/point domains; bounded literals and generated relations only"
+  },
+  "primaryOracles": [
+    "https://www.rfc-editor.org/rfc/rfc7748.html#section-4.1",
+    "https://www.rfc-editor.org/rfc/rfc7748.html#section-6.1"
+  ],
+  "observations": [
+    {
+      "revision": "1051710191",
+      "modules": [
+        {
+          "module": "WACryptoCurveConstants",
+          "variant": "primary",
+          "printedSourceSha256": "41c322842714533b722c62aaa8312e52d88484d2b501a452a99c8e2678693dc6",
+          "dependencies": [],
+          "citations": ["modules/WACryptoCurveConstants.js:1"]
+        },
+        {
+          "module": "WACryptoCurveEd25519PointOps",
+          "variant": "primary",
+          "printedSourceSha256": "da1f13f6bb471570de4b2f9b2be0da7acab32f84709e5a0ffbe339416c1aa478",
+          "dependencies": ["WACryptoCurveConstants", "WACryptoCurveTransformations", "err"],
+          "citations": ["modules/WACryptoCurveEd25519PointOps.js:4-45"]
+        },
+        {
+          "module": "WACryptoCurveEncoding",
+          "variant": "primary",
+          "printedSourceSha256": "8a2e6d0a09b27b8a40cf0fd2d00594c5386079feffcccc387fbc7fb1b74a48fd",
+          "dependencies": ["err"],
+          "citations": ["modules/WACryptoCurveEncoding.js:1"]
+        },
+        {
+          "module": "WACryptoCurveKeyCanonicalCheck",
+          "variant": "primary",
+          "printedSourceSha256": "ac076f368e3e76f640fd4490a8681054352e898f32c5da810abd62a3ffc7cf25",
+          "dependencies": [
+            "WACryptoCurveConstants",
+            "WACryptoCurveEd25519PointOps",
+            "WACryptoCurveEncoding",
+            "WACryptoCurveTransformations"
+          ],
+          "citations": ["modules/WACryptoCurveKeyCanonicalCheck.js:8-31"]
+        },
+        {
+          "module": "WACryptoCurveTransformations",
+          "variant": "primary",
+          "printedSourceSha256": "eb50d060afc6626a4cb6d4a453e6b72962e548cb2d8594b83ecd631893111378",
+          "dependencies": ["WACryptoCurveConstants", "WACryptoCurveEncoding", "err"],
+          "citations": ["modules/WACryptoCurveTransformations.js:8-60"]
+        },
+        {
+          "module": "err",
+          "variant": "primary",
+          "printedSourceSha256": "a26a1f88fe2c09505c0ec8e43d1a43c2299b6126ea7ea305c567bf7634fbeea0",
+          "dependencies": ["fb-error"],
+          "citations": ["modules/err.js:1"]
+        },
+        {
+          "module": "fb-error",
+          "variant": "primary",
+          "printedSourceSha256": "545144d2d2c50524d5bcfc421916cf76760743cb5b034dcb7a4d7066981f714e",
+          "dependencies": ["performanceNow", "removeFromArray"],
+          "citations": ["modules/fb-error.js:1"]
+        },
+        {
+          "module": "performance",
+          "variant": "primary",
+          "printedSourceSha256": "9bee7ad7d1941af3432757b1ce55c980030f812f0a5fb00916e906b8a0b6ced9",
+          "dependencies": [],
+          "citations": ["modules/performance.js:1"]
+        },
+        {
+          "module": "performanceNow",
+          "variant": "primary",
+          "printedSourceSha256": "415e5327e020372f7789e27dc42266a9cb3d6bbc2d8c47d0b751b93517a0475f",
+          "dependencies": ["performance"],
+          "citations": ["modules/performanceNow.js:1"]
+        },
+        {
+          "module": "removeFromArray",
+          "variant": "primary",
+          "printedSourceSha256": "c8e194de9e9463716c2f383406ae8269ddff1a9fe5fbc1a7559abcd2aaa666bb",
+          "dependencies": [],
+          "citations": ["modules/removeFromArray.js:1"]
+        }
+      ],
+      "analyzer": {
+        "version": 4,
+        "sourceSha256": "73c5e31e59ff601a01114ab03a0dc183d81389987e3af5832c53d9ac8bd8c06b"
+      },
+      "inventoryDigest": "fe6b042d718756bdca677bf752d9a8c9656f07fc211d48c04c90a12d500d9c97",
+      "gates": [],
+      "unresolved": [],
+      "staticCoverage": {
+        "complete": true,
+        "scope": "module-closure-superset",
+        "semanticProof": false,
+        "resolverCoverage": false,
+        "modules": 10,
+        "sourceBytes": 35274,
+        "workBudget": {
+          "limit": 2000000,
+          "consumed": 159096,
+          "exhausted": false
+        },
+        "limitations": [
+          "Only supported gate APIs and static key expressions are inventoried.",
+          "Logical work units bound selected AST traversal and resolution, not parser internals or elapsed time; parsing remains source-byte bounded.",
+          "Declared fixture-provider boundaries exclude their original resolver implementations and dependencies.",
+          "All functions in each dependency module are scanned; exact export and caller reachability is not proven.",
+          "Runtime-discovered gates and externally selected code require separate observations."
+        ]
+      }
+    },
+    {
+      "revision": "1051908825",
+      "modules": [
+        {
+          "module": "WACryptoCurveConstants",
+          "variant": "primary",
+          "printedSourceSha256": "41c322842714533b722c62aaa8312e52d88484d2b501a452a99c8e2678693dc6",
+          "dependencies": [],
+          "citations": ["modules/WACryptoCurveConstants.js:1"]
+        },
+        {
+          "module": "WACryptoCurveEd25519PointOps",
+          "variant": "primary",
+          "printedSourceSha256": "da1f13f6bb471570de4b2f9b2be0da7acab32f84709e5a0ffbe339416c1aa478",
+          "dependencies": ["WACryptoCurveConstants", "WACryptoCurveTransformations", "err"],
+          "citations": ["modules/WACryptoCurveEd25519PointOps.js:4-45"]
+        },
+        {
+          "module": "WACryptoCurveEncoding",
+          "variant": "primary",
+          "printedSourceSha256": "8a2e6d0a09b27b8a40cf0fd2d00594c5386079feffcccc387fbc7fb1b74a48fd",
+          "dependencies": ["err"],
+          "citations": ["modules/WACryptoCurveEncoding.js:1"]
+        },
+        {
+          "module": "WACryptoCurveKeyCanonicalCheck",
+          "variant": "primary",
+          "printedSourceSha256": "ac076f368e3e76f640fd4490a8681054352e898f32c5da810abd62a3ffc7cf25",
+          "dependencies": [
+            "WACryptoCurveConstants",
+            "WACryptoCurveEd25519PointOps",
+            "WACryptoCurveEncoding",
+            "WACryptoCurveTransformations"
+          ],
+          "citations": ["modules/WACryptoCurveKeyCanonicalCheck.js:8-31"]
+        },
+        {
+          "module": "WACryptoCurveTransformations",
+          "variant": "primary",
+          "printedSourceSha256": "eb50d060afc6626a4cb6d4a453e6b72962e548cb2d8594b83ecd631893111378",
+          "dependencies": ["WACryptoCurveConstants", "WACryptoCurveEncoding", "err"],
+          "citations": ["modules/WACryptoCurveTransformations.js:8-60"]
+        },
+        {
+          "module": "err",
+          "variant": "primary",
+          "printedSourceSha256": "a26a1f88fe2c09505c0ec8e43d1a43c2299b6126ea7ea305c567bf7634fbeea0",
+          "dependencies": ["fb-error"],
+          "citations": ["modules/err.js:1"]
+        },
+        {
+          "module": "fb-error",
+          "variant": "primary",
+          "printedSourceSha256": "545144d2d2c50524d5bcfc421916cf76760743cb5b034dcb7a4d7066981f714e",
+          "dependencies": ["performanceNow", "removeFromArray"],
+          "citations": ["modules/fb-error.js:1"]
+        },
+        {
+          "module": "performance",
+          "variant": "primary",
+          "printedSourceSha256": "9bee7ad7d1941af3432757b1ce55c980030f812f0a5fb00916e906b8a0b6ced9",
+          "dependencies": [],
+          "citations": ["modules/performance.js:1"]
+        },
+        {
+          "module": "performanceNow",
+          "variant": "primary",
+          "printedSourceSha256": "415e5327e020372f7789e27dc42266a9cb3d6bbc2d8c47d0b751b93517a0475f",
+          "dependencies": ["performance"],
+          "citations": ["modules/performanceNow.js:1"]
+        },
+        {
+          "module": "removeFromArray",
+          "variant": "primary",
+          "printedSourceSha256": "c8e194de9e9463716c2f383406ae8269ddff1a9fe5fbc1a7559abcd2aaa666bb",
+          "dependencies": [],
+          "citations": ["modules/removeFromArray.js:1"]
+        }
+      ],
+      "analyzer": {
+        "version": 4,
+        "sourceSha256": "73c5e31e59ff601a01114ab03a0dc183d81389987e3af5832c53d9ac8bd8c06b"
+      },
+      "inventoryDigest": "fe6b042d718756bdca677bf752d9a8c9656f07fc211d48c04c90a12d500d9c97",
+      "gates": [],
+      "unresolved": [],
+      "staticCoverage": {
+        "complete": true,
+        "scope": "module-closure-superset",
+        "semanticProof": false,
+        "resolverCoverage": false,
+        "modules": 10,
+        "sourceBytes": 35274,
+        "workBudget": {
+          "limit": 2000000,
+          "consumed": 159096,
+          "exhausted": false
+        },
+        "limitations": [
+          "Only supported gate APIs and static key expressions are inventoried.",
+          "Logical work units bound selected AST traversal and resolution, not parser internals or elapsed time; parsing remains source-byte bounded.",
+          "Declared fixture-provider boundaries exclude their original resolver implementations and dependencies.",
+          "All functions in each dependency module are scanned; exact export and caller reachability is not proven.",
+          "Runtime-discovered gates and externally selected code require separate observations."
+        ]
+      }
+    }
+  ],
+  "exclusions": [
+    "Original pure BigInt WA helper execution only; no native crypto/WACryptoDependencies/cr8712/Signal/provider/account/network acceptance.",
+    "Helper isCanonical has no32byteinputguard. isIdentity compares projective coordinates without proving point membership/nondegeneracy. No length-rejection, degenerate-coordinate or full validation contract is inferred.",
+    "RFC X25519 masks input highbit and accepts reduction of noncanonical field inputs; this WA helper policy is not a whole RFC X25519 API compliance test.",
+    "WASignalCipher source caller uses subarray1; normal deserializePkMsg path checks serialized33bytes/prefix5 via WASignalKeys first. This source precondition is scoped to that path; caller/cipher/deserializer execution and full caller configurations are untested.",
+    "Independent point examples are published basepoint/identity, valid nonzero projective scalings and negative base; arbitrary/degenerate points and full malformed compressed keys remain untested.",
+    "No constant-time, side-channel, malleability, strict-signature, entropy, security proof, complete numeric/input domain, container execution, production TypeScript scheduling or named-library implementation compliance claim."
+  ]
+}

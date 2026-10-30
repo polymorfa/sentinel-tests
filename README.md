@@ -31,6 +31,8 @@ The [group storage-input suite](docs/group-abprops-storage-input.md) tests the o
 
 The [bundled NaCl suite](docs/bundled-nacl.md) runs fixed deterministic cryptographic primitive vectors in the source realm. WhatsApp provider binding and protocol use remain unproven, and the full AST inventory remains budget-blocked.
 
+The [curve-key policy suite](docs/curve-key-policy.md) exercises original WA range, subgroup and point-arithmetic helpers. Its helper inventory is complete within that selected scope; caller, provider and protocol acceptance remain separate.
+
 The eight existing fixtures retain their IDs, versions and exact bytes after moving out of `tests/`. Historical observations and remaining gaps are recorded in [coverage.json](coverage.json). A passing assertion covers its exact inputs, source, configuration and runtime. It does not establish whole-client or library compliance, server acceptance or cryptographic security.
 
 Discovered using a monitor developed by @purpshell at polymorfa.com
