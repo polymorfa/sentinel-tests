@@ -1,0 +1,687 @@
+{
+  "schemaVersion": 1,
+  "id": "history-progress-getters",
+  "version": 1,
+  "title": "Original history progress getter formulas and source-owned cache clearing",
+  "file": "tests/history-progress-getters.test.ts",
+  "helper": "support/history-progress-getters-cases.ts",
+  "capability": "wa-internal:history-progress-getters",
+  "requiresBootstrapKinds": ["babel-helpers"],
+  "roots": ["WAWebHistorySyncProgressGetters", "WAWebGetters"],
+  "oracle": "Literal progress/null/cap/paused/truthiness boundaries and independent signed integer sum grids. Actual WAWebGetters.unsafeIdentityGetter returns the same synthetic model-shaped realm record, retained through result projection for repeated actual history getter reads. Actual source Map cache entry counts are observed through clearAllGetterCaches, repeated clear/repopulation, stringified-ID collisions, failed-key and failed-arithmetic recovery. No fake model/cache/provider or mutation callbacks.",
+  "trials": {
+    "cases": 48,
+    "portablePlanTests": 1,
+    "probesPerRevision": 1320,
+    "maxProbesPerCase": 60,
+    "establishedBooleanAssignments": 8,
+    "selectedBooleanAssignmentExecution": "All eight Cartesian assignments executed at both pinned revisions for all six named histories in the configured diagnostic process runtime; original ABProp resolver remains an explicit consumer fixture, and GKX assignment is not original resolver branch proof.",
+    "configurationExhaustive": false,
+    "configurationScope": "Eight established consumer boolean assignments; original ABProp resolver is replaced by explicit fixture. Missing provider/bootstrap and conservative original Babel dynamic diagnostics still prevent full configuration/inventory acceptance.",
+    "sameRecordScope": "Original unsafeIdentityGetter returns its actual input record; existing stage:result retention provides repeated same-object reads and cache-clear/repopulation only. No in-place mutation or revision-update proof.",
+    "generatedArithmeticPagesPerAssignment": 2,
+    "generatedRecordsPerPage": 32,
+    "largeIdBytes": 16384,
+    "inputDomain": "Numeric/coercing/model-shaped record/ID/sequence domains remain unbounded characterization; not actual HistorySyncProgressModel/backend/storage state."
+  },
+  "observations": [
+    {
+      "revision": "1051710191",
+      "modules": [
+        {
+          "module": "$InternalEnum",
+          "variant": "primary",
+          "printedSourceSha256": "2ceb4779145d3f716cdabff27facf6fec30f45f844896ccd78300320a44a69a9",
+          "dependencies": [],
+          "citations": ["modules/$InternalEnum.js:1"]
+        },
+        {
+          "module": "BanzaiLazyQueue",
+          "variant": "primary",
+          "printedSourceSha256": "c4b206703179790d810f00c914c5ff13123e8a5d479a1fc017e2d8fb06c62d49",
+          "dependencies": ["SimpleHook"],
+          "citations": ["modules/BanzaiLazyQueue.js:1"]
+        },
+        {
+          "module": "Env",
+          "variant": "primary",
+          "printedSourceSha256": "ad5c3d19c3db7a10d569dceb202b62801ac1014c42a99cf21d3249a124319082",
+          "dependencies": [],
+          "citations": ["modules/Env.js:1"]
+        },
+        {
+          "module": "ExecutionEnvironment",
+          "variant": "primary",
+          "printedSourceSha256": "4f49de6e0ddb5be88f962a8196f5a2370427b931db218b019e4a2bd020b1891e",
+          "dependencies": [],
+          "citations": ["modules/ExecutionEnvironment.js:1"]
+        },
+        {
+          "module": "FBLogger",
+          "variant": "primary",
+          "printedSourceSha256": "5b78358a73a6900d013f27628afaffe9b58fdb92dc37233690ec50441114c7c2",
+          "dependencies": ["fb-error"],
+          "citations": ["modules/FBLogger.js:1"]
+        },
+        {
+          "module": "Promise",
+          "variant": "primary",
+          "printedSourceSha256": "c94f5132251416675e842ee8bbe98476648325ff897dab0a230b39875e1f3c2a",
+          "dependencies": ["cr:6640"],
+          "citations": ["modules/Promise.js:1"]
+        },
+        {
+          "module": "SimpleHook",
+          "variant": "primary",
+          "printedSourceSha256": "fd56db80143da1644f5f104549955a5a4fc38e3bafb9ae56cc3f2e4e33885eca",
+          "dependencies": [],
+          "citations": ["modules/SimpleHook.js:1"]
+        },
+        {
+          "module": "WAHex",
+          "variant": "primary",
+          "printedSourceSha256": "3d28ad9eb342f6715bec66c8c38fd57a14497e07101f5f9b67fc3c9838e72ffe",
+          "dependencies": ["err"],
+          "citations": ["modules/WAHex.js:1"]
+        },
+        {
+          "module": "WALogger",
+          "variant": "primary",
+          "printedSourceSha256": "0406e777eb10eef04870576148db402f9aa20fe709545e0701a314d5b8583837",
+          "dependencies": ["$InternalEnum", "WATagsLogger"],
+          "citations": ["modules/WALogger.js:1"]
+        },
+        {
+          "module": "WALoggerUtils",
+          "variant": "primary",
+          "printedSourceSha256": "e1baf5e4850088801148e9a6a46e6720e52efba4aca6f4a139f585fd162f364b",
+          "dependencies": ["WAHex"],
+          "citations": ["modules/WALoggerUtils.js:1"]
+        },
+        {
+          "module": "WATagsLogger",
+          "variant": "primary",
+          "printedSourceSha256": "c6cb8a0516b1ec1b5a373d50cd3d75f952707f12547d2f46820d9d352bb26ad7",
+          "dependencies": ["FBLogger", "Promise", "WALoggerUtils", "asyncToGeneratorRuntime"],
+          "citations": ["modules/WATagsLogger.js:1"]
+        },
+        {
+          "module": "WAWebABProps",
+          "variant": "primary",
+          "printedSourceSha256": "f352cc4dd83ca26e5ba1de2ff903abd1be97962e423383f1093cc7451214a738",
+          "dependencies": ["WALogger", "WAWebABPropsConfigs", "WAWebABPropsJestE2EReadLog", "gkx"],
+          "citations": ["modules/WAWebABProps.js:1"]
+        },
+        {
+          "module": "WAWebABPropsConfigs",
+          "variant": "primary",
+          "printedSourceSha256": "93eada7022daf39a9525ad9e8f1572a0e3f44daefcb15e3efd09f420ecfcf978",
+          "dependencies": [],
+          "citations": ["modules/WAWebABPropsConfigs.js:1"]
+        },
+        {
+          "module": "WAWebABPropsJestE2EReadLog",
+          "variant": "primary",
+          "printedSourceSha256": "9c85a30b7252aa7b714007e680ff6d1ce9f75051c1993f1982fada4b74b88737",
+          "dependencies": ["gkx"],
+          "citations": ["modules/WAWebABPropsJestE2EReadLog.js:1"]
+        },
+        {
+          "module": "WAWebGetters",
+          "variant": "primary",
+          "printedSourceSha256": "5c198be1025068a2f754d203fcb4534fbdeb115f7995dbf0411cf2ad8e9250a9",
+          "dependencies": ["WAWebABProps", "err"],
+          "citations": ["modules/WAWebGetters.js:1"]
+        },
+        {
+          "module": "WAWebHistorySyncProgressGetters",
+          "variant": "primary",
+          "printedSourceSha256": "f623915d27d2a380c1cc1ae6d107b8a3d0cc911f772768951e925d968211e7e7",
+          "dependencies": ["WAWebGetters"],
+          "citations": ["modules/WAWebHistorySyncProgressGetters.js:1"]
+        },
+        {
+          "module": "asyncToGeneratorRuntime",
+          "variant": "primary",
+          "printedSourceSha256": "147052b2a1cdc6d21087a611043d0974d5babedeeee624185babb023bbcf72f3",
+          "dependencies": ["Promise"],
+          "citations": ["modules/asyncToGeneratorRuntime.js:1"]
+        },
+        {
+          "module": "emptyFunction",
+          "variant": "primary",
+          "printedSourceSha256": "efc2fa885be346ba40045503e3a0588374c842f36261ce8138988d63608ecb48",
+          "dependencies": [],
+          "citations": ["modules/emptyFunction.js:1"]
+        },
+        {
+          "module": "err",
+          "variant": "primary",
+          "printedSourceSha256": "a26a1f88fe2c09505c0ec8e43d1a43c2299b6126ea7ea305c567bf7634fbeea0",
+          "dependencies": ["fb-error"],
+          "citations": ["modules/err.js:1"]
+        },
+        {
+          "module": "fb-error",
+          "variant": "primary",
+          "printedSourceSha256": "545144d2d2c50524d5bcfc421916cf76760743cb5b034dcb7a4d7066981f714e",
+          "dependencies": ["performanceNow", "removeFromArray"],
+          "citations": ["modules/fb-error.js:1"]
+        },
+        {
+          "module": "fb-error-lite",
+          "variant": "primary",
+          "printedSourceSha256": "70182c28f267319e6122d9da5fa9d01bc3c60775130d33429a71874503924b64",
+          "dependencies": [],
+          "citations": ["modules/fb-error-lite.js:1"]
+        },
+        {
+          "module": "gkx",
+          "variant": "primary",
+          "printedSourceSha256": "e84fc9d0a08a52702897502d1eb33202bd0d97b9633277aa18df81d9cb902cf6",
+          "dependencies": ["invariant", "BanzaiLazyQueue", "ExecutionEnvironment", "emptyFunction"],
+          "citations": ["modules/gkx.js:1"]
+        },
+        {
+          "module": "invariant",
+          "variant": "primary",
+          "printedSourceSha256": "6b377021188adf8be5add1781bb1a5b3a7da5d0021df951267b1ae8d331f705f",
+          "dependencies": ["Env", "fb-error-lite", "sprintf"],
+          "citations": ["modules/invariant.js:1"]
+        },
+        {
+          "module": "performance",
+          "variant": "primary",
+          "printedSourceSha256": "9bee7ad7d1941af3432757b1ce55c980030f812f0a5fb00916e906b8a0b6ced9",
+          "dependencies": [],
+          "citations": ["modules/performance.js:1"]
+        },
+        {
+          "module": "performanceNow",
+          "variant": "primary",
+          "printedSourceSha256": "415e5327e020372f7789e27dc42266a9cb3d6bbc2d8c47d0b751b93517a0475f",
+          "dependencies": ["performance"],
+          "citations": ["modules/performanceNow.js:1"]
+        },
+        {
+          "module": "removeFromArray",
+          "variant": "primary",
+          "printedSourceSha256": "c8e194de9e9463716c2f383406ae8269ddff1a9fe5fbc1a7559abcd2aaa666bb",
+          "dependencies": [],
+          "citations": ["modules/removeFromArray.js:1"]
+        },
+        {
+          "module": "sprintf",
+          "variant": "primary",
+          "printedSourceSha256": "7860c49011bd89ed50d0db8ed061d00ec9a2ba42b75f298a10c3d6ef98888361",
+          "dependencies": [],
+          "citations": ["modules/sprintf.js:1"]
+        }
+      ],
+      "bootstrapAssets": [
+        {
+          "kind": "babel-helpers",
+          "sourceSha256": "d87819406e3accc642307f2a1da84ff09c7541b6ee5724b1e66d86e1e77ee606",
+          "origin": {
+            "revisionId": "whatsapp-1051710191",
+            "rawSha256": "00a681835e392d7c6266c4ca75cf431efce69f3229f1cca0847d2430802b686a",
+            "startByte": 92564,
+            "endByte": 96393,
+            "rawBytes": 175043
+          }
+        }
+      ],
+      "analyzer": {
+        "version": 4,
+        "sourceSha256": "73c5e31e59ff601a01114ab03a0dc183d81389987e3af5832c53d9ac8bd8c06b"
+      },
+      "inventoryDigest": "77d706a9c2d7a9d4202937aee28df638e58f5b695409dc77d41a48a690c8cef0",
+      "gates": [
+        {
+          "kind": "abprops",
+          "key": "web_getters_lazy_slot_allocation",
+          "valueType": "boolean",
+          "reads": [
+            {
+              "module": "WAWebGetters",
+              "variant": "primary",
+              "line": 21,
+              "column": 35,
+              "method": "getABPropConfigValue",
+              "timing": "function-body",
+              "expression": "o(\"WAWebABProps\").getABPropConfigValue(\"web_getters_lazy_slot_allocation\")"
+            }
+          ],
+          "config": {
+            "module": "WAWebABPropsConfigs",
+            "line": 15622,
+            "type": "bool",
+            "default": false,
+            "alternate": true
+          }
+        },
+        {
+          "kind": "gkx",
+          "key": "16539",
+          "valueType": "boolean",
+          "reads": [
+            {
+              "module": "WAWebABProps",
+              "variant": "primary",
+              "line": 35,
+              "column": 24,
+              "method": "gkx",
+              "timing": "function-body",
+              "expression": "r(\"gkx\")(\"16539\")"
+            }
+          ]
+        },
+        {
+          "kind": "gkx",
+          "key": "26256",
+          "valueType": "boolean",
+          "reads": [
+            {
+              "module": "WAWebABPropsJestE2EReadLog",
+              "variant": "primary",
+              "line": 4,
+              "column": 9,
+              "method": "gkx",
+              "timing": "function-body",
+              "expression": "r(\"gkx\")(\"26256\")"
+            }
+          ]
+        }
+      ],
+      "unresolved": [
+        {
+          "code": "dynamic-code-or-import",
+          "module": "@bootstrap/babel-helpers",
+          "line": 1,
+          "column": 2285
+        },
+        {
+          "code": "dynamic-code-or-import",
+          "module": "@bootstrap/babel-helpers",
+          "line": 1,
+          "column": 2553
+        },
+        {
+          "code": "missing-module",
+          "module": "cr:6640"
+        },
+        {
+          "code": "unrecognized-gate-provider",
+          "module": "WAWebABProps",
+          "line": 43,
+          "column": 2
+        },
+        {
+          "code": "unrecognized-gate-provider",
+          "module": "WAWebABProps",
+          "line": 43,
+          "column": 72
+        },
+        {
+          "code": "unresolved-bootstrap-provider",
+          "module": "ExecutionEnvironment",
+          "line": 3,
+          "column": 12
+        }
+      ],
+      "staticCoverage": {
+        "complete": false,
+        "scope": "module-closure-superset",
+        "semanticProof": false,
+        "resolverCoverage": false,
+        "modules": 28,
+        "sourceBytes": 298621,
+        "workBudget": {
+          "limit": 2000000,
+          "consumed": 571253,
+          "exhausted": false
+        },
+        "limitations": [
+          "Only supported gate APIs and static key expressions are inventoried.",
+          "Logical work units bound selected AST traversal and resolution, not parser internals or elapsed time; parsing remains source-byte bounded.",
+          "Declared fixture-provider boundaries exclude their original resolver implementations and dependencies.",
+          "All functions in each dependency module are scanned; exact export and caller reachability is not proven.",
+          "Runtime-discovered gates and externally selected code require separate observations."
+        ]
+      }
+    },
+    {
+      "revision": "1051908825",
+      "modules": [
+        {
+          "module": "$InternalEnum",
+          "variant": "primary",
+          "printedSourceSha256": "2ceb4779145d3f716cdabff27facf6fec30f45f844896ccd78300320a44a69a9",
+          "dependencies": [],
+          "citations": ["modules/$InternalEnum.js:1"]
+        },
+        {
+          "module": "BanzaiLazyQueue",
+          "variant": "primary",
+          "printedSourceSha256": "c4b206703179790d810f00c914c5ff13123e8a5d479a1fc017e2d8fb06c62d49",
+          "dependencies": ["SimpleHook"],
+          "citations": ["modules/BanzaiLazyQueue.js:1"]
+        },
+        {
+          "module": "Env",
+          "variant": "primary",
+          "printedSourceSha256": "ad5c3d19c3db7a10d569dceb202b62801ac1014c42a99cf21d3249a124319082",
+          "dependencies": [],
+          "citations": ["modules/Env.js:1"]
+        },
+        {
+          "module": "ExecutionEnvironment",
+          "variant": "primary",
+          "printedSourceSha256": "4f49de6e0ddb5be88f962a8196f5a2370427b931db218b019e4a2bd020b1891e",
+          "dependencies": [],
+          "citations": ["modules/ExecutionEnvironment.js:1"]
+        },
+        {
+          "module": "FBLogger",
+          "variant": "primary",
+          "printedSourceSha256": "5b78358a73a6900d013f27628afaffe9b58fdb92dc37233690ec50441114c7c2",
+          "dependencies": ["fb-error"],
+          "citations": ["modules/FBLogger.js:1"]
+        },
+        {
+          "module": "Promise",
+          "variant": "primary",
+          "printedSourceSha256": "c94f5132251416675e842ee8bbe98476648325ff897dab0a230b39875e1f3c2a",
+          "dependencies": ["cr:6640"],
+          "citations": ["modules/Promise.js:1"]
+        },
+        {
+          "module": "SimpleHook",
+          "variant": "primary",
+          "printedSourceSha256": "fd56db80143da1644f5f104549955a5a4fc38e3bafb9ae56cc3f2e4e33885eca",
+          "dependencies": [],
+          "citations": ["modules/SimpleHook.js:1"]
+        },
+        {
+          "module": "WAHex",
+          "variant": "primary",
+          "printedSourceSha256": "3d28ad9eb342f6715bec66c8c38fd57a14497e07101f5f9b67fc3c9838e72ffe",
+          "dependencies": ["err"],
+          "citations": ["modules/WAHex.js:1"]
+        },
+        {
+          "module": "WALogger",
+          "variant": "primary",
+          "printedSourceSha256": "0406e777eb10eef04870576148db402f9aa20fe709545e0701a314d5b8583837",
+          "dependencies": ["$InternalEnum", "WATagsLogger"],
+          "citations": ["modules/WALogger.js:1"]
+        },
+        {
+          "module": "WALoggerUtils",
+          "variant": "primary",
+          "printedSourceSha256": "e1baf5e4850088801148e9a6a46e6720e52efba4aca6f4a139f585fd162f364b",
+          "dependencies": ["WAHex"],
+          "citations": ["modules/WALoggerUtils.js:1"]
+        },
+        {
+          "module": "WATagsLogger",
+          "variant": "primary",
+          "printedSourceSha256": "c6cb8a0516b1ec1b5a373d50cd3d75f952707f12547d2f46820d9d352bb26ad7",
+          "dependencies": ["FBLogger", "Promise", "WALoggerUtils", "asyncToGeneratorRuntime"],
+          "citations": ["modules/WATagsLogger.js:1"]
+        },
+        {
+          "module": "WAWebABProps",
+          "variant": "primary",
+          "printedSourceSha256": "f352cc4dd83ca26e5ba1de2ff903abd1be97962e423383f1093cc7451214a738",
+          "dependencies": ["WALogger", "WAWebABPropsConfigs", "WAWebABPropsJestE2EReadLog", "gkx"],
+          "citations": ["modules/WAWebABProps.js:1"]
+        },
+        {
+          "module": "WAWebABPropsConfigs",
+          "variant": "primary",
+          "printedSourceSha256": "e694b3c9b4a4e43b44c3aef264afa386d8165d3c9bbf0a7095cc7551d9410d46",
+          "dependencies": [],
+          "citations": ["modules/WAWebABPropsConfigs.js:1"]
+        },
+        {
+          "module": "WAWebABPropsJestE2EReadLog",
+          "variant": "primary",
+          "printedSourceSha256": "9c85a30b7252aa7b714007e680ff6d1ce9f75051c1993f1982fada4b74b88737",
+          "dependencies": ["gkx"],
+          "citations": ["modules/WAWebABPropsJestE2EReadLog.js:1"]
+        },
+        {
+          "module": "WAWebGetters",
+          "variant": "primary",
+          "printedSourceSha256": "5c198be1025068a2f754d203fcb4534fbdeb115f7995dbf0411cf2ad8e9250a9",
+          "dependencies": ["WAWebABProps", "err"],
+          "citations": ["modules/WAWebGetters.js:1"]
+        },
+        {
+          "module": "WAWebHistorySyncProgressGetters",
+          "variant": "primary",
+          "printedSourceSha256": "f623915d27d2a380c1cc1ae6d107b8a3d0cc911f772768951e925d968211e7e7",
+          "dependencies": ["WAWebGetters"],
+          "citations": ["modules/WAWebHistorySyncProgressGetters.js:1"]
+        },
+        {
+          "module": "asyncToGeneratorRuntime",
+          "variant": "primary",
+          "printedSourceSha256": "147052b2a1cdc6d21087a611043d0974d5babedeeee624185babb023bbcf72f3",
+          "dependencies": ["Promise"],
+          "citations": ["modules/asyncToGeneratorRuntime.js:1"]
+        },
+        {
+          "module": "emptyFunction",
+          "variant": "primary",
+          "printedSourceSha256": "efc2fa885be346ba40045503e3a0588374c842f36261ce8138988d63608ecb48",
+          "dependencies": [],
+          "citations": ["modules/emptyFunction.js:1"]
+        },
+        {
+          "module": "err",
+          "variant": "primary",
+          "printedSourceSha256": "a26a1f88fe2c09505c0ec8e43d1a43c2299b6126ea7ea305c567bf7634fbeea0",
+          "dependencies": ["fb-error"],
+          "citations": ["modules/err.js:1"]
+        },
+        {
+          "module": "fb-error",
+          "variant": "primary",
+          "printedSourceSha256": "545144d2d2c50524d5bcfc421916cf76760743cb5b034dcb7a4d7066981f714e",
+          "dependencies": ["performanceNow", "removeFromArray"],
+          "citations": ["modules/fb-error.js:1"]
+        },
+        {
+          "module": "fb-error-lite",
+          "variant": "primary",
+          "printedSourceSha256": "70182c28f267319e6122d9da5fa9d01bc3c60775130d33429a71874503924b64",
+          "dependencies": [],
+          "citations": ["modules/fb-error-lite.js:1"]
+        },
+        {
+          "module": "gkx",
+          "variant": "primary",
+          "printedSourceSha256": "e84fc9d0a08a52702897502d1eb33202bd0d97b9633277aa18df81d9cb902cf6",
+          "dependencies": ["invariant", "BanzaiLazyQueue", "ExecutionEnvironment", "emptyFunction"],
+          "citations": ["modules/gkx.js:1"]
+        },
+        {
+          "module": "invariant",
+          "variant": "primary",
+          "printedSourceSha256": "6b377021188adf8be5add1781bb1a5b3a7da5d0021df951267b1ae8d331f705f",
+          "dependencies": ["Env", "fb-error-lite", "sprintf"],
+          "citations": ["modules/invariant.js:1"]
+        },
+        {
+          "module": "performance",
+          "variant": "primary",
+          "printedSourceSha256": "9bee7ad7d1941af3432757b1ce55c980030f812f0a5fb00916e906b8a0b6ced9",
+          "dependencies": [],
+          "citations": ["modules/performance.js:1"]
+        },
+        {
+          "module": "performanceNow",
+          "variant": "primary",
+          "printedSourceSha256": "415e5327e020372f7789e27dc42266a9cb3d6bbc2d8c47d0b751b93517a0475f",
+          "dependencies": ["performance"],
+          "citations": ["modules/performanceNow.js:1"]
+        },
+        {
+          "module": "removeFromArray",
+          "variant": "primary",
+          "printedSourceSha256": "c8e194de9e9463716c2f383406ae8269ddff1a9fe5fbc1a7559abcd2aaa666bb",
+          "dependencies": [],
+          "citations": ["modules/removeFromArray.js:1"]
+        },
+        {
+          "module": "sprintf",
+          "variant": "primary",
+          "printedSourceSha256": "7860c49011bd89ed50d0db8ed061d00ec9a2ba42b75f298a10c3d6ef98888361",
+          "dependencies": [],
+          "citations": ["modules/sprintf.js:1"]
+        }
+      ],
+      "bootstrapAssets": [
+        {
+          "kind": "babel-helpers",
+          "sourceSha256": "d87819406e3accc642307f2a1da84ff09c7541b6ee5724b1e66d86e1e77ee606",
+          "origin": {
+            "revisionId": "whatsapp-1051908825",
+            "rawSha256": "00421be885c15207c89e1a61a4c2a3f337a019d3df3aa3bc7de1ef07a6a4a07f",
+            "startByte": 18780,
+            "endByte": 22609,
+            "rawBytes": 939201
+          }
+        }
+      ],
+      "analyzer": {
+        "version": 4,
+        "sourceSha256": "73c5e31e59ff601a01114ab03a0dc183d81389987e3af5832c53d9ac8bd8c06b"
+      },
+      "inventoryDigest": "e02e0604695176f0b41095acc0a1449d2b81373a6a075b490a01b5544bf5f0ba",
+      "gates": [
+        {
+          "kind": "abprops",
+          "key": "web_getters_lazy_slot_allocation",
+          "valueType": "boolean",
+          "reads": [
+            {
+              "module": "WAWebGetters",
+              "variant": "primary",
+              "line": 21,
+              "column": 35,
+              "method": "getABPropConfigValue",
+              "timing": "function-body",
+              "expression": "o(\"WAWebABProps\").getABPropConfigValue(\"web_getters_lazy_slot_allocation\")"
+            }
+          ],
+          "config": {
+            "module": "WAWebABPropsConfigs",
+            "line": 15670,
+            "type": "bool",
+            "default": false,
+            "alternate": true
+          }
+        },
+        {
+          "kind": "gkx",
+          "key": "16539",
+          "valueType": "boolean",
+          "reads": [
+            {
+              "module": "WAWebABProps",
+              "variant": "primary",
+              "line": 35,
+              "column": 24,
+              "method": "gkx",
+              "timing": "function-body",
+              "expression": "r(\"gkx\")(\"16539\")"
+            }
+          ]
+        },
+        {
+          "kind": "gkx",
+          "key": "26256",
+          "valueType": "boolean",
+          "reads": [
+            {
+              "module": "WAWebABPropsJestE2EReadLog",
+              "variant": "primary",
+              "line": 4,
+              "column": 9,
+              "method": "gkx",
+              "timing": "function-body",
+              "expression": "r(\"gkx\")(\"26256\")"
+            }
+          ]
+        }
+      ],
+      "unresolved": [
+        {
+          "code": "dynamic-code-or-import",
+          "module": "@bootstrap/babel-helpers",
+          "line": 1,
+          "column": 2285
+        },
+        {
+          "code": "dynamic-code-or-import",
+          "module": "@bootstrap/babel-helpers",
+          "line": 1,
+          "column": 2553
+        },
+        {
+          "code": "missing-module",
+          "module": "cr:6640"
+        },
+        {
+          "code": "unrecognized-gate-provider",
+          "module": "WAWebABProps",
+          "line": 43,
+          "column": 2
+        },
+        {
+          "code": "unrecognized-gate-provider",
+          "module": "WAWebABProps",
+          "line": 43,
+          "column": 72
+        },
+        {
+          "code": "unresolved-bootstrap-provider",
+          "module": "ExecutionEnvironment",
+          "line": 3,
+          "column": 12
+        }
+      ],
+      "staticCoverage": {
+        "complete": false,
+        "scope": "module-closure-superset",
+        "semanticProof": false,
+        "resolverCoverage": false,
+        "modules": 28,
+        "sourceBytes": 299587,
+        "workBudget": {
+          "limit": 2000000,
+          "consumed": 572507,
+          "exhausted": false
+        },
+        "limitations": [
+          "Only supported gate APIs and static key expressions are inventoried.",
+          "Logical work units bound selected AST traversal and resolution, not parser internals or elapsed time; parsing remains source-byte bounded.",
+          "Declared fixture-provider boundaries exclude their original resolver implementations and dependencies.",
+          "All functions in each dependency module are scanned; exact export and caller reachability is not proven.",
+          "Runtime-discovered gates and externally selected code require separate observations."
+        ]
+      }
+    }
+  ],
+  "exclusions": [
+    "Synthetic model-shaped records are input data, not actual HistorySyncProgressModel instances, storage hydration, backend progress, paused timers, readiness, transport or worker/session integration.",
+    "Original ABProp resolver is a declared consumer fixture. All eight known boolean contexts are authored; GKX assignments do not prove original resolver branches executed. Unrecognized resolver/provider and ExecutionEnvironment bootstrap diagnostics remain.",
+    "Actual retained input comes from the original unsafeIdentityGetter result. No fake model factory, host object/function, generic property mutation, argument-retention constructor or callback enters the worker. Same-object in-place mutation, stale revision changes and private history factory clearCacheFor are not exercised.",
+    "Full original 27-module source graph plus exact registered Babel producer are inventoried. Missing cr:6640 remains with explicit null fallback fixture; both Function.bind conservative diagnostics remain failclosed. Original full browser/bootstrap/provider equivalence is not accepted.",
+    "Other actual history model/progress roots remain separately blocked by exhausted default AST budgets and storage/timer/backend requirements; their source presence does not expand this helper acceptance.",
+    "No account/network/storage/native timer/crypto/provider effects, container isolation, production scheduling or named-library parity is established."
+  ]
+}

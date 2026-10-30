@@ -46,3 +46,5 @@ The eight existing fixtures retain their IDs, versions and exact bytes after mov
 Discovered using a monitor developed by @purpshell at polymorfa.com
 
 Licensed under [MIT](LICENSE).
+
+The [history progress getter suite](docs/history-progress-getters.md) exercises original getter caches, repeated reads, clearing, failures and retry across eight established boolean assignments. Inputs remain explicit synthetic model-shaped records; actual model updates, persistence and the original ABProps resolver are separate gaps.
