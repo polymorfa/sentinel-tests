@@ -88,10 +88,10 @@
         }
       ],
       "analyzer": {
-        "version": 3,
-        "sourceSha256": "06c35199d0b06c9441486d96cb06b540628d64c562b7c1bbd9f2b5f28c6a3096"
+        "version": 4,
+        "sourceSha256": "73c5e31e59ff601a01114ab03a0dc183d81389987e3af5832c53d9ac8bd8c06b"
       },
-      "inventoryDigest": "f6124f67a19d4535e1bc174b7bcbf19ff2f0a7802a141d0a666a5f50db90de39",
+      "inventoryDigest": "857f11d7973f38d24c921fe4d2177b877907e28163ca4a52021e2e559a7c2228",
       "gates": [],
       "unresolved": [],
       "staticCoverage": {
@@ -103,7 +103,7 @@
         "sourceBytes": 46971,
         "workBudget": {
           "limit": 2000000,
-          "consumed": 128676,
+          "consumed": 184616,
           "exhausted": false
         },
         "limitations": [
@@ -117,8 +117,8 @@
       "mediaInventory": {
         "schemaVersion": 1,
         "analyzer": {
-          "version": 3,
-          "sourceSha256": "06c35199d0b06c9441486d96cb06b540628d64c562b7c1bbd9f2b5f28c6a3096"
+          "version": 4,
+          "sourceSha256": "73c5e31e59ff601a01114ab03a0dc183d81389987e3af5832c53d9ac8bd8c06b"
         },
         "roots": ["WAProtocolMediaType", "WAServerMediaType"],
         "boundaries": [],
@@ -147,7 +147,7 @@
           "sourceBytes": 2981,
           "workBudget": {
             "limit": 2000000,
-            "consumed": 3004,
+            "consumed": 3881,
             "exhausted": false
           },
           "limitations": [
@@ -158,7 +158,7 @@
             "Runtime-discovered gates and externally selected code require separate observations."
           ]
         },
-        "digest": "ce12bb73740307bf9ab5f65f9edb50cf1b25c07e25cb92130fc110b92f288a19"
+        "digest": "5bbd5a4d5dc6a4e73b95a5bda1f9a154a062b81eb34de2b01bebd52e6a5c0c6b"
       }
     },
     {
@@ -229,10 +229,10 @@
         }
       ],
       "analyzer": {
-        "version": 3,
-        "sourceSha256": "06c35199d0b06c9441486d96cb06b540628d64c562b7c1bbd9f2b5f28c6a3096"
+        "version": 4,
+        "sourceSha256": "73c5e31e59ff601a01114ab03a0dc183d81389987e3af5832c53d9ac8bd8c06b"
       },
-      "inventoryDigest": "f6124f67a19d4535e1bc174b7bcbf19ff2f0a7802a141d0a666a5f50db90de39",
+      "inventoryDigest": "857f11d7973f38d24c921fe4d2177b877907e28163ca4a52021e2e559a7c2228",
       "gates": [],
       "unresolved": [],
       "staticCoverage": {
@@ -244,7 +244,7 @@
         "sourceBytes": 46971,
         "workBudget": {
           "limit": 2000000,
-          "consumed": 128676,
+          "consumed": 184616,
           "exhausted": false
         },
         "limitations": [
@@ -258,8 +258,8 @@
       "mediaInventory": {
         "schemaVersion": 1,
         "analyzer": {
-          "version": 3,
-          "sourceSha256": "06c35199d0b06c9441486d96cb06b540628d64c562b7c1bbd9f2b5f28c6a3096"
+          "version": 4,
+          "sourceSha256": "73c5e31e59ff601a01114ab03a0dc183d81389987e3af5832c53d9ac8bd8c06b"
         },
         "roots": ["WAProtocolMediaType", "WAServerMediaType"],
         "boundaries": [],
@@ -288,7 +288,7 @@
           "sourceBytes": 2981,
           "workBudget": {
             "limit": 2000000,
-            "consumed": 3004,
+            "consumed": 3881,
             "exhausted": false
           },
           "limitations": [
@@ -299,7 +299,7 @@
             "Runtime-discovered gates and externally selected code require separate observations."
           ]
         },
-        "digest": "ce12bb73740307bf9ab5f65f9edb50cf1b25c07e25cb92130fc110b92f288a19"
+        "digest": "5bbd5a4d5dc6a4e73b95a5bda1f9a154a062b81eb34de2b01bebd52e6a5c0c6b"
       }
     }
   ],
@@ -312,12 +312,13 @@
     "No accounts, network/providers or container sandbox execution were exercised."
   ],
   "inventoryRefresh": {
-    "analyzerVersion": 3,
-    "analyzerSourceSha256": "06c35199d0b06c9441486d96cb06b540628d64c562b7c1bbd9f2b5f28c6a3096",
+    "analyzerVersion": 4,
+    "analyzerSourceSha256": "73c5e31e59ff601a01114ab03a0dc183d81389987e3af5832c53d9ac8bd8c06b",
     "defaultLogicalWorkLimit": 2000000,
     "kind": "static-source-analysis-only",
     "behaviorReexecuted": false,
     "executionProvenance": "Existing execution/assignment observations retain their original receipt context; this metadata refresh does not create new runtime evidence.",
-    "cardinalityScope": "Incomplete/unresolved current inventories have no established total assignment cardinality. Existing finite products describe source-known subsets retained from prior observations, not exhaustive current matrices."
+    "cardinalityScope": "Incomplete/unresolved current inventories have no established total assignment cardinality. Existing finite products describe source-known subsets retained from prior observations, not exhaustive current matrices.",
+    "bootstrapScope": "No bootstrap source providers were added to these existing suites. Known bootstrap reads and unresolved global aliases/accesses remain explicit diagnostics; source-exact producer execution requires separate admitted scenarios."
   }
 }

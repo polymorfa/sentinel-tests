@@ -52,6 +52,20 @@ export function validateProbeControls(value: unknown): void {
     record(value) && label(value.module) && exportPath(value.export),
     'Invalid module/export selector',
   );
+  if (value.context !== undefined) {
+    assert.ok(record(value.context), 'Invalid context');
+    if (value.context.bootstrap !== undefined)
+      assert.ok(
+        record(value.context.bootstrap) &&
+          Object.entries(value.context.bootstrap).every(
+            ([kind, hash]) =>
+              ['babel-helpers', 'fb-enumerate'].includes(kind) &&
+              typeof hash === 'string' &&
+              /^[a-f0-9]{64}$/.test(hash),
+          ),
+        'Bootstrap selectors require known kinds and exact source hashes',
+      );
+  }
   if (value.construct !== undefined)
     assert.ok(
       record(value.construct) &&

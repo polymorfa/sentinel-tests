@@ -104,6 +104,24 @@
             },
             "additionalProperties": false
           }
+        },
+        "bootstrap": {
+          "type": "object",
+          "properties": {
+            "babel-helpers": {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$",
+              "minLength": 64,
+              "maxLength": 64
+            },
+            "fb-enumerate": {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$",
+              "minLength": 64,
+              "maxLength": 64
+            }
+          },
+          "additionalProperties": false
         }
       },
       "additionalProperties": false,

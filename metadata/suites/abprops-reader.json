@@ -4094,10 +4094,10 @@
         }
       ],
       "analyzer": {
-        "version": 3,
-        "sourceSha256": "06c35199d0b06c9441486d96cb06b540628d64c562b7c1bbd9f2b5f28c6a3096"
+        "version": 4,
+        "sourceSha256": "73c5e31e59ff601a01114ab03a0dc183d81389987e3af5832c53d9ac8bd8c06b"
       },
-      "inventoryDigest": "745b07c72a70f1257b7d0e9fb00b0ebcf4a4a550c7488005f7a8eabf94fbf932",
+      "inventoryDigest": "a01fe414ca5a0daff32952b1d55bda881b258340619d2364131c7d8943209644",
       "gates": [
         {
           "kind": "abprops",
@@ -4860,8 +4860,8 @@
       "unresolved": [
         {
           "code": "work-budget",
-          "module": "WAWebProtobufSyncAction.pb",
-          "sourceSha256": "4f4c7d8499d69c8644e43fb29c1141b43d4c1599b5c56c0075110e8cd2da6b1a",
+          "module": "dexie-3.2.2",
+          "sourceSha256": "cbfa866f3403db8683d4aeb051090b249806947527c6ec850330453877ad3fe9",
           "required": "analysis-work",
           "budget": "2000000",
           "count": 2000000
@@ -5207,6 +5207,12 @@
           "column": 99
         },
         {
+          "code": "unresolved-bootstrap-provider",
+          "module": "ExecutionEnvironment",
+          "line": 3,
+          "column": 12
+        },
+        {
           "code": "unresolved-gate-accessor",
           "module": "WAWebABPropsUpdateFromStorage",
           "line": 28,
@@ -5230,8 +5236,8 @@
         "scope": "module-closure-superset",
         "semanticProof": false,
         "resolverCoverage": false,
-        "modules": 247,
-        "sourceBytes": 877511,
+        "modules": 240,
+        "sourceBytes": 816783,
         "workBudget": {
           "limit": 2000000,
           "consumed": 2000000,
@@ -11006,10 +11012,10 @@
         }
       ],
       "analyzer": {
-        "version": 3,
-        "sourceSha256": "06c35199d0b06c9441486d96cb06b540628d64c562b7c1bbd9f2b5f28c6a3096"
+        "version": 4,
+        "sourceSha256": "73c5e31e59ff601a01114ab03a0dc183d81389987e3af5832c53d9ac8bd8c06b"
       },
-      "inventoryDigest": "16c438496db2c9b7345c39e6daa2102ccf531c82d4289fb17544a46eba9cb0d6",
+      "inventoryDigest": "2cbe65cdb86adf7a7f7feae2d02df8ae9c0628e9ec15782fbb84abb457c30a6f",
       "gates": [
         {
           "kind": "abprops",
@@ -11779,8 +11785,8 @@
       "unresolved": [
         {
           "code": "work-budget",
-          "module": "WAWebProtobufSyncAction.pb",
-          "sourceSha256": "4f4c7d8499d69c8644e43fb29c1141b43d4c1599b5c56c0075110e8cd2da6b1a",
+          "module": "dexie-3.2.2",
+          "sourceSha256": "cbfa866f3403db8683d4aeb051090b249806947527c6ec850330453877ad3fe9",
           "required": "analysis-work",
           "budget": "2000000",
           "count": 2000000
@@ -12132,6 +12138,12 @@
           "column": 99
         },
         {
+          "code": "unresolved-bootstrap-provider",
+          "module": "ExecutionEnvironment",
+          "line": 3,
+          "column": 12
+        },
+        {
           "code": "unresolved-gate-accessor",
           "module": "WAWebABPropsUpdateFromStorage",
           "line": 28,
@@ -12155,8 +12167,8 @@
         "scope": "module-closure-superset",
         "semanticProof": false,
         "resolverCoverage": false,
-        "modules": 249,
-        "sourceBytes": 879135,
+        "modules": 242,
+        "sourceBytes": 818407,
         "workBudget": {
           "limit": 2000000,
           "consumed": 2000000,
@@ -13905,12 +13917,13 @@
     "Alternate variants, container execution, production scheduling, accounts, network and named-library implementation parity remain unexercised"
   ],
   "inventoryRefresh": {
-    "analyzerVersion": 3,
-    "analyzerSourceSha256": "06c35199d0b06c9441486d96cb06b540628d64c562b7c1bbd9f2b5f28c6a3096",
+    "analyzerVersion": 4,
+    "analyzerSourceSha256": "73c5e31e59ff601a01114ab03a0dc183d81389987e3af5832c53d9ac8bd8c06b",
     "defaultLogicalWorkLimit": 2000000,
     "kind": "static-source-analysis-only",
     "behaviorReexecuted": false,
     "executionProvenance": "Existing execution/assignment observations retain their original receipt context; this metadata refresh does not create new runtime evidence.",
-    "cardinalityScope": "Incomplete/unresolved current inventories have no established total assignment cardinality. Existing finite products describe source-known subsets retained from prior observations, not exhaustive current matrices."
+    "cardinalityScope": "Incomplete/unresolved current inventories have no established total assignment cardinality. Existing finite products describe source-known subsets retained from prior observations, not exhaustive current matrices.",
+    "bootstrapScope": "No bootstrap source providers were added to these existing suites. Known bootstrap reads and unresolved global aliases/accesses remain explicit diagnostics; source-exact producer execution requires separate admitted scenarios."
   }
 }

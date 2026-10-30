@@ -1,5 +1,7 @@
 import assert from 'node:assert/strict';
 import { readFile, readdir } from 'node:fs/promises';
+import type { BootstrapKind, BootstrapAssetIdentity } from './types.ts';
+export type { BootstrapKind } from './types.ts';
 
 export interface SuiteSource {
   module: string;
@@ -8,8 +10,10 @@ export interface SuiteSource {
   dependencies: string[];
   citations: string[];
 }
+export type SuiteBootstrapAsset = BootstrapAssetIdentity;
 export interface SuiteObservation {
   revision: string;
+  bootstrapAssets?: SuiteBootstrapAsset[];
   modules: SuiteSource[];
   analyzer: { version: number; sourceSha256: string };
   inventoryDigest: string;
@@ -24,6 +28,7 @@ export interface SuiteMetadata {
   title: string;
   file: string;
   capability: string;
+  requiresBootstrapKinds?: BootstrapKind[];
   roots: string[];
   oracle: string;
   trials: Record<string, unknown>;
@@ -62,6 +67,17 @@ export function validateSuiteMetadata(value: unknown): SuiteMetadata {
       value.exclusions.length > 0 &&
       value.exclusions.every((item) => typeof item === 'string' && item.length > 0),
   );
+  if (value.requiresBootstrapKinds !== undefined)
+    assert.ok(
+      Array.isArray(value.requiresBootstrapKinds) &&
+        value.requiresBootstrapKinds.length > 0 &&
+        value.requiresBootstrapKinds.length <= 2 &&
+        value.requiresBootstrapKinds.every(
+          (kind) => typeof kind === 'string' && ['babel-helpers', 'fb-enumerate'].includes(kind),
+        ) &&
+        new Set(value.requiresBootstrapKinds).size === value.requiresBootstrapKinds.length,
+      'Bootstrap requirements must name distinct known kinds',
+    );
   assert.ok(Array.isArray(value.observations) && value.observations.length > 0);
   const revisions = new Set<string>();
   for (const observation of value.observations) {
@@ -69,6 +85,49 @@ export function validateSuiteMetadata(value: unknown): SuiteMetadata {
     assert.ok(typeof observation.revision === 'string' && /^\d{6,15}$/.test(observation.revision));
     assert.ok(!revisions.has(observation.revision), 'Duplicate revision observation');
     revisions.add(observation.revision);
+    const bootstrapKinds = new Set<string>();
+    if (observation.bootstrapAssets !== undefined) {
+      assert.ok(
+        Array.isArray(observation.bootstrapAssets) && observation.bootstrapAssets.length <= 2,
+      );
+      for (const asset of observation.bootstrapAssets) {
+        assert.ok(
+          record(asset) &&
+            typeof asset.kind === 'string' &&
+            ['babel-helpers', 'fb-enumerate'].includes(asset.kind) &&
+            hash(asset.sourceSha256) &&
+            Object.keys(asset).every((key) => ['kind', 'sourceSha256', 'origin'].includes(key)) &&
+            !bootstrapKinds.has(asset.kind),
+          'Invalid or duplicate bootstrap asset',
+        );
+        bootstrapKinds.add(asset.kind);
+        const origin = asset.origin;
+        assert.ok(
+          record(origin) &&
+            origin.revisionId === `whatsapp-${observation.revision}` &&
+            hash(origin.rawSha256) &&
+            Object.keys(origin).every((key) =>
+              ['revisionId', 'rawSha256', 'startByte', 'endByte', 'rawBytes'].includes(key),
+            ) &&
+            Number.isSafeInteger(origin.rawBytes) &&
+            Number(origin.rawBytes) > 0 &&
+            Number(origin.rawBytes) <= 4 * 1024 * 1024 &&
+            Number.isSafeInteger(origin.startByte) &&
+            Number(origin.startByte) >= 0 &&
+            Number.isSafeInteger(origin.endByte) &&
+            Number(origin.endByte) > Number(origin.startByte) &&
+            Number(origin.endByte) <= Number(origin.rawBytes),
+          'Invalid bootstrap origin',
+        );
+      }
+    }
+    if (Array.isArray(value.requiresBootstrapKinds))
+      value.requiresBootstrapKinds.forEach((requiredKind: string) =>
+        assert.ok(
+          bootstrapKinds.has(requiredKind),
+          'Required bootstrap asset missing from revision observation',
+        ),
+      );
     assert.ok(hash(observation.inventoryDigest));
     assert.ok(
       record(observation.analyzer) &&

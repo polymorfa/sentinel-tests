@@ -9,7 +9,20 @@ export interface GateUpdate {
   beforeProbe: string;
   gates: GateConfig;
 }
+export type BootstrapKind = 'babel-helpers' | 'fb-enumerate';
+export interface BootstrapAssetIdentity {
+  kind: BootstrapKind;
+  sourceSha256: string;
+  origin: {
+    revisionId: string;
+    rawSha256: string;
+    startByte: number;
+    endByte: number;
+    rawBytes: number;
+  };
+}
 export interface BehaviorContext {
+  bootstrap?: Partial<Record<BootstrapKind, string>>;
   clock?: string;
   babelHelpers?: ('extends' | 'taggedTemplateLiteralLoose')[];
   timezone?: string;
@@ -63,6 +76,12 @@ export interface ProbeObservation {
   pass?: boolean;
 }
 export interface CaseResult {
+  bootstrapAssets?: BootstrapAssetIdentity[];
+  bootstrapExecutions?: (BootstrapAssetIdentity & {
+    executed: true;
+    beforeModuleDefinitions: true;
+    environment?: Record<string, JsonPrimitive>;
+  })[];
   status: CaseStatus;
   probes?: ProbeObservation[];
   error?: { code?: string; message?: string };
