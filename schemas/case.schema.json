@@ -5,37 +5,82 @@
   "type": "object",
   "required": ["schemaVersion", "id", "version", "title", "module", "export", "context", "probes"],
   "properties": {
-    "schemaVersion": { "const": 1 },
-    "id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9._-]{0,127}$" },
-    "version": { "type": "integer", "minimum": 1 },
-    "title": { "type": "string", "minLength": 1, "maxLength": 200 },
-    "module": { "type": "string", "minLength": 1, "maxLength": 256 },
-    "export": { "type": "string", "minLength": 1, "maxLength": 256 },
+    "schemaVersion": {
+      "const": 1
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9._-]{0,127}$"
+    },
+    "version": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 200
+    },
+    "module": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 256
+    },
+    "export": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 256
+    },
     "construct": {
       "type": "object",
       "required": ["args"],
-      "properties": { "args": { "type": "array" } },
+      "properties": {
+        "args": {
+          "type": "array"
+        }
+      },
       "additionalProperties": false
     },
     "context": {
       "type": "object",
       "required": ["clock", "timezone", "randomSeed", "gates"],
       "properties": {
-        "clock": { "type": "string", "format": "date-time" },
+        "clock": {
+          "type": "string",
+          "format": "date-time"
+        },
         "babelHelpers": {
           "type": "array",
           "maxItems": 2,
           "uniqueItems": true,
-          "items": { "enum": ["extends", "taggedTemplateLiteralLoose"] }
+          "items": {
+            "enum": ["extends", "taggedTemplateLiteralLoose"]
+          }
         },
-        "timezone": { "type": "string", "minLength": 1 },
-        "randomSeed": { "type": "integer", "minimum": 0, "maximum": 4294967295 },
+        "timezone": {
+          "type": "string",
+          "minLength": 1
+        },
+        "randomSeed": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4294967295
+        },
         "gates": {
           "type": "object",
           "properties": {
-            "abprops": { "type": "object" },
-            "gkx": { "type": "object", "additionalProperties": { "type": "boolean" } },
-            "knobs": { "type": "object" }
+            "abprops": {
+              "type": "object"
+            },
+            "gkx": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "boolean"
+              }
+            },
+            "knobs": {
+              "type": "object"
+            }
           },
           "additionalProperties": false
         },
@@ -46,8 +91,13 @@
             "type": "object",
             "required": ["beforeProbe", "gates"],
             "properties": {
-              "beforeProbe": { "type": "string", "minLength": 1 },
-              "gates": { "type": "object" }
+              "beforeProbe": {
+                "type": "string",
+                "minLength": 1
+              },
+              "gates": {
+                "type": "object"
+              }
             },
             "additionalProperties": false
           }
@@ -61,11 +111,21 @@
       "items": {
         "type": "object",
         "required": ["module", "exports"],
-        "properties": { "module": { "type": "string" }, "exports": {} },
+        "properties": {
+          "module": {
+            "type": "string"
+          },
+          "exports": {}
+        },
         "additionalProperties": false
       }
     },
-    "variants": { "type": "object", "additionalProperties": { "type": "string" } },
+    "variants": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
     "probes": {
       "type": "array",
       "minItems": 1,
@@ -74,9 +134,17 @@
         "type": "object",
         "required": ["id", "args"],
         "properties": {
-          "id": { "type": "string", "minLength": 1 },
-          "args": { "type": "array" },
-          "clock": { "type": "string", "format": "date-time" },
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "args": {
+            "type": "array"
+          },
+          "clock": {
+            "type": "string",
+            "format": "date-time"
+          },
           "result": {
             "type": "object",
             "required": ["method"],
@@ -84,34 +152,153 @@
               "method": {
                 "type": "string",
                 "pattern": "^[A-Za-z_$][A-Za-z0-9_$]*$",
-                "not": { "enum": ["constructor", "__proto__", "prototype"] }
+                "not": {
+                  "enum": ["constructor", "__proto__", "prototype"]
+                }
               },
-              "args": { "type": "array" }
+              "args": {
+                "type": "array"
+              }
             },
             "additionalProperties": false
           },
-          "export": { "type": "string", "minLength": 1, "maxLength": 256 },
+          "export": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 256
+          },
           "method": {
             "type": "string",
             "pattern": "^[A-Za-z_$][A-Za-z0-9_$]*$",
-            "not": { "enum": ["constructor", "__proto__", "prototype"] }
+            "not": {
+              "enum": ["constructor", "__proto__", "prototype"]
+            }
           },
           "expected": {},
           "throws": {
             "type": "object",
             "minProperties": 1,
-            "properties": { "name": { "type": "string" }, "message": { "type": "string" } },
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "message": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": false
+          },
+          "module": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 256
+          },
+          "pending": {
+            "type": "object",
+            "required": ["id", "action"],
+            "properties": {
+              "id": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 128
+              },
+              "action": {
+                "enum": ["start", "inspect", "await"]
+              }
+            },
             "additionalProperties": false
           }
         },
         "oneOf": [
-          { "required": ["expected"], "not": { "required": ["throws"] } },
-          { "required": ["throws"], "not": { "required": ["expected"] } }
+          {
+            "required": ["expected"],
+            "not": {
+              "required": ["throws"]
+            }
+          },
+          {
+            "required": ["throws"],
+            "not": {
+              "required": ["expected"]
+            }
+          }
         ],
-        "additionalProperties": false
+        "additionalProperties": false,
+        "dependentRequired": {
+          "module": ["export"]
+        },
+        "allOf": [
+          {
+            "if": {
+              "required": ["module"]
+            },
+            "then": {
+              "not": {
+                "required": ["method"]
+              }
+            }
+          },
+          {
+            "if": {
+              "required": ["pending"],
+              "properties": {
+                "pending": {
+                  "properties": {
+                    "action": {
+                      "enum": ["inspect", "await"]
+                    }
+                  }
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "args": {
+                  "maxItems": 0
+                }
+              },
+              "not": {
+                "anyOf": [
+                  {
+                    "required": ["module"]
+                  },
+                  {
+                    "required": ["export"]
+                  },
+                  {
+                    "required": ["method"]
+                  },
+                  {
+                    "required": ["result"]
+                  }
+                ]
+              }
+            }
+          }
+        ]
       }
     },
-    "sourceExpectation": { "type": "object" }
+    "sourceExpectation": {
+      "type": "object"
+    }
   },
-  "additionalProperties": false
+  "additionalProperties": false,
+  "allOf": [
+    {
+      "if": {
+        "required": ["construct"]
+      },
+      "then": {
+        "properties": {
+          "probes": {
+            "items": {
+              "not": {
+                "required": ["module"]
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
 }

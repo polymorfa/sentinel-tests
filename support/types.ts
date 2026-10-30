@@ -25,7 +25,9 @@ export type Probe = {
   id: string;
   args: JsonValue[];
   export?: string;
+  module?: string;
   method?: string;
+  pending?: { id: string; action: 'start' | 'inspect' | 'await' };
   clock?: string;
   result?: { method: string; args?: JsonValue[] };
 } & ({ expected: JsonValue; throws?: never } | { expected?: never; throws: ErrorExpectation });
