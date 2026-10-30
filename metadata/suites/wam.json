@@ -1,0 +1,267 @@
+{
+  "schemaVersion": 1,
+  "id": "wam-buffer-behavior",
+  "version": 1,
+  "title": "WAM binary buffer and admission behavior",
+  "file": "tests/wam-behavior.test.ts",
+  "capability": "wa-internal:wam-buffer",
+  "module": "WAWamBuffer",
+  "roots": ["WAWamBuffer"],
+  "observations": [
+    {
+      "revision": "1051710191",
+      "variant": "primary",
+      "analyzer": {
+        "version": 1,
+        "sourceSha256": "01036d720caccf437f31062c23335fffcae7bb94f46e346de330ae6a744bfd80"
+      },
+      "inventoryDigest": "581c41928e679e6202f6d75f079bc30905ebe5dced9ce8edd03e7e2c476a77cf",
+      "modules": [
+        {
+          "module": "err",
+          "variant": "primary",
+          "printedSourceSha256": "a26a1f88fe2c09505c0ec8e43d1a43c2299b6126ea7ea305c567bf7634fbeea0",
+          "dependencies": ["fb-error"],
+          "citations": ["modules/err.js:1-4"]
+        },
+        {
+          "module": "fb-error",
+          "variant": "primary",
+          "printedSourceSha256": "545144d2d2c50524d5bcfc421916cf76760743cb5b034dcb7a4d7066981f714e",
+          "dependencies": ["performanceNow", "removeFromArray"],
+          "citations": ["modules/fb-error.js:1-698"]
+        },
+        {
+          "module": "performance",
+          "variant": "primary",
+          "printedSourceSha256": "9bee7ad7d1941af3432757b1ce55c980030f812f0a5fb00916e906b8a0b6ced9",
+          "dependencies": [],
+          "citations": ["modules/performance.js:1-5"]
+        },
+        {
+          "module": "performanceNow",
+          "variant": "primary",
+          "printedSourceSha256": "415e5327e020372f7789e27dc42266a9cb3d6bbc2d8c47d0b751b93517a0475f",
+          "dependencies": ["performance"],
+          "citations": ["modules/performanceNow.js:1-15"]
+        },
+        {
+          "module": "removeFromArray",
+          "variant": "primary",
+          "printedSourceSha256": "c8e194de9e9463716c2f383406ae8269ddff1a9fe5fbc1a7559abcd2aaa666bb",
+          "dependencies": [],
+          "citations": ["modules/removeFromArray.js:1-8"]
+        },
+        {
+          "module": "WABinary",
+          "variant": "primary",
+          "printedSourceSha256": "03edbd33455894b148adb38944ff3c6a27b3102631d3c00bf1cdeea5480884d4",
+          "dependencies": ["WAHex", "err"],
+          "citations": ["modules/WABinary.js:1-360"]
+        },
+        {
+          "module": "WAHex",
+          "variant": "primary",
+          "printedSourceSha256": "3d28ad9eb342f6715bec66c8c38fd57a14497e07101f5f9b67fc3c9838e72ffe",
+          "dependencies": ["err"],
+          "citations": ["modules/WAHex.js:1-119"]
+        },
+        {
+          "module": "WAWamBuffer",
+          "variant": "primary",
+          "printedSourceSha256": "288b355abdce0a4f7d1dadaaa8d7b4a5b16f64bffe1ff4eb7a8d8d249d5b828b",
+          "dependencies": ["WABinary", "WAWamTypes", "err"],
+          "citations": ["modules/WAWamBuffer.js:1-101"]
+        },
+        {
+          "module": "WAWamTypes",
+          "variant": "primary",
+          "printedSourceSha256": "5e8b26400c90b2540e5ae3937bd564209ef67bcaed78ced5483521cb0d9af1e0",
+          "dependencies": [],
+          "citations": ["modules/WAWamTypes.js:1-10"]
+        }
+      ],
+      "gates": [],
+      "unresolved": [
+        {
+          "code": "dynamic-code-or-import",
+          "module": "fb-error",
+          "line": 367,
+          "column": 11
+        }
+      ],
+      "staticCoverage": {
+        "complete": false,
+        "scope": "module-closure-superset",
+        "semanticProof": false,
+        "resolverCoverage": false,
+        "modules": 9,
+        "sourceBytes": 49075,
+        "limitations": [
+          "Only supported gate APIs and static key expressions are inventoried.",
+          "Declared fixture-provider boundaries exclude their original resolver implementations and dependencies.",
+          "All functions in each dependency module are scanned; exact export and caller reachability is not proven.",
+          "Runtime-discovered gates and externally selected code require separate observations."
+        ]
+      }
+    },
+    {
+      "revision": "1051908825",
+      "variant": "primary",
+      "analyzer": {
+        "version": 1,
+        "sourceSha256": "01036d720caccf437f31062c23335fffcae7bb94f46e346de330ae6a744bfd80"
+      },
+      "inventoryDigest": "581c41928e679e6202f6d75f079bc30905ebe5dced9ce8edd03e7e2c476a77cf",
+      "modules": [
+        {
+          "module": "err",
+          "variant": "primary",
+          "printedSourceSha256": "a26a1f88fe2c09505c0ec8e43d1a43c2299b6126ea7ea305c567bf7634fbeea0",
+          "dependencies": ["fb-error"],
+          "citations": ["modules/err.js:1-4"]
+        },
+        {
+          "module": "fb-error",
+          "variant": "primary",
+          "printedSourceSha256": "545144d2d2c50524d5bcfc421916cf76760743cb5b034dcb7a4d7066981f714e",
+          "dependencies": ["performanceNow", "removeFromArray"],
+          "citations": ["modules/fb-error.js:1-698"]
+        },
+        {
+          "module": "performance",
+          "variant": "primary",
+          "printedSourceSha256": "9bee7ad7d1941af3432757b1ce55c980030f812f0a5fb00916e906b8a0b6ced9",
+          "dependencies": [],
+          "citations": ["modules/performance.js:1-5"]
+        },
+        {
+          "module": "performanceNow",
+          "variant": "primary",
+          "printedSourceSha256": "415e5327e020372f7789e27dc42266a9cb3d6bbc2d8c47d0b751b93517a0475f",
+          "dependencies": ["performance"],
+          "citations": ["modules/performanceNow.js:1-15"]
+        },
+        {
+          "module": "removeFromArray",
+          "variant": "primary",
+          "printedSourceSha256": "c8e194de9e9463716c2f383406ae8269ddff1a9fe5fbc1a7559abcd2aaa666bb",
+          "dependencies": [],
+          "citations": ["modules/removeFromArray.js:1-8"]
+        },
+        {
+          "module": "WABinary",
+          "variant": "primary",
+          "printedSourceSha256": "03edbd33455894b148adb38944ff3c6a27b3102631d3c00bf1cdeea5480884d4",
+          "dependencies": ["WAHex", "err"],
+          "citations": ["modules/WABinary.js:1-360"]
+        },
+        {
+          "module": "WAHex",
+          "variant": "primary",
+          "printedSourceSha256": "3d28ad9eb342f6715bec66c8c38fd57a14497e07101f5f9b67fc3c9838e72ffe",
+          "dependencies": ["err"],
+          "citations": ["modules/WAHex.js:1-119"]
+        },
+        {
+          "module": "WAWamBuffer",
+          "variant": "primary",
+          "printedSourceSha256": "288b355abdce0a4f7d1dadaaa8d7b4a5b16f64bffe1ff4eb7a8d8d249d5b828b",
+          "dependencies": ["WABinary", "WAWamTypes", "err"],
+          "citations": ["modules/WAWamBuffer.js:1-101"]
+        },
+        {
+          "module": "WAWamTypes",
+          "variant": "primary",
+          "printedSourceSha256": "5e8b26400c90b2540e5ae3937bd564209ef67bcaed78ced5483521cb0d9af1e0",
+          "dependencies": [],
+          "citations": ["modules/WAWamTypes.js:1-10"]
+        }
+      ],
+      "gates": [],
+      "unresolved": [
+        {
+          "code": "dynamic-code-or-import",
+          "module": "fb-error",
+          "line": 367,
+          "column": 11
+        }
+      ],
+      "staticCoverage": {
+        "complete": false,
+        "scope": "module-closure-superset",
+        "semanticProof": false,
+        "resolverCoverage": false,
+        "modules": 9,
+        "sourceBytes": 49075,
+        "limitations": [
+          "Only supported gate APIs and static key expressions are inventoried.",
+          "Declared fixture-provider boundaries exclude their original resolver implementations and dependencies.",
+          "All functions in each dependency module are scanned; exact export and caller reachability is not proven.",
+          "Runtime-discovered gates and externally selected code require separate observations."
+        ]
+      }
+    }
+  ],
+  "sourceCitations": [
+    {
+      "module": "WAWamBuffer",
+      "path": "modules/WAWamBuffer.js",
+      "lines": [9, 100],
+      "purpose": "Header, global/event encoding, state and validators"
+    },
+    {
+      "module": "WAWamTypes",
+      "path": "modules/WAWamTypes.js",
+      "lines": [3, 10],
+      "purpose": "INT/BOOL/STRING/FLOAT field tags"
+    },
+    {
+      "module": "WABinary",
+      "path": "modules/WABinary.js",
+      "lines": [79, 98],
+      "purpose": "Signed numeric and floating byte writers"
+    },
+    {
+      "module": "fb-error",
+      "path": "modules/fb-error.js",
+      "lines": [361, 368],
+      "purpose": "Conservative dynamic invocation analysis gap"
+    }
+  ],
+  "oracle": "Literal independent header/record byte fixtures; signed little-endian integer vectors; IEEE754 1.5 and standard UTF-8 Unicode bytes. Admission expectations characterize real coercion and error behavior. No vendor source or captured telemetry included.",
+  "gateScope": {
+    "knownFiniteDomains": [],
+    "knownAssignments": [{}],
+    "plannedKnownAssignmentCardinality": 1,
+    "exhaustive": false,
+    "reason": "All nine selected modules parsed. No supported gate reads found; fb-error dynamic Function.prototype.apply invocation remains unresolved. Callers, variants, external assignment and delivery paths are excluded."
+  },
+  "execution": {
+    "runtime": "Bun 1.4.4",
+    "mode": "explicit diagnostic process",
+    "isolated": false,
+    "accounts": false,
+    "network": false
+  },
+  "exclusions": [
+    "Complete WAM family coverage",
+    "WAWam manager, channel manager, storage, batching, sampling and Falco",
+    "Schema catalog compatibility and generated event emitters",
+    "Dynamic callback closure in fb-error and non-primary module variants",
+    "ABProps/GKX/knob server assignment and cohort behavior",
+    "Telemetry network delivery or account behavior",
+    "Container isolation and production scheduling",
+    "Library parity adapters",
+    "Full bytes for 65535/65536/65537-byte strings: real size transition only, preserving bounded case payloads"
+  ],
+  "trials": {
+    "cases": 37,
+    "probesPerRevision": 196,
+    "baselineExecutionsPerCase": 2,
+    "candidateExecutionsPerCase": 1,
+    "seed": null,
+    "assignmentCardinalityForKnownGates": 1,
+    "configurationExhaustive": false
+  }
+}

@@ -1,0 +1,319 @@
+{
+  "schemaVersion": 1,
+  "id": "binary-core",
+  "version": 1,
+  "title": "Binary numeric, packing, hexadecimal and custom Base32 behavior",
+  "file": "tests/binary-core.test.ts",
+  "capability": "wa-internal:binary-core",
+  "roots": ["WABinary", "WAHex", "WAWebAltDeviceLinkingBase32Encode"],
+  "oracle": "Exact BigInt signed/unsigned 64-bit mathematics and base-128 varints; standard DataView endian packing/reading; independent Buffer hex conversion; whole-input bit-string custom Base32 oracle; literal rejection and cursor invariants. No vendor source is copied or evaluated by test oracles.",
+  "trials": {
+    "seed": 186106078,
+    "generator": "xorshift32; initial state 0x0b17c0de",
+    "tests": 23,
+    "probesPerSingleRevisionPass": 6096,
+    "wordPairs": 813,
+    "byteVectors": 163,
+    "singleByteBase32Vectors": 256,
+    "batchSize": 32,
+    "execution": "runCase baseline and compareCase baseline/candidate, each assertion checks actual observations"
+  },
+  "observations": [
+    {
+      "revision": "1051710191",
+      "modules": [
+        {
+          "module": "err",
+          "variant": "primary",
+          "printedSourceSha256": "a26a1f88fe2c09505c0ec8e43d1a43c2299b6126ea7ea305c567bf7634fbeea0",
+          "dependencies": ["fb-error"],
+          "citations": ["modules/err.js:1-4"]
+        },
+        {
+          "module": "fb-error",
+          "variant": "primary",
+          "printedSourceSha256": "545144d2d2c50524d5bcfc421916cf76760743cb5b034dcb7a4d7066981f714e",
+          "dependencies": ["performanceNow", "removeFromArray"],
+          "citations": ["modules/fb-error.js:1-698", "modules/fb-error.js:367"]
+        },
+        {
+          "module": "performance",
+          "variant": "primary",
+          "printedSourceSha256": "9bee7ad7d1941af3432757b1ce55c980030f812f0a5fb00916e906b8a0b6ced9",
+          "dependencies": [],
+          "citations": ["modules/performance.js:1-5"]
+        },
+        {
+          "module": "performanceNow",
+          "variant": "primary",
+          "printedSourceSha256": "415e5327e020372f7789e27dc42266a9cb3d6bbc2d8c47d0b751b93517a0475f",
+          "dependencies": ["performance"],
+          "citations": ["modules/performanceNow.js:1-15"]
+        },
+        {
+          "module": "removeFromArray",
+          "variant": "primary",
+          "printedSourceSha256": "c8e194de9e9463716c2f383406ae8269ddff1a9fe5fbc1a7559abcd2aaa666bb",
+          "dependencies": [],
+          "citations": ["modules/removeFromArray.js:1-8"]
+        },
+        {
+          "module": "WABinary",
+          "variant": "primary",
+          "printedSourceSha256": "03edbd33455894b148adb38944ff3c6a27b3102631d3c00bf1cdeea5480884d4",
+          "dependencies": ["WAHex", "err"],
+          "citations": [
+            "modules/WABinary.js:14-174",
+            "modules/WABinary.js:188-194",
+            "modules/WABinary.js:201-240",
+            "modules/WABinary.js:281-359"
+          ]
+        },
+        {
+          "module": "WAHex",
+          "variant": "primary",
+          "printedSourceSha256": "3d28ad9eb342f6715bec66c8c38fd57a14497e07101f5f9b67fc3c9838e72ffe",
+          "dependencies": ["err"],
+          "citations": ["modules/WAHex.js:37-119"]
+        },
+        {
+          "module": "WAWebAltDeviceLinkingBase32Encode",
+          "variant": "primary",
+          "printedSourceSha256": "25ff896403bec63991137995b3ca2f70b5ade9ad660016d14bd6792d83f6d8e4",
+          "dependencies": [],
+          "citations": ["modules/WAWebAltDeviceLinkingBase32Encode.js:1-8"]
+        }
+      ],
+      "analyzer": {
+        "version": 1,
+        "sourceSha256": "01036d720caccf437f31062c23335fffcae7bb94f46e346de330ae6a744bfd80"
+      },
+      "gates": [],
+      "unresolved": [
+        {
+          "code": "dynamic-code-or-import",
+          "module": "fb-error",
+          "line": 367,
+          "column": 11
+        }
+      ],
+      "staticCoverage": {
+        "complete": false,
+        "scope": "module-closure-superset",
+        "semanticProof": false,
+        "resolverCoverage": false,
+        "modules": 8,
+        "sourceBytes": 46096,
+        "limitations": [
+          "Only supported gate APIs and static key expressions are inventoried.",
+          "Declared fixture-provider boundaries exclude their original resolver implementations and dependencies.",
+          "All functions in each dependency module are scanned; exact export and caller reachability is not proven.",
+          "Runtime-discovered gates and externally selected code require separate observations."
+        ]
+      },
+      "base32Inventory": {
+        "schemaVersion": 1,
+        "analyzer": {
+          "version": 1,
+          "sourceSha256": "01036d720caccf437f31062c23335fffcae7bb94f46e346de330ae6a744bfd80"
+        },
+        "roots": ["WAWebAltDeviceLinkingBase32Encode"],
+        "boundaries": [],
+        "modules": [
+          {
+            "name": "WAWebAltDeviceLinkingBase32Encode",
+            "variant": "primary",
+            "sourceSha256": "25ff896403bec63991137995b3ca2f70b5ade9ad660016d14bd6792d83f6d8e4",
+            "dependencies": []
+          }
+        ],
+        "gates": [],
+        "unresolved": [],
+        "coverage": {
+          "complete": true,
+          "scope": "module-closure-superset",
+          "semanticProof": false,
+          "resolverCoverage": false,
+          "modules": 1,
+          "sourceBytes": 425,
+          "limitations": [
+            "Only supported gate APIs and static key expressions are inventoried.",
+            "Declared fixture-provider boundaries exclude their original resolver implementations and dependencies.",
+            "All functions in each dependency module are scanned; exact export and caller reachability is not proven.",
+            "Runtime-discovered gates and externally selected code require separate observations."
+          ]
+        },
+        "digest": "6e08e2174df78f4e076c37e47b10ce56a23d2aa3647b17d48bf8ca42f6bd8335"
+      },
+      "assignmentCoverage": {
+        "base32": {
+          "assignments": [{}],
+          "cardinality": 1,
+          "executed": true,
+          "scope": "Primary dependency-free helper under supported AST syntax"
+        },
+        "binaryAndHex": {
+          "assignments": [{}],
+          "executed": true,
+          "exhaustive": false,
+          "reason": "fb-error Function.prototype.apply.call at line 367 remains an analyzer dynamic-code-or-import diagnostic; zero recognized gates is not an ungated classification."
+        }
+      },
+      "inventoryDigest": "3d115da065d8d2d85db9b4400f9cf6d0b40dbc6ab2989f0bacc2abba9bf9ccad"
+    },
+    {
+      "revision": "1051908825",
+      "modules": [
+        {
+          "module": "err",
+          "variant": "primary",
+          "printedSourceSha256": "a26a1f88fe2c09505c0ec8e43d1a43c2299b6126ea7ea305c567bf7634fbeea0",
+          "dependencies": ["fb-error"],
+          "citations": ["modules/err.js:1-4"]
+        },
+        {
+          "module": "fb-error",
+          "variant": "primary",
+          "printedSourceSha256": "545144d2d2c50524d5bcfc421916cf76760743cb5b034dcb7a4d7066981f714e",
+          "dependencies": ["performanceNow", "removeFromArray"],
+          "citations": ["modules/fb-error.js:1-698", "modules/fb-error.js:367"]
+        },
+        {
+          "module": "performance",
+          "variant": "primary",
+          "printedSourceSha256": "9bee7ad7d1941af3432757b1ce55c980030f812f0a5fb00916e906b8a0b6ced9",
+          "dependencies": [],
+          "citations": ["modules/performance.js:1-5"]
+        },
+        {
+          "module": "performanceNow",
+          "variant": "primary",
+          "printedSourceSha256": "415e5327e020372f7789e27dc42266a9cb3d6bbc2d8c47d0b751b93517a0475f",
+          "dependencies": ["performance"],
+          "citations": ["modules/performanceNow.js:1-15"]
+        },
+        {
+          "module": "removeFromArray",
+          "variant": "primary",
+          "printedSourceSha256": "c8e194de9e9463716c2f383406ae8269ddff1a9fe5fbc1a7559abcd2aaa666bb",
+          "dependencies": [],
+          "citations": ["modules/removeFromArray.js:1-8"]
+        },
+        {
+          "module": "WABinary",
+          "variant": "primary",
+          "printedSourceSha256": "03edbd33455894b148adb38944ff3c6a27b3102631d3c00bf1cdeea5480884d4",
+          "dependencies": ["WAHex", "err"],
+          "citations": [
+            "modules/WABinary.js:14-174",
+            "modules/WABinary.js:188-194",
+            "modules/WABinary.js:201-240",
+            "modules/WABinary.js:281-359"
+          ]
+        },
+        {
+          "module": "WAHex",
+          "variant": "primary",
+          "printedSourceSha256": "3d28ad9eb342f6715bec66c8c38fd57a14497e07101f5f9b67fc3c9838e72ffe",
+          "dependencies": ["err"],
+          "citations": ["modules/WAHex.js:37-119"]
+        },
+        {
+          "module": "WAWebAltDeviceLinkingBase32Encode",
+          "variant": "primary",
+          "printedSourceSha256": "25ff896403bec63991137995b3ca2f70b5ade9ad660016d14bd6792d83f6d8e4",
+          "dependencies": [],
+          "citations": ["modules/WAWebAltDeviceLinkingBase32Encode.js:1-8"]
+        }
+      ],
+      "analyzer": {
+        "version": 1,
+        "sourceSha256": "01036d720caccf437f31062c23335fffcae7bb94f46e346de330ae6a744bfd80"
+      },
+      "gates": [],
+      "unresolved": [
+        {
+          "code": "dynamic-code-or-import",
+          "module": "fb-error",
+          "line": 367,
+          "column": 11
+        }
+      ],
+      "staticCoverage": {
+        "complete": false,
+        "scope": "module-closure-superset",
+        "semanticProof": false,
+        "resolverCoverage": false,
+        "modules": 8,
+        "sourceBytes": 46096,
+        "limitations": [
+          "Only supported gate APIs and static key expressions are inventoried.",
+          "Declared fixture-provider boundaries exclude their original resolver implementations and dependencies.",
+          "All functions in each dependency module are scanned; exact export and caller reachability is not proven.",
+          "Runtime-discovered gates and externally selected code require separate observations."
+        ]
+      },
+      "base32Inventory": {
+        "schemaVersion": 1,
+        "analyzer": {
+          "version": 1,
+          "sourceSha256": "01036d720caccf437f31062c23335fffcae7bb94f46e346de330ae6a744bfd80"
+        },
+        "roots": ["WAWebAltDeviceLinkingBase32Encode"],
+        "boundaries": [],
+        "modules": [
+          {
+            "name": "WAWebAltDeviceLinkingBase32Encode",
+            "variant": "primary",
+            "sourceSha256": "25ff896403bec63991137995b3ca2f70b5ade9ad660016d14bd6792d83f6d8e4",
+            "dependencies": []
+          }
+        ],
+        "gates": [],
+        "unresolved": [],
+        "coverage": {
+          "complete": true,
+          "scope": "module-closure-superset",
+          "semanticProof": false,
+          "resolverCoverage": false,
+          "modules": 1,
+          "sourceBytes": 425,
+          "limitations": [
+            "Only supported gate APIs and static key expressions are inventoried.",
+            "Declared fixture-provider boundaries exclude their original resolver implementations and dependencies.",
+            "All functions in each dependency module are scanned; exact export and caller reachability is not proven.",
+            "Runtime-discovered gates and externally selected code require separate observations."
+          ]
+        },
+        "digest": "6e08e2174df78f4e076c37e47b10ce56a23d2aa3647b17d48bf8ca42f6bd8335"
+      },
+      "assignmentCoverage": {
+        "base32": {
+          "assignments": [{}],
+          "cardinality": 1,
+          "executed": true,
+          "scope": "Primary dependency-free helper under supported AST syntax"
+        },
+        "binaryAndHex": {
+          "assignments": [{}],
+          "executed": true,
+          "exhaustive": false,
+          "reason": "fb-error Function.prototype.apply.call at line 367 remains an analyzer dynamic-code-or-import diagnostic; zero recognized gates is not an ungated classification."
+        }
+      },
+      "inventoryDigest": "3d115da065d8d2d85db9b4400f9cf6d0b40dbc6ab2989f0bacc2abba9bf9ccad"
+    }
+  ],
+  "runtime": {
+    "diagnosticProcess": "Observed under Bun 1.4.4 subprocess; isolated:false",
+    "container": "Not exercised; requires separately configured digest-pinned sandbox image",
+    "network": "No provider or network requests"
+  },
+  "exclusions": [
+    "Alternative archived module variants and production callers are not covered.",
+    "Gate closure for Binary and WAHex remains incomplete under the supported analyzer because fb-error contains a flagged dynamic invocation. No exhaustive assignment claim for that closure.",
+    "Custom Base32 is the shipped non-RFC alphabet; this suite does not assert server acceptance of linking codes.",
+    "Base64, message padding, Binary callback-based peek/atomic operations, varint decoding, 64-bit instance read/write, malformed UTF-8 replacement and shared reference mutation are not covered.",
+    "No WhatsApp account, credentials, Signal sessions, browser lifecycle, native library parity, provider/server acceptance or release availability is exercised."
+  ]
+}

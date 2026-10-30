@@ -1,0 +1,178 @@
+{
+  "schemaVersion": 1,
+  "id": "backoff-state",
+  "version": 1,
+  "title": "BackoffCache clock, retry and key lifecycle",
+  "file": "tests/backoff-state.test.ts",
+  "helper": "support/backoff-cases.ts",
+  "capability": "wa-internal:backoff-state",
+  "roots": ["WAWebBackoff"],
+  "oracle": "Explicit elapsed-time boundary tables and expected Map entry snapshots, using fixed timestamps and stated interval sequences. Expectations never invoke vendor code or a duplicate BackoffCache model.",
+  "trials": {
+    "tests": 37,
+    "probesPerSingleRevisionPass": 330,
+    "seed": null,
+    "clock": "2026-10-30T00:00:00.000Z plus explicit per-probe millisecond offsets",
+    "assignments": [{}],
+    "exhaustiveGateCoverage": false
+  },
+  "observations": [
+    {
+      "revision": "1051710191",
+      "modules": [
+        {
+          "module": "err",
+          "variant": "primary",
+          "printedSourceSha256": "a26a1f88fe2c09505c0ec8e43d1a43c2299b6126ea7ea305c567bf7634fbeea0",
+          "dependencies": ["fb-error"],
+          "citations": ["modules/err.js:1-4"]
+        },
+        {
+          "module": "fb-error",
+          "variant": "primary",
+          "printedSourceSha256": "545144d2d2c50524d5bcfc421916cf76760743cb5b034dcb7a4d7066981f714e",
+          "dependencies": ["performanceNow", "removeFromArray"],
+          "citations": ["modules/fb-error.js:1-698"]
+        },
+        {
+          "module": "performance",
+          "variant": "primary",
+          "printedSourceSha256": "9bee7ad7d1941af3432757b1ce55c980030f812f0a5fb00916e906b8a0b6ced9",
+          "dependencies": [],
+          "citations": ["modules/performance.js:1-5"]
+        },
+        {
+          "module": "performanceNow",
+          "variant": "primary",
+          "printedSourceSha256": "415e5327e020372f7789e27dc42266a9cb3d6bbc2d8c47d0b751b93517a0475f",
+          "dependencies": ["performance"],
+          "citations": ["modules/performanceNow.js:1-15"]
+        },
+        {
+          "module": "removeFromArray",
+          "variant": "primary",
+          "printedSourceSha256": "c8e194de9e9463716c2f383406ae8269ddff1a9fe5fbc1a7559abcd2aaa666bb",
+          "dependencies": [],
+          "citations": ["modules/removeFromArray.js:1-8"]
+        },
+        {
+          "module": "WAWebBackoff",
+          "variant": "primary",
+          "printedSourceSha256": "c3e22a8d133246877faca03464f2dd5c9358548a27f543c251ed6aba6a1b33c9",
+          "dependencies": ["err"],
+          "citations": ["modules/WAWebBackoff.js:1-46"]
+        }
+      ],
+      "analyzer": {
+        "version": 1,
+        "sourceSha256": "01036d720caccf437f31062c23335fffcae7bb94f46e346de330ae6a744bfd80"
+      },
+      "inventoryDigest": "075de0f468cf69e4f2d771489cde2fc94a1b8b68ae8f41fb02423a2ef45947bd",
+      "gates": [],
+      "unresolved": [
+        {
+          "code": "dynamic-code-or-import",
+          "module": "fb-error",
+          "line": 367,
+          "column": 11
+        }
+      ],
+      "staticCoverage": {
+        "complete": false,
+        "scope": "module-closure-superset",
+        "semanticProof": false,
+        "resolverCoverage": false,
+        "modules": 6,
+        "sourceBytes": 30126,
+        "limitations": [
+          "Only supported gate APIs and static key expressions are inventoried.",
+          "Declared fixture-provider boundaries exclude their original resolver implementations and dependencies.",
+          "All functions in each dependency module are scanned; exact export and caller reachability is not proven.",
+          "Runtime-discovered gates and externally selected code require separate observations."
+        ]
+      }
+    },
+    {
+      "revision": "1051908825",
+      "modules": [
+        {
+          "module": "err",
+          "variant": "primary",
+          "printedSourceSha256": "a26a1f88fe2c09505c0ec8e43d1a43c2299b6126ea7ea305c567bf7634fbeea0",
+          "dependencies": ["fb-error"],
+          "citations": ["modules/err.js:1-4"]
+        },
+        {
+          "module": "fb-error",
+          "variant": "primary",
+          "printedSourceSha256": "545144d2d2c50524d5bcfc421916cf76760743cb5b034dcb7a4d7066981f714e",
+          "dependencies": ["performanceNow", "removeFromArray"],
+          "citations": ["modules/fb-error.js:1-698"]
+        },
+        {
+          "module": "performance",
+          "variant": "primary",
+          "printedSourceSha256": "9bee7ad7d1941af3432757b1ce55c980030f812f0a5fb00916e906b8a0b6ced9",
+          "dependencies": [],
+          "citations": ["modules/performance.js:1-5"]
+        },
+        {
+          "module": "performanceNow",
+          "variant": "primary",
+          "printedSourceSha256": "415e5327e020372f7789e27dc42266a9cb3d6bbc2d8c47d0b751b93517a0475f",
+          "dependencies": ["performance"],
+          "citations": ["modules/performanceNow.js:1-15"]
+        },
+        {
+          "module": "removeFromArray",
+          "variant": "primary",
+          "printedSourceSha256": "c8e194de9e9463716c2f383406ae8269ddff1a9fe5fbc1a7559abcd2aaa666bb",
+          "dependencies": [],
+          "citations": ["modules/removeFromArray.js:1-8"]
+        },
+        {
+          "module": "WAWebBackoff",
+          "variant": "primary",
+          "printedSourceSha256": "c3e22a8d133246877faca03464f2dd5c9358548a27f543c251ed6aba6a1b33c9",
+          "dependencies": ["err"],
+          "citations": ["modules/WAWebBackoff.js:1-46"]
+        }
+      ],
+      "analyzer": {
+        "version": 1,
+        "sourceSha256": "01036d720caccf437f31062c23335fffcae7bb94f46e346de330ae6a744bfd80"
+      },
+      "inventoryDigest": "075de0f468cf69e4f2d771489cde2fc94a1b8b68ae8f41fb02423a2ef45947bd",
+      "gates": [],
+      "unresolved": [
+        {
+          "code": "dynamic-code-or-import",
+          "module": "fb-error",
+          "line": 367,
+          "column": 11
+        }
+      ],
+      "staticCoverage": {
+        "complete": false,
+        "scope": "module-closure-superset",
+        "semanticProof": false,
+        "resolverCoverage": false,
+        "modules": 6,
+        "sourceBytes": 30126,
+        "limitations": [
+          "Only supported gate APIs and static key expressions are inventoried.",
+          "Declared fixture-provider boundaries exclude their original resolver implementations and dependencies.",
+          "All functions in each dependency module are scanned; exact export and caller reachability is not proven.",
+          "Runtime-discovered gates and externally selected code require separate observations."
+        ]
+      }
+    }
+  ],
+  "exclusions": [
+    "The full selected closure retains fb-error dynamic-code-or-import at line367; no recognized gate reads does not establish an empty gate inventory.",
+    "Alternative module variants, callers, browser timers and cross-worker propagation are outside this helper scope.",
+    "Per-probe clock control exercises real Date.now calls; it does not establish scheduler or server retry behavior.",
+    "Arbitrary object key identity, non-finite interval values, async concurrent callers and external cache mutation are not covered.",
+    "Container sandbox and live WhatsApp/provider behavior were not exercised."
+  ]
+}

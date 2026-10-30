@@ -1,0 +1,242 @@
+{
+  "schemaVersion": 1,
+  "id": "crypto-representation",
+  "version": 1,
+  "title": "Crypto padding and integer byte representation",
+  "file": "tests/crypto-representation.test.ts",
+  "helper": "support/crypto-representation-cases.ts",
+  "capability": "wa-internal:crypto-representation",
+  "roots": ["WACryptoPkcs7", "WACryptoCurveEncoding"],
+  "oracle": "Padding expectations use known constant prefix bytes and a reviewed final-byte length table. Valid tail amounts preserve the known prefix; zero preserves the tail. Native Buffer radix conversion and BigInt.asUintN supply independent representation oracles instead of the source shift/OR algorithm. Hex expectations use literal bytes and each enumerated integer; malformed hex expectations are fixed reviewed constants. No implementation output generates expectations.",
+  "trials": {
+    "padding": 9219,
+    "littleEndian": 1584,
+    "fixedWidth": 542,
+    "hex": 529,
+    "totalPerRevision": 11874,
+    "matrix": {
+      "paddingLengths": [1, 2, 3, 15, 16, 17, 31, 32, 33, 255, 256, 257],
+      "paddingTailBytes": {
+        "minimum": 0,
+        "maximum": 255,
+        "values": 256
+      },
+      "offsets": [0, 1, 7],
+      "emptyViews": 3,
+      "allSingleByteHexValues": 256,
+      "hexLetterCases": 2,
+      "signedPowersOfTwo": {
+        "minimumBit": 0,
+        "maximumBit": 264,
+        "signs": 2
+      }
+    },
+    "seed": null,
+    "assignmentsPerRevision": 1
+  },
+  "observations": [
+    {
+      "revision": "1051710191",
+      "modules": [
+        {
+          "module": "err",
+          "variant": "primary",
+          "printedSourceSha256": "a26a1f88fe2c09505c0ec8e43d1a43c2299b6126ea7ea305c567bf7634fbeea0",
+          "dependencies": ["fb-error"],
+          "citations": ["modules/err.js:1-4"]
+        },
+        {
+          "module": "fb-error",
+          "variant": "primary",
+          "printedSourceSha256": "545144d2d2c50524d5bcfc421916cf76760743cb5b034dcb7a4d7066981f714e",
+          "dependencies": ["performanceNow", "removeFromArray"],
+          "citations": ["modules/fb-error.js:1-698"]
+        },
+        {
+          "module": "performance",
+          "variant": "primary",
+          "printedSourceSha256": "9bee7ad7d1941af3432757b1ce55c980030f812f0a5fb00916e906b8a0b6ced9",
+          "dependencies": [],
+          "citations": ["modules/performance.js:1-5"]
+        },
+        {
+          "module": "performanceNow",
+          "variant": "primary",
+          "printedSourceSha256": "415e5327e020372f7789e27dc42266a9cb3d6bbc2d8c47d0b751b93517a0475f",
+          "dependencies": ["performance"],
+          "citations": ["modules/performanceNow.js:1-15"]
+        },
+        {
+          "module": "removeFromArray",
+          "variant": "primary",
+          "printedSourceSha256": "c8e194de9e9463716c2f383406ae8269ddff1a9fe5fbc1a7559abcd2aaa666bb",
+          "dependencies": [],
+          "citations": ["modules/removeFromArray.js:1-8"]
+        },
+        {
+          "module": "WACryptoCurveEncoding",
+          "variant": "primary",
+          "printedSourceSha256": "8a2e6d0a09b27b8a40cf0fd2d00594c5386079feffcccc387fbc7fb1b74a48fd",
+          "dependencies": ["err"],
+          "citations": ["modules/WACryptoCurveEncoding.js:1-17"]
+        },
+        {
+          "module": "WACryptoDependencies",
+          "variant": "primary",
+          "printedSourceSha256": "7c9ee7d20b1017ee8993d85c1a4add7b1fa8684344c210fbec3388d72aea6baa",
+          "dependencies": [],
+          "citations": ["modules/WACryptoDependencies.js:1-11"]
+        },
+        {
+          "module": "WACryptoPkcs7",
+          "variant": "primary",
+          "printedSourceSha256": "903377a392cbb696978355fc19a24714f451d15f58aa675d499410ff2afda4ee",
+          "dependencies": ["WACryptoDependencies", "err"],
+          "citations": ["modules/WACryptoPkcs7.js:1-24"]
+        }
+      ],
+      "analyzer": {
+        "version": 1,
+        "sourceSha256": "01036d720caccf437f31062c23335fffcae7bb94f46e346de330ae6a744bfd80"
+      },
+      "inventoryDigest": "5461c0419d31b08be5508c90b9cec8c9ffbf7c3cbb5388fc463253d339fb6c2f",
+      "gates": [],
+      "unresolved": [
+        {
+          "code": "dynamic-code-or-import",
+          "module": "fb-error",
+          "line": 367,
+          "column": 11
+        }
+      ],
+      "staticCoverage": {
+        "complete": false,
+        "scope": "module-closure-superset",
+        "semanticProof": false,
+        "resolverCoverage": false,
+        "modules": 8,
+        "sourceBytes": 30243,
+        "limitations": [
+          "Only supported gate APIs and static key expressions are inventoried.",
+          "Declared fixture-provider boundaries exclude their original resolver implementations and dependencies.",
+          "All functions in each dependency module are scanned; exact export and caller reachability is not proven.",
+          "Runtime-discovered gates and externally selected code require separate observations."
+        ]
+      }
+    },
+    {
+      "revision": "1051908825",
+      "modules": [
+        {
+          "module": "err",
+          "variant": "primary",
+          "printedSourceSha256": "a26a1f88fe2c09505c0ec8e43d1a43c2299b6126ea7ea305c567bf7634fbeea0",
+          "dependencies": ["fb-error"],
+          "citations": ["modules/err.js:1-4"]
+        },
+        {
+          "module": "fb-error",
+          "variant": "primary",
+          "printedSourceSha256": "545144d2d2c50524d5bcfc421916cf76760743cb5b034dcb7a4d7066981f714e",
+          "dependencies": ["performanceNow", "removeFromArray"],
+          "citations": ["modules/fb-error.js:1-698"]
+        },
+        {
+          "module": "performance",
+          "variant": "primary",
+          "printedSourceSha256": "9bee7ad7d1941af3432757b1ce55c980030f812f0a5fb00916e906b8a0b6ced9",
+          "dependencies": [],
+          "citations": ["modules/performance.js:1-5"]
+        },
+        {
+          "module": "performanceNow",
+          "variant": "primary",
+          "printedSourceSha256": "415e5327e020372f7789e27dc42266a9cb3d6bbc2d8c47d0b751b93517a0475f",
+          "dependencies": ["performance"],
+          "citations": ["modules/performanceNow.js:1-15"]
+        },
+        {
+          "module": "removeFromArray",
+          "variant": "primary",
+          "printedSourceSha256": "c8e194de9e9463716c2f383406ae8269ddff1a9fe5fbc1a7559abcd2aaa666bb",
+          "dependencies": [],
+          "citations": ["modules/removeFromArray.js:1-8"]
+        },
+        {
+          "module": "WACryptoCurveEncoding",
+          "variant": "primary",
+          "printedSourceSha256": "8a2e6d0a09b27b8a40cf0fd2d00594c5386079feffcccc387fbc7fb1b74a48fd",
+          "dependencies": ["err"],
+          "citations": ["modules/WACryptoCurveEncoding.js:1-17"]
+        },
+        {
+          "module": "WACryptoDependencies",
+          "variant": "primary",
+          "printedSourceSha256": "7c9ee7d20b1017ee8993d85c1a4add7b1fa8684344c210fbec3388d72aea6baa",
+          "dependencies": [],
+          "citations": ["modules/WACryptoDependencies.js:1-11"]
+        },
+        {
+          "module": "WACryptoPkcs7",
+          "variant": "primary",
+          "printedSourceSha256": "903377a392cbb696978355fc19a24714f451d15f58aa675d499410ff2afda4ee",
+          "dependencies": ["WACryptoDependencies", "err"],
+          "citations": ["modules/WACryptoPkcs7.js:1-24"]
+        }
+      ],
+      "analyzer": {
+        "version": 1,
+        "sourceSha256": "01036d720caccf437f31062c23335fffcae7bb94f46e346de330ae6a744bfd80"
+      },
+      "inventoryDigest": "5461c0419d31b08be5508c90b9cec8c9ffbf7c3cbb5388fc463253d339fb6c2f",
+      "gates": [],
+      "unresolved": [
+        {
+          "code": "dynamic-code-or-import",
+          "module": "fb-error",
+          "line": 367,
+          "column": 11
+        }
+      ],
+      "staticCoverage": {
+        "complete": false,
+        "scope": "module-closure-superset",
+        "semanticProof": false,
+        "resolverCoverage": false,
+        "modules": 8,
+        "sourceBytes": 30243,
+        "limitations": [
+          "Only supported gate APIs and static key expressions are inventoried.",
+          "Declared fixture-provider boundaries exclude their original resolver implementations and dependencies.",
+          "All functions in each dependency module are scanned; exact export and caller reachability is not proven.",
+          "Runtime-discovered gates and externally selected code require separate observations."
+        ]
+      }
+    }
+  ],
+  "gateInventory": {
+    "scope": "All eight declared dependency modules parsed for both primary roots. No gate reads discovered; fb-error Function.prototype.apply.call at line 367 flagged conservatively by the analyzer leaves the conservative module-level AST inventory incomplete. One empty assignment is an observation, not exhaustive configuration coverage.",
+    "gaps": [
+      "fb-error dynamic-code-or-import at modules/fb-error.js:367 prevents complete conservative module-level inventory. The selected error factory path at lines 9-18 does not call the guarded applyWithGuard source branch using Function.prototype.apply.call, but export reachability is not proven by the analyzer.",
+      "Callers, real cryptographic operation selection, server configuration and alternative variants are excluded.",
+      "WACryptoDependencies reads self.crypto, but no crypto provider method is called by the selected leaf exports.",
+      "No runtime read establishes real server configuration."
+    ]
+  },
+  "execution": {
+    "runtime": "Bun 1.4.4",
+    "mode": "process",
+    "isolated": false,
+    "date": "2026-10-30",
+    "results": "Both revisions pass all 11,874 probes with unchanged comparison. Four executable tests pass. No real crypto provider operation is exercised.",
+    "admission": "Diagnostic subprocess only. Container execution remains unexercised."
+  },
+  "exclusions": [
+    "Strict PKCS#7 validation is not the source contract: zero padding, inconsistent pad bytes and amounts above a block size may be accepted.",
+    "Returned padding view aliases the original buffer in source; JSON byte snapshots cannot prove alias identity or mutation propagation.",
+    "Random padding generation and real crypto provider injection, ciphers, MACs, HKDF, signatures and key agreement.",
+    "Signal address/Wid/contact mapping and real key storage/state.",
+    "Malformed non-byte or non-BigInt types beyond the selected fixture contract.",
+    "Browser/workers/live accounts/server assignments, library adapters and container admission."
+  ]
+}

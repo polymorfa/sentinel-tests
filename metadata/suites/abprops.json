@@ -1,0 +1,138 @@
+{
+  "schemaVersion": 1,
+  "id": "abprops-behavior",
+  "version": 1,
+  "title": "ABProps parser and exposure key leaf behavior",
+  "file": "tests/abprops-behavior.test.ts",
+  "helper": "support/abprops-cases.ts",
+  "capability": "wa-internal:abprops-leaves",
+  "roots": ["WAWebABPropsParseConfigValue", "WAWebABPropsExpoKeyUtils"],
+  "oracle": "Reviewed constant tables independently encode exact boolean tokens, decimal/radix/exponent and malformed coercion outcomes. Nullish default and identity expectations use input fixtures, never the implementation output. Bounded decimal expectations are the enumerated integers; no parser or parseInt/parseFloat computes expectations. Exposure expectations are fixed constants.",
+  "trials": {
+    "parser": 1196,
+    "exposureKey": 11,
+    "generatedDecimalDomain": {
+      "minimum": -128,
+      "maximum": 128,
+      "values": 257,
+      "types": ["int", "float"],
+      "probes": 514,
+      "seed": null
+    },
+    "matrix": {
+      "numericRows": 42,
+      "numericTypes": 2,
+      "defaults": 5,
+      "booleanValues": 16,
+      "nullishValueTypes": 7,
+      "passthroughTypes": 7
+    },
+    "assignmentsPerRevision": 1
+  },
+  "observations": [
+    {
+      "revision": "1051710191",
+      "modules": [
+        {
+          "module": "WAWebABPropsExpoKeyUtils",
+          "variant": "primary",
+          "printedSourceSha256": "cd2563a9b135430dcb697195297a9f88b080451793d3a67b97cb8f0ac1ef4546",
+          "dependencies": [],
+          "citations": ["modules/WAWebABPropsExpoKeyUtils.js:1-6"]
+        },
+        {
+          "module": "WAWebABPropsParseConfigValue",
+          "variant": "primary",
+          "printedSourceSha256": "2cd3003d1fecf389b94990179ac9e88c91ffa2c7c0d9eecfd76b05f58bdbbb25",
+          "dependencies": [],
+          "citations": ["modules/WAWebABPropsParseConfigValue.js:1-7"]
+        }
+      ],
+      "analyzer": {
+        "version": 1,
+        "sourceSha256": "01036d720caccf437f31062c23335fffcae7bb94f46e346de330ae6a744bfd80"
+      },
+      "inventoryDigest": "92ed0f5e382f49ca2404af2ed4df8df85aa8f80f1ebda7062147f02aede4ae06",
+      "gates": [],
+      "unresolved": [],
+      "staticCoverage": {
+        "complete": true,
+        "scope": "module-closure-superset",
+        "semanticProof": false,
+        "resolverCoverage": false,
+        "modules": 2,
+        "sourceBytes": 474,
+        "limitations": [
+          "Only supported gate APIs and static key expressions are inventoried.",
+          "Declared fixture-provider boundaries exclude their original resolver implementations and dependencies.",
+          "All functions in each dependency module are scanned; exact export and caller reachability is not proven.",
+          "Runtime-discovered gates and externally selected code require separate observations."
+        ]
+      }
+    },
+    {
+      "revision": "1051908825",
+      "modules": [
+        {
+          "module": "WAWebABPropsExpoKeyUtils",
+          "variant": "primary",
+          "printedSourceSha256": "cd2563a9b135430dcb697195297a9f88b080451793d3a67b97cb8f0ac1ef4546",
+          "dependencies": [],
+          "citations": ["modules/WAWebABPropsExpoKeyUtils.js:1-6"]
+        },
+        {
+          "module": "WAWebABPropsParseConfigValue",
+          "variant": "primary",
+          "printedSourceSha256": "2cd3003d1fecf389b94990179ac9e88c91ffa2c7c0d9eecfd76b05f58bdbbb25",
+          "dependencies": [],
+          "citations": ["modules/WAWebABPropsParseConfigValue.js:1-7"]
+        }
+      ],
+      "analyzer": {
+        "version": 1,
+        "sourceSha256": "01036d720caccf437f31062c23335fffcae7bb94f46e346de330ae6a744bfd80"
+      },
+      "inventoryDigest": "92ed0f5e382f49ca2404af2ed4df8df85aa8f80f1ebda7062147f02aede4ae06",
+      "gates": [],
+      "unresolved": [],
+      "staticCoverage": {
+        "complete": true,
+        "scope": "module-closure-superset",
+        "semanticProof": false,
+        "resolverCoverage": false,
+        "modules": 2,
+        "sourceBytes": 474,
+        "limitations": [
+          "Only supported gate APIs and static key expressions are inventoried.",
+          "Declared fixture-provider boundaries exclude their original resolver implementations and dependencies.",
+          "All functions in each dependency module are scanned; exact export and caller reachability is not proven.",
+          "Runtime-discovered gates and externally selected code require separate observations."
+        ]
+      }
+    }
+  ],
+  "gateInventory": {
+    "scope": "Complete supported AST dependency closure for selected primary parser/exposure leaf roots only. Both have empty dependency arrays and no ABProps/gkx/knob/experiment reads. One empty assignment is exhaustive only for these selected roots.",
+    "gaps": [
+      "Relevant consumers and broader config resolver/cache/storage initialization are excluded; their gates cannot be inferred absent from leaf results.",
+      "Only primary module variants selected.",
+      "Runtime provider/location instrumentation does not establish real server configuration."
+    ]
+  },
+  "execution": {
+    "runtime": "Bun 1.4.4",
+    "mode": "process",
+    "isolated": false,
+    "date": "2026-10-30",
+    "results": "Both revisions pass every listed probe with unchanged comparison.",
+    "admission": "Diagnostic subprocess only. Container execution remains unexercised."
+  },
+  "exclusions": [
+    "ABProps resolver implementation installation and getter fallback transitions (single-export scenario limitation).",
+    "URL/local/server override precedence, readiness, storage failures and caches.",
+    "ABProps catalog defaults and all consumer behavior.",
+    "Unbounded numeric/string/object inputs; finite selected malformed probes are characterization only.",
+    "Exposure caller Set deduplication, global state, telemetry/network delivery.",
+    "Live accounts, real server assignments, worker/browser transitions and library adapters."
+  ]
+}
