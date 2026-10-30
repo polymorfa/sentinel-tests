@@ -1,0 +1,263 @@
+{
+  "schemaVersion": 1,
+  "id": "cache-state",
+  "version": 1,
+  "title": "Original WA ordered cache and expiring suggestion cache state",
+  "file": "tests/cache-state.test.ts",
+  "helper": "support/cache-state-cases.ts",
+  "capability": "wa-internal:cache-state",
+  "roots": ["WALRUMap", "WAWebWWAICacheStore", "WATimeUtils"],
+  "oracle": "Literal reviewed eviction/refresh/delete/clear, nullish-oldest and TTL boundary sequences plus an independent ordered-list reference model for generated WALRUMap commands. WALRUMap reads do not promote; writes promote and capacity truncates ordinary-key histories. Fixed null/undefined oldest sequences characterize skipped eviction and over-capacity state without replacing it with an ideal LRU contract. Actual WWAICache uses capacity20, TTL300000ms and integer-second WATimeUtils.unixTime; reads promote order without refreshing timestamp. Actual WATimeUtils.setClockSkew/getClockSkew exercise synthetic +301/-301 second shifts with restoration; these are explicit source inputs, not observed server delivery. No cache/time implementation is mocked.",
+  "trials": {
+    "cases": 36,
+    "probesPerRevision": 2154,
+    "lruCases": 28,
+    "lruProbes": 1799,
+    "applicationCacheCases": 8,
+    "applicationCacheProbes": 355,
+    "capacities": [0, 1, 2, 3, 8, 31],
+    "generatedCommandPagesPerCapacity": 4,
+    "generatedCommandRoundsPerPage": 16,
+    "generatedApplicationCachePages": 4,
+    "generatedApplicationWritesPerPage": 24,
+    "seed": "0x5eedcafe xor capacity xor (page << 8)",
+    "configurationExhaustive": false,
+    "knownGateDescriptors": 0,
+    "selectedStaticAssignmentCardinality": 1,
+    "inputAndCapacityDomains": "Unbounded; finite capacities and deterministic histories are characterization only",
+    "timeAnchor": "2000-01-01T00:00:00.000Z",
+    "clockSkewSeconds": [0, 301, -301],
+    "ttlProbeOffsetsMs": [299999, 300000, 300999, 301000],
+    "ttlQuantization": "Integer-second time makes age300000ms valid (strict > expiration);300999ms clock offset is still age300000, and301000 expires. Clock rollback yields negative age and stays live."
+  },
+  "observations": [
+    {
+      "revision": "1051710191",
+      "modules": [
+        {
+          "module": "err",
+          "variant": "primary",
+          "printedSourceSha256": "a26a1f88fe2c09505c0ec8e43d1a43c2299b6126ea7ea305c567bf7634fbeea0",
+          "dependencies": ["fb-error"],
+          "citations": ["modules/err.js:1-4"]
+        },
+        {
+          "module": "fb-error",
+          "variant": "primary",
+          "printedSourceSha256": "545144d2d2c50524d5bcfc421916cf76760743cb5b034dcb7a4d7066981f714e",
+          "dependencies": ["performanceNow", "removeFromArray"],
+          "citations": ["modules/fb-error.js:1-698"]
+        },
+        {
+          "module": "performance",
+          "variant": "primary",
+          "printedSourceSha256": "9bee7ad7d1941af3432757b1ce55c980030f812f0a5fb00916e906b8a0b6ced9",
+          "dependencies": [],
+          "citations": ["modules/performance.js:1-5"]
+        },
+        {
+          "module": "performanceNow",
+          "variant": "primary",
+          "printedSourceSha256": "415e5327e020372f7789e27dc42266a9cb3d6bbc2d8c47d0b751b93517a0475f",
+          "dependencies": ["performance"],
+          "citations": ["modules/performanceNow.js:1-15"]
+        },
+        {
+          "module": "Promise",
+          "variant": "primary",
+          "printedSourceSha256": "c94f5132251416675e842ee8bbe98476648325ff897dab0a230b39875e1f3c2a",
+          "dependencies": ["cr:6640"],
+          "citations": ["modules/Promise.js:1-42"]
+        },
+        {
+          "module": "removeFromArray",
+          "variant": "primary",
+          "printedSourceSha256": "c8e194de9e9463716c2f383406ae8269ddff1a9fe5fbc1a7559abcd2aaa666bb",
+          "dependencies": [],
+          "citations": ["modules/removeFromArray.js:1-8"]
+        },
+        {
+          "module": "WAHex",
+          "variant": "primary",
+          "printedSourceSha256": "3d28ad9eb342f6715bec66c8c38fd57a14497e07101f5f9b67fc3c9838e72ffe",
+          "dependencies": ["err"],
+          "citations": ["modules/WAHex.js:1-119"]
+        },
+        {
+          "module": "WALRUMap",
+          "variant": "primary",
+          "printedSourceSha256": "06adbea4dbfb920f09423170dd686d17f73c0a63a9c53bfcd6dbb6fe76029583",
+          "dependencies": [],
+          "citations": ["modules/WALRUMap.js:1-27"]
+        },
+        {
+          "module": "WATimeUtils",
+          "variant": "primary",
+          "printedSourceSha256": "1bbfac1f0804eefb7f1ba1eed0a8073c67d12b5fd789fd8476e415315dd10295",
+          "dependencies": ["Promise", "WAHex"],
+          "citations": ["modules/WATimeUtils.js:1-150"]
+        },
+        {
+          "module": "WAWebWWAICacheStore",
+          "variant": "primary",
+          "printedSourceSha256": "37836eb5b3688076df2e97d4e8aeafcf8aaf1389ed5345e4a308193a018b70bf",
+          "dependencies": ["WATimeUtils", "WAWebWWAIConstants"],
+          "citations": ["modules/WAWebWWAICacheStore.js:1-31"]
+        },
+        {
+          "module": "WAWebWWAIConstants",
+          "variant": "primary",
+          "printedSourceSha256": "1de9d88632fccc9d7399d399c667413c65a73cdd5168cdf9764c6e7b38c19389",
+          "dependencies": [],
+          "citations": ["modules/WAWebWWAIConstants.js:1-4"]
+        }
+      ],
+      "analyzer": {
+        "version": 2,
+        "sourceSha256": "c8a73442da5fcd7510ff5fac193602d19e447ab032505c4550237c0a66f90ea2"
+      },
+      "inventoryDigest": "387cfe546a3d129f54946c24dfdec2a8bc176310758b5b483842d6824959aa58",
+      "gates": [],
+      "unresolved": [
+        {
+          "code": "missing-module",
+          "module": "cr:6640"
+        }
+      ],
+      "staticCoverage": {
+        "complete": false,
+        "scope": "module-closure-superset",
+        "semanticProof": false,
+        "resolverCoverage": false,
+        "modules": 11,
+        "sourceBytes": 38896,
+        "limitations": [
+          "Only supported gate APIs and static key expressions are inventoried.",
+          "Declared fixture-provider boundaries exclude their original resolver implementations and dependencies.",
+          "All functions in each dependency module are scanned; exact export and caller reachability is not proven.",
+          "Runtime-discovered gates and externally selected code require separate observations."
+        ]
+      }
+    },
+    {
+      "revision": "1051908825",
+      "modules": [
+        {
+          "module": "err",
+          "variant": "primary",
+          "printedSourceSha256": "a26a1f88fe2c09505c0ec8e43d1a43c2299b6126ea7ea305c567bf7634fbeea0",
+          "dependencies": ["fb-error"],
+          "citations": ["modules/err.js:1-4"]
+        },
+        {
+          "module": "fb-error",
+          "variant": "primary",
+          "printedSourceSha256": "545144d2d2c50524d5bcfc421916cf76760743cb5b034dcb7a4d7066981f714e",
+          "dependencies": ["performanceNow", "removeFromArray"],
+          "citations": ["modules/fb-error.js:1-698"]
+        },
+        {
+          "module": "performance",
+          "variant": "primary",
+          "printedSourceSha256": "9bee7ad7d1941af3432757b1ce55c980030f812f0a5fb00916e906b8a0b6ced9",
+          "dependencies": [],
+          "citations": ["modules/performance.js:1-5"]
+        },
+        {
+          "module": "performanceNow",
+          "variant": "primary",
+          "printedSourceSha256": "415e5327e020372f7789e27dc42266a9cb3d6bbc2d8c47d0b751b93517a0475f",
+          "dependencies": ["performance"],
+          "citations": ["modules/performanceNow.js:1-15"]
+        },
+        {
+          "module": "Promise",
+          "variant": "primary",
+          "printedSourceSha256": "c94f5132251416675e842ee8bbe98476648325ff897dab0a230b39875e1f3c2a",
+          "dependencies": ["cr:6640"],
+          "citations": ["modules/Promise.js:1-42"]
+        },
+        {
+          "module": "removeFromArray",
+          "variant": "primary",
+          "printedSourceSha256": "c8e194de9e9463716c2f383406ae8269ddff1a9fe5fbc1a7559abcd2aaa666bb",
+          "dependencies": [],
+          "citations": ["modules/removeFromArray.js:1-8"]
+        },
+        {
+          "module": "WAHex",
+          "variant": "primary",
+          "printedSourceSha256": "3d28ad9eb342f6715bec66c8c38fd57a14497e07101f5f9b67fc3c9838e72ffe",
+          "dependencies": ["err"],
+          "citations": ["modules/WAHex.js:1-119"]
+        },
+        {
+          "module": "WALRUMap",
+          "variant": "primary",
+          "printedSourceSha256": "06adbea4dbfb920f09423170dd686d17f73c0a63a9c53bfcd6dbb6fe76029583",
+          "dependencies": [],
+          "citations": ["modules/WALRUMap.js:1-27"]
+        },
+        {
+          "module": "WATimeUtils",
+          "variant": "primary",
+          "printedSourceSha256": "1bbfac1f0804eefb7f1ba1eed0a8073c67d12b5fd789fd8476e415315dd10295",
+          "dependencies": ["Promise", "WAHex"],
+          "citations": ["modules/WATimeUtils.js:1-150"]
+        },
+        {
+          "module": "WAWebWWAICacheStore",
+          "variant": "primary",
+          "printedSourceSha256": "37836eb5b3688076df2e97d4e8aeafcf8aaf1389ed5345e4a308193a018b70bf",
+          "dependencies": ["WATimeUtils", "WAWebWWAIConstants"],
+          "citations": ["modules/WAWebWWAICacheStore.js:1-31"]
+        },
+        {
+          "module": "WAWebWWAIConstants",
+          "variant": "primary",
+          "printedSourceSha256": "1de9d88632fccc9d7399d399c667413c65a73cdd5168cdf9764c6e7b38c19389",
+          "dependencies": [],
+          "citations": ["modules/WAWebWWAIConstants.js:1-4"]
+        }
+      ],
+      "analyzer": {
+        "version": 2,
+        "sourceSha256": "c8a73442da5fcd7510ff5fac193602d19e447ab032505c4550237c0a66f90ea2"
+      },
+      "inventoryDigest": "387cfe546a3d129f54946c24dfdec2a8bc176310758b5b483842d6824959aa58",
+      "gates": [],
+      "unresolved": [
+        {
+          "code": "missing-module",
+          "module": "cr:6640"
+        }
+      ],
+      "staticCoverage": {
+        "complete": false,
+        "scope": "module-closure-superset",
+        "semanticProof": false,
+        "resolverCoverage": false,
+        "modules": 11,
+        "sourceBytes": 38896,
+        "limitations": [
+          "Only supported gate APIs and static key expressions are inventoried.",
+          "Declared fixture-provider boundaries exclude their original resolver implementations and dependencies.",
+          "All functions in each dependency module are scanned; exact export and caller reachability is not proven.",
+          "Runtime-discovered gates and externally selected code require separate observations."
+        ]
+      }
+    }
+  ],
+  "exclusions": [
+    "No supported gate reads found across all11present original dependency modules; missing cr6640 source remains a conservative closure gap, so no complete configuration-independence claim",
+    "WALRUMap selected leaf closure has no dependencies or gates; application cache source plus WATimeUtils/Promise/WAHex/logger closure is included independently of called-export reachability",
+    "Explicit cr6640:null fixture chooses actual original Promise fallback; original substitution and bundle bootstrap remain unproven. No cache, clock helper or application constants are replaced",
+    "No timers, network, background expiry, provider service or user session is exercised. Expiry is lazy on reads under explicit clock controls",
+    "WALRUMap object/symbol key identity and mutation through live references are unexercised; primitive identity and call-time snapshots only; signed negative-zero transport is not supported or asserted",
+    "Capacity/input/time domains and command sequences are unbounded. Six capacities,24generated LRU pages and four application pages are bounded characterization, not all possible histories",
+    "Nullish-oldest eviction and colon-concatenated application key collisions are actual-source observations, not corrected desired behavior or general security conclusions",
+    "Application cache has no public clear/delete API; fresh module scenarios and expired-read deletion are covered without inventing reset operations",
+    "Suggestion values are synthetic stored data. Suggestion generation, consumers, AI transport/provider integration and product UI behavior are not covered",
+    "Alternative variants, containers, production scheduling, account/device state, real provider graphs and named-library parity remain unexercised"
+  ]
+}
