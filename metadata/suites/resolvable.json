@@ -1,0 +1,131 @@
+{
+  "schemaVersion": 1,
+  "id": "resolvable",
+  "version": 1,
+  "title": "Original WAResolvable native Promise fulfillment and rejection",
+  "file": "tests/resolvable.test.ts",
+  "helper": "support/resolvable-cases.ts",
+  "capability": "wa-internal:resolvable",
+  "roots": ["WAResolvable"],
+  "oracle": "Actual constructed WAResolvable, original resolve/reject/resolveWasCalled, and its own realm-native Promise observed before settlement. Native Promise first-settlement semantics preserve initial fulfillment/rejection across later resolve. reject delegates through resolve(Promise.reject(reason)), so resolveWasCalled becomes true after rejection. Ordered native observer checkpoints expose pending then fulfilled/rejected states. Rejection projection is explicitly the Sentinel name/message observation contract, not a vendor error conversion.",
+  "trials": {
+    "cases": 23,
+    "probesPerRevision": 288,
+    "fulfillmentValues": 12,
+    "rejectionReasons": 11,
+    "generatedArrayLength": 4097,
+    "generatedNestingDepth": 32,
+    "secondResolveAfterFulfillment": true,
+    "secondResolveAfterRejection": true,
+    "repeatRejectExecuted": false,
+    "rejectAfterFulfillmentExecuted": false,
+    "configurationExhaustive": false,
+    "knownGateDescriptors": 0,
+    "selectedStaticAssignmentCardinality": 1,
+    "domainEvidence": "No gate reads found in both selected original source modules. Missing cr6640 implementation remains a closure gap; explicit null fixture chooses real original Promise fallback. Value/reason domains are unbounded and the generated probes are characterization only."
+  },
+  "observations": [
+    {
+      "revision": "1051710191",
+      "modules": [
+        {
+          "module": "Promise",
+          "variant": "primary",
+          "printedSourceSha256": "c94f5132251416675e842ee8bbe98476648325ff897dab0a230b39875e1f3c2a",
+          "dependencies": ["cr:6640"],
+          "citations": ["modules/Promise.js:1-42"]
+        },
+        {
+          "module": "WAResolvable",
+          "variant": "primary",
+          "printedSourceSha256": "ec4c38142d06da51d05ff33d00fe8c031008f09efde8d962fe883715079d5376",
+          "dependencies": ["Promise"],
+          "citations": ["modules/WAResolvable.js:1-20"]
+        }
+      ],
+      "analyzer": {
+        "version": 2,
+        "sourceSha256": "c8a73442da5fcd7510ff5fac193602d19e447ab032505c4550237c0a66f90ea2"
+      },
+      "inventoryDigest": "0ec20b56de6dd25cd2b367c4b8ac56ae91625752a61a3e2231f9cfa33cbf83b2",
+      "gates": [],
+      "unresolved": [
+        {
+          "code": "missing-module",
+          "module": "cr:6640"
+        }
+      ],
+      "staticCoverage": {
+        "complete": false,
+        "scope": "module-closure-superset",
+        "semanticProof": false,
+        "resolverCoverage": false,
+        "modules": 2,
+        "sourceBytes": 1772,
+        "limitations": [
+          "Only supported gate APIs and static key expressions are inventoried.",
+          "Declared fixture-provider boundaries exclude their original resolver implementations and dependencies.",
+          "All functions in each dependency module are scanned; exact export and caller reachability is not proven.",
+          "Runtime-discovered gates and externally selected code require separate observations."
+        ]
+      }
+    },
+    {
+      "revision": "1051908825",
+      "modules": [
+        {
+          "module": "Promise",
+          "variant": "primary",
+          "printedSourceSha256": "c94f5132251416675e842ee8bbe98476648325ff897dab0a230b39875e1f3c2a",
+          "dependencies": ["cr:6640"],
+          "citations": ["modules/Promise.js:1-42"]
+        },
+        {
+          "module": "WAResolvable",
+          "variant": "primary",
+          "printedSourceSha256": "ec4c38142d06da51d05ff33d00fe8c031008f09efde8d962fe883715079d5376",
+          "dependencies": ["Promise"],
+          "citations": ["modules/WAResolvable.js:1-20"]
+        }
+      ],
+      "analyzer": {
+        "version": 2,
+        "sourceSha256": "c8a73442da5fcd7510ff5fac193602d19e447ab032505c4550237c0a66f90ea2"
+      },
+      "inventoryDigest": "0ec20b56de6dd25cd2b367c4b8ac56ae91625752a61a3e2231f9cfa33cbf83b2",
+      "gates": [],
+      "unresolved": [
+        {
+          "code": "missing-module",
+          "module": "cr:6640"
+        }
+      ],
+      "staticCoverage": {
+        "complete": false,
+        "scope": "module-closure-superset",
+        "semanticProof": false,
+        "resolverCoverage": false,
+        "modules": 2,
+        "sourceBytes": 1772,
+        "limitations": [
+          "Only supported gate APIs and static key expressions are inventoried.",
+          "Declared fixture-provider boundaries exclude their original resolver implementations and dependencies.",
+          "All functions in each dependency module are scanned; exact export and caller reachability is not proven.",
+          "Runtime-discovered gates and externally selected code require separate observations."
+        ]
+      }
+    }
+  ],
+  "exclusions": [
+    "Missing archived cr6640 source; explicit null environment fixture chooses actual Promise fallback to realm global Promise. Original substitution/bootstrap is not established",
+    "No gate reads in the selected WAResolvable/Promise closure is not global configuration independence; actual callers and missing provider remain outside acceptance",
+    "Rejection is exercised only before settlement with an observer installed on actual instance.promise. The native Promise must be an own data property; no getter/thenable/function fixture replaces it",
+    "Repeated reject and reject after fulfillment are deliberately unexecuted: source always creates Promise.reject(reason) before passing it to an already-settled native resolver, so a source-derived unhandled orphan rejection risk needs a dedicated controlled diagnostic. It is not a passing first-wins rejection test",
+    "Each case constructs a fresh instance. No reset/retry API or reuse after rejection is invented; later resolve cannot recover the same settled Promise",
+    "Rejected reason identity and stack are not asserted; inspect/await name/message projection is Sentinel observation behavior. Falsy/null/undefined and empty messages are retained explicitly",
+    "isSettled data flag is not read because general instance-property inspection is outside current capture-only native-Promise seam",
+    "Promise polyfills for absent allSettled/finally, subclassing, arbitrary thenable assimilation, cancellation, all asynchronous schedules and pending cleanup remain unexercised",
+    "Generated values/reasons and two settlement sequences are finite characterization, not exhaustive input or temporal coverage",
+    "Alternate variants, containers, production scheduling, accounts, network, ABProps readiness rejection and named-library parity remain unexercised"
+  ]
+}

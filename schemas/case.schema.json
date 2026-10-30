@@ -204,9 +204,32 @@
               },
               "action": {
                 "enum": ["start", "inspect", "await"]
+              },
+              "property": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 256,
+                "pattern": "^[A-Za-z_$][A-Za-z0-9_$]*$",
+                "not": {
+                  "enum": ["constructor", "__proto__", "prototype"]
+                }
               }
             },
-            "additionalProperties": false
+            "additionalProperties": false,
+            "allOf": [
+              {
+                "if": {
+                  "required": ["property"]
+                },
+                "then": {
+                  "properties": {
+                    "action": {
+                      "const": "start"
+                    }
+                  }
+                }
+              }
+            ]
           }
         },
         "oneOf": [
@@ -274,6 +297,39 @@
                 ]
               }
             }
+          },
+          {
+            "if": {
+              "required": ["pending"],
+              "properties": {
+                "pending": {
+                  "required": ["property"]
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "args": {
+                  "maxItems": 0
+                }
+              },
+              "not": {
+                "anyOf": [
+                  {
+                    "required": ["module"]
+                  },
+                  {
+                    "required": ["export"]
+                  },
+                  {
+                    "required": ["method"]
+                  },
+                  {
+                    "required": ["result"]
+                  }
+                ]
+              }
+            }
           }
         ]
       }
@@ -298,6 +354,25 @@
             }
           }
         }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "probes": {
+            "contains": {
+              "required": ["pending"],
+              "properties": {
+                "pending": {
+                  "required": ["property"]
+                }
+              }
+            }
+          }
+        }
+      },
+      "then": {
+        "required": ["construct"]
       }
     }
   ]
