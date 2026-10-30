@@ -1,20 +1,29 @@
 {
   "schemaVersion": 1,
   "id": "backoff-state",
-  "version": 1,
-  "title": "BackoffCache clock, retry and key lifecycle",
+  "version": 2,
+  "title": "BackoffCache retry, clock and retained entry identity",
   "file": "tests/backoff-state.test.ts",
   "helper": "support/backoff-cases.ts",
   "capability": "wa-internal:backoff-state",
   "roots": ["WAWebBackoff"],
-  "oracle": "Explicit elapsed-time boundary tables and expected Map entry snapshots, using fixed timestamps and stated interval sequences. Expectations never invoke vendor code or a duplicate BackoffCache model.",
+  "oracle": "Explicit elapsed-time boundary tables and expected Map entry snapshots, using fixed timestamps and stated interval sequences. Expectations never invoke vendor code or a duplicate BackoffCache model. Retained real source entry objects additionally prove reread/retry identity, reset/remove/re-add/expiry replacement, and native object Map-key identity despite equal field snapshots or later entry mutation. Expected entry states are literal timestamp/interval/attempt tables; no arbitrary property selectors, scripts, callbacks or duplicate cache model are used.",
   "trials": {
-    "tests": 37,
-    "probesPerSingleRevisionPass": 330,
+    "tests": 52,
+    "probesPerSingleRevisionPass": 1475,
     "seed": null,
     "clock": "2026-10-30T00:00:00.000Z plus explicit per-probe millisecond offsets",
     "assignments": [{}],
-    "exhaustiveGateCoverage": false
+    "exhaustiveGateCoverage": false,
+    "retainedEntryIdentityCases": 15,
+    "retainedEntryIdentityProbes": 1145,
+    "generatedRetainedCycleIntervals": [0, 1, 3, 31],
+    "generatedRetainedPagesPerInterval": 3,
+    "generatedRetainedCyclesPerPage": 6,
+    "maxProbesPerRetainedCase": 90,
+    "maxObjectHandlesPerRetainedCase": 18,
+    "identityScope": "Actual entries retained only within one source VM realm; native Map keys distinguish aliases from equal-but-new entries. Identity=false observations retain non-null objects and are followed by literal states and positive alias checks.",
+    "inputAndSequenceDomain": "Unbounded; selected intervals, literal histories and72 generated cycles are bounded characterization, not exhaustive retry/schedule coverage"
   },
   "observations": [
     {
@@ -167,10 +176,10 @@
     }
   ],
   "exclusions": [
-    "Current analyzer completes the supported selected closure with no gate reads; the prior fb-error intrinsic-call false positive is removed. Full caller/variant/configuration behavior and new execution under this inventory remain unqualified.",
+    "Current analyzer completes the supported selected closure with no gate reads; the prior fb-error intrinsic-call false positive is removed. Actual diagnostic identity probes are bounded source observations; full caller/variant/configuration behavior remains unqualified.",
     "Alternative module variants, callers, browser timers and cross-worker propagation are outside this helper scope.",
     "Per-probe clock control exercises real Date.now calls; it does not establish scheduler or server retry behavior.",
-    "Arbitrary object key identity, non-finite interval values, async concurrent callers and external cache mutation are not covered.",
+    "Retained actual entry-object key aliases and equal-but-new entry keys are covered in bounded sequences. Arbitrary external object identities/mutations, nested interval-array alias identity, non-finite intervals and async concurrent callers remain unexercised.",
     "Container sandbox and live WhatsApp/provider behavior were not exercised."
   ],
   "inventoryRefresh": {

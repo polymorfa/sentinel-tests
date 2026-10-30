@@ -273,3 +273,262 @@ export function wwAiCacheCases(): BehaviorCase[] {
   }
   return cases;
 }
+
+const reference = (value: string): JsonValue => ({ $type: 'reference', value });
+const retainGet = (id: string, key: JsonValue, handle: string, expected: JsonValue): Probe => ({
+  ...get(id, key, expected),
+  retain: { id: handle, stage: 'call' },
+});
+const identicalGet = (id: string, key: JsonValue, handle: string): Probe => ({
+  ...get(id, key, true),
+  result: { identityWith: handle },
+});
+const objectKey = (): JsonValue => ({ kind: 'equal-shaped-key' });
+function acquireKeys(count: number): Probe[] {
+  const probes: Probe[] = [];
+  for (let index = 0; index < count; index++)
+    probes.push(
+      set(`seed-key-${index}`, 'temporary-key', objectKey()),
+      retainGet(`retain-key-${index}`, 'temporary-key', `key-${index}`, objectKey()),
+      method(`remove-seed-${index}`, 'delete', ['temporary-key'], absent),
+    );
+  return probes;
+}
+
+/** Identity tokens are names in an independent ordered list, never serialized object equality. */
+function generatedObjectKeys(max: number, page: number): BehaviorCase {
+  const probes = acquireKeys(6);
+  let ordered: { key: number; value: number }[] = [];
+  let state = (0x17d3c9ab ^ max ^ (page * 65537)) >>> 0;
+  const next = () => (state = (Math.imul(state, 1103515245) + 12345) >>> 0);
+  const observe = (id: string, key: number) => {
+    const entry = ordered.find((entry) => entry.key === key);
+    return entry
+      ? identicalGet(id, reference(`key-${key}`), `key-${entry.value}`)
+      : get(id, reference(`key-${key}`), absent);
+  };
+  for (let round = 0; round < 12; round++) {
+    const key = next() % 6,
+      action = (next() >>> 16) % 8;
+    if (action < 4) {
+      const value = next() % 6;
+      ordered = ordered.filter((entry) => entry.key !== key);
+      ordered.push({ key, value });
+      if (ordered.length > max) ordered.shift();
+      probes.push(set(`round-${round}-set`, reference(`key-${key}`), reference(`key-${value}`)));
+    } else if (action < 6) {
+      ordered = ordered.filter((entry) => entry.key !== key);
+      probes.push(method(`round-${round}-delete`, 'delete', [reference(`key-${key}`)], absent));
+    } else if (action === 6) probes.push(observe(`round-${round}-read`, key));
+    else {
+      ordered = [];
+      probes.push(method(`round-${round}-clear`, 'clear', [], absent));
+    }
+    probes.push(
+      has(
+        `round-${round}-presence`,
+        reference(`key-${key}`),
+        ordered.some((entry) => entry.key === key),
+      ),
+      observe(`round-${round}-identity`, key),
+      size(`round-${round}-size`, ordered.length),
+    );
+  }
+  for (let key = 0; key < 6; key++)
+    probes.push(
+      has(
+        `final-${key}-presence`,
+        reference(`key-${key}`),
+        ordered.some((entry) => entry.key === key),
+      ),
+      observe(`final-${key}-identity`, key),
+    );
+  return lruCase(`reference-token-capacity-${max}-page-${page}`, max, probes);
+}
+
+export function lruReferenceCases(): BehaviorCase[] {
+  const probes = acquireKeys(3);
+  probes.push(
+    set('seed-alias', 'temporary-key', reference('key-0')),
+    retainGet('retain-same-key-alias', 'temporary-key', 'alias', objectKey()),
+    method('remove-alias-seed', 'delete', ['temporary-key'], absent),
+    set('store-first-key', reference('key-0'), { payload: ['first'] }),
+    retainGet('retain-first-value', reference('key-0'), 'value-a', { payload: ['first'] }),
+    set('store-equal-shaped-distinct-key', reference('key-1'), { payload: ['second'] }),
+    retainGet('retain-second-value', reference('key-1'), 'value-b', { payload: ['second'] }),
+    identicalGet('read-first-does-not-promote', reference('key-0'), 'value-a'),
+    identicalGet('alias-addresses-first-key', reference('alias'), 'value-a'),
+    has('fresh-json-shape-is-not-a-key', objectKey(), false),
+    get('fresh-json-shape-has-no-value', objectKey(), absent),
+    size('two-distinct-objects', 2),
+    set('third-key-evicts-first-despite-reads', reference('key-2'), { payload: ['third'] }),
+    has('first-evicted', reference('key-0'), false),
+    has('alias-also-evicted', reference('alias'), false),
+    identicalGet('second-value-keeps-identity', reference('key-1'), 'value-b'),
+    set('replace-second-and-promote', reference('key-1'), { payload: ['replacement'] }),
+    {
+      ...retainGet('retain-replacement-value', reference('key-1'), 'replacement', false),
+      result: { identityWith: 'value-b' },
+    },
+    set('reuse-first-key-and-old-value', reference('alias'), reference('value-a')),
+    has('third-evicted-after-second-write-refresh', reference('key-2'), false),
+    identicalGet('old-value-survived-eviction', reference('key-0'), 'value-a'),
+    method('delete-via-alias', 'delete', [reference('alias')], absent),
+    has('delete-removes-original-key', reference('key-0'), false),
+    method('clear-object-keys', 'clear', [], absent),
+    size('empty-after-clear', 0),
+    has('clear-removes-second', reference('key-1'), false),
+    set('reuse-retained-key-and-value-after-clear', reference('key-2'), reference('replacement')),
+    identicalGet('retained-values-outlive-clear', reference('key-2'), 'replacement'),
+  );
+  const cases = [lruCase('reference-alias-replacement-eviction-clear', 2, probes)];
+  for (const max of [1, 2, 3, 8])
+    for (let page = 0; page < 2; page++) cases.push(generatedObjectKeys(max, page));
+  return cases;
+}
+
+const retainedRead = (
+  id: string,
+  text: string,
+  handle: string,
+  expected: JsonValue,
+  ms?: number,
+): Probe => ({
+  ...read(id, text, 'tone', expected, ms),
+  retain: { id: handle, stage: 'call' },
+});
+const identicalRead = (id: string, text: string, handle: string, ms?: number): Probe => ({
+  ...read(id, text, 'tone', true, ms),
+  result: { identityWith: handle },
+});
+function generatedSuggestionIdentities(page: number): BehaviorCase {
+  const probes: Probe[] = [];
+  let ordered: { key: string; token: number }[] = [];
+  const write = (key: string, token: number) => {
+    ordered = ordered.filter((entry) => entry.key !== key);
+    ordered.push({ key, token });
+    if (ordered.length > 20) ordered.shift();
+  };
+  const observe = (id: string, key: string) => {
+    const entry = ordered.find((entry) => entry.key === key);
+    if (!entry) return read(id, key, 'tone', null, 23000);
+    ordered = ordered.filter((other) => other.key !== key);
+    ordered.push(entry);
+    return identicalRead(id, key, `array-${entry.token}`, 23000);
+  };
+  for (let index = 0; index < 22; index++) {
+    const key = `page-${page}-key-${index}`;
+    write(key, index);
+    probes.push(
+      put(`seed-${index}`, key, 'tone', ['equal-shaped-array'], 0),
+      retainedRead(`retain-${index}`, key, `array-${index}`, ['equal-shaped-array'], 0),
+    );
+  }
+  for (let round = 0; round < 10; round++) {
+    const key = `page-${page}-key-${(round * 7 + page) % 26}`;
+    if ((round + page) % 3 === 0) probes.push(put(`round-${round}-empty`, key, 'tone', [], 23000));
+    else if ((round + page) % 3 === 1) {
+      const token = (round * 3 + page) % 22;
+      write(key, token);
+      probes.push(
+        put(`round-${round}-alias-write`, key, 'tone', reference(`array-${token}`), 23000),
+      );
+    } else probes.push(observe(`round-${round}-read`, key));
+    probes.push(
+      observe(`round-${round}-identity`, key),
+      cacheSize(`round-${round}-size`, ordered.length),
+    );
+  }
+  for (let index = 0; index < 6; index++)
+    probes.push(observe(`final-${index}-identity`, `page-${page}-key-${index}`));
+  probes.push(
+    read('expired-latest-key', ordered.at(-1)!.key, 'tone', null, 325000),
+    put(
+      'reuse-evicted-array-after-expiry',
+      `page-${page}-reused`,
+      'tone',
+      reference('array-0'),
+      325000,
+    ),
+    identicalRead('reused-array-identity', `page-${page}-reused`, 'array-0', 325000),
+  );
+  return wwCase(`reference-token-page-${page}`, probes);
+}
+
+export function wwAiReferenceCases(): BehaviorCase[] {
+  const cases = [
+    wwCase('reference-repeated-empty-and-replacement', [
+      put('insert-original', 'text', 'tone', ['equal-shaped-array'], 0),
+      retainedRead('retain-original-array', 'text', 'original', ['equal-shaped-array'], 0),
+      identicalRead('repeat-returns-original-array', 'text', 'original', 1000),
+      put('empty-update-does-not-replace', 'text', 'tone', [], 2000),
+      identicalRead('empty-keeps-original-identity', 'text', 'original', 2000),
+      put('equal-content-replacement-is-distinct', 'text', 'tone', ['equal-shaped-array'], 3000),
+      {
+        ...retainedRead('retain-distinct-replacement', 'text', 'replacement', false, 3000),
+        result: { identityWith: 'original' },
+      },
+      identicalRead('replacement-keeps-new-identity', 'text', 'replacement', 3000),
+      put('alias-original-under-another-key', 'alias', 'tone', reference('original'), 3000),
+      identicalRead('old-array-still-addressable', 'alias', 'original', 3000),
+    ]),
+    wwCase('reference-array-mutation-and-empty-suggestions', [
+      put('insert', 'text', 'tone', ['mutable'], 0),
+      retainedRead('retain', 'text', 'array', ['mutable'], 0),
+      { ...read('mutate-returned-array', 'text', 'tone', 'mutable', 0), result: { method: 'pop' } },
+      read('cache-observes-empty-array', 'text', 'tone', [], 1000),
+      identicalRead('empty-array-same-reference', 'text', 'array', 1000),
+      put('empty-update-is-noop-even-on-empty-entry', 'text', 'tone', [], 1000),
+      cacheSize('empty-array-entry-retained', 1),
+      {
+        ...read('restore-through-returned-array', 'text', 'tone', 1, 1000),
+        result: { method: 'push', args: ['restored'] },
+      },
+      read('mutation-visible-through-cache', 'text', 'tone', ['restored'], 1000),
+      identicalRead('mutation-preserves-array-identity', 'text', 'array', 1000),
+      read('expiry-removes-entry', 'text', 'tone', null, 301000),
+      put('reuse-array-after-expiry', 'reused', 'tone', reference('array'), 302000),
+      identicalRead('old-array-survives-expiry', 'reused', 'array', 302000),
+    ]),
+    wwCase('reference-ttl-keeps-identity-without-refresh', [
+      put('insert', 'text', 'tone', ['ttl'], 0),
+      retainedRead('retain', 'text', 'array', ['ttl'], 0),
+      identicalRead('before-ttl', 'text', 'array', 299999),
+      identicalRead('at-ttl', 'text', 'array', 300000),
+      identicalRead('subsecond-after-ttl', 'text', 'array', 300999),
+      read('next-second-expires', 'text', 'tone', null, 301000),
+      cacheSize('expired-entry-removed', 0),
+      put('same-array-new-entry', 'text', 'tone', reference('array'), 302000),
+      identicalRead('new-entry-old-array', 'text', 'array', 302000),
+      identicalRead('new-entry-age300000', 'text', 'array', 602999),
+      read('new-entry-age301000-expires', 'text', 'tone', null, 603000),
+    ]),
+  ];
+  const promotion: Probe[] = [];
+  for (let index = 0; index < 20; index++) {
+    promotion.push(put(`fill-${index}`, `key-${index}`, 'tone', ['equal-shaped-array'], 0));
+    if (index < 2)
+      promotion.push(
+        retainedRead(
+          `retain-${index}`,
+          `key-${index}`,
+          `array-${index}`,
+          ['equal-shaped-array'],
+          0,
+        ),
+      );
+  }
+  promotion.push(
+    identicalRead('promote-zero-without-copy', 'key-0', 'array-0', 1000),
+    put('overflow', 'key-20', 'tone', ['equal-shaped-array'], 1000),
+    read('one-evicted', 'key-1', 'tone', null, 1000),
+    identicalRead('zero-still-original-array', 'key-0', 'array-0', 1000),
+    cacheSize('still-capacity20', 20),
+    put('reuse-evicted-array', 'key-21', 'tone', reference('array-1'), 1000),
+    identicalRead('reused-array-keeps-identity', 'key-21', 'array-1', 1000),
+    read('two-now-evicted', 'key-2', 'tone', null, 1000),
+  );
+  cases.push(wwCase('reference-promotion-and-evicted-array-lifetime', promotion));
+  for (let page = 0; page < 2; page++) cases.push(generatedSuggestionIdentities(page));
+  return cases;
+}
