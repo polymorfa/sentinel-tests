@@ -1,4 +1,10 @@
-import { createHash } from 'node:crypto';
+import {
+  createHash,
+  createPrivateKey,
+  createPublicKey,
+  sign as nativeSign,
+  verify as nativeVerify,
+} from 'node:crypto';
 import type { BehaviorCase, Probe, JsonValue } from './types.ts';
 const bytes = (hex: string): JsonValue => ({
   $type: 'Uint8Array',
@@ -366,5 +372,147 @@ export function bundledNaclCases(): BehaviorCase[] {
       );
     }),
   );
+  // Host-only Ed25519 oracle: JWK supplies the published public component x.
+  // This checks import agreement/KAT, not independent seed-only public derivation.
+  const nativePrivateKey = createPrivateKey({
+    key: {
+      kty: 'OKP',
+      crv: 'Ed25519',
+      d: Buffer.from(seed, 'hex').toString('base64url'),
+      x: Buffer.from(publicKey, 'hex').toString('base64url'),
+    },
+    format: 'jwk',
+  });
+  const nativePublicKey = createPublicKey(nativePrivateKey);
+  const exportedPublic = nativePublicKey.export({ format: 'jwk' });
+  const knownSignature = Buffer.from(signature, 'hex');
+  const emptyMessage = Buffer.alloc(0);
+  if (
+    nativePrivateKey.asymmetricKeyType !== 'ed25519' ||
+    Buffer.from(String(exportedPublic.x), 'base64url').toString('hex') !== publicKey ||
+    !nativeSign(null, emptyMessage, nativePrivateKey).equals(knownSignature) ||
+    !nativeSign(null, emptyMessage, nativePrivateKey).equals(knownSignature) ||
+    !nativeVerify(null, emptyMessage, nativePublicKey, knownSignature)
+  )
+    throw new Error('Host Ed25519 oracle failed the fixed RFC8032 KAT');
+  const encode = (value: Uint8Array): JsonValue => ({
+    $type: 'Uint8Array',
+    value: Array.from(value),
+  });
+  const hostSignature = (message: Uint8Array) => {
+    const result = nativeSign(null, message, nativePrivateKey);
+    if (result.length !== 64 || !nativeVerify(null, message, nativePublicKey, result))
+      throw new Error('Host Ed25519 signature did not verify');
+    return result;
+  };
+  const signatureMessage = (length: number) =>
+    Uint8Array.from({ length }, (_, index) => (index * 29 + length * 17 + 5) % 256);
+  const signatureLengths = [
+    1, 47, 48, 49, 63, 64, 65, 79, 80, 81, 95, 96, 97, 175, 176, 177, 207, 208, 209,
+  ];
+  for (const [page, lengths] of [
+    signatureLengths.slice(0, 10),
+    signatureLengths.slice(10),
+  ].entries()) {
+    const probes: Probe[] = [];
+    for (const length of lengths) {
+      const message = signatureMessage(length),
+        expectedSignature = hostSignature(message);
+      const signedMessage = Buffer.concat([expectedSignature, Buffer.from(message)]);
+      probes.push(
+        call(
+          `length-${length}-detached`,
+          'sign.detached',
+          [encode(message), bytes(seed + publicKey)],
+          encode(expectedSignature),
+        ),
+        call(
+          `length-${length}-signed-message`,
+          'sign',
+          [encode(message), bytes(seed + publicKey)],
+          encode(signedMessage),
+        ),
+        call(
+          `length-${length}-verify`,
+          'sign.detached.verify',
+          [encode(message), encode(expectedSignature), bytes(publicKey)],
+          true,
+        ),
+        call(
+          `length-${length}-open`,
+          'sign.open',
+          [encode(signedMessage), bytes(publicKey)],
+          encode(message),
+        ),
+      );
+    }
+    make(`ed25519-message-prefixes-${page}`, probes);
+  }
+  const signatureView = (value: Uint8Array, offset: number): JsonValue => ({
+    $type: 'Uint8Array',
+    value: [...Array<number>(offset).fill(238), ...value, 221, 220],
+    byteOffset: offset,
+    byteLength: value.length,
+  });
+  const signatureViewProbes: Probe[] = [];
+  for (const [index, length] of [1, 47, 48, 79, 80, 81].entries()) {
+    const message = signatureMessage(length),
+      expectedSignature = hostSignature(message);
+    const signedMessage = Buffer.concat([expectedSignature, Buffer.from(message)]);
+    const offset = index % 2 === 0 ? 1 : 7,
+      otherOffset = offset === 1 ? 7 : 1;
+    signatureViewProbes.push(
+      call(
+        `length-${length}-view-detached`,
+        'sign.detached',
+        [
+          signatureView(message, offset),
+          signatureView(Buffer.from(seed + publicKey, 'hex'), otherOffset),
+        ],
+        encode(expectedSignature),
+      ),
+      call(
+        `length-${length}-view-signed`,
+        'sign',
+        [
+          signatureView(message, offset),
+          signatureView(Buffer.from(seed + publicKey, 'hex'), otherOffset),
+        ],
+        encode(signedMessage),
+      ),
+      call(
+        `length-${length}-view-verify`,
+        'sign.detached.verify',
+        [
+          signatureView(message, offset),
+          signatureView(expectedSignature, otherOffset),
+          signatureView(Buffer.from(publicKey, 'hex'), offset),
+        ],
+        true,
+      ),
+      call(
+        `length-${length}-view-open`,
+        'sign.open',
+        [
+          signatureView(signedMessage, offset),
+          signatureView(Buffer.from(publicKey, 'hex'), otherOffset),
+        ],
+        encode(message),
+      ),
+    );
+  }
+  for (const offset of [1, 7])
+    signatureViewProbes.push(
+      call(
+        `from-seed-view-offset-${offset}`,
+        'sign.keyPair.fromSeed',
+        [signatureView(Buffer.from(seed, 'hex'), offset)],
+        {
+          publicKey: bytes(publicKey),
+          secretKey: bytes(seed + publicKey),
+        },
+      ),
+    );
+  make('ed25519-visible-views', signatureViewProbes);
   return cases;
 }
