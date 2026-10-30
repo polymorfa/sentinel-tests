@@ -1,0 +1,17 @@
+# Original WAM event state
+
+This suite constructs the original `WAWebAboutCreationWamEvent.AboutCreationWamEvent` and exercises its generated descriptors, inherited TypeHash methods, timer marks and direct precommit validation. It also constructs the original Metrics class and observes definition caching, returned validator behavior and retained metric identity. It never calls commit, queue, flush or transport methods.
+
+The 56 cases contain 1,296 probes per revision. Every assignment of the two established boolean GKX keys 26258/26259 runs for each selected knob 1600 fixture value, false and true. The knob's original domain remains unknown, so these eight contexts do not establish full configuration coverage. The event's three source weights are all 1; running the GKX assignments does not establish distinct weight behavior.
+
+Field expectations come from the original declarations and validators. Cases enumerate every declared member of the five event enums, reject selected missing values and wrong types, and observe a valid prefix retained when a later field fails during `set`. Nullish values, Infinity, unknown field assignments and precommit numeric coercion are source characterizations. They do not establish stricter schema or protocol correctness.
+
+Explicit clock inputs establish independent timer arithmetic: constructor time fallback, `setTime(0)` using the current clock, explicit event times, start-marker precedence, repeated marks retaining the marker and a negative delta when the clock moves backwards. These operations use actual `Date.now` reads. No scheduled timer, monotonic clock or asynchronous delivery is exercised.
+
+The suite selects the pinned original 3,829-byte Babel producer with source SHA256 `d87819406e3accc642307f2a1da84ff09c7541b6ee5724b1e66d86e1e77ee606`. Both source revisions declare exact registered raw-parent origins in metadata. Tests require actual admitted asset identity and execution observations, including the bootstrap-only realm global alias and guarded original mutable namespace. No compatibility Babel helpers are selected. Outward unknown, inherited and symbol reads and mutations are guarded; ownKeys, getOwnPropertyDescriptor and has reflection forward to the original target. Original descriptors remain visible. This namespace instrumentation does not prove transparent whole-browser bootstrap behavior.
+
+Full dependency pins retain 39 Metro modules and the separate original bootstrap AST root. The analyzer retains four unresolved diagnostics: two dynamic-code/import diagnostics for the producer's original Function.bind references, missing `cr:6640`, and the ExecutionEnvironment bootstrap read. The explicit `cr:6640 = null` fixture selects the original Promise fallback. Source inventory and actual gate observations remain separate; no diagnostic is suppressed by execution success.
+
+No WAM delivery, successful commit, runtime initialization, queue acceptance, provider/storage integration, browser bootstrap, container isolation, production suite scheduling, account/network, cryptography or named-library compliance is claimed. Field values, clocks and operation histories remain unbounded.
+
+Run portable checks with `bun test tests/wam-event-state.test.ts`. Actual source execution requires a reviewed adapter advertising `wa-internal:wam-event-state` and the explicitly configured registered bootstrap source cache. Process diagnostic execution reports `isolated:false`.

@@ -33,6 +33,8 @@ The [bundled NaCl suite](docs/bundled-nacl.md) runs fixed deterministic cryptogr
 
 The [curve-key policy suite](docs/curve-key-policy.md) exercises original WA range, subgroup and point-arithmetic helpers. Its helper inventory is complete within that selected scope; caller, provider and protocol acceptance remain separate.
 
+The [WAM event-state suite](docs/wam-event-state.md) executes original event classes with the separately admitted original Babel producer. It covers partial field updates, retries, timers and precommit validation; delivery and full bootstrap/configuration acceptance remain open.
+
 The eight existing fixtures retain their IDs, versions and exact bytes after moving out of `tests/`. Historical observations and remaining gaps are recorded in [coverage.json](coverage.json). A passing assertion covers its exact inputs, source, configuration and runtime. It does not establish whole-client or library compliance, server acceptance or cryptographic security.
 
 Discovered using a monitor developed by @purpshell at polymorfa.com
