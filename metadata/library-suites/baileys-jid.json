@@ -1,0 +1,259 @@
+{
+  "schemaVersion": 1,
+  "kind": "pinned-library-leaf-suite",
+  "id": "baileys-jid",
+  "version": 1,
+  "title": "Pinned Baileys JID utility implementation leaf",
+  "file": "tests/baileys-jid.test.ts",
+  "helper": "support/baileys-jid-cases.ts",
+  "capability": "library:baileys:jid-leaf",
+  "namespace": "named-library; separate from WA decimal revisions and metadata/suites imports",
+  "repository": "https://github.com/WhiskeySockets/Baileys",
+  "commit": "81345beb67ca3fb0eb79a2c20cd4ac24da517929",
+  "tree": "49fb125ed883a056cdfcaefb1b131ff25ae4dad8",
+  "sourcePath": "src/WABinary/jid-utils.ts",
+  "sourceUrl": "https://github.com/WhiskeySockets/Baileys/blob/81345beb67ca3fb0eb79a2c20cd4ac24da517929/src/WABinary/jid-utils.ts",
+  "sourceAdmission": {
+    "schemaVersion": 1,
+    "kind": "pinned-library-leaf-source-admission",
+    "repository": "https://github.com/WhiskeySockets/Baileys",
+    "commit": "81345beb67ca3fb0eb79a2c20cd4ac24da517929",
+    "tree": "49fb125ed883a056cdfcaefb1b131ff25ae4dad8",
+    "original": {
+      "path": "src/WABinary/jid-utils.ts",
+      "gitBlob": "d699587973679c38285e7a94f5d3fff3236e2c37",
+      "sha256": "a1ade1f051fc206218f2429a40f4b4da0d265f837c87a9b114d1a3205fe4a593"
+    },
+    "compiler": {
+      "schemaVersion": 1,
+      "kind": "private-derived-build-inspection",
+      "compiler": {
+        "name": "Bun",
+        "version": "1.4.4"
+      },
+      "input": {
+        "path": "src/WABinary/jid-utils.ts",
+        "sha256": "a1ade1f051fc206218f2429a40f4b4da0d265f837c87a9b114d1a3205fe4a593"
+      },
+      "transform": {
+        "loader": "ts",
+        "target": "browser",
+        "sha256": "7b9e30a950b6999f77cfff0c30d098f12e6acd07eab29a588044e156b2462aea",
+        "bytes": 3063
+      },
+      "buildOptions": {
+        "entrypoints": ["source/src/WABinary/jid-utils.ts"],
+        "target": "browser",
+        "format": "cjs",
+        "bundle": true,
+        "write": false,
+        "splitting": false,
+        "minify": false,
+        "sourcemap": "external",
+        "plugins": []
+      },
+      "outputs": [
+        {
+          "kind": "entry-point",
+          "loader": "ts",
+          "path": "compiled-cjs.js",
+          "bytes": 5177,
+          "sha256": "8e4928169bd84471fb1b947b4cf67d2278dc49b12cf40f9bbeabe2f30a9f4b40"
+        },
+        {
+          "kind": "sourcemap",
+          "loader": "file",
+          "path": "compiled-cjs.js.map",
+          "bytes": 6520,
+          "sha256": "840ac2cf890ff1aa53f4238c00d7d0f9daaf68cbc7528a6a2099b7d3363fba99"
+        }
+      ],
+      "scriptSha256": "7ff32d094cf372766e2411add176e9a7152d7711576415d1d283d3636d71a281",
+      "sourceEvaluated": false,
+      "packageInstalled": false,
+      "packageScriptsExecuted": false,
+      "pluginsExecuted": false,
+      "executionAcceptance": false
+    },
+    "files": [
+      {
+        "path": "commit.json",
+        "bytes": 7514,
+        "sha256": "36b500364a2139a3697a2d8c8ca15756827861775399191ce625ad3876e4e18b"
+      },
+      {
+        "path": "tree.json",
+        "bytes": 53898,
+        "sha256": "32af5e845b894512eb137e0f5ca3d4666f1258ff01d7d724a3482b5190a2fc58"
+      },
+      {
+        "path": "source/src/WABinary/jid-utils.ts",
+        "bytes": 3898,
+        "sha256": "a1ade1f051fc206218f2429a40f4b4da0d265f837c87a9b114d1a3205fe4a593"
+      },
+      {
+        "path": "compile-only.ts",
+        "bytes": 2041,
+        "sha256": "7ff32d094cf372766e2411add176e9a7152d7711576415d1d283d3636d71a281"
+      },
+      {
+        "path": "compile-only-receipt.json",
+        "bytes": 1376,
+        "sha256": "8d2df914be66d3dc0511e112bc79c1d77ca93c9dc468fc5fa99f5ae0a380defe"
+      },
+      {
+        "path": "compiled-cjs.js",
+        "bytes": 5177,
+        "sha256": "8e4928169bd84471fb1b947b4cf67d2278dc49b12cf40f9bbeabe2f30a9f4b40"
+      },
+      {
+        "path": "compiled-cjs.js.map",
+        "bytes": 6520,
+        "sha256": "840ac2cf890ff1aa53f4238c00d7d0f9daaf68cbc7528a6a2099b7d3363fba99"
+      },
+      {
+        "path": "candidate-metro-wrapper.js",
+        "bytes": 5341,
+        "sha256": "9931f99f58011f5c9925d9d745f9ec72c11cf8b2f179d0f2450f15a5117304a6"
+      }
+    ],
+    "module": {
+      "name": "library:baileys:81345beb67ca3fb0eb79a2c20cd4ac24da517929:jid-utils",
+      "revisionId": "baileys-81345beb67ca3fb0eb79a2c20cd4ac24da517929",
+      "variant": "compiler-derived",
+      "sourceSha256": "9931f99f58011f5c9925d9d745f9ec72c11cf8b2f179d0f2450f15a5117304a6"
+    },
+    "registeredAdapter": false,
+    "fullPackage": false
+  },
+  "sourceIdentitySetSha256": "6bd34df270c86704bbfdf9e9ec41066802bebed474f3471882b2f7998b7e3368",
+  "dependencyGraph": {
+    "roots": ["library:baileys:81345beb67ca3fb0eb79a2c20cd4ac24da517929:jid-utils"],
+    "modules": [
+      {
+        "name": "library:baileys:81345beb67ca3fb0eb79a2c20cd4ac24da517929:jid-utils",
+        "variant": "compiler-derived",
+        "sourceSha256": "9931f99f58011f5c9925d9d745f9ec72c11cf8b2f179d0f2450f15a5117304a6",
+        "dependencies": []
+      }
+    ],
+    "edges": [],
+    "originalImports": [],
+    "completeSelectedLeaf": true
+  },
+  "staticInventory": {
+    "analyzer": {
+      "version": 4,
+      "sourceSha256": "73c5e31e59ff601a01114ab03a0dc183d81389987e3af5832c53d9ac8bd8c06b"
+    },
+    "digest": "9b3babc46e6199386545e3b31956326718fbbf55c038ed002dd707292ca82395",
+    "gates": [],
+    "unresolved": [],
+    "coverage": {
+      "complete": true,
+      "scope": "module-closure-superset",
+      "semanticProof": false,
+      "resolverCoverage": false,
+      "modules": 1,
+      "sourceBytes": 5341,
+      "workBudget": {
+        "limit": 2000000,
+        "consumed": 12539,
+        "exhausted": false
+      },
+      "limitations": [
+        "Only supported gate APIs and static key expressions are inventoried.",
+        "Logical work units bound selected AST traversal and resolution, not parser internals or elapsed time; parsing remains source-byte bounded.",
+        "Declared fixture-provider boundaries exclude their original resolver implementations and dependencies.",
+        "All functions in each dependency module are scanned; exact export and caller reachability is not proven.",
+        "Runtime-discovered gates and externally selected code require separate observations."
+      ]
+    }
+  },
+  "api": {
+    "functions": [
+      "getServerFromDomainType",
+      "jidEncode",
+      "jidDecode",
+      "areJidsSameUser",
+      "isJidMetaAI",
+      "isPnUser",
+      "isLidUser",
+      "isJidBroadcast",
+      "isJidGroup",
+      "isJidStatusBroadcast",
+      "isJidNewsletter",
+      "isHostedPnUser",
+      "isHostedLidUser",
+      "isJidBot",
+      "jidNormalizedUser",
+      "transferDevice"
+    ],
+    "domainEnumMembers": [0, 1, 128, 129]
+  },
+  "trials": {
+    "cases": 9,
+    "probes": 286,
+    "maxProbesPerCase": 90,
+    "functions": 16,
+    "declaredDomainEnumMembers": 4,
+    "knownGateDescriptors": 0,
+    "knownFiniteGateAssignments": 1,
+    "configurationExhaustive": false,
+    "execution": "New reviewed local Subject executed all9 frozen cases and286 actual probes at the exact pinned commit; focused run12tests passed including3portable checks. Diagnostic process mode isolated:false. This is separate from prior prototype observations and provides no registered service/full-package/WA-protocol/production acceptance.",
+    "frozenCaseDataSha256": "5b07f1084f1c38ce0b2b96a06bf5c36b32b3ffa176671b1be0977cae03ca1e82",
+    "caseContinuity": "Opaque historical case/probe IDs and all expected observations are preserved exactly; private in an ID grants no authority or registration.",
+    "enumScope": "All four declared domain members tested against four chosen initial servers; additional fallback values characterized. The enum values are not a complete numeric/string input domain.",
+    "generatedGrid": "4domain agents x3devices x2servers =24selected input combinations, each original encode+decode; not exhaustive JID/string configuration.",
+    "inputDomains": "Strings, server values, numeric/coercion inputs and package/caller/bootstrap behavior remain unbounded or unexecuted.",
+    "singleCommit": true,
+    "comparisonEvidence": false
+  },
+  "families": [
+    {
+      "id": "baileys-private-jid-encode-literals-v1",
+      "probes": 15
+    },
+    {
+      "id": "baileys-private-jid-decode-literals-v1",
+      "probes": 20
+    },
+    {
+      "id": "baileys-private-jid-normalization-literals-v1",
+      "probes": 14
+    },
+    {
+      "id": "baileys-private-jid-same-user-literals-v1",
+      "probes": 12
+    },
+    {
+      "id": "baileys-private-jid-server-predicate-table-v1",
+      "probes": 90
+    },
+    {
+      "id": "baileys-private-jid-predicate-types-and-bot-v1",
+      "probes": 52
+    },
+    {
+      "id": "baileys-private-jid-domain-enum-and-fallback-v1",
+      "probes": 23
+    },
+    {
+      "id": "baileys-private-jid-enum-device-grid-v1",
+      "probes": 48
+    },
+    {
+      "id": "baileys-private-jid-transfer-device-literals-v1",
+      "probes": 12
+    }
+  ],
+  "oracle": "Literal malformed/coercion/suffix/category observations fixed in TS tables. Actual library functions never compute expected values; the selected enum/device grid uses independently fixed suffix and decoded-value rows.",
+  "exclusions": [
+    "Actual pinned JID utility leaf only. No vendor source bodies, wrapper bodies, compiler output code or private policies are distributed by this suite. Source and derived artifacts are supplied only by a separately reviewed pinned adapter.",
+    "This separate named-library metadata namespace is not imported as WA decimal-revision suite metadata or registered production/service/manifest/HTTP/registry adapter wiring. No generic core WA capability is claimed.",
+    "The original source is an import-free TypeScript leaf; compiler-derived one-module wrapper AST has no discovered gates or unresolved diagnostics. This does not establish importer/package/caller configuration or whole-library implementation acceptance.",
+    "Only one exact library commit is observed; no compare result or cross-revision preservation evidence is supplied. Prior private prototype execution is not the new public Subject execution.",
+    "All16 runtime functions and all4 domain enum members have selected cases. String/numeric/coercion/server/device/input domains are unbounded characterization, not exhaustive protocol or JID validity.",
+    "No package barrel/socket/provider/authentication/crypto/account/network/native/browser/container/scheduling/full-package/full-library compliance or WA-protocol acceptance. No customer sessions or upstream effects."
+  ]
+}
