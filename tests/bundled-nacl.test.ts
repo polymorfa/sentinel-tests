@@ -15,7 +15,7 @@ test('bundled primitive plans are deterministic, bounded and retain incomplete i
     cases.reduce((sum, item) => sum + item.probes.length, 0),
     metadata.trials.probesPerRevision,
   );
-  assert.equal(cases.length, 45);
+  assert.equal(cases.length, 51);
   assert.equal(
     createHash('sha256')
       .update(JSON.stringify(cases.slice(0, 14), null, 2) + '\n')
@@ -146,7 +146,7 @@ test('bundled primitive plans are deterministic, bounded and retain incomplete i
       .digest('hex'),
     'd3805081e7e6ab9e4cccaf564c45071cc0e9bca3bcac9e28d56154c1487d7583',
   );
-  const jointCases = cases.slice(21);
+  const jointCases = cases.slice(21, 45);
   assert.equal(jointCases.length, 24);
   assert.deepEqual(
     jointCases.map((item) => item.probes.length),
@@ -256,6 +256,75 @@ test('bundled primitive plans are deterministic, bounded and retain incomplete i
   assert.equal(keypairCells, 192);
   assert.equal(sharedCells, 1152);
   assert.deepEqual([...actualCells].sort(), [...expectedCells].sort());
+  assert.equal(
+    createHash('sha256')
+      .update(JSON.stringify(cases.slice(0, 45), null, 2) + '\n')
+      .digest('hex'),
+    'bb95c26a00214d605549b3fafaeba0ac8b2c46352ec0228e02b23264ba56c7ab',
+  );
+  const guards = cases.slice(45);
+  assert.deepEqual(
+    guards.map((item) => [item.id, item.probes.length]),
+    [
+      ['bundled-nacl-x25519-base-guards-v1', 26],
+      ['bundled-nacl-x25519-keypair-guards-v1', 26],
+      ['bundled-nacl-x25519-binary-type-order-v1', 38],
+      ['bundled-nacl-x25519-binary-sizes-v1', 20],
+      ['bundled-nacl-x25519-visible-size-guards-v1', 48],
+      ['bundled-nacl-x25519-returned-public-composition-v1', 8],
+    ],
+  );
+  for (const item of guards.slice(0, 5))
+    for (let i = 0; i < item.probes.length; i += 2) {
+      assert.ok(item.probes[i]!.throws);
+      assert.equal(item.probes[i + 1]!.throws, undefined);
+      assert.ok(item.probes[i + 1]!.id.endsWith('-retry'));
+      const retry = item.probes[i + 1]!;
+      const baseline =
+        retry.export === 'box.keyPair.fromSecretKey'
+          ? cases
+              .find((c) => c.id === 'bundled-nacl-box-primary-agreement-v1')!
+              .probes.find((p) => p.id === 'alice-keypair')!
+          : cases[1]!.probes.find(
+              (p) =>
+                p.id === (retry.export === 'scalarMult.base' ? 'alice-public' : 'alice-shared'),
+            )!;
+      assert.deepEqual(retry.args, baseline.args);
+      assert.deepEqual(retry.expected, baseline.expected);
+    }
+  const precedence = guards[2]!.probes.slice(-6).filter((p) => p.throws);
+  assert.deepEqual(
+    precedence.map((p) => p.throws),
+    [
+      { name: 'TypeError', message: 'unexpected type, use Uint8Array' },
+      { name: 'TypeError', message: 'unexpected type, use Uint8Array' },
+      { name: 'Error', message: 'bad n size' },
+    ],
+  );
+  const visibleFailures = guards[4]!.probes.filter((p) => p.throws);
+  assert.equal(visibleFailures.length, 24);
+  for (const p of visibleFailures) {
+    const views = p.args.map(byteInput).filter((v) => v?.byteOffset !== undefined);
+    assert.equal(views.length, 1);
+    const v = views[0]!;
+    assert.ok([1, 7].includes(v.byteOffset!));
+    assert.ok([0, 31, 33].includes(v.byteLength!));
+    assert.equal(v.value.length, v.byteOffset! + v.byteLength! + 2);
+    assert.deepEqual(v.value.slice(0, v.byteOffset), Array(v.byteOffset).fill(238));
+    assert.deepEqual(v.value.slice(-2), [221, 220]);
+  }
+  const composition = guards[5]!.probes;
+  assert.deepEqual(
+    composition.slice(0, 4).map((p) => p.retain?.stage),
+    ['call', 'call', 'call', 'call'],
+  );
+  assert.deepEqual(
+    composition.slice(4).map((p) => p.expected),
+    [false, false, false, false],
+  );
+  assert.ok(composition.slice(4).every((p) => p.result && 'identityWith' in p.result));
+  assert.deepEqual(composition[2]!.args[1], { $type: 'reference', value: 'bob-public' });
+  assert.deepEqual(composition[3]!.args[1], { $type: 'reference', value: 'alice-public' });
   for (const item of cases) {
     validateProbeControls(item);
     assert.ok(item.probes.length <= 64);

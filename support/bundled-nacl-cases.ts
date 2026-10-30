@@ -602,5 +602,170 @@ export function bundledNaclCases(): BehaviorCase[] {
     throw new Error('Incomplete selected X25519 joint model');
   for (let offset = 0; offset < jointProbes.length; offset += 64)
     make(`x25519-joint-model-${offset / 64}`, jointProbes.slice(offset, offset + 64));
+  const wrongTypes: [string, JsonValue][] = [
+    ['undefined', { $type: 'undefined' }],
+    ['null', null],
+    ['string', 'secret'],
+    ['number', 32],
+    ['boolean', true],
+    ['array', Array<number>(32).fill(0)],
+    ['buffer', { $type: 'ArrayBuffer', value: Array<number>(32).fill(0) }],
+    ['array-like', { length: 32, 0: 9 }],
+  ];
+  const wrongLengths = [0, 1, 31, 33, 64];
+  const typedLength = (length: number): JsonValue => encode(new Uint8Array(length));
+  const sharedArgs = (): JsonValue[] => [bytes(alice), bytes(bpub)];
+  const keypairExpected: JsonValue = { publicKey: bytes(apub), secretKey: bytes(alice) };
+  const guardRetry = (
+    probes: Probe[],
+    id: string,
+    api: string,
+    args: JsonValue[],
+    message: string,
+    type = false,
+  ) => {
+    probes.push(malformed(`${id}-reject`, api, args, type ? 'TypeError' : 'Error', message));
+    probes.push(
+      call(
+        `${id}-retry`,
+        api,
+        api === 'scalarMult' ? sharedArgs() : [bytes(alice)],
+        api === 'scalarMult'
+          ? bytes(shared)
+          : api === 'scalarMult.base'
+            ? bytes(apub)
+            : keypairExpected,
+      ),
+    );
+  };
+  for (const [name, api, sizeError] of [
+    ['base-guards', 'scalarMult.base', 'bad n size'],
+    ['keypair-guards', 'box.keyPair.fromSecretKey', 'bad secret key size'],
+  ]) {
+    const probes: Probe[] = [];
+    for (const [label, value] of wrongTypes)
+      guardRetry(probes, label, api!, [value], 'unexpected type, use Uint8Array', true);
+    for (const length of wrongLengths)
+      guardRetry(probes, `length-${length}`, api!, [typedLength(length)], sizeError!);
+    make(`x25519-${name}`, probes);
+  }
+  const binaryTypes: Probe[] = [];
+  for (const slot of [0, 1])
+    for (const [label, value] of wrongTypes) {
+      const args = sharedArgs();
+      args[slot] = value;
+      guardRetry(
+        binaryTypes,
+        `slot-${slot}-${label}`,
+        'scalarMult',
+        args,
+        'unexpected type, use Uint8Array',
+        true,
+      );
+    }
+  guardRetry(
+    binaryTypes,
+    'short-scalar-wrong-peer',
+    'scalarMult',
+    [typedLength(31), null],
+    'unexpected type, use Uint8Array',
+    true,
+  );
+  guardRetry(
+    binaryTypes,
+    'wrong-scalar-short-peer',
+    'scalarMult',
+    [null, typedLength(31)],
+    'unexpected type, use Uint8Array',
+    true,
+  );
+  guardRetry(
+    binaryTypes,
+    'both-wrong-size',
+    'scalarMult',
+    [typedLength(31), typedLength(33)],
+    'bad n size',
+  );
+  make('x25519-binary-type-order', binaryTypes);
+  const binarySizes: Probe[] = [];
+  for (const slot of [0, 1])
+    for (const length of wrongLengths) {
+      const args = sharedArgs();
+      args[slot] = typedLength(length);
+      guardRetry(
+        binarySizes,
+        `slot-${slot}-length-${length}`,
+        'scalarMult',
+        args,
+        slot === 0 ? 'bad n size' : 'bad p size',
+      );
+    }
+  make('x25519-binary-sizes', binarySizes);
+  const visibleGuards: Probe[] = [];
+  for (const [slotName, api, slot, message] of [
+    ['base', 'scalarMult.base', 0, 'bad n size'],
+    ['keypair', 'box.keyPair.fromSecretKey', 0, 'bad secret key size'],
+    ['scalar', 'scalarMult', 0, 'bad n size'],
+    ['peer', 'scalarMult', 1, 'bad p size'],
+  ] as const)
+    for (const offset of [1, 7])
+      for (const length of [0, 31, 33]) {
+        const view: JsonValue = {
+          $type: 'Uint8Array',
+          value: [...Array<number>(offset).fill(238), ...Array<number>(length).fill(9), 221, 220],
+          byteOffset: offset,
+          byteLength: length,
+        };
+        const args = api === 'scalarMult' ? sharedArgs() : [bytes(alice)];
+        args[slot] = view;
+        guardRetry(
+          visibleGuards,
+          `${slotName}-offset-${offset}-length-${length}`,
+          api,
+          args,
+          message,
+        );
+      }
+  make('x25519-visible-size-guards', visibleGuards);
+  const ref = (id: string): JsonValue => ({ $type: 'reference', value: id });
+  make('x25519-returned-public-composition', [
+    {
+      ...call('alice-public-retain', 'scalarMult.base', [bytes(alice)], bytes(apub)),
+      retain: { id: 'alice-public', stage: 'call' },
+    },
+    {
+      ...call('bob-public-retain', 'scalarMult.base', [bytes(bob)], bytes(bpub)),
+      retain: { id: 'bob-public', stage: 'call' },
+    },
+    {
+      ...call(
+        'alice-shared-retain',
+        'scalarMult',
+        [bytes(alice), ref('bob-public')],
+        bytes(shared),
+      ),
+      retain: { id: 'alice-shared', stage: 'call' },
+    },
+    {
+      ...call('bob-shared-retain', 'scalarMult', [bytes(bob), ref('alice-public')], bytes(shared)),
+      retain: { id: 'bob-shared', stage: 'call' },
+    },
+    {
+      ...call('alice-shared-distinct', 'scalarMult', [bytes(alice), ref('bob-public')], false),
+      result: { identityWith: 'alice-shared' },
+    },
+    {
+      ...call('bob-shared-distinct', 'scalarMult', [bytes(bob), ref('alice-public')], false),
+      result: { identityWith: 'bob-shared' },
+    },
+    {
+      ...call('alice-public-distinct', 'scalarMult.base', [bytes(alice)], false),
+      result: { identityWith: 'alice-public' },
+    },
+    {
+      ...call('bob-public-distinct', 'scalarMult.base', [bytes(bob)], false),
+      result: { identityWith: 'bob-public' },
+    },
+  ]);
   return cases;
 }

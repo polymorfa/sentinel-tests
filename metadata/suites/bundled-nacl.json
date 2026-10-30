@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "id": "bundled-nacl",
-  "version": 4,
+  "version": 5,
   "title": "Shipped TweetNaCl deterministic primitive vectors and bounded tamper cases",
   "file": "tests/bundled-nacl.test.ts",
   "helper": "support/bundled-nacl-cases.ts",
@@ -9,8 +9,8 @@
   "roots": ["tweetnacl"],
   "oracle": "Actual shipped tweetnacl\u2192tweetnacl-1.0.3 pure JavaScript cryptographic operations in the worker realm. Literal NIST SHA512, RFC7748 X25519, RFC8032 Ed25519 and pinned upstream libsodium NaCl box/secretbox vectors supply independent expected bytes. Generated SHA512 expectations use node:crypto createHash in the test host outside the worker; only expected typed JSON bytes enter the realm. Byte-tamper and wrong-size cases characterize selected verification/authentication rejection and argument guards. No host crypto provider/functions or custom crypto implementation is injected.",
   "trials": {
-    "cases": 45,
-    "probesPerRevision": 2107,
+    "cases": 51,
+    "probesPerRevision": 2273,
     "portablePlanTests": 1,
     "maxProbesPerCase": 64,
     "generatedSha512Lengths": {
@@ -34,7 +34,8 @@
       "version1": "Historical retained executions covered the original 14 cases and 397 probes per revision. Those case identities, versions, inputs and assertions remain unchanged; this history does not execute or accept the four new cases.",
       "version2Extension": "Focused actual archived execution passed 19 tests for all 18 cases and 475 probes per revision, with 18 unchanged comparisons across1051710191 and1051908825. A private observer captured36 full content-addressed records before assertions, covering54 source executions and1425 probe executions. The four added cases contribute12 source executions and234 probes including repeats. All24 frozen files matched before/after; original14 full plans/397 probes remain exact. Runtime87c9bd140246ef9c064145491a3517376c6c15ccea1da44ac9a98826741dcc64; explicit process diagnostic isolated:false. All whole-source AST inventories remain default2m budget-exhausted; no provider/protocol/security/container/production acceptance.",
       "version3Extension": "Focused actual archived execution passed22 tests for all21 cases/577probes per revision, with21 unchanged comparisons across1051710191 and1051908825. A private observer captured42 complete content-addressed records before assertions, covering63 source executions/1731probes. Three added cases contribute9 executions/306probes including repeats. All24 frozen files matched before/after and all original18plans/475probes remain exact. Runtime87c9bd140246ef9c064145491a3517376c6c15ccea1da44ac9a98826741dcc64, process diagnostic isolated:false. Independent host native Ed25519 KAT/oracles run outsideVM; JWK supplied publicx, so no independent seed-only derivation claim. Default2m AST exhaustion, private noncanonical-signature failures and original provider/security/protocol/container gaps remain unchanged.",
-      "version4Extension": "Focused actual archived execution passed46 tests for all45 cases/2107probes per revision, with45 unchanged comparisons across1051710191 and1051908825. A private observer captured90 full content-addressed records before assertions, covering135 source executions and6321 probe executions. The24 added cases contribute72 source executions and4590 probes including repeats. All24 frozen files matched before/after; original21 full plans/577 probes and full CaseResults remain exact apart from execution start/finish timestamps. All1536 selected joint cells map to observed probes, reusing six exact old raw-view baselines plus1530 new probes;4608 selected-cell probe executions include repeats/reused baselines. Runtime87c9bd140246ef9c064145491a3517376c6c15ccea1da44ac9a98826741dcc64; explicit process diagnostic isolated:false. All135 whole-source inventories remain default2m budget-exhausted at1999990. This is selected finite-model primitive behavior, not complete key/input/configuration/provider/protocol/security/container/production acceptance."
+      "version4Extension": "Focused actual archived execution passed46 tests for all45 cases/2107probes per revision, with45 unchanged comparisons across1051710191 and1051908825. A private observer captured90 full content-addressed records before assertions, covering135 source executions and6321 probe executions. The24 added cases contribute72 source executions and4590 probes including repeats. All24 frozen files matched before/after; original21 full plans/577 probes and full CaseResults remain exact apart from execution start/finish timestamps. All1536 selected joint cells map to observed probes, reusing six exact old raw-view baselines plus1530 new probes;4608 selected-cell probe executions include repeats/reused baselines. Runtime87c9bd140246ef9c064145491a3517376c6c15ccea1da44ac9a98826741dcc64; explicit process diagnostic isolated:false. All135 whole-source inventories remain default2m budget-exhausted at1999990. This is selected finite-model primitive behavior, not complete key/input/configuration/provider/protocol/security/container/production acceptance.",
+      "version5Extension": "Focused actual archived execution passed52 tests for all51 cases/2273probes per revision, with51 unchanged comparisons across1051710191 and1051908825. A private observer captured102 full content-addressed records before assertions, covering153 source executions and6819 probe executions. The six new cases contribute18 source executions/498 probes including repeats. All24 frozen files matched before/after; original45 full plans/2107 probes and full CaseResults remain exact apart from outer execution timestamps. The selected79 failure/retry pairs per revision produced237 exact ordinary source guard errors and237 successful immediate retries; eight composition probes include four identity-only projections per revision. Runtime87c9bd140246ef9c064145491a3517376c6c15ccea1da44ac9a98826741dcc64; explicit process diagnostic isolated:false. All153 whole-source inventories remain default2m budget-exhausted at1999990. These are selected guard/order/recovery/reference observations, not complete JavaScript type/length/history, repeated-output ownership, provider/protocol/security/container/production acceptance."
     },
     "sha512Extension": {
       "cases": 4,
@@ -333,6 +334,104 @@
       ],
       "boundaries": "No input-mutation/backing-isolation/key-identity or general noncanonical/low-order/all-zero/security policy claim. Source observations, two-module source inputs and default2m AST exhaustion at1999990 remain unchanged; all original configuration/domain/provider/protocol/bootstrap/production gaps persist.",
       "execution": "Executed focused private-observer diagnostics:46 tests passed,45 unchanged comparisons,90 records,135 source executions and6321 probe executions. The24 new cases supply72 source executions/4590 probes. Full prior21-case results, all24 frozen files, two original source inputs and default2m exhausted inventories were preserved. No clean committed primary receipts, production scheduling or broader provider/security acceptance are established by this focused run."
+    },
+    "x25519GuardExtension": {
+      "cases": 6,
+      "newProbesPerRevision": 166,
+      "newCases": [
+        {
+          "caseId": "bundled-nacl-x25519-base-guards-v1",
+          "probes": 26,
+          "serializedCaseBytes": 7132
+        },
+        {
+          "caseId": "bundled-nacl-x25519-keypair-guards-v1",
+          "probes": 26,
+          "serializedCaseBytes": 9689
+        },
+        {
+          "caseId": "bundled-nacl-x25519-binary-type-order-v1",
+          "probes": 38,
+          "serializedCaseBytes": 15704
+        },
+        {
+          "caseId": "bundled-nacl-x25519-binary-sizes-v1",
+          "probes": 20,
+          "serializedCaseBytes": 8737
+        },
+        {
+          "caseId": "bundled-nacl-x25519-visible-size-guards-v1",
+          "probes": 48,
+          "serializedCaseBytes": 20071
+        },
+        {
+          "caseId": "bundled-nacl-x25519-returned-public-composition-v1",
+          "probes": 8,
+          "serializedCaseBytes": 3028
+        }
+      ],
+      "maxNewSerializedCaseBytes": 20071,
+      "probeLimit": 64,
+      "serializedCaseByteLimit": 262144,
+      "selectedWrongTypes": [
+        "undefined",
+        "null",
+        "string",
+        "number",
+        "boolean",
+        "ordinary array",
+        "ArrayBuffer",
+        "plain array-like record"
+      ],
+      "selectedWrongLengths": [0, 1, 31, 33, 64],
+      "visibleViewGuards": {
+        "slots": [
+          "scalarMult.base secret",
+          "box.keyPair.fromSecretKey secret",
+          "scalarMult secret",
+          "scalarMult peer"
+        ],
+        "offsets": [1, 7],
+        "visibleLengths": [0, 31, 33],
+        "backingScope": "Every typed descriptor has sufficient valid backing with prefix/suffix sentinels and a valid explicit view. Source size guards observe visible length; malformed fixture admission is not counted as a source type/size error."
+      },
+      "literalSourceGuards": {
+        "type": {
+          "name": "TypeError",
+          "message": "unexpected type, use Uint8Array"
+        },
+        "scalarSize": {
+          "name": "Error",
+          "message": "bad n size"
+        },
+        "peerSize": {
+          "name": "Error",
+          "message": "bad p size"
+        },
+        "keypairSecretSize": {
+          "name": "Error",
+          "message": "bad secret key size"
+        },
+        "ordering": "scalarMult Pe validates both argument types before either size check. With correctly typed arguments the scalar-size check precedes peer-size check."
+      },
+      "retryScope": "Every selected ordinary source failure is immediately followed by a valid independently published RFC operation in the same case/realm. These deterministic functions have no exposed cache/reset/readiness lifecycle; successful retries do not prove a broader persistent-state reset.",
+      "returnedComposition": {
+        "probes": 8,
+        "sourceOutputs": "First four calls assert literal RFC public/shared byte values and retain actual returned arrays. Actual retained base public arrays are consumed as peer inputs in both shared directions.",
+        "identityScope": "Four repeated calls compare result identity with the earlier retained result and expect distinct identities, consistent with source output allocation. Identity projections do not independently snapshot repeated output bytes or establish backing-store ownership, mutation isolation, nested array identity or universal non-aliasing.",
+        "controls": "Existing retain(call), reference arguments and identityWith only; no argument-retention, nested keypair property extraction, reflection, callback, private/native method or synthetic carrier."
+      },
+      "oracle": "Fixed published RFC public/shared outputs and literal original raw secret bytes supply independent successful expectations. Exact original type/size guard literals supply errors; no source-generated round-trip or new native crypto/X25519 oracle is introduced.",
+      "overlapScope": "Length1 errors already have earlier standalone coverage; the new observations characterize immediate recovery, exact guard ordering and visible-length histories rather than adding duplicate vector coverage.",
+      "inputDomainExhaustive": false,
+      "sourceCitations": [
+        "modules/tweetnacl-1.0.3.js:293-304",
+        "modules/tweetnacl-1.0.3.js:690-692",
+        "modules/tweetnacl-1.0.3.js:707-716",
+        "modules/tweetnacl-1.0.3.js:732-739"
+      ],
+      "boundaries": "Selected malformed types/lengths/sequences only, not exhaustive JavaScript inputs or arbitrary scalar/point policies. Original two-module source observations and default2m AST exhaustion at1999990 remain unchanged; no provider/PRNG/protocol/security/bootstrap/container/production acceptance.",
+      "execution": "Executed focused private-observer diagnostics:52 tests passed,51 unchanged comparisons,102 records,153 source executions and6819 probes; new6 cases supply18 executions/498 probes. Verified all79 selected failure/retry pairs per revision with exact source errors and literal RFC recoveries, real retained public arrays consumed as peers, and four false identity comparisons per revision. All24 frozen files and prior45 full results stayed unchanged except outer timestamps. No clean committed primary receipts or production acceptance are established by this focused run; identity-only repeat projections retain their stated value/ownership limits."
     }
   },
   "primaryVectors": {
@@ -482,7 +581,8 @@
     "Pinned libsodium source supplies vector data only, not execution of libsodium or another named-library adapter. Container execution, production TypeScript suite scheduling, accounts/network and registered-library compliance remain unproven.",
     "Version 2 adds authored SHA-512 padding-neighbor, visible-view, type-error/retry and bounded larger-block inputs; historical version-1 execution is not acceptance of these additions. Input lengths/bytes/views/types remain unbounded; no streaming, full encoded-length range, canonical/security/constant-time, PRNG or original WA provider binding proof is added.",
     "Version 3 adds authored valid-message Ed25519/sign/open and nonempty visible-view/fromSeed cases. Prior 18-case execution does not accept these additions. Valid-message results do not establish strict canonical scalar/point policy; malformed-signature/security/provider/PRNG/protocol and unbounded-input claims remain excluded.",
-    "Version 4 adds an authored finite joint X25519 model only: two fixed RFC backgrounds, five selected scalar bits, one selected peer bit and offsets0/1/7. Its1536 planned cells reuse six exact old baselines and add1530 probes without duplicate KAT counts. No complete key/coordinate/offset/input/configuration domain, original WA provider binding, malformed-point/security/constant-time/PRNG/protocol or production acceptance is added."
+    "Version 4 adds an authored finite joint X25519 model only: two fixed RFC backgrounds, five selected scalar bits, one selected peer bit and offsets0/1/7. Its1536 planned cells reuse six exact old baselines and add1530 probes without duplicate KAT counts. No complete key/coordinate/offset/input/configuration domain, original WA provider binding, malformed-point/security/constant-time/PRNG/protocol or production acceptance is added.",
+    "Focused execution characterizes the selected Version5 guard/retry/composition cases. Selected malformed JavaScript values, visible lengths and same-realm retries do not close all type/length/history domains. Returned-output composition and identity projections do not establish input mutation behavior, nested keypair-array identity, backing ownership or universal non-aliasing; no new runtime or reflection authority is used."
   ],
   "inventoryRefresh": {
     "analyzerVersion": 5,
