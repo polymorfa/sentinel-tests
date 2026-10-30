@@ -14,13 +14,15 @@
       "id": "linked-device-encoding",
       "cases": ["linking-base32@1"],
       "status": "partial",
-      "scope": "Five pairing-code byte-vector assertions only"
+      "scope": "Five pairing-code byte-vector assertions only",
+      "suiteIds": ["binary-core@1"]
     },
     {
       "id": "binary-encoding",
       "cases": ["binary-utf8-byte-length@1", "binary-uint64-safe-integer@1"],
       "status": "partial",
-      "scope": "UTF-8 byte counts, surrogate lengths, repeated-input cache and unsigned high/low word safe-integer guards; no complete binary reader/writer coverage"
+      "scope": "Generated numeric, byte/hex/Base32, endian packing, cursor, growth and varint assertions; selected bounds only, no complete codec/caller coverage",
+      "suiteIds": ["binary-core@1"]
     },
     {
       "id": "customer-manager-date-range",
@@ -32,7 +34,8 @@
       "id": "message-padding",
       "cases": ["message-padding-tail-length@1"],
       "status": "partial",
-      "scope": "Tail-length removal, uniform padding vectors and two input guards; random padding, cryptographic operations and authentication remain uncovered"
+      "scope": "All 256 tail bytes at selected view sizes/offsets plus fixed-width key representation; no random padding, cipher, MAC or signature acceptance",
+      "suiteIds": ["crypto-representation@1"]
     },
     {
       "id": "message-formats-and-encryption",
@@ -52,18 +55,104 @@
       "status": "partial",
       "scope": "AEA string-state predicate with its real archived enum only; attestations, ADV mapping, eligibility and live account state remain uncovered"
     },
-    { "id": "signal-and-noise", "cases": [], "status": "uncovered" },
-    { "id": "connection-and-session", "cases": [], "status": "uncovered" },
-    { "id": "device-synchronization", "cases": [], "status": "uncovered" },
-    { "id": "groups-and-communities", "cases": [], "status": "uncovered" },
-    { "id": "channels-and-status", "cases": [], "status": "uncovered" },
+    {
+      "id": "signal-and-noise",
+      "cases": [],
+      "status": "uncovered"
+    },
+    {
+      "id": "connection-and-session",
+      "cases": [],
+      "status": "partial",
+      "suiteIds": ["backoff-state@1"],
+      "scope": "Offline actual BackoffCache timing and per-key state only; no transport, reconnect, session or durability acceptance"
+    },
+    {
+      "id": "device-synchronization",
+      "cases": [],
+      "status": "uncovered"
+    },
+    {
+      "id": "groups-and-communities",
+      "cases": [],
+      "status": "uncovered"
+    },
+    {
+      "id": "channels-and-status",
+      "cases": [],
+      "status": "uncovered"
+    },
     {
       "id": "media",
       "cases": [],
       "status": "uncovered",
       "scope": "The media-type classifier does not cover upload, download, decoding or rendering"
     },
-    { "id": "service-workers", "cases": [], "status": "uncovered" },
-    { "id": "calling-and-wasm", "cases": [], "status": "uncovered" }
+    {
+      "id": "service-workers",
+      "cases": [],
+      "status": "uncovered"
+    },
+    {
+      "id": "calling-and-wasm",
+      "cases": [],
+      "status": "uncovered"
+    },
+    {
+      "id": "abprops-and-experiments",
+      "cases": [],
+      "suiteIds": ["abprops-behavior@1"],
+      "status": "partial",
+      "scope": "Actual parser and exposure-key leaves; resolver, consumer experiments, storage and server assignments excluded"
+    },
+    {
+      "id": "wam",
+      "cases": [],
+      "suiteIds": ["wam-buffer-behavior@1"],
+      "status": "partial",
+      "scope": "Actual offline buffer encoding/admission; no event routing, sampling, uploader or Meta ingestion"
+    }
+  ],
+  "executableSuites": [
+    {
+      "id": "abprops-behavior",
+      "version": 1,
+      "file": "tests/abprops-behavior.test.ts",
+      "metadata": "metadata/suites/abprops.json",
+      "status": "partial",
+      "capability": "wa-internal:abprops-leaves"
+    },
+    {
+      "id": "backoff-state",
+      "version": 1,
+      "file": "tests/backoff-state.test.ts",
+      "metadata": "metadata/suites/backoff.json",
+      "status": "partial",
+      "capability": "wa-internal:backoff-state"
+    },
+    {
+      "id": "binary-core",
+      "version": 1,
+      "file": "tests/binary-core.test.ts",
+      "metadata": "metadata/suites/binary.json",
+      "status": "partial",
+      "capability": "wa-internal:binary-core"
+    },
+    {
+      "id": "crypto-representation",
+      "version": 1,
+      "file": "tests/crypto-representation.test.ts",
+      "metadata": "metadata/suites/crypto-representation.json",
+      "status": "partial",
+      "capability": "wa-internal:crypto-representation"
+    },
+    {
+      "id": "wam-buffer-behavior",
+      "version": 1,
+      "file": "tests/wam-behavior.test.ts",
+      "metadata": "metadata/suites/wam.json",
+      "status": "partial",
+      "capability": "wa-internal:wam-buffer"
+    }
   ]
 }

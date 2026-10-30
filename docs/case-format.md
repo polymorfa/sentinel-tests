@@ -29,11 +29,17 @@ The import above is relative to this repository root. An adapter elsewhere impor
 
 Each `runCase` starts a fresh scenario, retaining state only across that case's own probes. This keeps module caches and stores from leaking between tests.
 
+For a real class, set `construct:{args:[…]}` and name a `method` on each probe. The subject constructs one instance and preserves its state through the ordered methods. Without construction, a probe can select another module `export`, allowing setter/getter sequences. A subject that cannot execute that operation reports unsupported; it must not substitute a passing implementation.
+
+Optional per-probe `clock` timestamps advance or rewind scenario Date values. Actual applied timestamps return in `clockUpdates`; wall time and timers remain separate. Typed Uint8Array inputs can include `byteOffset` and `byteLength`, with `value` containing the full backing bytes. Snapshots compare logical bytes and cannot prove alias identity.
+
 `runCase` returns a status and actual `{id, actual}` or `{id, thrown}` observations. Tests recompute their assertions from those observations. A bare `pass` flag is insufficient. Return `unsupported` for an unavailable operation; unexpected load/runtime failures fail the test.
 
 An optional `compareCase(testCase)` runs a comparable source pair and returns `{status, baseline, candidate}`. The fixture suite checks the recorded expected comparison, including the intentional explicit-date mismatch. It never rewrites an expected value because a new revision differs. `close()` releases the subject's owned resources after each suite file.
 
 No subject module loads when the environment variable is absent. The default `bun test` command runs artifact and adapter-contract unit tests and visibly skips reference suites. It does not establish WhatsApp execution or library compliance.
+
+Executable suite metadata lives under `metadata/suites/`. Each record names its TS file and capability, reviewed oracle, trial domain, source hashes/citations, AST gate inventory and exclusions. Source observations are revision-specific. A complete finite gate assignment does not make an unbounded input generator exhaustive. The metadata validator rejects unresolved inventories that claim completeness.
 
 ## Reusable fixture data
 

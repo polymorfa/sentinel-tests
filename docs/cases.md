@@ -1,5 +1,21 @@
 # Behavior cases
 
+## Executable core suites
+
+The authored TS suites extend the eight historical fixtures below. The metadata in `metadata/suites/` records each selected source closure, hashes, gate inventory, independent oracle, trials and exclusions.
+
+| Suite                 | Assertion scope                                                                                                                      |
+| --------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
+| Binary core           | Signed/unsigned safe-integer conversion, endian packing/read cursors, failed writes, growth, varints, hex and custom Base32.         |
+| ABProps               | Typed parsing, nullish defaults, malformed coercion, bounded signed decimals and exposure-key order.                                 |
+| WAM buffer            | Actual headers/records, channels, signed widths, strings, event flags, admission and finalization.                                   |
+| Crypto representation | All padding tail bytes across selected sizes/offsets, fixed-width integer encoding, little-endian decoding and hex characterization. |
+| Backoff state         | Ordered per-key retry/expiry/reset behavior, exact time boundaries, exhausted intervals and backward clocks.                         |
+
+These assertions run actual archived implementations when a capable subject is explicitly selected. They do not cover original provider resolution, live server behavior or complete library compliance. Binary/WAM/error closures retain the unresolved analyzer diagnostic recorded in their metadata. Large WAM strings verify size transitions where full byte expectations exceed the retained payload bound.
+
+## Historical fixture observations
+
 These versioned fixtures describe assertions for selected functions from privately supplied WhatsApp Web archives. This repository contains synthetic inputs, assertions and observation metadata. It contains no WhatsApp source bundles or session data.
 
 A passing assertion covers its exact input and recorded context. It does not establish whole-client behavior, a library's compliance, server acceptance or cryptographic security. The full list of uncovered domains is in [coverage.json](../coverage.json).

@@ -58,12 +58,40 @@ export async function validateFixtures(): Promise<FixtureEntry[]> {
         Number(value.context.randomSeed) <= 0xffffffff,
     );
     assert.ok(record(value.context.gates));
+    if (value.construct !== undefined)
+      assert.ok(
+        record(value.construct) &&
+          Array.isArray(value.construct.args) &&
+          Object.keys(value.construct).every((key) => key === 'args'),
+      );
     assert.ok(Array.isArray(value.probes) && value.probes.length > 0 && value.probes.length <= 128);
     const probeIds = new Set<string>();
     for (const probe of value.probes) {
       assert.ok(record(probe) && typeof probe.id === 'string' && !probeIds.has(probe.id));
       probeIds.add(probe.id);
       assert.ok(Array.isArray(probe.args));
+      if (probe.clock !== undefined)
+        assert.ok(
+          typeof probe.clock === 'string' &&
+            /^\d{4}-\d\d-\d\dT.*(?:Z|[+-]\d\d:\d\d)$/.test(probe.clock) &&
+            Number.isFinite(Date.parse(probe.clock)),
+        );
+      assert.ok(!(probe.export !== undefined && probe.method !== undefined));
+      if (probe.export !== undefined)
+        assert.ok(
+          value.construct === undefined &&
+            typeof probe.export === 'string' &&
+            probe.export.length > 0 &&
+            probe.export.length <= 256,
+        );
+      if (probe.method !== undefined)
+        assert.ok(
+          value.construct !== undefined &&
+            typeof probe.method === 'string' &&
+            /^[A-Za-z_$][\w$]*$/.test(probe.method) &&
+            !['constructor', '__proto__', 'prototype'].includes(probe.method),
+        );
+      if (value.construct !== undefined) assert.ok(probe.method !== undefined);
       assert.notEqual(Object.hasOwn(probe, 'expected'), Object.hasOwn(probe, 'throws'));
     }
     const candidates: unknown[] = (metadata.cases as unknown[]).filter(

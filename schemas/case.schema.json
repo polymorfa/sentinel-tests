@@ -11,6 +11,12 @@
     "title": { "type": "string", "minLength": 1, "maxLength": 200 },
     "module": { "type": "string", "minLength": 1, "maxLength": 256 },
     "export": { "type": "string", "minLength": 1, "maxLength": 256 },
+    "construct": {
+      "type": "object",
+      "required": ["args"],
+      "properties": { "args": { "type": "array" } },
+      "additionalProperties": false
+    },
     "context": {
       "type": "object",
       "required": ["clock", "timezone", "randomSeed", "gates"],
@@ -64,6 +70,13 @@
         "properties": {
           "id": { "type": "string", "minLength": 1 },
           "args": { "type": "array" },
+          "clock": { "type": "string", "format": "date-time" },
+          "export": { "type": "string", "minLength": 1, "maxLength": 256 },
+          "method": {
+            "type": "string",
+            "pattern": "^[A-Za-z_$][A-Za-z0-9_$]*$",
+            "not": { "enum": ["constructor", "__proto__", "prototype"] }
+          },
           "expected": {},
           "throws": {
             "type": "object",

@@ -20,9 +20,13 @@ export interface ErrorExpectation {
   name?: string;
   message?: string;
 }
-export type Probe = { id: string; args: JsonValue[] } & (
-  { expected: JsonValue; throws?: never } | { expected?: never; throws: ErrorExpectation }
-);
+export type Probe = {
+  id: string;
+  args: JsonValue[];
+  export?: string;
+  method?: string;
+  clock?: string;
+} & ({ expected: JsonValue; throws?: never } | { expected?: never; throws: ErrorExpectation });
 export interface BehaviorCase {
   schemaVersion: 1;
   id: string;
@@ -30,6 +34,7 @@ export interface BehaviorCase {
   title?: string;
   module: string;
   export: string;
+  construct?: { args: JsonValue[] };
   context?: BehaviorContext;
   probes: Probe[];
   stubs?: { module: string; exports: JsonValue }[];
@@ -54,6 +59,7 @@ export interface CaseResult {
   status: CaseStatus;
   probes?: ProbeObservation[];
   error?: { code?: string; message?: string };
+  clockUpdates?: { beforeProbe: string; clock: string }[];
   gateUpdates?: {
     beforeProbe: string;
     epoch: number;
