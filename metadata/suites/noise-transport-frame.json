@@ -1,0 +1,425 @@
+{
+  "schemaVersion": 1,
+  "id": "noise-transport-frame",
+  "version": 1,
+  "title": "Original Noise transport frame codec wire and recovery behavior",
+  "file": "tests/noise-transport-frame.test.ts",
+  "helper": "support/noise-transport-frame-cases.ts",
+  "capability": "wa-internal:noise-transport-frame-codec",
+  "roots": ["WAWebHatchNoiseTransportFrameCodec"],
+  "oracle": "Independent unsigned BigInt radix-128 arithmetic and explicit field tags/order supply wire bytes; explicit literal frame records supply decode expectations. Selected malformed-wire errors are source-reviewed codec/WABinary guards, with immediate independently valid frame retries. Actual returned encoded bytes are retained and consumed by decode only in a separate composition case, not as a round-trip-only golden.",
+  "trials": {
+    "cases": 33,
+    "probesPerRevision": 1763,
+    "portablePlanTests": 1,
+    "maxProbesPerCase": 64,
+    "maxSerializedCaseBytes": 210400,
+    "probeLimit": 64,
+    "serializedCaseByteLimit": 262144,
+    "execution": "Focused actual primary-source diagnostics passed34 tests for33 cases/1763probes per revision, with33 unchanged comparisons across1051710191 and1051908825. A private observer retained66 full content-addressed records before assertions, covering99 source executions/5289 probes. All24 frozen files matched before/after. All64 selected duplicate-field candidate probes per revision matched their frozen expectations, with192 executions including repeats. Verified858 ordinary source errors followed by858 independently expected same-export retries, including60 encoder errors/encode retries. All99 supported-static inventories are complete with zero recognized gates/diagnostics, work273546 at the unchanged2000000 limit; this is not semantic or environment completeness. Prefix name-only error expectations retain their limited scope. Runtime87c9bd140246ef9c064145491a3517376c6c15ccea1da44ac9a98826741dcc64; explicit process diagnostic isolated:false. Other families and the codec alternate were not reexecuted; no clean committed primary receipts, Framer entropy/clock, encrypted transport/state, ownership/security/provider or production acceptance is established by this focused run.",
+    "recognizedGateAssignmentCardinality": 1,
+    "recognizedGateAssignmentScope": "The complete supported-static eight-module gate inventory has zero recognized gate descriptors. The planned empty-gate context covers the sole modeled assignment; this does not establish arbitrary environment, input, provider or protocol completeness.",
+    "configurationExhaustive": false,
+    "inputDomainExhaustive": false,
+    "families": {
+      "numeric": 1008,
+      "payloadViews": 84,
+      "wireMismatchAndRetry": 72,
+      "unknownFieldsAndRetry": 48,
+      "overflowAndRetry": 88,
+      "prefixTruncationAndRetry": 355,
+      "encodeGuardsAndRetry": 40,
+      "returnedComposition": 4,
+      "duplicateAssignmentDrafts": 64
+    },
+    "numericModel": {
+      "chunkIdValues": 12,
+      "chunkIndexValues": 14,
+      "totalChunksValues": [0, 128, 4294967295],
+      "selectedFrameCombinations": 504,
+      "operations": ["encodeTransportFrame", "decodeTransportFrame"],
+      "scope": "Selected uint32/uint64 boundary values and canonical0x-plus16lowercase-hex chunkId strings, including high-bit uint64 inputs; not all integer/hex/JavaScript domains."
+    },
+    "payloadViews": {
+      "visibleLengths": [0, 1, 2, 7, 126, 127, 128, 129, 254, 255, 256, 257, 1023, 4097],
+      "offsets": [0, 1, 7],
+      "scope": "Offset0 raw views and offset1/7 valid sentinel-backed visible payload views. Byte values follow a fixed generated profile; no input mutation or independent backing ownership claim."
+    },
+    "wireScope": "All eight low-three-bit wire types are selected for known fields1..4 and field0; four selected unknown field numbers5/15/16/2047 exercise skip or rejection, not all protobuf tags or schemas. Groups3/4 and unsupported wire6/7 retain source error expectations.",
+    "overflowScope": "Selected uint32 tag/index/count/length overflows and uint64 varint overflow endings are paired with valid retries. Bounds do not imply an exhaustive numeric or malformed input domain.",
+    "prefixScope": "All prefixes of three independently assembled selected streams with payload lengths1/7/128 are characterized. Field-boundary prefixes yield explicit partial/default records; other selected cuts expect ordinary source Error then recover. Some source bounds expectations specify only the error class, not a complete parser-error taxonomy.",
+    "duplicateScope": "Draft source-assignment characterization:64 authored observations cover four fields times three last values times two orders,24 full-field permutations and16 mixed-unknown/empty-last payload histories. These expectations describe selected overwrite/order behavior, not a universal protobuf canonicalization/security policy.",
+    "returnScope": "The first encoder result has independent expected bytes and is retained as a genuine decoder input; the decoded record has independent expected values. Later identity-only repeat projections characterize distinct identities without independently snapshotting those repeated results or proving nested/backing ownership.",
+    "sourceClosure": {
+      "primaryModulesPerRevision": 8,
+      "printedSourceBytesPerRevision": 48572,
+      "staticWorkUnitsPerRevision": 273546,
+      "defaultLogicalWorkLimit": 2000000,
+      "missingOriginalModules": [],
+      "selection": "Only the new codec is a root. Its exact reachable closure is WABinary,WAHex,err,fb-error,performance,performanceNow,removeFromArray plus the codec. The unrelated old Binary-family Base32 root is not a dependency here.",
+      "unselectedRootAlternate": {
+        "rawDefinitionSha256": "37b94adf2a10ab6efc35c06208072030c49f10a5869520e66200dbb477680912",
+        "printedSourceSha256": "9131ea606c88f3fd450a894a6855f0019b7cdfc7b4de9d98c9bbc773aa31923e",
+        "executed": false,
+        "scope": "Primary8f452cea2f0e8622ce3deb87373ff376b50454ac81fd99496749ef561185fb61 raw definition only; alternate behavior remains unaccepted."
+      }
+    },
+    "fixtures": "No stubs, gate fixtures, Babel helpers, bootstrap assets, callbacks, host functions/objects, clock updates or entropy provider are selected.",
+    "caseRows": [
+      {
+        "caseId": "noise-transport-frame-numeric-0-v1",
+        "probes": 64,
+        "serializedCaseBytes": 15724
+      },
+      {
+        "caseId": "noise-transport-frame-numeric-1-v1",
+        "probes": 64,
+        "serializedCaseBytes": 16156
+      },
+      {
+        "caseId": "noise-transport-frame-numeric-2-v1",
+        "probes": 64,
+        "serializedCaseBytes": 16390
+      },
+      {
+        "caseId": "noise-transport-frame-numeric-3-v1",
+        "probes": 64,
+        "serializedCaseBytes": 16578
+      },
+      {
+        "caseId": "noise-transport-frame-numeric-4-v1",
+        "probes": 64,
+        "serializedCaseBytes": 16426
+      },
+      {
+        "caseId": "noise-transport-frame-numeric-5-v1",
+        "probes": 64,
+        "serializedCaseBytes": 16554
+      },
+      {
+        "caseId": "noise-transport-frame-numeric-6-v1",
+        "probes": 64,
+        "serializedCaseBytes": 16656
+      },
+      {
+        "caseId": "noise-transport-frame-numeric-7-v1",
+        "probes": 64,
+        "serializedCaseBytes": 16856
+      },
+      {
+        "caseId": "noise-transport-frame-numeric-8-v1",
+        "probes": 64,
+        "serializedCaseBytes": 16762
+      },
+      {
+        "caseId": "noise-transport-frame-numeric-9-v1",
+        "probes": 64,
+        "serializedCaseBytes": 17208
+      },
+      {
+        "caseId": "noise-transport-frame-numeric-10-v1",
+        "probes": 64,
+        "serializedCaseBytes": 17457
+      },
+      {
+        "caseId": "noise-transport-frame-numeric-11-v1",
+        "probes": 64,
+        "serializedCaseBytes": 17747
+      },
+      {
+        "caseId": "noise-transport-frame-numeric-12-v1",
+        "probes": 64,
+        "serializedCaseBytes": 18465
+      },
+      {
+        "caseId": "noise-transport-frame-numeric-13-v1",
+        "probes": 64,
+        "serializedCaseBytes": 18501
+      },
+      {
+        "caseId": "noise-transport-frame-numeric-14-v1",
+        "probes": 64,
+        "serializedCaseBytes": 18675
+      },
+      {
+        "caseId": "noise-transport-frame-numeric-15-v1",
+        "probes": 48,
+        "serializedCaseBytes": 14257
+      },
+      {
+        "caseId": "noise-transport-frame-payload-views-0-v1",
+        "probes": 64,
+        "serializedCaseBytes": 69558
+      },
+      {
+        "caseId": "noise-transport-frame-payload-views-1-v1",
+        "probes": 19,
+        "serializedCaseBytes": 210400
+      },
+      {
+        "caseId": "noise-transport-frame-payload-views-2-v1",
+        "probes": 1,
+        "serializedCaseBytes": 29690
+      },
+      {
+        "caseId": "noise-transport-frame-wire-mismatch-0-v1",
+        "probes": 64,
+        "serializedCaseBytes": 15491
+      },
+      {
+        "caseId": "noise-transport-frame-wire-mismatch-1-v1",
+        "probes": 8,
+        "serializedCaseBytes": 2080
+      },
+      {
+        "caseId": "noise-transport-frame-unknown-fields-0-v1",
+        "probes": 48,
+        "serializedCaseBytes": 12717
+      },
+      {
+        "caseId": "noise-transport-frame-overflow-0-v1",
+        "probes": 64,
+        "serializedCaseBytes": 16486
+      },
+      {
+        "caseId": "noise-transport-frame-overflow-1-v1",
+        "probes": 24,
+        "serializedCaseBytes": 6085
+      },
+      {
+        "caseId": "noise-transport-frame-prefix-truncation-0-v1",
+        "probes": 63,
+        "serializedCaseBytes": 14320
+      },
+      {
+        "caseId": "noise-transport-frame-prefix-truncation-1-v1",
+        "probes": 63,
+        "serializedCaseBytes": 14937
+      },
+      {
+        "caseId": "noise-transport-frame-prefix-truncation-2-v1",
+        "probes": 64,
+        "serializedCaseBytes": 17692
+      },
+      {
+        "caseId": "noise-transport-frame-prefix-truncation-3-v1",
+        "probes": 64,
+        "serializedCaseBytes": 20764
+      },
+      {
+        "caseId": "noise-transport-frame-prefix-truncation-4-v1",
+        "probes": 64,
+        "serializedCaseBytes": 23933
+      },
+      {
+        "caseId": "noise-transport-frame-prefix-truncation-5-v1",
+        "probes": 37,
+        "serializedCaseBytes": 16288
+      },
+      {
+        "caseId": "noise-transport-frame-encode-errors-0-v1",
+        "probes": 40,
+        "serializedCaseBytes": 11430
+      },
+      {
+        "caseId": "noise-transport-frame-returned-composition-0-v1",
+        "probes": 4,
+        "serializedCaseBytes": 1172
+      },
+      {
+        "caseId": "noise-transport-frame-duplicate-assignment-drafts-0-v1",
+        "probes": 64,
+        "serializedCaseBytes": 18837
+      }
+    ],
+    "encodeOrdering": "Selected simultaneous-invalid pairs assert original validation priority: chunkIndex, then totalChunks, then negative chunkId, all before payload.length access. Each such ordinary source failure is followed by an independently expected valid encode operation.",
+    "recoveryScope": "Every selected ordinary codec/parser error is followed immediately by an independently expected valid frame through the same encodeTransportFrame or decodeTransportFrame export. All20 selected encoder failures recover through valid encode calls. These pure-call histories do not establish a persistent reset/readiness or encrypted transport-state lifecycle."
+  },
+  "observations": [
+    {
+      "revision": "1051710191",
+      "modules": [
+        {
+          "module": "err",
+          "variant": "primary",
+          "printedSourceSha256": "a26a1f88fe2c09505c0ec8e43d1a43c2299b6126ea7ea305c567bf7634fbeea0",
+          "dependencies": ["fb-error"],
+          "citations": ["modules/err.js:1-4"]
+        },
+        {
+          "module": "fb-error",
+          "variant": "primary",
+          "printedSourceSha256": "545144d2d2c50524d5bcfc421916cf76760743cb5b034dcb7a4d7066981f714e",
+          "dependencies": ["performanceNow", "removeFromArray"],
+          "citations": ["modules/fb-error.js:1-698"]
+        },
+        {
+          "module": "performance",
+          "variant": "primary",
+          "printedSourceSha256": "9bee7ad7d1941af3432757b1ce55c980030f812f0a5fb00916e906b8a0b6ced9",
+          "dependencies": [],
+          "citations": ["modules/performance.js:1-5"]
+        },
+        {
+          "module": "performanceNow",
+          "variant": "primary",
+          "printedSourceSha256": "415e5327e020372f7789e27dc42266a9cb3d6bbc2d8c47d0b751b93517a0475f",
+          "dependencies": ["performance"],
+          "citations": ["modules/performanceNow.js:1-15"]
+        },
+        {
+          "module": "removeFromArray",
+          "variant": "primary",
+          "printedSourceSha256": "c8e194de9e9463716c2f383406ae8269ddff1a9fe5fbc1a7559abcd2aaa666bb",
+          "dependencies": [],
+          "citations": ["modules/removeFromArray.js:1-8"]
+        },
+        {
+          "module": "WABinary",
+          "variant": "primary",
+          "printedSourceSha256": "03edbd33455894b148adb38944ff3c6a27b3102631d3c00bf1cdeea5480884d4",
+          "dependencies": ["WAHex", "err"],
+          "citations": ["modules/WABinary.js:1-360"]
+        },
+        {
+          "module": "WAHex",
+          "variant": "primary",
+          "printedSourceSha256": "3d28ad9eb342f6715bec66c8c38fd57a14497e07101f5f9b67fc3c9838e72ffe",
+          "dependencies": ["err"],
+          "citations": ["modules/WAHex.js:1-119"]
+        },
+        {
+          "module": "WAWebHatchNoiseTransportFrameCodec",
+          "variant": "primary",
+          "printedSourceSha256": "a70d2696454ebee6d1d26b18efcb672518ca6f1ce8753734b7d31c36e751433b",
+          "dependencies": ["WABinary", "WAHex", "err"],
+          "citations": ["modules/WAWebHatchNoiseTransportFrameCodec.js:1-92"]
+        }
+      ],
+      "analyzer": {
+        "version": 5,
+        "sourceSha256": "227dc637e157fb8708c4f58e3c7fd821d78fdff3fc3ad7ec48ff6b5818e54f82"
+      },
+      "inventoryDigest": "06b441ca6b4b2d8f337fe493a8c0bdd0689800611ead384ff11e1a06d0759f51",
+      "gates": [],
+      "unresolved": [],
+      "staticCoverage": {
+        "complete": true,
+        "scope": "module-closure-superset",
+        "semanticProof": false,
+        "resolverCoverage": false,
+        "modules": 8,
+        "sourceBytes": 48572,
+        "workBudget": {
+          "limit": 2000000,
+          "consumed": 273546,
+          "exhausted": false
+        },
+        "limitations": [
+          "Only supported gate APIs and static key expressions are inventoried.",
+          "Logical work units bound selected AST traversal and resolution, not parser internals or elapsed time; parsing remains source-byte bounded.",
+          "Declared fixture-provider boundaries exclude their original resolver implementations and dependencies.",
+          "All functions in each dependency module are scanned; exact export and caller reachability is not proven.",
+          "Runtime-discovered gates and externally selected code require separate observations."
+        ]
+      }
+    },
+    {
+      "revision": "1051908825",
+      "modules": [
+        {
+          "module": "err",
+          "variant": "primary",
+          "printedSourceSha256": "a26a1f88fe2c09505c0ec8e43d1a43c2299b6126ea7ea305c567bf7634fbeea0",
+          "dependencies": ["fb-error"],
+          "citations": ["modules/err.js:1-4"]
+        },
+        {
+          "module": "fb-error",
+          "variant": "primary",
+          "printedSourceSha256": "545144d2d2c50524d5bcfc421916cf76760743cb5b034dcb7a4d7066981f714e",
+          "dependencies": ["performanceNow", "removeFromArray"],
+          "citations": ["modules/fb-error.js:1-698"]
+        },
+        {
+          "module": "performance",
+          "variant": "primary",
+          "printedSourceSha256": "9bee7ad7d1941af3432757b1ce55c980030f812f0a5fb00916e906b8a0b6ced9",
+          "dependencies": [],
+          "citations": ["modules/performance.js:1-5"]
+        },
+        {
+          "module": "performanceNow",
+          "variant": "primary",
+          "printedSourceSha256": "415e5327e020372f7789e27dc42266a9cb3d6bbc2d8c47d0b751b93517a0475f",
+          "dependencies": ["performance"],
+          "citations": ["modules/performanceNow.js:1-15"]
+        },
+        {
+          "module": "removeFromArray",
+          "variant": "primary",
+          "printedSourceSha256": "c8e194de9e9463716c2f383406ae8269ddff1a9fe5fbc1a7559abcd2aaa666bb",
+          "dependencies": [],
+          "citations": ["modules/removeFromArray.js:1-8"]
+        },
+        {
+          "module": "WABinary",
+          "variant": "primary",
+          "printedSourceSha256": "03edbd33455894b148adb38944ff3c6a27b3102631d3c00bf1cdeea5480884d4",
+          "dependencies": ["WAHex", "err"],
+          "citations": ["modules/WABinary.js:1-360"]
+        },
+        {
+          "module": "WAHex",
+          "variant": "primary",
+          "printedSourceSha256": "3d28ad9eb342f6715bec66c8c38fd57a14497e07101f5f9b67fc3c9838e72ffe",
+          "dependencies": ["err"],
+          "citations": ["modules/WAHex.js:1-119"]
+        },
+        {
+          "module": "WAWebHatchNoiseTransportFrameCodec",
+          "variant": "primary",
+          "printedSourceSha256": "a70d2696454ebee6d1d26b18efcb672518ca6f1ce8753734b7d31c36e751433b",
+          "dependencies": ["WABinary", "WAHex", "err"],
+          "citations": ["modules/WAWebHatchNoiseTransportFrameCodec.js:1-92"]
+        }
+      ],
+      "analyzer": {
+        "version": 5,
+        "sourceSha256": "227dc637e157fb8708c4f58e3c7fd821d78fdff3fc3ad7ec48ff6b5818e54f82"
+      },
+      "inventoryDigest": "06b441ca6b4b2d8f337fe493a8c0bdd0689800611ead384ff11e1a06d0759f51",
+      "gates": [],
+      "unresolved": [],
+      "staticCoverage": {
+        "complete": true,
+        "scope": "module-closure-superset",
+        "semanticProof": false,
+        "resolverCoverage": false,
+        "modules": 8,
+        "sourceBytes": 48572,
+        "workBudget": {
+          "limit": 2000000,
+          "consumed": 273546,
+          "exhausted": false
+        },
+        "limitations": [
+          "Only supported gate APIs and static key expressions are inventoried.",
+          "Logical work units bound selected AST traversal and resolution, not parser internals or elapsed time; parsing remains source-byte bounded.",
+          "Declared fixture-provider boundaries exclude their original resolver implementations and dependencies.",
+          "All functions in each dependency module are scanned; exact export and caller reachability is not proven.",
+          "Runtime-discovered gates and externally selected code require separate observations."
+        ]
+      }
+    }
+  ],
+  "exclusions": [
+    "Focused execution covers only the selected primary codec wire/error/retry/composition observations. It does not establish the alternate, arbitrary input/environment/transport semantics, clean committed primary receipt evidence or production acceptance.",
+    "This is a pure data frame codec. Original Noise/Framer entropy and clock functions, encryption/authentication, handshake/session/transport state, chunk reassembly/order/delivery and network/provider behavior remain unsupported or unexercised.",
+    "Supported-static gate completeness is not semantic proof. Whole downstream fb-error logging/error normalization/browser/performance/Babel branches and original bundle/bootstrap initialization are not established by selected codec paths; no helper or provider fixture is added.",
+    "Only primary codec sources are selected. The exact indexed alternate remains unexecuted and may differ; no cross-variant acceptance claim.",
+    "Chunk IDs/integers/bytes/payloads/field histories/malformed JavaScript inputs are unbounded. Selected generated products, wire kinds and stream-prefix sets do not establish exhaustive input or protocol coverage.",
+    "Returned-value composition and identity projections do not prove argument mutation isolation, nested-array identity, backing ownership, cache/reset/readiness state or universal non-aliasing.",
+    "No source-output-only golden, original framing fixture change, compatibility alias/provider, host crypto injection, security/canonicalization proof, native/browser/account authority, container isolation, named-library adapter or production authored-suite scheduling acceptance."
+  ]
+}
