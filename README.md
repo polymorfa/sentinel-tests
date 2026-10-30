@@ -39,6 +39,8 @@ The [original Wid-error suite](docs/wid-original-errors.md) exercises real error
 
 The [WAM channel-state suite](docs/wam-channel-state.md) exercises the original singleton's independent maps, close/resume histories and retained identity. It supplies no channel or sink implementation and establishes no delivery or restart acceptance.
 
+The [custom-error suite](docs/custom-error-state.md) constructs original classes and composes retained real errors into aggregates. A module probe can explicitly select `construct:true`; it uses the existing argument, result and reference controls. Construction cannot share a probe with method or pending controls, and references retain their existing case-wide pending exclusion. This local transport extension does not add production suite execution.
+
 The eight existing fixtures retain their IDs, versions and exact bytes after moving out of `tests/`. Historical observations and remaining gaps are recorded in [coverage.json](coverage.json). A passing assertion covers its exact inputs, source, configuration and runtime. It does not establish whole-client or library compliance, server acceptance or cryptographic security.
 
 Discovered using a monitor developed by @purpshell at polymorfa.com

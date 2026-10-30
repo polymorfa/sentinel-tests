@@ -95,6 +95,7 @@ export function validateProbeControls(value: unknown): void {
         'module',
         'export',
         'method',
+        'construct',
         'clock',
         'result',
         'pending',
@@ -105,6 +106,14 @@ export function validateProbeControls(value: unknown): void {
       'Unknown probe control',
     );
     probeIds.add(probe.id);
+    if (probe.construct !== undefined)
+      assert.ok(
+        probe.construct === true &&
+          value.construct === undefined &&
+          probe.method === undefined &&
+          probe.pending === undefined,
+        'Probe construction requires a module scenario and no method or pending operation',
+      );
     const { args, result, ...outsideArgs } = probe;
     references(outsideArgs, retained);
     usesReferences = references(args, retained, true) || usesReferences;

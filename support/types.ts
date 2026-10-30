@@ -39,6 +39,7 @@ export type Probe = {
   args: JsonValue[];
   export?: string;
   module?: string;
+  construct?: true;
   method?: string;
   pending?: { id: string; action: 'start' | 'inspect' | 'await'; property?: string };
   clock?: string;

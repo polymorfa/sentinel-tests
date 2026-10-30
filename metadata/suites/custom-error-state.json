@@ -1,0 +1,220 @@
+{
+  "schemaVersion": 1,
+  "id": "custom-error-state",
+  "version": 1,
+  "title": "Original custom error constructors and genuine aggregate composition",
+  "file": "tests/custom-error-state.test.ts",
+  "helper": "support/custom-error-state-cases.ts",
+  "capability": "wa-internal:custom-error-state",
+  "requiresBootstrapKinds": ["babel-helpers"],
+  "roots": ["WACustomError"],
+  "oracle": "Actual original CustomError/AggregateError/TimeoutError/UnimplementedMethod classes constructed with realm Reflect.construct, projected through inherited Error.toString. Original exact Babel supplies native-super wrapper/inheritance; no class is plain-called. Literal source name/default/nullish/explicit-message rules and independent Error.toString string coercion expectations. Retained genuine earlier constructed errors compose into real ordered/duplicate/nested aggregates, including failure/retry. No formatter, error record, callback, property accessor or host object substitutes for actual classes.",
+  "trials": {
+    "cases": 10,
+    "portablePlanTests": 1,
+    "probesPerRevision": 74,
+    "maxProbesPerCase": 27,
+    "actualClasses": ["CustomError", "AggregateError", "TimeoutError", "UnimplementedMethod"],
+    "configurationExhaustive": false,
+    "fullConfigurationCardinality": "unknown; zero discovered gates does not establish an empty-product proof because original Babel Function.bind analysis diagnostics remain",
+    "compositionScope": "Earlier actual constructed objects passed as references inside actual AggregateError input arrays; nested and repeated references, explicit/default formatting and genuine old-object retry after failed constructor",
+    "blocked": "Error-array alias mutation and message/taalOpcodes data-property lifecycle require a separate supported observation seam; not implemented",
+    "inputDomain": "Bounded literal/nullish/numeric/BigInt/string messages and error arrays; no exhaustive arbitrary object/message/error graph coverage"
+  },
+  "observations": [
+    {
+      "revision": "1051710191",
+      "modules": [
+        {
+          "module": "WACustomError",
+          "variant": "primary",
+          "printedSourceSha256": "5d1bdf0db1fc7934930362079c89db68a32e685cc1fa69bf80b922c5bfd883fa",
+          "dependencies": ["fb-error"],
+          "citations": ["modules/WACustomError.js:1"]
+        },
+        {
+          "module": "fb-error",
+          "variant": "primary",
+          "printedSourceSha256": "545144d2d2c50524d5bcfc421916cf76760743cb5b034dcb7a4d7066981f714e",
+          "dependencies": ["performanceNow", "removeFromArray"],
+          "citations": ["modules/fb-error.js:1"]
+        },
+        {
+          "module": "performance",
+          "variant": "primary",
+          "printedSourceSha256": "9bee7ad7d1941af3432757b1ce55c980030f812f0a5fb00916e906b8a0b6ced9",
+          "dependencies": [],
+          "citations": ["modules/performance.js:1"]
+        },
+        {
+          "module": "performanceNow",
+          "variant": "primary",
+          "printedSourceSha256": "415e5327e020372f7789e27dc42266a9cb3d6bbc2d8c47d0b751b93517a0475f",
+          "dependencies": ["performance"],
+          "citations": ["modules/performanceNow.js:1"]
+        },
+        {
+          "module": "removeFromArray",
+          "variant": "primary",
+          "printedSourceSha256": "c8e194de9e9463716c2f383406ae8269ddff1a9fe5fbc1a7559abcd2aaa666bb",
+          "dependencies": [],
+          "citations": ["modules/removeFromArray.js:1"]
+        }
+      ],
+      "bootstrapAssets": [
+        {
+          "kind": "babel-helpers",
+          "sourceSha256": "d87819406e3accc642307f2a1da84ff09c7541b6ee5724b1e66d86e1e77ee606",
+          "origin": {
+            "revisionId": "whatsapp-1051710191",
+            "rawSha256": "00a681835e392d7c6266c4ca75cf431efce69f3229f1cca0847d2430802b686a",
+            "startByte": 92564,
+            "endByte": 96393,
+            "rawBytes": 175043
+          }
+        }
+      ],
+      "analyzer": {
+        "version": 4,
+        "sourceSha256": "73c5e31e59ff601a01114ab03a0dc183d81389987e3af5832c53d9ac8bd8c06b"
+      },
+      "inventoryDigest": "19bd9b3af8fce84927c2d2ca9b7af93b9f1e49c5aebdfd041090a8434948ae63",
+      "gates": [],
+      "unresolved": [
+        {
+          "code": "dynamic-code-or-import",
+          "module": "@bootstrap/babel-helpers",
+          "line": 1,
+          "column": 2285
+        },
+        {
+          "code": "dynamic-code-or-import",
+          "module": "@bootstrap/babel-helpers",
+          "line": 1,
+          "column": 2553
+        }
+      ],
+      "staticCoverage": {
+        "complete": false,
+        "scope": "module-closure-superset",
+        "semanticProof": false,
+        "resolverCoverage": false,
+        "modules": 6,
+        "sourceBytes": 33618,
+        "workBudget": {
+          "limit": 2000000,
+          "consumed": 148248,
+          "exhausted": false
+        },
+        "limitations": [
+          "Only supported gate APIs and static key expressions are inventoried.",
+          "Logical work units bound selected AST traversal and resolution, not parser internals or elapsed time; parsing remains source-byte bounded.",
+          "Declared fixture-provider boundaries exclude their original resolver implementations and dependencies.",
+          "All functions in each dependency module are scanned; exact export and caller reachability is not proven.",
+          "Runtime-discovered gates and externally selected code require separate observations."
+        ]
+      }
+    },
+    {
+      "revision": "1051908825",
+      "modules": [
+        {
+          "module": "WACustomError",
+          "variant": "primary",
+          "printedSourceSha256": "5d1bdf0db1fc7934930362079c89db68a32e685cc1fa69bf80b922c5bfd883fa",
+          "dependencies": ["fb-error"],
+          "citations": ["modules/WACustomError.js:1"]
+        },
+        {
+          "module": "fb-error",
+          "variant": "primary",
+          "printedSourceSha256": "545144d2d2c50524d5bcfc421916cf76760743cb5b034dcb7a4d7066981f714e",
+          "dependencies": ["performanceNow", "removeFromArray"],
+          "citations": ["modules/fb-error.js:1"]
+        },
+        {
+          "module": "performance",
+          "variant": "primary",
+          "printedSourceSha256": "9bee7ad7d1941af3432757b1ce55c980030f812f0a5fb00916e906b8a0b6ced9",
+          "dependencies": [],
+          "citations": ["modules/performance.js:1"]
+        },
+        {
+          "module": "performanceNow",
+          "variant": "primary",
+          "printedSourceSha256": "415e5327e020372f7789e27dc42266a9cb3d6bbc2d8c47d0b751b93517a0475f",
+          "dependencies": ["performance"],
+          "citations": ["modules/performanceNow.js:1"]
+        },
+        {
+          "module": "removeFromArray",
+          "variant": "primary",
+          "printedSourceSha256": "c8e194de9e9463716c2f383406ae8269ddff1a9fe5fbc1a7559abcd2aaa666bb",
+          "dependencies": [],
+          "citations": ["modules/removeFromArray.js:1"]
+        }
+      ],
+      "bootstrapAssets": [
+        {
+          "kind": "babel-helpers",
+          "sourceSha256": "d87819406e3accc642307f2a1da84ff09c7541b6ee5724b1e66d86e1e77ee606",
+          "origin": {
+            "revisionId": "whatsapp-1051908825",
+            "rawSha256": "00421be885c15207c89e1a61a4c2a3f337a019d3df3aa3bc7de1ef07a6a4a07f",
+            "startByte": 18780,
+            "endByte": 22609,
+            "rawBytes": 939201
+          }
+        }
+      ],
+      "analyzer": {
+        "version": 4,
+        "sourceSha256": "73c5e31e59ff601a01114ab03a0dc183d81389987e3af5832c53d9ac8bd8c06b"
+      },
+      "inventoryDigest": "19bd9b3af8fce84927c2d2ca9b7af93b9f1e49c5aebdfd041090a8434948ae63",
+      "gates": [],
+      "unresolved": [
+        {
+          "code": "dynamic-code-or-import",
+          "module": "@bootstrap/babel-helpers",
+          "line": 1,
+          "column": 2285
+        },
+        {
+          "code": "dynamic-code-or-import",
+          "module": "@bootstrap/babel-helpers",
+          "line": 1,
+          "column": 2553
+        }
+      ],
+      "staticCoverage": {
+        "complete": false,
+        "scope": "module-closure-superset",
+        "semanticProof": false,
+        "resolverCoverage": false,
+        "modules": 6,
+        "sourceBytes": 33618,
+        "workBudget": {
+          "limit": 2000000,
+          "consumed": 148248,
+          "exhausted": false
+        },
+        "limitations": [
+          "Only supported gate APIs and static key expressions are inventoried.",
+          "Logical work units bound selected AST traversal and resolution, not parser internals or elapsed time; parsing remains source-byte bounded.",
+          "Declared fixture-provider boundaries exclude their original resolver implementations and dependencies.",
+          "All functions in each dependency module are scanned; exact export and caller reachability is not proven.",
+          "Runtime-discovered gates and externally selected code require separate observations."
+        ]
+      }
+    }
+  ],
+  "exclusions": [
+    "Genuine construction only; plain calling exported classes is not used or accepted. JSON null/object/invalid arrays are negative inputs, not fake Error instances counted as composition.",
+    "Native Error internal branding, stack capture/formatting and engine-specific TypeError text are not asserted. Source wrapper inheritance and inherited toString output do not prove native Error internals.",
+    "Original AggregateError stores caller array without cloning, but alias/mutation of errors/message/taalOpcodes has no supported method observation here and remains blocked. No Object.prototype/getproperty/property-selector workaround.",
+    "Full five Metro sources plus original Babel AST root retained; two original Function.bind dynamic-code-or-import diagnostics remain. No missing providers, fixtures, compatibility helpers or raised analysis budget.",
+    "Original Babel source executes through protected realm namespace: outward unknown/inherited/symbol reads and mutations guarded, ownKeys/getOwnPropertyDescriptor/has forward originaltarget; no transparent whole-browser/bootstrap equivalence.",
+    "No logger/reporting/sink/provider, retry/timer/cancellation workflow, storage, cryptography, Signal, account/network, container isolation, production suite scheduling, named-library parity or security proof acceptance."
+  ]
+}
