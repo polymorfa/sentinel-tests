@@ -1,0 +1,493 @@
+{
+  "schemaVersion": 1,
+  "id": "hatch-command-cache",
+  "version": 1,
+  "title": "Original Hatch command cache writes, rereads and returned-array identity",
+  "file": "tests/hatch-command-cache.test.ts",
+  "helper": "support/hatch-command-cache-cases.ts",
+  "capability": "wa-internal:hatch-command-cache",
+  "roots": ["WAWebHatchCommandCache"],
+  "observations": [
+    {
+      "revision": "1051710191",
+      "modules": [
+        {
+          "module": "WAWebHatchCommandCache",
+          "variant": "primary",
+          "printedSourceSha256": "7aec03df395e194791206e6a1be4d425b3af3647f51c9dec4015c0305ab49b7e",
+          "dependencies": [],
+          "citations": ["modules/WAWebHatchCommandCache.js:1-12"]
+        }
+      ],
+      "analyzer": {
+        "version": 5,
+        "sourceSha256": "227dc637e157fb8708c4f58e3c7fd821d78fdff3fc3ad7ec48ff6b5818e54f82"
+      },
+      "inventoryDigest": "4a87e0715233c62e553d2713b968dfa5a2dcce0f15942cdc1098f3f05e2dea7b",
+      "gates": [],
+      "unresolved": [],
+      "staticCoverage": {
+        "complete": true,
+        "scope": "module-closure-superset",
+        "semanticProof": false,
+        "resolverCoverage": false,
+        "modules": 1,
+        "sourceBytes": 234,
+        "workBudget": {
+          "limit": 2000000,
+          "consumed": 889,
+          "exhausted": false
+        },
+        "limitations": [
+          "Only supported gate APIs and static key expressions are inventoried.",
+          "Logical work units bound selected AST traversal and resolution, not parser internals or elapsed time; parsing remains source-byte bounded.",
+          "Declared fixture-provider boundaries exclude their original resolver implementations and dependencies.",
+          "All functions in each dependency module are scanned; exact export and caller reachability is not proven.",
+          "Runtime-discovered gates and externally selected code require separate observations."
+        ]
+      }
+    },
+    {
+      "revision": "1051908825",
+      "modules": [
+        {
+          "module": "WAWebHatchCommandCache",
+          "variant": "primary",
+          "printedSourceSha256": "7aec03df395e194791206e6a1be4d425b3af3647f51c9dec4015c0305ab49b7e",
+          "dependencies": [],
+          "citations": ["modules/WAWebHatchCommandCache.js:1-12"]
+        }
+      ],
+      "analyzer": {
+        "version": 5,
+        "sourceSha256": "227dc637e157fb8708c4f58e3c7fd821d78fdff3fc3ad7ec48ff6b5818e54f82"
+      },
+      "inventoryDigest": "4a87e0715233c62e553d2713b968dfa5a2dcce0f15942cdc1098f3f05e2dea7b",
+      "gates": [],
+      "unresolved": [],
+      "staticCoverage": {
+        "complete": true,
+        "scope": "module-closure-superset",
+        "semanticProof": false,
+        "resolverCoverage": false,
+        "modules": 1,
+        "sourceBytes": 234,
+        "workBudget": {
+          "limit": 2000000,
+          "consumed": 889,
+          "exhausted": false
+        },
+        "limitations": [
+          "Only supported gate APIs and static key expressions are inventoried.",
+          "Logical work units bound selected AST traversal and resolution, not parser internals or elapsed time; parsing remains source-byte bounded.",
+          "Declared fixture-provider boundaries exclude their original resolver implementations and dependencies.",
+          "All functions in each dependency module are scanned; exact export and caller reachability is not proven.",
+          "Runtime-discovered gates and externally selected code require separate observations."
+        ]
+      }
+    }
+  ],
+  "oracle": "Independent literal command arrays, fixed key/value histories and a host-side model of selected current values supply expectations. Each modeled write is followed by reads of both selected keys. Actual returned arrays are retained only through the real getHatchCommands return boundary for cache reread/overwrite/restore identity observations; no fake cache or source helper.",
+  "trials": {
+    "cases": 69,
+    "probesPerRevision": 837,
+    "portablePlanTests": 1,
+    "maxProbesPerCase": 64,
+    "maxSerializedCaseBytes": 29556,
+    "probeLimit": 64,
+    "serializedCaseByteLimit": 262144,
+    "execution": "Configured fresh-process source diagnostics pass 70 tests: 69 cases and 69 unchanged comparisons retain 138 records with 207 source executions and 2,511 probes. All 24 frozen files remain unchanged. These isolated:false observations are scoped cache implementation evidence, not clean committed-suite receipts, full-corpus reexecution or production acceptance.",
+    "recognizedGateAssignmentCardinality": 1,
+    "recognizedGateScope": "Complete supported-static one-module inventory recognizes zero gates: one empty modeled gate assignment. This is not semantic/resolver/caller/backend configuration or input-domain proof.",
+    "configurationExhaustive": false,
+    "inputDomainExhaustive": false,
+    "families": {
+      "threeWriteInputModel": 704,
+      "initialAndOverwrite": 10,
+      "falsyValues": 25,
+      "oddKeys": 23,
+      "returnedArrayIdentityAndRestore": 11,
+      "generatedCommandRecords": 64
+    },
+    "threeWriteInputModel": {
+      "keys": 2,
+      "commandArrayValues": 2,
+      "operations": 4,
+      "writesPerHistory": 3,
+      "histories": 64,
+      "freshCases": 64,
+      "probesPerHistory": 11,
+      "initialMissingReads": 2,
+      "postWriteReadsPerHistory": 6,
+      "scope": "Every ordered three-write history over the selected four key/value operations is authored. This finite INPUT model is not a gate/cohort/server matrix or all key/value/history domain."
+    },
+    "generatedRecords": 32,
+    "identityScope": "Natural returned command arrays support reread identity, replacement with a distinct actual returned array and restoring a retained original through real setHatchCommands. No direct input-argument identity, arbitrary mutation, nested ownership or backing isolation is established.",
+    "valueScope": "Missing and explicitly stored undefined both return undefined through this API. No exported has/size/delete/reset operation exists, so observations do not establish distinct presence, eviction, TTL, reset or persistence behavior.",
+    "failureScope": "No deliberate application-error expectation is authored. Missing\u2192populate\u2192read characterizes initialization, not failed-write/error recovery.",
+    "sourceClosure": {
+      "primaryModulesPerRevision": 1,
+      "printedSourceBytesPerRevision": 234,
+      "missingOriginalModules": [],
+      "staticWorkUnits": 889,
+      "defaultLogicalWorkLimit": 2000000,
+      "variants": "Pinned alternate raw5dbdeac4656f6e60746d70e4e0c546cf203ab7a17adaaca629408ad5a9b670f0 remains unexecuted."
+    },
+    "fixtures": "Synthetic JID strings and command records in source-reviewed caller shape, plus explicitly selected generic API values. No caller/bot/WID object, provider/cache mock, stubs, clock, gates, Babel/bootstrap asset, callback or source wrapper.",
+    "caseRows": [
+      {
+        "caseId": "hatch-command-cache-complete-input-history-0-v1",
+        "probes": 11,
+        "serializedCaseBytes": 1933
+      },
+      {
+        "caseId": "hatch-command-cache-complete-input-history-1-v1",
+        "probes": 11,
+        "serializedCaseBytes": 2057
+      },
+      {
+        "caseId": "hatch-command-cache-complete-input-history-2-v1",
+        "probes": 11,
+        "serializedCaseBytes": 1995
+      },
+      {
+        "caseId": "hatch-command-cache-complete-input-history-3-v1",
+        "probes": 11,
+        "serializedCaseBytes": 2119
+      },
+      {
+        "caseId": "hatch-command-cache-complete-input-history-4-v1",
+        "probes": 11,
+        "serializedCaseBytes": 2057
+      },
+      {
+        "caseId": "hatch-command-cache-complete-input-history-5-v1",
+        "probes": 11,
+        "serializedCaseBytes": 2181
+      },
+      {
+        "caseId": "hatch-command-cache-complete-input-history-6-v1",
+        "probes": 11,
+        "serializedCaseBytes": 2181
+      },
+      {
+        "caseId": "hatch-command-cache-complete-input-history-7-v1",
+        "probes": 11,
+        "serializedCaseBytes": 2305
+      },
+      {
+        "caseId": "hatch-command-cache-complete-input-history-8-v1",
+        "probes": 11,
+        "serializedCaseBytes": 2057
+      },
+      {
+        "caseId": "hatch-command-cache-complete-input-history-9-v1",
+        "probes": 11,
+        "serializedCaseBytes": 2181
+      },
+      {
+        "caseId": "hatch-command-cache-complete-input-history-10-v1",
+        "probes": 11,
+        "serializedCaseBytes": 2058
+      },
+      {
+        "caseId": "hatch-command-cache-complete-input-history-11-v1",
+        "probes": 11,
+        "serializedCaseBytes": 2182
+      },
+      {
+        "caseId": "hatch-command-cache-complete-input-history-12-v1",
+        "probes": 11,
+        "serializedCaseBytes": 2244
+      },
+      {
+        "caseId": "hatch-command-cache-complete-input-history-13-v1",
+        "probes": 11,
+        "serializedCaseBytes": 2368
+      },
+      {
+        "caseId": "hatch-command-cache-complete-input-history-14-v1",
+        "probes": 11,
+        "serializedCaseBytes": 2182
+      },
+      {
+        "caseId": "hatch-command-cache-complete-input-history-15-v1",
+        "probes": 11,
+        "serializedCaseBytes": 2306
+      },
+      {
+        "caseId": "hatch-command-cache-complete-input-history-16-v1",
+        "probes": 11,
+        "serializedCaseBytes": 2058
+      },
+      {
+        "caseId": "hatch-command-cache-complete-input-history-17-v1",
+        "probes": 11,
+        "serializedCaseBytes": 2182
+      },
+      {
+        "caseId": "hatch-command-cache-complete-input-history-18-v1",
+        "probes": 11,
+        "serializedCaseBytes": 2120
+      },
+      {
+        "caseId": "hatch-command-cache-complete-input-history-19-v1",
+        "probes": 11,
+        "serializedCaseBytes": 2244
+      },
+      {
+        "caseId": "hatch-command-cache-complete-input-history-20-v1",
+        "probes": 11,
+        "serializedCaseBytes": 2182
+      },
+      {
+        "caseId": "hatch-command-cache-complete-input-history-21-v1",
+        "probes": 11,
+        "serializedCaseBytes": 2306
+      },
+      {
+        "caseId": "hatch-command-cache-complete-input-history-22-v1",
+        "probes": 11,
+        "serializedCaseBytes": 2306
+      },
+      {
+        "caseId": "hatch-command-cache-complete-input-history-23-v1",
+        "probes": 11,
+        "serializedCaseBytes": 2430
+      },
+      {
+        "caseId": "hatch-command-cache-complete-input-history-24-v1",
+        "probes": 11,
+        "serializedCaseBytes": 2244
+      },
+      {
+        "caseId": "hatch-command-cache-complete-input-history-25-v1",
+        "probes": 11,
+        "serializedCaseBytes": 2368
+      },
+      {
+        "caseId": "hatch-command-cache-complete-input-history-26-v1",
+        "probes": 11,
+        "serializedCaseBytes": 2306
+      },
+      {
+        "caseId": "hatch-command-cache-complete-input-history-27-v1",
+        "probes": 11,
+        "serializedCaseBytes": 2430
+      },
+      {
+        "caseId": "hatch-command-cache-complete-input-history-28-v1",
+        "probes": 11,
+        "serializedCaseBytes": 2430
+      },
+      {
+        "caseId": "hatch-command-cache-complete-input-history-29-v1",
+        "probes": 11,
+        "serializedCaseBytes": 2554
+      },
+      {
+        "caseId": "hatch-command-cache-complete-input-history-30-v1",
+        "probes": 11,
+        "serializedCaseBytes": 2430
+      },
+      {
+        "caseId": "hatch-command-cache-complete-input-history-31-v1",
+        "probes": 11,
+        "serializedCaseBytes": 2554
+      },
+      {
+        "caseId": "hatch-command-cache-complete-input-history-32-v1",
+        "probes": 11,
+        "serializedCaseBytes": 2058
+      },
+      {
+        "caseId": "hatch-command-cache-complete-input-history-33-v1",
+        "probes": 11,
+        "serializedCaseBytes": 2182
+      },
+      {
+        "caseId": "hatch-command-cache-complete-input-history-34-v1",
+        "probes": 11,
+        "serializedCaseBytes": 2058
+      },
+      {
+        "caseId": "hatch-command-cache-complete-input-history-35-v1",
+        "probes": 11,
+        "serializedCaseBytes": 2182
+      },
+      {
+        "caseId": "hatch-command-cache-complete-input-history-36-v1",
+        "probes": 11,
+        "serializedCaseBytes": 2182
+      },
+      {
+        "caseId": "hatch-command-cache-complete-input-history-37-v1",
+        "probes": 11,
+        "serializedCaseBytes": 2306
+      },
+      {
+        "caseId": "hatch-command-cache-complete-input-history-38-v1",
+        "probes": 11,
+        "serializedCaseBytes": 2244
+      },
+      {
+        "caseId": "hatch-command-cache-complete-input-history-39-v1",
+        "probes": 11,
+        "serializedCaseBytes": 2368
+      },
+      {
+        "caseId": "hatch-command-cache-complete-input-history-40-v1",
+        "probes": 11,
+        "serializedCaseBytes": 1996
+      },
+      {
+        "caseId": "hatch-command-cache-complete-input-history-41-v1",
+        "probes": 11,
+        "serializedCaseBytes": 2120
+      },
+      {
+        "caseId": "hatch-command-cache-complete-input-history-42-v1",
+        "probes": 11,
+        "serializedCaseBytes": 1934
+      },
+      {
+        "caseId": "hatch-command-cache-complete-input-history-43-v1",
+        "probes": 11,
+        "serializedCaseBytes": 2058
+      },
+      {
+        "caseId": "hatch-command-cache-complete-input-history-44-v1",
+        "probes": 11,
+        "serializedCaseBytes": 2182
+      },
+      {
+        "caseId": "hatch-command-cache-complete-input-history-45-v1",
+        "probes": 11,
+        "serializedCaseBytes": 2306
+      },
+      {
+        "caseId": "hatch-command-cache-complete-input-history-46-v1",
+        "probes": 11,
+        "serializedCaseBytes": 2058
+      },
+      {
+        "caseId": "hatch-command-cache-complete-input-history-47-v1",
+        "probes": 11,
+        "serializedCaseBytes": 2182
+      },
+      {
+        "caseId": "hatch-command-cache-complete-input-history-48-v1",
+        "probes": 11,
+        "serializedCaseBytes": 2306
+      },
+      {
+        "caseId": "hatch-command-cache-complete-input-history-49-v1",
+        "probes": 11,
+        "serializedCaseBytes": 2430
+      },
+      {
+        "caseId": "hatch-command-cache-complete-input-history-50-v1",
+        "probes": 11,
+        "serializedCaseBytes": 2244
+      },
+      {
+        "caseId": "hatch-command-cache-complete-input-history-51-v1",
+        "probes": 11,
+        "serializedCaseBytes": 2368
+      },
+      {
+        "caseId": "hatch-command-cache-complete-input-history-52-v1",
+        "probes": 11,
+        "serializedCaseBytes": 2430
+      },
+      {
+        "caseId": "hatch-command-cache-complete-input-history-53-v1",
+        "probes": 11,
+        "serializedCaseBytes": 2554
+      },
+      {
+        "caseId": "hatch-command-cache-complete-input-history-54-v1",
+        "probes": 11,
+        "serializedCaseBytes": 2430
+      },
+      {
+        "caseId": "hatch-command-cache-complete-input-history-55-v1",
+        "probes": 11,
+        "serializedCaseBytes": 2554
+      },
+      {
+        "caseId": "hatch-command-cache-complete-input-history-56-v1",
+        "probes": 11,
+        "serializedCaseBytes": 2120
+      },
+      {
+        "caseId": "hatch-command-cache-complete-input-history-57-v1",
+        "probes": 11,
+        "serializedCaseBytes": 2244
+      },
+      {
+        "caseId": "hatch-command-cache-complete-input-history-58-v1",
+        "probes": 11,
+        "serializedCaseBytes": 2058
+      },
+      {
+        "caseId": "hatch-command-cache-complete-input-history-59-v1",
+        "probes": 11,
+        "serializedCaseBytes": 2182
+      },
+      {
+        "caseId": "hatch-command-cache-complete-input-history-60-v1",
+        "probes": 11,
+        "serializedCaseBytes": 2306
+      },
+      {
+        "caseId": "hatch-command-cache-complete-input-history-61-v1",
+        "probes": 11,
+        "serializedCaseBytes": 2430
+      },
+      {
+        "caseId": "hatch-command-cache-complete-input-history-62-v1",
+        "probes": 11,
+        "serializedCaseBytes": 2182
+      },
+      {
+        "caseId": "hatch-command-cache-complete-input-history-63-v1",
+        "probes": 11,
+        "serializedCaseBytes": 2306
+      },
+      {
+        "caseId": "hatch-command-cache-initial-populate-overwrite-independent-keys-v1",
+        "probes": 10,
+        "serializedCaseBytes": 1807
+      },
+      {
+        "caseId": "hatch-command-cache-nullish-falsy-generic-values-v1",
+        "probes": 25,
+        "serializedCaseBytes": 2666
+      },
+      {
+        "caseId": "hatch-command-cache-odd-long-string-keys-v1",
+        "probes": 23,
+        "serializedCaseBytes": 15516
+      },
+      {
+        "caseId": "hatch-command-cache-natural-cached-array-identity-and-restore-v1",
+        "probes": 11,
+        "serializedCaseBytes": 1985
+      },
+      {
+        "caseId": "hatch-command-cache-generated-command-records-v1",
+        "probes": 64,
+        "serializedCaseBytes": 29556
+      }
+    ]
+  },
+  "exclusions": [
+    "Focused configured-worker observations execute the exact selected cache component; caller, backend, container and production acceptance remain unproved.",
+    "Only the actual import-free cache module is selected. WAWebHatchCommandMetadataUtils callers, their gates/providers/bot/WID semantics, original backend/server data and complete command validation remain outside this closure and unproved.",
+    "Keys/values/command strings/arrays/histories are unbounded. The64 selected three-write histories do not establish general domain completeness.",
+    "No presence distinction for stored undefined, size/delete/reset/TTL/eviction, failure/rollback/error recovery, persistent storage or worker restart acceptance.",
+    "Returned-value reference identity does not establish input retention, nested ownership, caller mutation isolation or general alias behavior.",
+    "No network/session/device/protocol/provider/security/compliance, browser/native authority, container isolation, production scheduling or named-library acceptance."
+  ]
+}
