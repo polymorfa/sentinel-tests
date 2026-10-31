@@ -1,0 +1,319 @@
+{
+  "schemaVersion": 1,
+  "id": "webp-metadata",
+  "version": 1,
+  "title": "Original WebP sticker metadata conversions and source enums",
+  "file": "tests/webp-metadata.test.ts",
+  "helper": "support/webp-metadata-cases.ts",
+  "capability": "wa-internal:webp-metadata",
+  "requiresBootstrapKinds": ["babel-helpers"],
+  "roots": ["WAWebWebpMetadata"],
+  "observations": [
+    {
+      "revision": "1051710191",
+      "modules": [
+        {
+          "module": "$InternalEnum",
+          "variant": "primary",
+          "printedSourceSha256": "2ceb4779145d3f716cdabff27facf6fec30f45f844896ccd78300320a44a69a9",
+          "dependencies": [],
+          "citations": ["modules/$InternalEnum.js:1-51"]
+        },
+        {
+          "module": "WAWebStickerMetadataParsing",
+          "variant": "primary",
+          "printedSourceSha256": "01e56044d8a1e142604f0dd0dd045c423903b9703967cbe5f709efa1ffcaea18",
+          "dependencies": ["WAWebStickerPremiumStatus", "WAWebWebpMetadata"],
+          "citations": ["modules/WAWebStickerMetadataParsing.js:1-57"]
+        },
+        {
+          "module": "WAWebStickerPremiumStatus",
+          "variant": "primary",
+          "printedSourceSha256": "99d56bbd6d8ba3de9c64bbccd5782c92ce1ffc8fe04022e09dc9b172fbab57cf",
+          "dependencies": ["$InternalEnum"],
+          "citations": ["modules/WAWebStickerPremiumStatus.js:1-8"]
+        },
+        {
+          "module": "WAWebWamEnumStickerMakerSourceType",
+          "variant": "primary",
+          "printedSourceSha256": "21268fae3fe9beaff9812d68a1b80dc1cf62549b8720d6134220e8ecc8b8d372",
+          "dependencies": [],
+          "citations": ["modules/WAWebWamEnumStickerMakerSourceType.js:1-11"]
+        },
+        {
+          "module": "WAWebWebpMetadata",
+          "variant": "primary",
+          "printedSourceSha256": "e2b0a400bc6cd0df304aabbbd79834ed76554404fc5a67d4512823e13c76d9d9",
+          "dependencies": [
+            "$InternalEnum",
+            "WAWebStickerMetadataParsing",
+            "WAWebWamEnumStickerMakerSourceType"
+          ],
+          "citations": ["modules/WAWebWebpMetadata.js:1-27"]
+        }
+      ],
+      "bootstrapAssets": [
+        {
+          "kind": "babel-helpers",
+          "sourceSha256": "d87819406e3accc642307f2a1da84ff09c7541b6ee5724b1e66d86e1e77ee606",
+          "origin": {
+            "revisionId": "whatsapp-1051710191",
+            "rawSha256": "00a681835e392d7c6266c4ca75cf431efce69f3229f1cca0847d2430802b686a",
+            "startByte": 92564,
+            "endByte": 96393,
+            "rawBytes": 175043
+          }
+        }
+      ],
+      "analyzer": {
+        "version": 5,
+        "sourceSha256": "227dc637e157fb8708c4f58e3c7fd821d78fdff3fc3ad7ec48ff6b5818e54f82"
+      },
+      "inventoryDigest": "6287c38777ea8c7cc44c1788eb02b347f2fce3cc09895204bf06f8a24d88ff90",
+      "gates": [],
+      "unresolved": [
+        {
+          "code": "dynamic-code-or-import",
+          "module": "@bootstrap/babel-helpers",
+          "line": 1,
+          "column": 2285
+        },
+        {
+          "code": "dynamic-code-or-import",
+          "module": "@bootstrap/babel-helpers",
+          "line": 1,
+          "column": 2553
+        }
+      ],
+      "staticCoverage": {
+        "complete": false,
+        "scope": "module-closure-superset",
+        "semanticProof": false,
+        "resolverCoverage": false,
+        "modules": 6,
+        "sourceBytes": 11257,
+        "workBudget": {
+          "limit": 2000000,
+          "consumed": 46001,
+          "exhausted": false
+        },
+        "limitations": [
+          "Only supported gate APIs and static key expressions are inventoried.",
+          "Logical work units bound selected AST traversal and resolution, not parser internals or elapsed time; parsing remains source-byte bounded.",
+          "Declared fixture-provider boundaries exclude their original resolver implementations and dependencies.",
+          "All functions in each dependency module are scanned; exact export and caller reachability is not proven.",
+          "Runtime-discovered gates and externally selected code require separate observations."
+        ]
+      }
+    },
+    {
+      "revision": "1051908825",
+      "modules": [
+        {
+          "module": "$InternalEnum",
+          "variant": "primary",
+          "printedSourceSha256": "2ceb4779145d3f716cdabff27facf6fec30f45f844896ccd78300320a44a69a9",
+          "dependencies": [],
+          "citations": ["modules/$InternalEnum.js:1-51"]
+        },
+        {
+          "module": "WAWebStickerMetadataParsing",
+          "variant": "primary",
+          "printedSourceSha256": "01e56044d8a1e142604f0dd0dd045c423903b9703967cbe5f709efa1ffcaea18",
+          "dependencies": ["WAWebStickerPremiumStatus", "WAWebWebpMetadata"],
+          "citations": ["modules/WAWebStickerMetadataParsing.js:1-57"]
+        },
+        {
+          "module": "WAWebStickerPremiumStatus",
+          "variant": "primary",
+          "printedSourceSha256": "99d56bbd6d8ba3de9c64bbccd5782c92ce1ffc8fe04022e09dc9b172fbab57cf",
+          "dependencies": ["$InternalEnum"],
+          "citations": ["modules/WAWebStickerPremiumStatus.js:1-8"]
+        },
+        {
+          "module": "WAWebWamEnumStickerMakerSourceType",
+          "variant": "primary",
+          "printedSourceSha256": "21268fae3fe9beaff9812d68a1b80dc1cf62549b8720d6134220e8ecc8b8d372",
+          "dependencies": [],
+          "citations": ["modules/WAWebWamEnumStickerMakerSourceType.js:1-11"]
+        },
+        {
+          "module": "WAWebWebpMetadata",
+          "variant": "primary",
+          "printedSourceSha256": "e2b0a400bc6cd0df304aabbbd79834ed76554404fc5a67d4512823e13c76d9d9",
+          "dependencies": [
+            "$InternalEnum",
+            "WAWebStickerMetadataParsing",
+            "WAWebWamEnumStickerMakerSourceType"
+          ],
+          "citations": ["modules/WAWebWebpMetadata.js:1-27"]
+        }
+      ],
+      "bootstrapAssets": [
+        {
+          "kind": "babel-helpers",
+          "sourceSha256": "d87819406e3accc642307f2a1da84ff09c7541b6ee5724b1e66d86e1e77ee606",
+          "origin": {
+            "revisionId": "whatsapp-1051908825",
+            "rawSha256": "00421be885c15207c89e1a61a4c2a3f337a019d3df3aa3bc7de1ef07a6a4a07f",
+            "startByte": 18780,
+            "endByte": 22609,
+            "rawBytes": 939201
+          }
+        }
+      ],
+      "analyzer": {
+        "version": 5,
+        "sourceSha256": "227dc637e157fb8708c4f58e3c7fd821d78fdff3fc3ad7ec48ff6b5818e54f82"
+      },
+      "inventoryDigest": "6287c38777ea8c7cc44c1788eb02b347f2fce3cc09895204bf06f8a24d88ff90",
+      "gates": [],
+      "unresolved": [
+        {
+          "code": "dynamic-code-or-import",
+          "module": "@bootstrap/babel-helpers",
+          "line": 1,
+          "column": 2285
+        },
+        {
+          "code": "dynamic-code-or-import",
+          "module": "@bootstrap/babel-helpers",
+          "line": 1,
+          "column": 2553
+        }
+      ],
+      "staticCoverage": {
+        "complete": false,
+        "scope": "module-closure-superset",
+        "semanticProof": false,
+        "resolverCoverage": false,
+        "modules": 6,
+        "sourceBytes": 11257,
+        "workBudget": {
+          "limit": 2000000,
+          "consumed": 46001,
+          "exhausted": false
+        },
+        "limitations": [
+          "Only supported gate APIs and static key expressions are inventoried.",
+          "Logical work units bound selected AST traversal and resolution, not parser internals or elapsed time; parsing remains source-byte bounded.",
+          "Declared fixture-provider boundaries exclude their original resolver implementations and dependencies.",
+          "All functions in each dependency module are scanned; exact export and caller reachability is not proven.",
+          "Runtime-discovered gates and externally selected code require separate observations."
+        ]
+      }
+    }
+  ],
+  "oracle": "Independent literal model/wire key tables, default records and numeric enum expectations are frozen before source execution. Serializer and inverse expectations are separately specified; roundtrip alone is not an oracle. Natural returned-record composition uses actual source outputs without an injected helper.",
+  "trials": {
+    "cases": 11,
+    "probesPerRevision": 464,
+    "portablePlanTests": 1,
+    "maxProbesPerCase": 64,
+    "maxSerializedCaseBytes": 133811,
+    "probeLimit": 64,
+    "serializedCaseByteLimit": 262144,
+    "execution": "Configured fresh-process source diagnostics passed 12 tests: 11 cases and 11 unchanged comparisons retained 22 content-addressed records containing 33 single-revision executions and 1,392 probe executions. All 24 frozen files were unchanged. The full selected inventory retains two original Babel diagnostics and remains incomplete. These local observations report isolated:false; clean committed-suite receipts, full-corpus reexecution and production acceptance are not claimed by this focused run.",
+    "families": {
+      "fourFlagInputModel": 32,
+      "flagCoercions": 112,
+      "literalEightFieldTables": 160,
+      "sourceTypeEnum": 52,
+      "premiumValues": 20,
+      "defaultsAndRecovery": 20,
+      "generatedUnicodeRecords": 64,
+      "naturalReturnedRecordComposition": 4
+    },
+    "flagInputModel": {
+      "fields": 4,
+      "selectedValues": [false, true],
+      "modeledAssignments": 16,
+      "probes": 32,
+      "scope": "Every assignment of four selected Boolean INPUT values is authored for both conversion directions. This is not a gate/server domain or complete JavaScript input model."
+    },
+    "enumScope": "Source enum has six literal numeric members1..6 and premium NONE0/PREMIUM1. Selected wrong types/unknown values characterize cast/fallback and Match errors; caller input domains remain unbounded.",
+    "recordScope": "Eight literal nonflag field tables,32 bounded generated Unicode records, nullish omission versus real defaults, truthy serializer flags versus strict numeric inverse flags and selected same-export error/retry pairs.",
+    "compositionScope": "Genuine returned raw records are retained and passed to the actual inverse; distinct fresh return identities are compared. No cache/reset/state API, arbitrary input retention, mutation or nested ownership proof is implied.",
+    "recognizedGateAssignmentCardinality": null,
+    "configurationExhaustive": false,
+    "inputDomainExhaustive": false,
+    "gateScope": "Full six-source AST recognizes zero gate descriptors but remains incomplete because the selected exact original Babel producer retains two dynamic-code-or-import diagnostics. No complete configuration cardinality is established.",
+    "sourceClosure": {
+      "primaryMetroModulesPerRevision": 5,
+      "printedMetroSourceBytesPerRevision": 7428,
+      "originalBootstrapSourcesPerRevision": 1,
+      "totalAnalyzedSourceBytes": 11257,
+      "staticWorkUnits": 46001,
+      "defaultLogicalWorkLimit": 2000000,
+      "missingOriginalModules": [],
+      "declaredCycle": ["WAWebWebpMetadata", "WAWebStickerMetadataParsing", "WAWebWebpMetadata"],
+      "variants": "Three primary modules have pinned alternate variants retained privately and explicitly unexecuted; only primary bodies are selected."
+    },
+    "fixtures": "Synthetic data inputs only. context.bootstrap selects the registered exact original Babel producer d87819406e3accc642307f2a1da84ff09c7541b6ee5724b1e66d86e1e77ee606. Result/metadata bootstrapAssets records source identities. No compatibility helpers, provider stubs, gate fixtures, clock or host-native injection.",
+    "caseRows": [
+      {
+        "caseId": "webp-metadata-complete-four-flag-input-model-0-v1",
+        "probes": 32,
+        "serializedCaseBytes": 12006
+      },
+      {
+        "caseId": "webp-metadata-flag-coercions-0-v1",
+        "probes": 64,
+        "serializedCaseBytes": 18553
+      },
+      {
+        "caseId": "webp-metadata-flag-coercions-1-v1",
+        "probes": 48,
+        "serializedCaseBytes": 13435
+      },
+      {
+        "caseId": "webp-metadata-literal-field-tables-0-v1",
+        "probes": 64,
+        "serializedCaseBytes": 18388
+      },
+      {
+        "caseId": "webp-metadata-literal-field-tables-1-v1",
+        "probes": 64,
+        "serializedCaseBytes": 19945
+      },
+      {
+        "caseId": "webp-metadata-literal-field-tables-2-v1",
+        "probes": 32,
+        "serializedCaseBytes": 9975
+      },
+      {
+        "caseId": "webp-metadata-source-type-enum-0-v1",
+        "probes": 52,
+        "serializedCaseBytes": 12522
+      },
+      {
+        "caseId": "webp-metadata-premium-domain-0-v1",
+        "probes": 20,
+        "serializedCaseBytes": 5668
+      },
+      {
+        "caseId": "webp-metadata-defaults-and-recovery-0-v1",
+        "probes": 20,
+        "serializedCaseBytes": 4595
+      },
+      {
+        "caseId": "webp-metadata-generated-unicode-records-0-v1",
+        "probes": 64,
+        "serializedCaseBytes": 133811
+      },
+      {
+        "caseId": "webp-metadata-natural-returned-record-composition-0-v1",
+        "probes": 4,
+        "serializedCaseBytes": 2092
+      }
+    ]
+  },
+  "exclusions": [
+    "Authored plans are unexecuted and do not establish implementation acceptance.",
+    "No WebP container/EXIF byte parsing, animation/media decode or encode, sticker acquisition/transport/commit, caller/protocol/storage/account acceptance.",
+    "The original Babel producer is selected exactly; its two full-source dynamic-code diagnostics remain. This does not prove complete original client bootstrap or all helper behavior.",
+    "String/number/type/record/enum/history domains are unbounded. The16-assignment Boolean input model is not a cohort/configuration/server-domain proof.",
+    "Fresh return identity and natural composition do not establish nested backing ownership, input mutation isolation, persistence or general alias behavior.",
+    "No browser/native/crypto/provider authority, entropy/PRNG, security/compliance, container isolation, production scheduling or named-library acceptance."
+  ]
+}
